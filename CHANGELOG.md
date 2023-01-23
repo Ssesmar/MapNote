@@ -1,5 +1,5 @@
 # HandyNotes: DungeonLocations
-## [2.0](https://github.com/Ssesmar/Caliaha/tree/main/HandyNotes_DungeonLocations) (2023-01-23)
+## [2.0](https://github.com/Ssesmar/HandyNotes_DungeonLocations) (2023-01-23)
 - Note: added Shadowlands & Dragonflight Dungeons --BadBoyBarny
 
 ## [1.55a](https://github.com/Caliaha/HandyNotes_DungeonLocations/tree/1.55a) (2022-11-12)
