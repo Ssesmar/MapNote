@@ -1340,11 +1340,10 @@ nodes[1527] = { -- Uldum
   id = 70,
   type = "Dungeon",
  }, -- Halls of Origination
- --[[[38308060] = {
+[38308060] = {
   id = 74,
   type = "Raid",
  }, -- Throne of the Four Winds
- ]]--
 }
 nodes[203] = { -- Vashjir
  [48204040] =  {
