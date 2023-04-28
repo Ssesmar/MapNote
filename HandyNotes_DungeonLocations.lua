@@ -2048,6 +2048,7 @@ nodes[2023] = { } -- Ohn'ahran Plains
 nodes[2024] = { } -- The Azure Span
 nodes[2025] = { } -- Thaldraszus
 nodes[2026] = { } -- The Forbidden Reach
+nodes[2133] = { } -- Zaralek Cavern
 
 nodes[2022][60007577] = {
 	id = 1202,
@@ -2084,15 +2085,20 @@ nodes[2025][59246064] = {
 	type = "Dungeon",
 } -- Halls of Infusion
 
+nodes[15][41801130] = {
+   id = { 1197, 239 },
+	type = "Dungeon",
+} -- Legacy of Tyr - Dragonflight \ Uldaman - Vanilla
+
 nodes[2025][73145560] = {
 	id = 1200,
 	type = "Raid",
 } -- Vault of the Incarnates
 
-nodes[15][41801130] = {
-   id = { 1197, 239 },
-	type = "Dungeon",
-} -- Legacy of Tyr - Dragonflight \ Uldaman - Vanilla
+nodes[2133][48461035] = {
+	id = 1208,
+	type = "Raid",
+} -- Aberrus, the Shadowed Crucible
    end
 end
 end
