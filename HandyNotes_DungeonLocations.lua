@@ -2095,7 +2095,7 @@ nodes[2025][73145560] = {
 	type = "Raid",
 } -- Vault of the Incarnates
 
-nodes[2133][48461035] = {
+nodes[2133][48461004] = {
 	id = 1208,
 	type = "Raid",
 } -- Aberrus, the Shadowed Crucible
