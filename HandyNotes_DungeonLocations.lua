@@ -2061,7 +2061,7 @@ nodes[2022][25575695] = {
    type = "Dungeon",
 } -- Neltharus
 
-nodes[2023][60893904] = {
+nodes[2023][60853900] = {
 	id = 1198,
 	type = "Dungeon",
 } -- The Nokhud Offensive
