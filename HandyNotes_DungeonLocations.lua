@@ -281,6 +281,7 @@ function pluginHandler:OnClick(button, pressed, uiMapId, coord)
   local difficulty = string.match(link, 'journal:.-:.-:(.-)|h') 
   if (not dungeonID or not difficulty) then return end
   EncounterJournal_OpenJournal(difficulty, dungeonID)
+  _G.EncounterJournal:SetScript("OnShow", XEncounterJournal_OnShow) --line to fix Blizzard error on EncounterJournal
  end
 end
 
