@@ -6,7 +6,7 @@
 ## X-Updated-By: Shadowlands & Dragongflight by BadBoyBarny
 ## RequiredDeps: HandyNotes
 ## X-Curse-Project-ID: 102768
-## IconTexture: Interface\AddOns\HandyNotes_DungeonLocations\DLLogo
+## IconTexture: Interface\AddOns\HandyNotes_DungeonLocations\Image\DLLogo
 ## SavedVariables: HandyNotes_DungeonLocationsDB
 
 locales\Locales.xml

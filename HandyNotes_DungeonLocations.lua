@@ -5,8 +5,8 @@ local L = LibStub("AceLocale-3.0"):GetLocale("HandyNotes_DungeonLocations")
 icons = { }
 icons["Dungeon"] = "Interface\\MINIMAP\\Dungeon"
 icons["Raid"] = "Interface\\MINIMAP\\Raid"
-icons["Mixed"] = "Interface\\Addons\\HandyNotes_DungeonLocations\\merged.tga"
-icons["Locked"] = "Interface\\Addons\\HandyNotes_DungeonLocations\\gray.tga"
+icons["Mixed"] = "Interface\\Addons\\HandyNotes_DungeonLocations\\Image\\merged.tga"
+icons["Locked"] = "Interface\\Addons\\HandyNotes_DungeonLocations\\Image\\gray.tga"
 
 local db
 local mapToContinent = { }
