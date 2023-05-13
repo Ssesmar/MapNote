@@ -1970,7 +1970,7 @@ nodes[1161][71961540] = {
 
 -- Shadowlands
 
-if (not self.db.profile.hideDF) then
+if (not self.db.profile.hideSL) then
 nodes[1533] = { } -- Bastion
 nodes[1536] = { } -- Maldraxxus
 nodes[1565] = { } -- Ardenweald
