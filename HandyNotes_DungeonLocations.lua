@@ -2056,7 +2056,7 @@ nodes[2022][60007577] = {
 	type = "Dungeon",
 } -- Ruby Life Pools 
 
-nodes[2022][25575695] = {
+nodes[2022][25735629] = {
    id = 1199,
    type = "Dungeon",
 } -- Neltharus
