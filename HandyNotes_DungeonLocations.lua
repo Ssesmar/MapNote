@@ -833,7 +833,7 @@ nodes[22] = { -- WesternPlaguelands
   type = "Dungeon",
 }, -- Scholomance World 50903650m
  [69777181] = { 
-  id = 246,
+  name = "Old Scholomance",
   type = "Dungeon",
   hideOnMinimap = false,
   showInZone = true,
@@ -2098,7 +2098,7 @@ nodes[15][41801130] = {
 } -- Legacy of Tyr - Dragonflight \ Uldaman - Vanilla
 
 nodes[22][69777181] = {
-   id = 246,
+   name = "Old Scholomance",
 	type = "Dungeon",
 } -- Old Scholomance
 
