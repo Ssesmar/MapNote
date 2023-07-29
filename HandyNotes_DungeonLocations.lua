@@ -828,10 +828,16 @@ nodes[64] = { -- ThousandNeedles
  }, -- Razorfen Downs
 }
 nodes[22] = { -- WesternPlaguelands
- [69007290] = {
+ [69007290] = { 
   id = 246,
   type = "Dungeon",
- }, -- Scholomance World 50903650
+}, -- Scholomance World 50903650m
+ [69777181] = { 
+  id = 246,
+  type = "Dungeon",
+  hideOnMinimap = false,
+  showInZone = true,
+}, -- Old Scholomance World 50903650
 }
 nodes[52] = { -- Westfall
  --[38307750] = { 63,  type = "Dungeon" }, -- Deadmines 43707320  May look more accurate
@@ -2091,6 +2097,16 @@ nodes[15][41801130] = {
 	type = "Dungeon",
 } -- Legacy of Tyr - Dragonflight \ Uldaman - Vanilla
 
+nodes[22][69777181] = {
+   id = 246,
+	type = "Dungeon",
+} -- Old Scholomance
+
+nodes[2025][61118443] = {
+	id = 1209,
+	type = "Dungeon",
+} -- Dawn of the Infinite
+
 nodes[2025][73145560] = {
 	id = 1200,
 	type = "Raid",
@@ -2100,6 +2116,7 @@ nodes[2133][48461004] = {
 	id = 1208,
 	type = "Raid",
 } -- Aberrus, the Shadowed Crucible
+
    end
 end
 end
