@@ -5,8 +5,8 @@ local L = LibStub("AceLocale-3.0"):GetLocale("HandyNotes_DungeonLocations")
 icons = { }
 icons["Dungeon"] = "Interface\\MINIMAP\\Dungeon"
 icons["Raid"] = "Interface\\MINIMAP\\Raid"
-icons["Mixed"] = "Interface\\Addons\\HandyNotes_DungeonLocations\\merged.tga"
-icons["Locked"] = "Interface\\Addons\\HandyNotes_DungeonLocations\\gray.tga"
+icons["Mixed"] = "Interface\\Addons\\HandyNotes_DungeonLocations\\images\\merged.tga"
+icons["Locked"] = "Interface\\Addons\\HandyNotes_DungeonLocations\\imgaes\\gray.tga"
 
 local db
 local mapToContinent = { }
@@ -726,7 +726,7 @@ nodes[69] = { -- Feralas
  }, -- Dire Maul (at Lariss Pavillion)
 }
 nodes[85] = { -- Orgrimmar
- [52405800] = {
+ [51685848] = {
   id = 226,
   type = "Dungeon",
  }, -- Ragefire Chasm Cleft of Shadow 70104880
@@ -831,14 +831,11 @@ nodes[22] = { -- WesternPlaguelands
  [69007290] = { 
   id = 246,
   type = "Dungeon",
-}, -- Scholomance World 50903650m
+ }, -- Scholomance World 50903650m
  [69777181] = { 
-name = "Secret Entrance Old Scholomance",
+  name = "Memory of Scholomance - Secret Entrance Old Scholomance",
   type = "Dungeon",
-  hideOnMinimap = false,
-  showInZone = true,
-  showOnContinent = true,
-}, -- Old Scholomance World 50903650
+ }, -- Old Scholomance World 50903650
 }
 nodes[52] = { -- Westfall
  --[38307750] = { 63,  type = "Dungeon" }, -- Deadmines 43707320  May look more accurate
@@ -2097,12 +2094,6 @@ nodes[15][41801130] = {
    id = { 1197, 239 },
 	type = "Dungeon",
 } -- Legacy of Tyr - Dragonflight \ Uldaman - Vanilla
-
-nodes[22][69777181] = {
-   name = "Secret Entrance Old Scholomance",
-	type = "Dungeon",
-   showOnContinent = true,
-} -- Old Scholomance
 
 nodes[2025][61118443] = {
 	id = 1209,
