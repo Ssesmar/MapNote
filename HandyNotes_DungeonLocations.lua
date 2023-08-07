@@ -614,11 +614,14 @@ nodes[63] = { -- Ashenvale
 }
 nodes[15] = { -- Badlands
  [41801130] = { 
-  id = 239,
+  id = 1197,
   type = "Dungeon",
- }, -- Uldaman
+  hideOnMinimap = true,
+  showInZone = true,
+ }, -- Uldaman & Legacy of Tyr Dragonflight Dungeon
  [58463690] = { 
   id = 239,
+  name = "Uldaman back entrance",
   type = "Dungeon",
   hideOnMinimap = true,
   showInZone = true,
@@ -832,10 +835,12 @@ nodes[22] = { -- WesternPlaguelands
   id = 246,
   type = "Dungeon",
  }, -- Scholomance World 50903650m
- [69777181] = { 
-  name = "Memory of Scholomance - Secret Entrance Old Scholomance",
+ [69777181] = {
   type = "Dungeon",
- }, -- Old Scholomance World 50903650
+  name = "Memory of Scholomance - Secret Entrance Vanilla Scholomance",
+  hideOnContinent = false,
+  showInZone = true,
+ }, -- Old Scholomance - Memory of Scholomance - Secret Entrance Vanilla Scholomance
 }
 nodes[52] = { -- Westfall
  --[38307750] = { 63,  type = "Dungeon" }, -- Deadmines 43707320  May look more accurate
@@ -2048,6 +2053,7 @@ nodes[1543][68688540] = {
 -- Dragonflight
 
 if (not self.db.profile.hideDF) then
+
 nodes[2022] = { } -- The Waking Shores
 nodes[2023] = { } -- Ohn'ahran Plains
 nodes[2024] = { } -- The Azure Span
@@ -2089,11 +2095,6 @@ nodes[2025][59246064] = {
 	id = 1204,
 	type = "Dungeon",
 } -- Halls of Infusion
-
-nodes[15][41801130] = {
-   id = { 1197, 239 },
-	type = "Dungeon",
-} -- Legacy of Tyr - Dragonflight \ Uldaman - Vanilla
 
 nodes[2025][61118443] = {
 	id = 1209,
