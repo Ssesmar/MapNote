@@ -1,5 +1,5 @@
 # HandyNotes: DungeonLocations
-## [2.1](https://github.com/Ssesmar/HandyNotes_DungeonLocations) (2023-04-28)
+## [2.1](https://github.com/Ssesmar/HandyNotes_DungeonLocations) (2023-08-07)
 - Note: Update for 10.1 Embers of Neltharion
 - [Full Changelog](https://github.com/Ssesmar/HandyNotes_DungeonLocations/compare/2.01...2.1) [Previous Releases](https://github.com/Ssesmar/HandyNotes_DungeonLocations/releases)
 - 
