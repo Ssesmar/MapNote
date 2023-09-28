@@ -21,7 +21,7 @@ icons["APortal"] = "Interface/Minimap/Vehicle-AllianceMagePortal"
 icons["Ship"] = "Interface\\Addons\\MapNote\\images\\ship.tga"
 icons["HShip"] = "Interface\\Addons\\MapNote\\images\\hship.tga"
 icons["AShip"] = "Interface\\Addons\\MapNote\\images\\aship.tga"
-icons["Entrance"] = "Interface\\Addons\\MapNote\\images\\purpleEntranceExit"
+icons["Exit"] = "Interface\\Addons\\MapNote\\images\\purpleEntranceExit"
 icons["Passageup"] = "Interface\\Addons\\MapNote\\images\\passageup"
 icons["Passagedown"] = "Interface\\Addons\\MapNote\\images\\passagedown"
 icons["Passageright"] = "Interface\\Addons\\MapNote\\images\\passageright"
@@ -277,6 +277,8 @@ local defaults = {
       Azeroth = true,
       Continent = true,
       Dungeon = true,
+      DungeonMap = true,
+      EnemyFaction = true,
       Raid = true,
       Multiple = true,
       Gray = true,
@@ -290,11 +292,13 @@ local defaults = {
       },
 
     --1
+      hideAddon = false,
       journal = true,
       tomtom = true,
       assignedID = true,
       assignedgray = true,
       graymultipleID = true,
+      showEnemyFaction = true,
 
     --2 Azeroth map
       showAzeroth = true,
@@ -336,9 +340,9 @@ local defaults = {
       hideDragonIsles = false,
 
     --4 Inside Dungeon Map
-      showInsideDungeons = true,
-      hideEntranceExit = true,
-      hidePassage = true,
+      showDungeonMap = false,
+      hideExit = false,
+      hidePassage = false,
   },
 }
 
@@ -368,57 +372,92 @@ local options = {
   type = "group",
   name = "MapNote",
   childGroups = "tab",
-  desc = "Locations of dungeon, raid and Transport notes.",
+  desc = "Locations of dungeon, raid and transport symbols",
   get = function(info) return db[info[#info]] end,
   set = function(info, v) db[info[#info]] = v HandyNotes:SendMessage("HandyNotes_NotifyUpdate", "MapNote") end,
   args = {  
     GeneralTab = {
       type = 'group',
       name = L['General'],
+      desc = L["General settings that apply to Azeroth / Continent / Dungeon map at the same time"],
       order = 0,
       args = {
+        hideMapNoteheader = {
+          type = "header",
+          name = " |cffff0000" .. L["• Hide all MapNote symbols !"] .."\n",
+          order = 0.1,
+          },
+        hideAddon = {
+          type = "toggle",
+          name = "|cffff0000" .. L["• hide MapNote!"] .."\n",
+          desc = L["Disable MapNote, all icons will be hidden on each map and all categories will be disabled"],
+          order = 0.2,
+          get = function() return db.show["HideMapNote"] end,
+          set = function(info, v) db.show["HideMapNote"] = v self:FullUpdate() HandyNotes:SendMessage("HandyNotes_NotifyUpdate", "MapNote") end,
+          },    
         GeneralHeader = {
           type = "header",
           name = L["General settings / Additional functions"],
-          order = 0.1,
+          order = 0.3,
           },
         journal = {
+          disabled = function() return db.show["HideMapNote"] end,
           type = "toggle",
-          name = L["Adventure guide"],
-          desc = L["Left-clicking on a dungeon or raid symbol opens the dungeon or raid's adventure guide"],
+          name = L["• Adventure guide"],
+          desc = L["Left-clicking on a MapNote raid (green), dungeon (blue) or multiple icon (green&blue) on the map opens the corresponding dungeon or raid map in the Adventure Guide (the map must not be open in full screen)"],
           order = 1,
           },    
         tomtom = {
+          disabled = function() return db.show["HideMapNote"] end,
           type = "toggle",
-          name = L["TomTom waypoints"],
-          desc = L["Shift+Right-clicking on a displayed symbol on the Continent, Azeroth or Zones map creates TomTom waypoints if the TomTom add-on is also installed"],
+          name = L["• TomTom waypoints"],
+          desc = L["Shift+right click on a raid, dungeon, multiple symbol, portal, ship, zeppelin, passage or exit from MapNote on the continent or dungeon map creates a TomTom waypoint to this point (but the TomTom add-on must be installed for this)"],
           order = 2,
           },
         assignedID = {
+          disabled = function() return db.show["HideMapNote"] end,
           type = "toggle",
-          name = L["Bosses killed"],
-          desc = L["Displays the number of bosses killed in the assigned dungeon or raid when mousing over a gray dungeon or raid symbols on the zone map or Azeroth map"],
+          name = L["• killed Bosses"],
+          desc = L["For dungeons and raids in which you have killed bosses and have therefore been assigned an ID, this symbol on the Azeroth and continent map will show you the number of killed or remaining bosses as soon as you hover over this dungeon or raid symbol (for example 2/8 mythic, 4/7 heroic etc)"],
           order = 3,
           },
         assignedgray = {
+          disabled = function() return db.show["HideMapNote"] end,
           type = "toggle",
-          name = L["gray symbols"],
-          desc = L["Uses gray symbols for dungeons and raids where you've killed bosses and are therefore assigned to that dungeon or raid until that ID is reset."],
+          name = L["• gray colored symbols"],
+          desc = L["If you are assigned to a dungeon or raid and have an ID, this option will turn the dungeon or raid icon gray until this ID is reset so that you can see which dungeon or raid you have started or completed"],
           order = 4,
           },
         graymultipleID = {
+          disabled = function() return db.show["HideMapNote"] end,
           type = "toggle",
-          name = L["gray multiple points"],
-          desc = L["Displays multiple points in gray if you are assigned in >ANY< of the listed dungeon or raid of the point"],
+          name = L["• gray multiple points"],
+          desc = L["Colors multi-points of dungeons and/or raids in gray if you are assigned to any dungeon or raid of this multi-point and have an ID so that you can see that you have started or completed any dungeon or raid of the multi-point"],
           order = 5,
-          }
+          },
+        showEnemyFaction = {
+          disabled = function() return db.show["HideMapNote"] end,
+          type = "toggle",
+          name = L["• enemy faction"],
+          desc = L["Shows enemy faction (horde/alliance) symbols too"],
+          order = 6,
+          get = function() return db.show["EnemyFaction"] end,
+          set = function(info, v) db.show["EnemyFaction"] = v self:FullUpdate() HandyNotes:SendMessage("HandyNotes_NotifyUpdate", "MapNote") end,
+        }
       }
     },
     AzerothTab = {
+      disabled = function() return db.show["HideMapNote"] end,
       type = 'group',
       name = L["Azeroth map"],
+      desc = L["Azeroth map settings. Certain symbols can be displayed or not displayed. If the option (Activate symbols) has been activated in this category"],
       order = 2,
       args = {
+        desc = {
+          type = "description",
+          name = "|cff00ccff" .. L["Information: Individual Azeroth symbols that are too close to other symbols on the Azeroth map are not 100% accurately placed on the Azeroth map! For precise coordination, please use the points on the continent map or zone map"] .."\n",
+          order = 20.0
+        },
         Azerothheader1 = {
           type = "header",
           name = L["Azeroth map options"],
@@ -426,13 +465,14 @@ local options = {
           },
         showAzeroth = {
           type = "toggle",
-          name = L["Show on Azeroth map"],
+          name = L["Activate symbols"],
           desc = L["Activates the display of all possible symbols on the Azeroth map"],
           order = 20.1,
           get = function() return db.show["Azeroth"] end,
           set = function(info, v) db.show["Azeroth"] = v self:FullUpdate() HandyNotes:SendMessage("HandyNotes_NotifyUpdate", "MapNote") end,
           },
         azerothScale = {
+          disabled = function() return not db.show["Azeroth"] end,
           type = "range",
           name = L["symbol size"],
           desc = L["Resizes symbols on the continent map"],
@@ -445,6 +485,7 @@ local options = {
           order = 21
           },
         hideAzerothRaid = {
+          disabled = function() return not db.show["Azeroth"] end,
           type = "toggle",
           name = L["• Raids"],
           desc = L["Hide symbols of raids on the Azeroth map"],
@@ -452,6 +493,7 @@ local options = {
           set = function(info, v) db[info[#info]] = v self:FullUpdate() HandyNotes:SendMessage("HandyNotes_NotifyUpdate", "MapNote") end,
           },
         hideAzerothDungeon = {
+          disabled = function() return not db.show["Azeroth"] end,
           type = "toggle",
           name = L["• Dungeons"],
           desc = L["Hide symbols of dungeons on the Azeroth map"],
@@ -459,6 +501,7 @@ local options = {
           set = function(info, v) db[info[#info]] = v self:FullUpdate() HandyNotes:SendMessage("HandyNotes_NotifyUpdate", "MapNote") end,
           },
         hideAzerothMultiple = {
+          disabled = function() return not db.show["Azeroth"] end,
           type = "toggle",
           name = L["• Multiple"],
           desc = L["Hide symbols of multiple on the Azeroth map"],
@@ -466,6 +509,7 @@ local options = {
           set = function(info, v) db[info[#info]] = v self:FullUpdate() HandyNotes:SendMessage("HandyNotes_NotifyUpdate", "MapNote") end,
           },
         hideAzerothPortals = {
+          disabled = function() return not db.show["Azeroth"] end,
           type = "toggle",
           name = L["• Portals"],
           desc = L["Hide symbols of portals on the Azeroth map"],
@@ -473,6 +517,7 @@ local options = {
           set = function(info, v) db[info[#info]] = v self:FullUpdate() HandyNotes:SendMessage("HandyNotes_NotifyUpdate", "MapNote") end,
           },
         hideAzerothZeppelins = {
+          disabled = function() return not db.show["Azeroth"] end,
           type = "toggle",
           name = L["• Zeppelins"],
           desc = L["Hide symbols of zeppelins on the Azeroth map"],
@@ -480,6 +525,7 @@ local options = {
           set = function(info, v) db[info[#info]] = v self:FullUpdate() HandyNotes:SendMessage("HandyNotes_NotifyUpdate", "MapNote") end,
           },
         hideAzerothShips = {
+          disabled = function() return not db.show["Azeroth"] end,
           type = "toggle",
           name = L["• Ships"],
           desc = L["Hide symbols of ships on the Azeroth map"],
@@ -488,70 +534,80 @@ local options = {
         },
         Azerothheader3 = {
           type = "header",
-          name = L["Hide all MapNotes for a specific map"],
+          name = L["Hide all MapNote for a specific map"],
           order = 22
           },
         hideAzerothKalimdor = {
+          disabled = function() return not db.show["Azeroth"] end,
           type = "toggle",
           name = L["• Kalimdor"],
-          desc = L["Hide all Kalimdor-MapNote dungeon, raid, portal, zeppelin and ship symbols on the Azeroth map"],
+          desc = L["Hide all Kalimdor MapNote dungeon, raid, portal, zeppelin and ship symbols on the Azeroth map"],
           order = 22.1,
           set = function(info, v) db[info[#info]] = v self:FullUpdate() HandyNotes:SendMessage("HandyNotes_NotifyUpdate", "MapNote") end,
           },
         hideAzerothEasternKingdom = {
+          disabled = function() return not db.show["Azeroth"] end,
           type = "toggle",
           name = L["• Eastern Kingdom"],
-          desc = L["Hide all Eastern Kingdom-MapNote dungeon, raid, portal, zeppelin and ship symbols on the Azeroth map"],
+          desc = L["Hide all Eastern Kingdom MapNote dungeon, raid, portal, zeppelin and ship symbols on the Azeroth map"],
           order = 22.2,
           set = function(info, v) db[info[#info]] = v self:FullUpdate() HandyNotes:SendMessage("HandyNotes_NotifyUpdate", "MapNote") end,
           },
         hideAzerothNorthrend = {
+          disabled = function() return not db.show["Azeroth"] end,
           type = "toggle",
           name = L["• Northrend"],
-          desc = L["Hide all Northrend-MapNote dungeon, raid, portal, zeppelin and ship symbols on the Azeroth map"],
+          desc = L["Hide all Northrend MapNote dungeon, raid, portal, zeppelin and ship symbols on the Azeroth map"],
           order = 22.3,
           set = function(info, v) db[info[#info]] = v self:FullUpdate() HandyNotes:SendMessage("HandyNotes_NotifyUpdate", "MapNote") end,
           },
         hideAzerothPandaria = {
+          disabled = function() return not db.show["Azeroth"] end,
           type = "toggle",
           name = L["• Pandaria"],
-          desc = L["Hide all Pandaria-MapNote dungeon, raid, portal, zeppelin and ship symbols on the Azeroth map"],
+          desc = L["Hide all Pandaria MapNote dungeon, raid, portal, zeppelin and ship symbols on the Azeroth map"],
           order = 22.4,
           set = function(info, v) db[info[#info]] = v self:FullUpdate() HandyNotes:SendMessage("HandyNotes_NotifyUpdate", "MapNote") end,
           },
         hideAzerothBrokenIsles = {
+          disabled = function() return not db.show["Azeroth"] end,
           type = "toggle",
           name = L["• Broken Isles"],
-          desc = L["Hide all Broken Isles-MapNote dungeon, raid, portal, zeppelin and ship symbols on the Azeroth map"],
+          desc = L["Hide all Broken Isles MapNote dungeon, raid, portal, zeppelin and ship symbols on the Azeroth map"],
           order = 22.5,
           set = function(info, v) db[info[#info]] = v self:FullUpdate() HandyNotes:SendMessage("HandyNotes_NotifyUpdate", "MapNote") end,
           },  
         hideAzerothZandalar = {
+          disabled = function() return not db.show["Azeroth"] end,
           type = "toggle",
           name = L["• Zandalar"],
-          desc = L["Hide all Zandalar-MapNote dungeon, raid, portal, zeppelin and ship symbols on the Azeroth map"],
+          desc = L["Hide all Zandalar MapNote dungeon, raid, portal, zeppelin and ship symbols on the Azeroth map"],
           order = 22.6,
           set = function(info, v) db[info[#info]] = v self:FullUpdate() HandyNotes:SendMessage("HandyNotes_NotifyUpdate", "MapNote") end,
           },
         hideAzerothKulTiras = {
+          disabled = function() return not db.show["Azeroth"] end,
           type = "toggle",
           name = L["• Kul Tiras"],
-          desc = L["Hide all Kul Tiras-MapNote dungeon, raid, portal, zeppelin and ship symbols on the Azeroth map"],
+          desc = L["Hide all Kul Tiras MapNote dungeon, raid, portal, zeppelin and ship symbols on the Azeroth map"],
           order = 22.7,
           set = function(info, v) db[info[#info]] = v self:FullUpdate() HandyNotes:SendMessage("HandyNotes_NotifyUpdate", "MapNote") end,
           },
         hideAzerothDragonIsles = {
+          disabled = function() return not db.show["Azeroth"] end,
           type = "toggle",
           name = L["• Dragon Isles"],
-          desc = L["Hide all Dragon Isles-MapNote dungeon, raid, portal, zeppelin and ship symbols on the Azeroth map"],
+          desc = L["Hide all Dragon Isles MapNote dungeon, raid, portal, zeppelin and ship symbols on the Azeroth map"],
           order = 22.8,
           set = function(info, v) db[info[#info]] = v self:FullUpdate() HandyNotes:SendMessage("HandyNotes_NotifyUpdate", "MapNote") end,
-        }
+          },
       }
     },
     ContinentTab = {
+      disabled = function() return db.show["HideMapNote"] end,
       type = 'group',
       name = L["Continent map"],
+      desc = L["Continent map settings. Certain symbols can be displayed or not displayed. If the option (Activate symbols) has been activated in this category"],
       order = 3,
       args = {
         continentheader1 = {
@@ -561,13 +617,14 @@ local options = {
           },
         showContinent = {
           type = "toggle",
-          name = L["Show on Continent map"],
+          name = L["Activate symbols"],
           desc = L["Activates the display of all possible symbols on the continent map"],
           order = 30.1,
           get = function() return db.show["Continent"] end,
           set = function(info, v) db.show["Continent"] = v self:FullUpdate() HandyNotes:SendMessage("HandyNotes_NotifyUpdate", "MapNote") end,
           },
         continentScale = {
+          disabled = function() return not db.show["Continent"] end,
           type = "range",
           name = L["symbol size"],
           desc = L["Resizes symbols on the continent map"],
@@ -580,6 +637,7 @@ local options = {
           order = 30.3,
           },
         hideRaids = {
+          disabled = function() return not db.show["Continent"] end,
           type = "toggle",
           name = L["• Raids"],
           desc = L["Hide symbols of raids on the continant map and minimap"],
@@ -587,6 +645,7 @@ local options = {
           set = function(info, v) db[info[#info]] = v self:FullUpdate() HandyNotes:SendMessage("HandyNotes_NotifyUpdate", "MapNote") end,
           },
         hideDungeons = {
+          disabled = function() return not db.show["Continent"] end,
           type = "toggle",
           name = L["• Dungeons"],
           desc = L["Hide symbols of dungeons on the continant map and minimap"],
@@ -594,6 +653,7 @@ local options = {
           set = function(info, v) db[info[#info]] = v self:FullUpdate() HandyNotes:SendMessage("HandyNotes_NotifyUpdate", "MapNote") end,
           },
         hideMultiple = {
+          disabled = function() return not db.show["Continent"] end,
           type = "toggle",
           name = L["• Multiple"],
           desc = L["Hide symbols of multiple (dungeons,raids) on the continant map and minimap"],
@@ -601,6 +661,7 @@ local options = {
           set = function(info, v) db[info[#info]] = v self:FullUpdate() HandyNotes:SendMessage("HandyNotes_NotifyUpdate", "MapNote") end,
           },
         hidePortals = {
+          disabled = function() return not db.show["Continent"] end,
           type = "toggle",
           name = L["• Portals"],
           desc = L["Hide symbols of portals on the continant map and minimap"],
@@ -608,6 +669,7 @@ local options = {
           set = function(info, v) db[info[#info]] = v self:FullUpdate() HandyNotes:SendMessage("HandyNotes_NotifyUpdate", "MapNote") end,
           },
         hideZeppelins = {
+          disabled = function() return not db.show["Continent"] end,
           type = "toggle",
           name = L["• Zeppelins"],
           desc = L["Hide symbols of zeppelins on the continant map and minimap"],
@@ -615,6 +677,7 @@ local options = {
           set = function(info, v) db[info[#info]] = v self:FullUpdate() HandyNotes:SendMessage("HandyNotes_NotifyUpdate", "MapNote") end,
           },
         hideShips = {
+          disabled = function() return not db.show["Continent"] end,
           type = "toggle",
           name = L["• Ships"],
           desc = L["Hide symbols of ships on the continant map and minimap"],
@@ -623,122 +686,137 @@ local options = {
         },
         continentheader3 = {
           type = "header",
-          name = L["Hide all MapNotes for a specific map"],
+          name = L["Hide all MapNote for a specific map"],
           order = 31
           },
         hideKalimdor= {
+          disabled = function() return not db.show["Continent"] end,
           type = "toggle",
           name = L["• Kalimdor"],
-          desc = L["Hide all Kalimdor-MapNote dungeon, raid, portal, zeppelin and ship symbols on the continent map"],
+          desc = L["Hide all Kalimdor MapNote dungeon, raid, portal, zeppelin and ship symbols on the continent map"],
           order = 31.1,
           set = function(info, v) db[info[#info]] = v self:FullUpdate() HandyNotes:SendMessage("HandyNotes_NotifyUpdate", "MapNote") end,
           },
         hideEasternKingdom = {
+          disabled = function() return not db.show["Continent"] end,
           type = "toggle",
           name = L["• Eastern Kingdom"],
-          desc = L["Hide all Eastern Kingdom-MapNote dungeon, raid, portal, zeppelin and ship symbols on the continent map"],
+          desc = L["Hide all Eastern Kingdom MapNote dungeon, raid, portal, zeppelin and ship symbols on the continent map"],
           order = 31.2,
           set = function(info, v) db[info[#info]] = v self:FullUpdate() HandyNotes:SendMessage("HandyNotes_NotifyUpdate", "MapNote") end,
           },
         hideOutland = {
+          disabled = function() return not db.show["Continent"] end,
           type = "toggle",
           name = L["• Outland"],
-          desc = L["Hide all Outland-MapNote dungeon, raid, portal, zeppelin and ship symbols on the continent map"],
+          desc = L["Hide all Outland MapNote dungeon, raid, portal, zeppelin and ship symbols on the continent map"],
           order = 31.3,
           set = function(info, v) db[info[#info]] = v self:FullUpdate() HandyNotes:SendMessage("HandyNotes_NotifyUpdate", "MapNote") end,
           },
         hideNorthrend = {
+          disabled = function() return not db.show["Continent"] end,
           type = "toggle",
           name = L["• Northrend"],
-          desc = L["Hide all Northrend-MapNote dungeon, raid, portal, zeppelin and ship symbols on the continent map"],
+          desc = L["Hide all Northrend MapNote dungeon, raid, portal, zeppelin and ship symbols on the continent map"],
           order = 31.4,
           set = function(info, v) db[info[#info]] = v self:FullUpdate() HandyNotes:SendMessage("HandyNotes_NotifyUpdate", "MapNote") end,
           },
         hidePandaria = {
+          disabled = function() return not db.show["Continent"] end,
           type = "toggle",
           name = L["• Pandaria"],
-          desc = L["Hide all Pandaria-MapNote dungeon, raid, portal, zeppelin and ship symbols on the continent map"],
+          desc = L["Hide all Pandaria MapNote dungeon, raid, portal, zeppelin and ship symbols on the continent map"],
           order = 31.5,
           set = function(info, v) db[info[#info]] = v self:FullUpdate() HandyNotes:SendMessage("HandyNotes_NotifyUpdate", "MapNote") end,
           },
         hideDraenor = {
+          disabled = function() return not db.show["Continent"] end,
           type = "toggle",
           name = L["• Draenor"],
-          desc = L["Hide all Draenor-MapNote dungeon, raid, portal, zeppelin and ship symbols on the continent map"],
+          desc = L["Hide all Draenor MapNote dungeon, raid, portal, zeppelin and ship symbols on the continent map"],
           order = 31.6,
           set = function(info, v) db[info[#info]] = v self:FullUpdate() HandyNotes:SendMessage("HandyNotes_NotifyUpdate", "MapNote") end,
           },
         hideBrokenIsles = {
+          disabled = function() return not db.show["Continent"] end,
           type = "toggle",
           name = L["• Broken Isles"],
-          desc = L["Hide all Broken Isles-MapNote dungeon, raid, portal, zeppelin and ship symbols on the continent map"],
+          desc = L["Hide all Broken Isles MapNote dungeon, raid, portal, zeppelin and ship symbols on the continent map"],
           order = 31.7,
           set = function(info, v) db[info[#info]] = v self:FullUpdate() HandyNotes:SendMessage("HandyNotes_NotifyUpdate", "MapNote") end,
           },
         hideZandalar = {
+          disabled = function() return not db.show["Continent"] end,
           type = "toggle",
           name = L["• Zandalar"],
-          desc = L["Hide all Zandalar-MapNote dungeon, raid, portal, zeppelin and ship symbols on the continent map"],
+          desc = L["Hide all Zandalar MapNote dungeon, raid, portal, zeppelin and ship symbols on the continent map"],
           order = 31.8,
           set = function(info, v) db[info[#info]] = v self:FullUpdate() HandyNotes:SendMessage("HandyNotes_NotifyUpdate", "MapNote") end,
           },
         hideKulTiras = {
+          disabled = function() return not db.show["Continent"] end,
           type = "toggle",
           name = L["• Kul Tiras"],
-          desc = L["Hide all Kul Tiras-MapNote dungeon, raid, portal, zeppelin and ship symbols on the continent map"],
+          desc = L["Hide all Kul Tiras MapNote dungeon, raid, portal, zeppelin and ship symbols on the continent map"],
           order = 31.9,
           set = function(info, v) db[info[#info]] = v self:FullUpdate() HandyNotes:SendMessage("HandyNotes_NotifyUpdate", "MapNote") end,
           },
         hideShadowlands = {
+          disabled = function() return not db.show["Continent"] end,
           type = "toggle",
           name = L["• Shadowlands"],
-          desc = L["Hide all Shadowlands-MapNote dungeon, raid, portal, zeppelin and ship symbols on the continent map"],
+          desc = L["Hide all Shadowlands MapNote dungeon, raid, portal, zeppelin and ship symbols on the continent map"],
           order = 32.0,
           set = function(info, v) db[info[#info]] = v self:FullUpdate() HandyNotes:SendMessage("HandyNotes_NotifyUpdate", "MapNote") end,
           },
         hideDragonIsles = {
+          disabled = function() return not db.show["Continent"] end,
           type = "toggle",
           name = L["• Dragon Isles"],
-          desc = L["Hide all Dragon Isles-MapNote dungeon, raid, portal, zeppelin and ship symbols on the continent map"],
+          desc = L["Hide all Dragon Isles MapNote dungeon, raid, portal, zeppelin and ship symbols on the continent map"],
           order = 32.1,
           set = function(info, v) db[info[#info]] = v self:FullUpdate() HandyNotes:SendMessage("HandyNotes_NotifyUpdate", "MapNote") end,
         },
       }
     },
-    InsideDungeonTab = {
+    DungeonMapTab = {
+      disabled = function() return db.show["HideMapNote"] end,
       type = 'group',
       name = L["Dungeon map"],
+      desc = L["Dungeon map settings. Certain symbols can be displayed or not displayed. If the option (Activate symbols) has been activated in this category. Shows MapNote exit and passage points on the dungeon map (these symbols are for orientation purposes only and nothing happens when you click on them)"],
       order = 4,
       args = {
-        insideDungeonheader1 = {
+        DungeonMapheader1 = {
           type = "header",
-          name = L["Inside Dungeon options"],
+          name = L["Dungeon map options"],
           order = 40,
           },
-        showInsideDungeons = {
+        showDungeonMap = {
           type = "toggle",
-          name = L["Show on Dungeon map"],
-          desc = L["Displays entrance/exit and passage points inside a dungeon on the map"],
+          name = L["Activate symbols"],
+          desc = L["Enables the display of all possible symbols on the dungeon map (these symbols are for orientation purposes only and nothing happens when you click on them)"],
           order = 40.1,
-          get = function() return db.show["InsideDungeons"] end,
-          set = function(info, v) db.show["InsideDungeons"] = v self:FullUpdate() HandyNotes:SendMessage("HandyNotes_NotifyUpdate", "MapNote") end,
+          get = function() return db.show["DungeonMap"] end,
+          set = function(info, v) db.show["DungeonMap"] = v self:FullUpdate() HandyNotes:SendMessage("HandyNotes_NotifyUpdate", "MapNote") end,
           },
-        insideDungeontheader2 = {
+        DungeonMapheader2 = {
           type = "header",
           name = L["Hide individual symbols"],
           order = 41.0,
           },
-        hideEntranceExit = {
+        hideExit = {
+          disabled = function() return not db.show["DungeonMap"] end,
           type = "toggle",
-          name = L["• Entrance/Exit"],
-          desc = L["Hide symbols of entrance/exit on the map inside a dungeon"],
+          name = L["• Exit"],
+          desc = L["Hide symbols of MapNote dungeon exit on the dungeon map"],
           order = 41.1,
           set = function(info, v) db[info[#info]] = v self:FullUpdate() HandyNotes:SendMessage("HandyNotes_NotifyUpdate", "MapNote") end,
           },
         hidePassage = {
+          disabled = function() return not db.show["DungeonMap"] end,
           type = "toggle",
           name = L["• Passage"],
-          desc = L["Hide symbols of passage on the map inside a dungeon"],
+          desc = L["Hide symbols of passage on the dungeon map"],
           order = 41.2,
           set = function(info, v) db[info[#info]] = v self:FullUpdate() HandyNotes:SendMessage("HandyNotes_NotifyUpdate", "MapNote") end,
           },
@@ -750,7 +828,6 @@ local options = {
   HandyNotes:RegisterPluginDB("MapNote", pluginHandler, options)
   self.db = LibStub("AceDB-3.0"):New("MapNoteDB", defaults, true)
   db = self.db.profile
- 
   Addon:RegisterEvent("PLAYER_ENTERING_WORLD")
 end
 
@@ -774,19 +851,55 @@ function Addon:PopulateTable()
 table.wipe(nodes)
 table.wipe(minimap)
 
---nodes
 
 -- Dungeon MapNote
 nodes[280] = { } -- Maraudon Caverns of Maraudon
 nodes[281] = { } -- Caverns of Maraudon
-nodes[341] = { } -- Halls of Anguish
--- Azeroth MapNote
+nodes[339] = { } -- Black Temple
+nodes[340] = { } -- Karabor Sewers
+nodes[341] = { } -- Sanctuary of Shadows
+nodes[342] = { } -- Halls of Anguish
+nodes[343] = { } -- Gorefiend's Vigil
+nodes[344] = { } -- Den of Mortal Delights
+nodes[345] = { } -- Chamber of Command
+nodes[346] = { } -- Temple Summit
+-- Shadowlands
+nodes[1663] = { } -- Halls of Atonement
+nodes[1666] = { } -- The Necrotic Wake
+nodes[1669] = { } -- Mists of Tirna Scithe
+nodes[1674] = { } -- Plaguefall
+nodes[1675] = { } -- Sanguine Depths
+nodes[1680] = { } -- De Other Side
+nodes[1683] = { } -- Theater of Pain
+nodes[1692] = { } -- Spires of Ascension
+nodes[1735] = { } -- Castle Nathria 
+nodes[1989] = { } -- Tazavesh, the Veiled Market
+nodes[1998] = { } -- Sanctum of Domination  
+nodes[2047] = { } -- Sepulcher of the First Ones
+-- Dragonflight 
+nodes[2073] = { } -- The Azure Vault
+nodes[2080] = { } -- Neltharus
+nodes[2082] = { } -- Halls of Infusion  
+nodes[2093] = { } -- The Nokhud Offensive
+nodes[2095] = { } -- Ruby Life Pools 
+nodes[2096] = { } -- Brackenhide Hollow
+nodes[2097] = { } -- Algeth'ar Academy
+nodes[2190] = { } -- Dawn of the Infinite
+nodes[2096] = { } -- Brackenhide Hollow
+nodes[2097] = { } -- Algeth'ar Academy
+nodes[2190] = { } -- Dawn of the Infinite
+nodes[2119] = { } -- Vault of the Incarnates
+nodes[2166] = { } -- Aberrus, the Shadowed Crucible
+
+
+-- Map MapNote
 nodes[947] = { } -- Azeroth
 -- Kalimdor & Eastern Kingdom
 nodes[10] = { } -- Barrens    
 nodes[11] = { } -- Wailing Caverns
 nodes[12] = { } -- Kalimdor 
 nodes[13] = { } -- Eastern Kingdoms   
+nodes[14] = { } -- Arathi Highlands
 nodes[15] = { } -- Badlands
 nodes[18] = { } -- Tirisfal   
 nodes[19] = { } -- ScarletMonasteryEntrance 
@@ -882,6 +995,7 @@ nodes[619] = { } -- Broken Isles
 nodes[627] = { } -- Dalaran
 nodes[630] = { } -- Aszuna
 nodes[905] = { } -- Argus
+nodes[941] = { } -- Krokuun, Vindikaar Lower Deck
 -- Battle of Azeroth
 nodes[862] = { } -- Zuldazar
 nodes[863] = { } -- Nazmir
@@ -891,20 +1005,23 @@ nodes[876] = { } --Kul'Tiras
 nodes[895] = { } -- Tiragarde Sound
 nodes[896] = { } -- Drustvar
 nodes[942] = { } -- Stormsong Valley
+nodes[1161] = { } --  Boralus City
 nodes[1163] = { } -- Inside Dazar'alor
 nodes[1165] = { } -- Dazar'alor
 nodes[1169] = { } -- Tol Dagor
 nodes[1355] = {} -- Nazjatar
+nodes[1462] = {} -- Mechagon
 -- Shadowlands
 nodes[1533] = { } -- Bastion
 nodes[1536] = { } -- Maldraxxus
+nodes[1543] = { } -- The Maw
 nodes[1565] = { } -- Ardenweald
 nodes[1525] = { } -- Revendreth
-nodes[1533] = { } -- Bastion for Zereth Mortis - Sepulcher of the First Ones
-nodes[1565] = { } -- Ardenweald for Tazavesh, the Veiled Market
 nodes[1543] = { } -- The Maw
 nodes[1670] = { } -- Oribos
 nodes[1550] = { } -- Shadowlands
+nodes[1970] = { } -- Zereth Mortis 
+nodes[2016] = { } -- Tazavesh, the Veiled Market
 -- Dragonflight
 nodes[1978] = { } -- Dragon Isles
 nodes[2022] = { } -- The Waking Shores
@@ -915,50 +1032,276 @@ nodes[2026] = { } -- The Forbidden Reach
 nodes[2133] = { } -- Zaralek Cavern
 nodes[2112] = { } -- Valdrakken
 
-
+if not db.show["HideMapNote"] then
   --Inside Dungeon MapNote
-  if db.show["InsideDungeons"] then
+  if db.show["DungeonMap"] then
 
-    if (not self.db.profile.hideEntranceExit) then
+    if (not self.db.profile.hideExit) then
 
+    --Kalimdor
       nodes[66][29106256] = {
-        id = 232,
-        type = "Entrance",
-        hideOnContinent = true,
-        } -- Maraudon Outside 
+      id = 232,
+      type = "Dungeon",
+      hideOnContinent = true,
+      } -- Maraudon Outside 
 
-        nodes[280][62402795] = {
-        name = L["Maraudon Orange Crystal Entrance/Exit"],
-        type = "Entrance",
-        showInZone = true,
-        } -- Maraudon Caverns of Maraudon Orange Crystal
+      nodes[280][62402795] = {
+      name = L["Exit"],
+      type = "Exit",
+      showInZone = true,
+      } -- Maraudon Caverns of Maraudon Orange Crystal
 
-        nodes[280][78676842] = {
-        name = L["Maraudon Purple Crystal Entrance/Exit"],
-        type = "Entrance",
-        showInZone = true,
-        } -- Maraudon Caverns of Maraudon Purple Crystal 
+      nodes[280][78676842] = {
+      name = L["Exit"],
+      type = "Exit",
+      showInZone = true,
+      } -- Maraudon Caverns of Maraudon Purple Crystal 
+
+
+    --Outland
+      nodes[340][21756343] = {
+      name = L["Exit"],
+      type = "Exit",
+      showInZone = true,
+      } -- Black Temple passage
+
+
+    --Shadowlands
+      nodes[1663][89875409] = {
+      name = L["Exit"],
+      type = "Exit",
+      showInZone = true,
+      } -- Halls of Atonement
+
+      nodes[1666][82863999] = {
+      name = L["Exit"],
+      type = "Exit",
+      showInZone = true,
+      } -- The Necrotic Wake
+
+      nodes[1669][93861796] = {
+      name = L["Exit"],
+      type = "Exit",
+      showInZone = true,
+      } -- Mists of Tirna Scithe
+
+      nodes[1674][29981643] = {
+      name = L["Exit"],
+      type = "Exit",
+      showInZone = true,
+      } -- Plaguefall
+
+      nodes[1675][09825103] = {
+      name = L["Exit"],
+      type = "Exit",
+      showInZone = true,
+      } -- Sanguine Depths
+
+      nodes[1680][50581456] = {
+      name = L["Exit"],
+      type = "Exit",
+      showInZone = true,
+      } -- De Other Side
+
+      nodes[1683][50498296] = {
+      name = L["Exit"],
+      type = "Exit",
+      showInZone = true,
+      } -- Theater of Pain
+
+      nodes[1692][40586445] = {
+      name = L["Exit"],
+      type = "Exit",
+      showInZone = true,
+      } -- Spires of Ascension      
+
+      nodes[1735][34468069] = {
+      name = L["Exit"],
+      type = "Exit",
+      showInZone = true,
+      } -- Castle Nathria      
+
+      nodes[1998][29478607] = {
+      name = L["Exit"],
+      type = "Exit",
+      showInZone = true,
+      } -- Sanctum of Domination  
+
+      nodes[1989][90914372] = {
+      name = L["Exit"],
+      type = "Exit",
+      showInZone = true,
+      } -- Tazavesh, the Veiled Market
+
+      nodes[2047][07465150] = {
+      name = L["Exit"],
+      type = "Exit",
+      showInZone = true,
+      } -- Sepulcher of the First Ones
+      
+
+    --Dragon Isles
+      nodes[2073][77623071] = {
+      name = L["Exit"],
+      type = "Exit",
+      showInZone = true,
+      } -- The Azure Vault
+
+      nodes[2080][52562070] = {
+      name = L["Exit"],
+      type = "Exit",
+      showInZone = true,
+      } -- Neltharus
+
+      nodes[2082][08403471] = {
+      name = L["Exit"],
+      type = "Exit",
+      showInZone = true,
+      } -- Halls of Infusion      
+
+      nodes[2093][60673862] = {
+      name = L["Exit"],
+      type = "Exit",
+      showInZone = true,
+      } -- The Nokhud Offensive
+
+      nodes[2095][42789333] = {
+      name = L["Exit"],
+      type = "Exit",
+      showInZone = true,
+      } -- Ruby Life Pools 
+      
+      nodes[2096][06524366] = {
+      name = L["Exit"],
+      type = "Exit",
+      showInZone = true,
+      } -- Brackenhide Hollow
+
+      nodes[2097][42157591] = {
+      name = L["Exit"],
+      type = "Exit",
+      showInZone = true,
+      } -- Algeth'ar Academy
+
+      nodes[2190][33202089] = {
+      name = L["Exit"],
+      type = "Exit",
+      showInZone = true,
+      } -- Dawn of the Infinite
+     
+      nodes[2119][63509475] = {
+      name = L["Exit"],
+      type = "Exit",
+      showInZone = true,
+      } -- Vault of the Incarnates
+
+      nodes[2166][51269498] = {
+      name = L["Exit"],
+      type = "Exit",
+      showInZone = true,
+      } -- Aberrus, the Shadowed Crucible
       end
 
     if (not self.db.profile.hidePassage) then
 
-        nodes[280][13585809] = {
-        name = L["Passage to Zaetar's Grave"],
+        -- Maraudon
+        nodes[280][13585809] = { 
+        name = L["Passage"],
         type = "Passageleft",
         showInZone = true,
         } -- Maraudon passage to Zaetar's Grave
 
         nodes[281][29120410] = {
-        name = L["Passage to Caverns of Maraudon"],
+        name = L["Passage"],
         type = "Passageright",
         showInZone = true,
         } -- Maraudon passage to Zaetar's Grave
 
-        nodes[341][61933384] = {
-        uiMapID= 341,
+        -- Black Temple
+        nodes[339][76054672] = { 
+        name = L["Passage"],
+        UiMapID = 340,
         type = "Passageright",
         showInZone = true,
-        } -- Black Temple passage to Zaetar's Grave
+        } -- Black Temple passage
+
+        nodes[339][28657991] = {
+        name = L["Passage"],
+        type = "Passagedown",
+        showInZone = true,
+        } -- Black Temple passage
+
+        nodes[340][27240693] = {
+        name = L["Passage"],
+        type = "Passageup",
+        showInZone = true,
+        } -- Black Temple passage
+
+        nodes[341][61933384] = {
+        name = L["Passage"],
+        type = "Passageright",
+        showInZone = true,
+        } -- Black Temple passage
+
+        nodes[341][21124985] = {
+        name = L["Passage"],
+        type = "Passageleft",
+        showInZone = true,
+        } -- Black Temple passage
+
+        nodes[341][57859035] = {
+        name = L["Passage"],
+        type = "Passageleft",
+        showInZone = true,
+        } -- Black Temple passage
+
+        nodes[341][26302301] = {
+        name = L["Passage"],
+        type = "Passagedown",
+        showInZone = true,
+        } -- Black Temple passage
+
+        nodes[342][63033918] = {
+        name = L["Passage"],
+        type = "Passageleft",
+        showInZone = true,
+        } -- Black Temple passage
+
+        nodes[343][74966845] = {
+        name = L["Passage"],
+        type = "Passageright",
+        showInZone = true,
+        } -- Black Temple passage
+
+        nodes[344][008254813] = {
+        name = L["Passage"],
+        type = "Passageup",
+        showInZone = true,
+        } -- Black Temple passage
+
+        nodes[344][67275590] = {
+        name = L["Passage"],
+        type = "Passagedown",
+        showInZone = true,
+        } -- Black Temple passage
+
+        nodes[345][47333054] = {
+        name = L["Passage"],
+        type = "Passageup",
+        showInZone = true,
+        } -- Black Temple passage
+
+        nodes[345][69461241] = {
+        name = L["Passage"],
+        type = "Passageup",
+        showInZone = true,
+        } -- Black Temple passage
+
+        nodes[346][52821234] = {
+        name = L["Passage"],
+        type = "Passageup",
+        showInZone = true,
+        } -- Black Temple passage
     end
   end
 
@@ -1087,7 +1430,7 @@ nodes[2112] = { } -- Valdrakken
         showInZone = true,
         } -- Ship from Ratchet to Booty Bay
 
-        if (self.faction == "Horde") then
+        if (self.faction == "Horde") or db.show["EnemyFaction"] then
           nodes[947][31315572] = {
           name = L["Ship to Dazar'alor, Zandalar"],
           type = "HShip",
@@ -1098,57 +1441,57 @@ nodes[2112] = { } -- Valdrakken
 
       if (not self.db.profile.hideAzerothPortals) then  --Portals
 
-        if (self.faction == "Horde") then
+          nodes[947][22226727] = {
+          name = L["Portal to Zandalar(horde)/Boralus(alliance)"],
+          type = "Portal",
+          showInZone = true,
+          } -- Portal from Silithus to Zandalar
+
+        if (self.faction == "Horde") or db.show["EnemyFaction"] then
           nodes[947][23994090] = {
-          name = L["Portal to Zandalar"],
+          name = L["Portal to Zandalar (its only shown up ingame if your faction is currently occupying Bashal'Aran"],
           type = "HPortal",
           showInZone = true,
           } -- Portal from New Darkshore to Zandalar
-
-          nodes[947][22226727] = {
-          name = L["Portal to Zandalar"],
-          type = "HPortal",
-          showInZone = true,
-          } -- Portal from Silithus to Zandalar
         end
 
-        if (self.faction == "Horde") then
-          nodes[947][84864258] = {
-          name = L["Portal to Orgrimmar"],
-          type = "HPortal",
+        if (self.faction == "Alliance") or db.show["EnemyFaction"] then
+          nodes[947][24484189] = {
+          name = L["Portal to Boralus (its only shown up ingame if your faction is currently occupying Bashal'Aran"],
+          type = "APortal",
           showInZone = true,
-          } -- Portal from Tirisfal to Orgrimmar 
+          } -- Portal from New Darkshore to Boralus
         end
       end
 
       if (not self.db.profile.hideAzerothZeppelins) then  --Zeppelins
 
-        if (self.faction == "Horde") then
+        if (self.faction == "Horde") or db.show["EnemyFaction"] then
           nodes[947][30485132] = {
           name = L["Zeppelin to Walking Shores, Dragon Isles"],
           type = "HZeppelin",
           showInZone = true,
           } -- Zeppelin from Durotar to The Walking Shores - Dragonflight
         end
-
-        if (self.faction == "Alliance") then
-          nodes[947][78881571] = {
-          name = L["Ship to Stormwind"],
-          type = "AShip",
-          showInZone = true,
-          } -- Ship to Stormwind from The Walking Shores - Dragonflight
-        end
       end
 
       if (not self.db.profile.hideShips) then
 
-        if (self.faction == "Horde") then
-          nodes[12][62985416] = {
+        if (self.faction == "Horde") or db.show["EnemyFaction"] then
+          nodes[947][31315552] = {
           name = L["Ship to Dazar'alor, Zuldazar"],
           type = "HShip",
-          hideOnContinent = false,
           } -- Ship from Echo Isles to Dazar'alor - Zandalar
         end
+
+        if (self.faction == "Alliance") or db.show["EnemyFaction"] then
+          nodes[947][29966131] = {
+          name = L["Ship to Menethil Harbor, Wetlands"],
+          type = "AShip",
+          showInZone = true,
+          } -- Ship from Dustwallow Marsh to Menethil Harbor
+        end
+        
       end
     end
 
@@ -1294,14 +1637,21 @@ nodes[2112] = { } -- Valdrakken
 
       if (not self.db.profile.hideAzerothPortals) then  --Portals
 
-        if (self.faction == "Horde") then
+        if (self.faction == "Horde") or db.show["EnemyFaction"] then
           nodes[947][84864258] = {
           name = L["Portal to Orgrimmar"],
           type = "HPortal",
           showInZone = true,
           } -- Portal from Tirisfal to Orgrimmar 
 
-          nodes[947][91513204] = {
+          nodes[947][88074841] = {
+          name = L["Portal to Zandalar"],
+          type = "HPortal",
+          showInZone = true,
+          hideOnContinent = false,
+          } -- Portal from Arathi to Zandalar
+
+          nodes[947][91853164] = {
           name = L["Portal to Orgrimmar"],
           type = "HPortal",
           showInZone = true,
@@ -1311,7 +1661,7 @@ nodes[2112] = { } -- Valdrakken
 
       if (not self.db.profile.hideAzerothZeppelins) then  --Zeppelins
 
-        if (self.faction == "Horde") then
+        if (self.faction == "Horde") or db.show["EnemyFaction"] then
           nodes[947][85057132] = {
           name = L["Zeppelin to Orgrimmar"],
           type = "HZeppelin",
@@ -1327,6 +1677,14 @@ nodes[2112] = { } -- Valdrakken
         type = "Ship",
         showInZone = true,
         } -- Ship from Booty Bay to Ratchet
+
+        if (self.faction == "Alliance") or db.show["EnemyFaction"] then
+          nodes[947][83286294] = { 
+          name = L["Ships to Valiance Keep, Borean Tundra and to Boralus Harbor, Tiragarde Sound"],
+          type = "AShip",
+          showInZone = true,
+          } -- Ship from Stormwind to Valiance Keep
+        end
       end
     end
 
@@ -1418,7 +1776,7 @@ nodes[2112] = { } -- Valdrakken
 
       if (not self.db.profile.hideAzerothZeppelins) then  --Zeppelins
 
-        if (self.faction == "Horde") then
+        if (self.faction == "Horde") or db.show["EnemyFaction"] then
           nodes[947][41841870] = {
           name = L["Zeppelin to Orgrimmar"],
           type = "HZeppelin",
@@ -1426,87 +1784,25 @@ nodes[2112] = { } -- Valdrakken
           } -- Zeppelin from Borean Tundra to Ogrimmar
         end
       end
-    end
 
-    if (not self.db.profile.hideAzerothKulTiras) then  --Kul Tiras
+      if (not self.db.profile.hideAzerothShips) then  --Zeppelins
 
-      if (not self.db.profile.hideAzerothDungeon) then  --Dungeons
-
-        nodes[947][66294450] = { 
-        id = 1178,
-        type = "Dungeon",
-        showInZone = true,
-        } -- Operation: Mechagon
-
-        nodes[947][74365363] = {
-        id = 1001,
-        type = "Dungeon",
-        showInZone = true,
-        } -- Freehold
-
-        nodes[947][68354901] = {
-        id = 1021,
-        type = "Dungeon",
-        showInZone = true,
-        } -- Waycrest Manor
-
-        nodes[947][74224240] = {
-        id = 1036,
-        type = "Dungeon",
-        showInZone = true,
-        } -- Shrine of Storm
-
-        nodes[947][76205044] = {
-        id = 1002,
-        type = "Dungeon",
-        showInZone = true,
-        } -- Tol Dagor
-
-        nodes[947][74295059] = {
-        id = 1023,
-        type = "Dungeon",
-        showInZone = true,
-        } -- Siege of Boralus
-      end
-
-      if (not self.db.profile.hideAzerothRaid) then  --Raids
-        nodes[947][74404422] = {
-        id = 1177,
-        type = "Raid",
-        showInZone = true,
-        } -- Crucible of Storms
-      end
-
-      if (not self.db.profile.hideAzerothPortals) then  --Portals
-
-        if (self.faction == "Horde") then
-
-          nodes[947][67265130] = { 
-          name = L["Portal to Zuldazar"],
-          type = "HPortal",
+        if (self.faction == "Alliance") or db.show["EnemyFaction"] then
+          nodes[947][43232009] = {
+          name = L["Ship to Stormwind City"],
+          type = "AShip",
           showInZone = true,
-          } -- Portal from Drustvar to Zuldazar
+          } -- Ship from Borean Tundra to Stormwind
 
-          nodes[947][72244228] = { 
-          name = L["Portal to Zuldazar"],
-          type = "HPortal",
+          nodes[947][57602350] = {
+          name = L["Ship to Stormwind City"],
+          type = "AShip",
           showInZone = true,
-          } -- Portal from Stormsong Valley to Zuldazar
-
-          nodes[947][74745185] = { 
-          name = L["Portal to Zuldazar"],
-          type = "HPortal",
-          showInZone = true,
-          } -- Portal from Tiragarde Sound to Zuldazar
-
-          nodes[947][66604261] = { 
-          name = L["Portal to Zuldazar"],
-          type = "HPortal",
-          showInZone = true,
-          } -- Portal from Mechagon to Zuldazar
+          } -- Ship from Borean Tundra to Stormwind
         end
       end
     end
+
 
     if (not self.db.profile.hideAzerothPandaria) then  --Pandaria
 
@@ -1592,7 +1888,7 @@ nodes[2112] = { } -- Valdrakken
         showInZone = true,
         } -- Portal from IsleoftheThunderKing to Shado-Pan Garrison
 
-        if (self.faction == "Horde") then
+        if (self.faction == "Horde") or db.show["EnemyFaction"] then
           nodes[947][50477732] = {
           name = L["Portal to Orgrimmar"],
           type = "HPortal",
@@ -1687,7 +1983,7 @@ nodes[2112] = { } -- Valdrakken
 
       if (not self.db.profile.hideAzerothPortals) then  --Portals
         
-        if (self.faction == "Horde") then
+        if (self.faction == "Horde") or db.show["EnemyFaction"] then
           nodes[947][58574511] = {
           name = L["Portal to Orgrimmar"],
           type = "HPortal",
@@ -1702,7 +1998,7 @@ nodes[2112] = { } -- Valdrakken
           } -- Portal to Orgrimmar from Aszuna
         end
 
-        if (self.faction == "Alliance") then
+        if (self.faction == "Alliance") or db.show["EnemyFaction"] then
           nodes[947][58574511] = {
           name = L["Portal to Stormwind City"],
           type = "APortal",
@@ -1739,13 +2035,23 @@ nodes[2112] = { } -- Valdrakken
         id = 1030,
         type = "Dungeon",
         showInZone = true,
-        } -- Temple of Sethraliss
+        } -- Temple of Sethraliss    
+      
+        if (self.faction == "Horde") or db.show["EnemyFaction"] then
+          nodes[947][55156668] = {
+          id = 1012,
+          type = "Dungeon",
+          showInZone = true,
+          } -- The MOTHERLODE HORDE
+        end
 
-        nodes[947][55156668] = {
-        id = 1012,
-        type = "Dungeon",
-        showInZone = true,
-        } -- The MOTHERLODE HORDE
+        if (self.faction == "Alliance") then
+          nodes[947][53386795] = {
+          id = 1012,
+          type = "Dungeon",
+          showInZone = true,
+          } -- The MOTHERLODE Alliance
+        end
       end
 
       if (not self.db.profile.hideAzerothRaid) then  --Raids
@@ -1756,20 +2062,12 @@ nodes[2112] = { } -- Valdrakken
         showInZone = true,
         } -- The Eternal Palace
 
-        if (self.faction == "Horde") then
+        if (self.faction == "Horde") or db.show["EnemyFaction"] then
         nodes[947][55186352] = {
         id = 1176,
         type = "Raid",
         showInZone = true,
         } -- Battle of Dazar'alor
-        end
-
-        if (self.faction == "Alliance") then
-          nodes[876][62005250] = {
-          id = 1176,
-          type = "Raid",
-          showInZone = true,
-          } -- Battle of Dazar'alor
         end
       end
 
@@ -1787,12 +2085,144 @@ nodes[2112] = { } -- Valdrakken
       end
 
       if (not self.db.profile.hideAzerothShips) then  --Ships
-        
-        nodes[947][55506808] = {
-          name = L["Ship to Echo Isles, Durotar"],
+
+        if (self.faction == "Horde") or db.show["EnemyFaction"] then
+          nodes[947][55506808] = {
+          name = L["Ship to Echo Isles, Durotar or to Drustvar or to Tiragarde Sound or to Stormsong Valley"],
           type = "HShip",
           showInZone = true,
           } -- Ship from Zandalar to Echo Isles
+        end
+
+        if (self.faction == "Alliance") or db.show["EnemyFaction"] then
+          nodes[947][54066793] = {
+          name = L["Back to Boralus"],
+          type = "AShip",
+          showInZone = true,
+          } -- Ship from Zuldazar to Boralus
+
+          nodes[947][51405743] = {
+          name = L["Back to Boralus"],
+          type = "AShip",
+          showInZone = true,
+          } -- Ship from Vol'dun to Boralus
+
+          nodes[947][56705875] = {
+          name = L["Back to Boralus"],
+          type = "AShip",
+          showInZone = true,
+          } -- Ship from Nazmir to Boralus
+        end
+      end
+    end
+
+    if (not self.db.profile.hideAzerothKulTiras) then  --Kul Tiras
+
+      if (not self.db.profile.hideAzerothDungeon) then  --Dungeons
+
+        nodes[947][66824486] = { 
+        id = 1178,
+        type = "Dungeon",
+        showInZone = true,
+        } -- Operation: Mechagon
+
+        nodes[947][74365363] = {
+        id = 1001,
+        type = "Dungeon",
+        showInZone = true,
+        } -- Freehold
+
+        nodes[947][68354901] = {
+        id = 1021,
+        type = "Dungeon",
+        showInZone = true,
+        } -- Waycrest Manor
+
+        nodes[947][74224240] = {
+        id = 1036,
+        type = "Dungeon",
+        showInZone = true,
+        } -- Shrine of Storm
+
+        nodes[947][76205044] = {
+        id = 1002,
+        type = "Dungeon",
+        showInZone = true,
+        } -- Tol Dagor
+      end
+
+      if (not self.db.profile.hideAzerothRaid) then  --Raids
+        nodes[947][74404422] = {
+        id = 1177,
+        type = "Raid",
+        showInZone = true,
+        } -- Crucible of Storms
+      end
+
+      if (not self.db.profile.hideAzerothMultiple) then  --Multiple
+
+        if (self.faction == "Alliance") then
+          nodes[947][73014936] = {
+          id = { 1176, 1023 },
+          type = "Multiple",
+          showInZone = true,
+          } -- Battle of Dazar'alor, Boralus
+        end
+
+      end
+
+      if (not self.db.profile.hideAzerothPortals) then  --Portals
+
+        if (self.faction == "Alliance") or db.show["EnemyFaction"] then
+          nodes[947][55666511] = {
+          name = L["Portalroom from Dazar'alor"],
+          type = "HPortal",
+          showInZone = true,
+          } -- Portalroom from Dazar'Alor
+
+          nodes[947][73394840] = {
+          name = L["Portalroom from Boralus"],
+          type = "APortal",
+          showInZone = true,
+          } -- Portalroom from Boralus
+        end
+      end
+
+      if (not self.db.profile.hideAzerothShips) then  --Ship
+
+        if (self.faction == "Horde") or db.show["EnemyFaction"] then
+          nodes[947][67265130] = { 
+          name = L["Back to Zuldazar"],
+          type = "HShip",
+          showInZone = true,
+          } -- Ship from Drustvar to Zuldazar
+
+          nodes[947][72244228] = { 
+          name = L["Back to Zuldazar"],
+          type = "HShip",
+          showInZone = true,
+          } -- Ship from Stormsong Valley to Zuldazar
+
+          nodes[947][74745185] = { 
+          name = L["Back to Zuldazar"],
+          type = "HShip",
+          showInZone = true,
+          } -- Ship from Tiragarde Sound to Zuldazar
+
+          nodes[947][65864376] = { 
+          name = L["(Captain Krooz) will take you back to Zuldazar"],
+          type = "TransportHelper",
+          showInZone = true,
+          } -- Ship from Mechagon to Zuldazar
+        end
+
+        if (self.faction == "Alliance") or db.show["EnemyFaction"] then
+          nodes[947][73914927] = {
+          name = L["Ship to Stormwind City or to Vol'Dun or to Nazmir or to Zuldazar"],
+          type = "AShip",
+          showInZone = true,
+          } -- Ship to Stormwind from Boralus
+        end
       end
     end
 
@@ -1871,12 +2301,13 @@ nodes[2112] = { } -- Valdrakken
         type = "Portal",
         showInZone = true,
         } --  Portal from Valdrakken to Nazmir, Uldum and Tiragarde Sound
+        
       end
 
       if (not self.db.profile.hideAzerothZeppelins) then  --Zeppelins
 
-        if (self.faction == "Horde") then
-          nodes[947][79041540] = {
+        if (self.faction == "Horde") or db.show["EnemyFaction"] then
+          nodes[947][77851451] = {
           name = L["Zeppelin to Orgrimmar"],
           type = "HZeppelin",
           showInZone = true,
@@ -1886,6 +2317,13 @@ nodes[2112] = { } -- Valdrakken
 
       if (not self.db.profile.hideAzerothShips) then --Ships
 
+        if (self.faction == "Alliance") or db.show["EnemyFaction"] then
+          nodes[947][79021601] = {
+          name = L["Ship to Stormwind City"],
+          type = "AShip",
+          showInZone = true,
+          } -- Ship to Stormwind from The Walking Shores - Dragonflight
+        end
       end
     end
   end
@@ -2102,21 +2540,28 @@ nodes[2112] = { } -- Valdrakken
       -- Kalimdor Portals
       if (not self.db.profile.hidePortals) then
 
-          if (self.faction == "Horde") then     
+            nodes[81][41614520] = {
+            name = L["Portal to Zandalar(horde)/Boralus(alliance)"],
+            type = "Portal",
+            showInZone = true,
+            hideOnContinent = false,
+            } -- Portal from Silithus to Zandalar/Boralus
 
-            nodes[62][48033349] = {
-            name = L["Portal to Zandalar"],
+          if (self.faction == "Horde") or db.show["EnemyFaction"] then     
+
+            nodes[12][45842223] = {
+            name = L["Portal to Zandalar (its only shown up ingame if your faction is currently occupying Bashal'Aran"],
             type = "HPortal",
             showInZone = true,
             hideOnContinent = false,
             } -- Portal from New Darkshore to Zandalar
-    
-            nodes[81][41614520] = {
-            name = L["Portal to Zandalar"],
+
+            nodes[62][46243511] = {
+            name = L["Portal to Zandalar (its only shown up ingame if your faction is currently occupying Bashal'Aran"],
             type = "HPortal",
             showInZone = true,
-            hideOnContinent = false,
-            } -- Portal from Silithus to Zandalar
+            hideOnContinent = true,
+            } -- Portal from New Darkshore to Zandalar
 
             nodes[85][50765561] = {
             name = L["Portal to Ruins of Lordaeron, Undercity (on the tower)"],
@@ -2126,74 +2571,91 @@ nodes[2112] = { } -- Valdrakken
             } -- Ruins of Lordaeron
 
             nodes[85][55988822] = {
-            name =  L["Portal to Silvermoon City (inside building)"],
+            name =  L["Portal to Stormwind City (inside building)"],
             type = "HPortal",
             hideOnContinent = true,
-            showInZone = true,
+            showInZone = false,
             } -- Silvermoon City Portalroom
 
             nodes[85][57098737] = {
-            name =  L["Portal to Valdrakken (inside building)"],
+            name =  L["Portal to Valdrakken (inside portal chamber)"],
             type = "HPortal",
             hideOnContinent = true,
-            showInZone = true,
+            showInZone = false,
             } --  Valdrakken Portalroom
 
             nodes[85][58308788] = {
-            name = L["Portal to Oribos (inside building)"],
+            name = L["Portal to Oribos (inside portal chamber)"],
             type = "HPortal",
             hideOnContinent = true,
-            showInZone = true,
+            showInZone = false,
             } -- Oribos Portalroom
 
             nodes[85][58858950] = {
-            name = L["Portal to Azsuna (inside building)"],
+            name = L["Portal to Azsuna (inside portal chamber)"],
             type = "HPortal",
             hideOnContinent = true,
-            showInZone = true,
+            showInZone = false,
             } -- Azsuna Portalroom
 
             nodes[85][57479217] = {
-            name = L["Portal to Zuldazar (inside building)"],
+            name = L["Portal to Zuldazar (inside portal chamber)"],
             type = "HPortal",
             hideOnContinent = true,
-            showInZone = true,
+            showInZone = false,
             } -- Zuldazar Portalroom
 
             nodes[85][57479225] = {
-            name = L["Portal to The Jade Forest (inside building)"],
+            name = L["Portal to The Jade Forest (inside portal chamber)"],
             type = "HPortal",
             hideOnContinent = true,
-            showInZone = true,
+            showInZone = false,
             } -- The Jade Forest Portalroom
 
             nodes[85][56249171] = {
-            name = L["Portal to Dalaran, Crystalsong Forest (inside building)"],
+            name = L["Portal to Dalaran, Crystalsong Forest (inside portal chamber)"],
             type = "HPortal",
             hideOnContinent = true,
-            showInZone = true,
+            showInZone = false,
             } -- Crystalsong Forest (Old Dalaran) Portalroom
 
             nodes[85][57409153] = {
             name =  L["Portal to Shattrath (at basement)"],
             type = "HPortal",
             hideOnContinent = true,
-            showInZone = true,
+            showInZone = false,
             } -- Shattrath Portalroom
 
             nodes[85][56399252] = {
             name = L["Portal to Caverns of Time (at basement)"],
             type = "HPortal",
             hideOnContinent = true,
-            showInZone = true,
+            showInZone = false,
             } -- Caverns of Time Portalroom
 
             nodes[85][55209201] = {
             name = L["Portal to Warspear, Ashran (at basement)"],
             type = "HPortal",
             hideOnContinent = true,
-            showInZone = true,
+            showInZone = false,
           } -- Warspear - Ashran Portalroom  
+        end
+
+          if (self.faction == "Alliance") or db.show["EnemyFaction"] then
+
+            nodes[12][47092322] = {
+            name = L["Portal to Boralus (its only shown up ingame if your faction is currently occupying Bashal'Aran"],
+            type = "APortal",
+            showInZone = true,
+            hideOnContinent = true,
+            } -- Portal from New Darkshore to Zandalar
+
+            nodes[62][48023628] = {
+            name = L["Portal to Boralus (its only shown up ingame if your faction is currently occupying Bashal'Aran"],
+            type = "APortal",
+            showInZone = true,
+            hideOnContinent = false,
+            } -- Portal from New Darkshore to Zandalar
           end
       end
 
@@ -2214,8 +2676,21 @@ nodes[2112] = { } -- Valdrakken
         nodes[10][70177323] = { 
         name = L["Ship to Booty Bay, Stranglethorn Vale"],
         type = "Ship",
-        hideOnContinent = false,
         } -- Ship from Ratchet to Booty Bay Ship
+
+        if (self.faction == "Horde") or db.show["EnemyFaction"] then
+          nodes[12][62985416] = {
+          name = L["Ship to Dazar'alor, Zuldazar"],
+          type = "HShip",
+          } -- Ship from Echo Isles to Dazar'alor - Zandalar
+        end
+
+        if (self.faction == "Alliance") or db.show["EnemyFaction"] then
+          nodes[12][59266609] = {
+          name = L["Ship to Menethil Harbor, Wetlands"],
+          type = "AShip",
+          } -- Ship from Dustwallow Marsh to Menethil Harbor
+        end
       end
     end
 
@@ -2309,7 +2784,7 @@ nodes[2112] = { } -- Valdrakken
 
       -- Outland Portals
       if (not self.db.profile.hidePortals) then
-        if (self.faction == "Horde") then
+        if (self.faction == "Horde") or db.show["EnemyFaction"] then
           nodes[100][88574770] = {
           name = L["Portal to Orgrimmar"],
           type = "HPortal",
@@ -2325,7 +2800,7 @@ nodes[2112] = { } -- Valdrakken
           } --  Portal from Hellfire to Orgrimmar
         end
 
-        if (self.faction == "Alliance") then
+        if (self.faction == "Alliance") or db.show["EnemyFaction"] then
           nodes[100][88635281] = {
           name = L["Portal to Stormwind City"],
           type = "APortal",
@@ -2447,12 +2922,29 @@ nodes[2112] = { } -- Valdrakken
 
       if (not self.db.profile.hideAzerothZeppelins) then  --Zeppelins
 
-        if (self.faction == "Horde") then
+        if (self.faction == "Horde") or db.show["EnemyFaction"] then
           nodes[113][18766562] = {
           name = L["Zeppelin to Orgrimmar"],
           type = "HZeppelin",
           showInZone = true,
           } -- Zeppelin from Borean Tundra to Ogrimmar
+        end
+      end
+
+      if (not self.db.profile.hideAzerothShips) then  --Ships
+
+        if (self.faction == "Alliance") or db.show["EnemyFaction"] then
+          nodes[113][24557044] = {
+          name = L["Ship to Stormwind City"],
+          type = "AShip",
+          showInZone = true,
+          } -- Ship to Stormwind from Borean Tundra
+
+          nodes[113][78998350] = {
+          name = L["Ship to Stormwind City"],
+          type = "AShip",
+          showInZone = true,
+          } -- Ship to Stormwind from Borean Tundra
         end
       end
     end
@@ -2606,14 +3098,14 @@ nodes[2112] = { } -- Valdrakken
       --Eastern Kingdom Portals
       if (not self.db.profile.hidePortals) then
 
-        if (self.faction == "Horde") then
+        if (self.faction == "Horde") or db.show["EnemyFaction"] then
           nodes[18][60205802] = {
           name = L["Portal to Orgrimmar (new Tirisfal timeline)"],
           type = "HPortal",
           showInZone = true,
           } -- Portal to Orgrimmar from Tirisfal  
 
-          nodes[94][53223185] = {
+          nodes[94][54552795] = {
           name = L["Portal to Orgrimmar"],
           type = "HPortal",
           showInZone = true,
@@ -2626,6 +3118,85 @@ nodes[2112] = { } -- Valdrakken
           showInZone = true,
           hideOnContinent = true,
           } -- Portal to Orgrimmar from Silvermoon
+
+          nodes[14][27442938] = {
+          name = L["Portal to Zandalar"],
+          type = "HPortal",
+          showInZone = true,
+          hideOnContinent = false,
+          } -- Portal from Arathi to Zandalar
+        end
+
+        if (self.faction == "Alliance") or db.show["EnemyFaction"] then
+          nodes[84][43748538] = { 
+          name = L["Portal to Caverns of Time (inside portal chamber)"],
+          type = "APortal",
+          showInZone = false,
+          hideOnContinent = true,
+          } -- Portal to Caverns of Time
+
+          nodes[84][44888577] = { 
+          name = L["Portal to Shattrath (inside portal chamber)"],
+          type = "APortal",
+          showInZone = false,
+          hideOnContinent = true,
+          } -- Portal to Shattrath
+
+          nodes[84][43638719] = { 
+          name = L["Portal to Exodar (inside portal chamber)"],
+          type = "APortal",
+          showInZone = false,
+          hideOnContinent = true,
+          } -- Portal to Exodar
+
+          nodes[84][44388868] = { 
+          name = L["Portal to Dalaran, Crystalsong Forest (inside portal chamber)"],
+          type = "APortal",
+          showInZone = false,
+          hideOnContinent = true,
+          } -- Portal to Dalaran
+
+          nodes[84][45708715] = { 
+          name = L["Portal to The Jade Forest (inside portal chamber)"],
+          type = "APortal",
+          showInZone = false,
+          hideOnContinent = true,
+          } -- Portal to Jade Forest
+
+          nodes[84][48099198] = { 
+          name = L["Portal to Stormshield, Ashran (inside portal chamber)"],
+          type = "APortal",
+          showInZone = false,
+          hideOnContinent = true,
+          } -- Portal to Stormshield
+
+          nodes[84][46869339] = { 
+          name = L["Portal to Azsuna (inside portal chamber)"],
+          type = "APortal",
+          showInZone = false,
+          hideOnContinent = true,
+          } -- Portal to Azsuna
+
+          nodes[84][47579495] = { 
+          name = L["Portal to Oribos (inside portal chamber)"],
+          type = "APortal",
+          showInZone = false,
+          hideOnContinent = true,
+          } -- Portal to Oribos
+
+          nodes[84][48849344] = { 
+          name = L["Portal to Valdrakken (inside portal chamber)"],
+          type = "APortal",
+          showInZone = false,
+          hideOnContinent = true,
+          } -- Portal to Valdrakken
+
+          nodes[84][48759519] = { 
+          name = L["Portal to Boralus (inside portal chamber)"],
+          type = "APortal",
+          showInZone = false,
+          hideOnContinent = true,
+          } -- Portal to Boralus
         end
       end
 
@@ -2637,6 +3208,14 @@ nodes[2112] = { } -- Valdrakken
         type = "Ship",
         hideOnContinent = false,
         } -- Ship from Booty Bay to Ratchet
+
+        if (self.faction == "Alliance") or db.show["EnemyFaction"] then
+          nodes[13][40937205] = { 
+          name = L["Ships to Valiance Keep, Borean Tundra and to Boralus Harbor, Tiragarde Sound"],
+          type = "AShip",
+          showInZone = true,
+          } -- Ship from Stormwind to Valiance Keep
+        end
       end
     end
 
@@ -2730,7 +3309,7 @@ nodes[2112] = { } -- Valdrakken
         showInZone = true,
         } -- Portal from IsleoftheThunderKing to Shado-Pan Garrison
 
-        if (self.faction == "Horde") then
+        if (self.faction == "Horde") or db.show["EnemyFaction"] then
           nodes[424][59733518] = {
           name = L["Portal to Orgrimmar"],
           type = "HPortal",
@@ -2805,7 +3384,7 @@ nodes[2112] = { } -- Valdrakken
       --Draenor Portals
       if (not self.db.profile.hidePortals) then
 
-        if (self.faction == "Horde") then
+        if (self.faction == "Horde") or db.show["EnemyFaction"] then
 
           nodes[572][71343912] = {
           name = L["Portal to Orgrimmar or Vol'mar"],
@@ -2971,7 +3550,7 @@ nodes[2112] = { } -- Valdrakken
       --Broken Isles Portals
       if (not self.db.profile.hidePortals) then
 
-        if (self.faction == "Horde") then
+        if (self.faction == "Horde") or db.show["EnemyFaction"] then
           nodes[627][55242392] = {
           name = L["Portal to Orgrimmar"],
           type = "HPortal",
@@ -2993,7 +3572,7 @@ nodes[2112] = { } -- Valdrakken
           } -- Portal to Orgrimmar from Aszuna
         end
 
-        if (self.faction == "Alliance") then
+        if (self.faction == "Alliance") or db.show["EnemyFaction"] then
           nodes[627][40416378] = {
           name = L["Portal to Stormwind City"],
           type = "APortal",
@@ -3013,6 +3592,12 @@ nodes[2112] = { } -- Valdrakken
           showInZone = true,
           hideOnContinent = false,
           } -- Portal to Stormwind from Aszuna
+
+          nodes[941][43092506] = {
+          name = L["Portal to Stormwind City"],
+          type = "APortal",
+          showInZone = false,
+          } --  Portal from Krokuun - Vindikaar to Stormwind
          end
       end
     end
@@ -3043,20 +3628,26 @@ nodes[2112] = { } -- Valdrakken
         id = 1030,
         type = "Dungeon",
         } -- Temple of Sethraliss
-
-        nodes[1165][44049256] = {
-        id = 1012,
-        type = "Dungeon",
-        showInZone = true,
-        } -- The MOTHERLODE HORDE
-      end
-
-      if (self.faction == "Horde") then
-
-        nodes[862][55995989] = {
-        id = 1012,
-        type = "Dungeon",
-        } -- The MOTHERLODE HORDE
+      
+        if (self.faction == "Horde") or db.show["EnemyFaction"] then
+          nodes[1165][44049256] = {
+          id = 1012,
+          type = "Dungeon",
+          showInZone = true,
+          } -- The MOTHERLODE HORDE
+        
+          nodes[862][55995989] = {
+          id = 1012,
+          type = "Dungeon",
+          } -- The MOTHERLODE HORDE
+        end
+      
+        if (self.faction == "Alliance") or db.show["EnemyFaction"] then
+          nodes[875][45457850] = {
+          id = 1012,
+          type = "Dungeon",
+          } -- The MOTHERLODE Alliance
+        end
       end
 
       --Zandalar Raids
@@ -3072,7 +3663,7 @@ nodes[2112] = { } -- Valdrakken
         type = "Raid",
         } -- The Eternal Palace
       
-        if (self.faction == "Horde") then
+        if (self.faction == "Horde") or db.show["EnemyFaction"] then
         nodes[875][56005350] = {
         id = 1176,
         type = "Raid",
@@ -3083,13 +3674,7 @@ nodes[2112] = { } -- Valdrakken
       -- Zandalar Portals
       if (not self.db.profile.hidePortals) then
 
-        if (self.faction == "Horde") then
-          nodes[862][54985825] = {
-          name = L["Portal to Mechagon"],
-          type = "HPortal",
-          showInZone = true,
-          hideOnContinent = false,
-          } -- Portal from Dazar'alor to Mechagon
+        if (self.faction == "Horde") or db.show["EnemyFaction"] then
 
           nodes[862][58474432] = {
           name = L["Portalroom from Dazar'alor (inside building)"],
@@ -3136,18 +3721,23 @@ nodes[2112] = { } -- Valdrakken
           } -- Portalroom from Dazar'alor
 
           nodes[1165][41838761] = {
-          name = L["Portal to Mechagon"],
-          type = "HPortal",
-          showInZone = true,
-          hideOnContinent = false,
-          } -- Portal from Dazar'alor to Mechagon
-
-          nodes[862][58466298] = {
-          name = L["(Dread-Admiral Tattersail) transport you to Drustvar, Tiragarde Sound or Stormsong Valley"],
+          name = L["(Captain Krooz) will take you to Mechagon"],
           type = "TransportHelper",
           showInZone = true,
           hideOnContinent = false,
           } -- Portal from Dazar'alor to Mechagon
+
+          nodes[1165][51929455] = {
+          name = L["These portals are only active in the game if your faction is currently occupying (Ar'gorok for the Arathi Highlands portal) or (Bashal'Aran for the Darkshore portal)"],
+          type = "HPortal",
+          showInZone = true,
+          } -- Portal from Dazar'alor to Arathi or Darkshore
+
+          nodes[862][58486027] = {
+          name = L["These portals are only active in the game if your faction is currently occupying (Ar'gorok for the Arathi Highlands portal) or (Bashal'Aran for the Darkshore portal)"],
+          type = "HPortal",
+          showInZone = true,
+          } -- Portal from Dazar'alor to Arathi or Darkshore
 
           nodes[1355][47276279] = {
            name = L["Portal to Dazar'alor"],
@@ -3160,16 +3750,64 @@ nodes[2112] = { } -- Valdrakken
 
       if (not self.db.profile.hideShips) then
 
-        nodes[875][57957497] = {
-        name = L["Ship to Echo Isles, Durotar"],
-        type = "HShip",
-        } -- Ship from Zandalar to Echo Isles
+        if (self.faction == "Horde") or db.show["EnemyFaction"] then
+          nodes[875][57957497] = {
+          name = L["Ship to Echo Isles, Durotar"],
+          type = "HShip",
+          } -- Ship from Zandalar to Echo Isles
+
+          nodes[862][54985825] = {
+          name = L["(Captain Krooz) will take you to Mechagon"],
+          type = "TransportHelper",
+          showInZone = true,
+          hideOnContinent = false,
+          } -- Ship from Dazar'alor to Mechagon
+
+          nodes[1462][75522266] = {
+          name = L["(Captain Krooz) will take you back to Zuldazar"],
+          type = "TransportHelper",
+          showInZone = true,
+          hideOnContinent = false,
+          } -- Ship from Mechagon to Zuldazar
+
+          nodes[862][58466298] = {
+            name = L["(Dread-Admiral Tattersail) will take you to Drustvar, Tiragarde Sound or Stormsong Valley"],
+            type = "TransportHelper",
+            showInZone = true,
+            hideOnContinent = false,
+            } -- Ship from Dazar'alor to Drustvar, Tiragarde Sound or Stormsong Valley
+        end
+
+        if (self.faction == "Alliance") or db.show["EnemyFaction"] then
+          nodes[875][33051846] = {
+          name = L["Back to Boralus"],
+          type = "AShip",
+          } -- Ship to Boralus from Vol'dun
+
+          nodes[875][62402600] = {
+          name = L["Back to Boralus"],
+          type = "AShip",
+          } -- Ship to Boralus from Nazmir
+
+          nodes[875][47177779] = {
+          name = L["Back to Boralus"],
+          type = "AShip",
+          } -- Ship to Boralus from Zuldazar
+
+          nodes[1161][67952670] = {
+          name = L["(Grand Admiral Jes-Tereth) will take you to Vol'Dun, Nazmir or Zuldazar"],
+          type = "TransportHelper",
+          showInZone = true,
+          hideOnContinent = false,
+          } -- Portal from Dazar'alor to Mechagon
+        end
       end
     end
 
     -- Kul Tiras
     if (not self.db.profile.hideKulTiras) then 
 
+      if (not self.db.profile.hideDungeons) then
         nodes[876][19872697] = { 
         id = 1178,
         type = "Dungeon",
@@ -3195,25 +3833,19 @@ nodes[2112] = { } -- Valdrakken
         type = "Dungeon",
         } -- Tol Dagor
 
-        if (self.faction == "Alliance") then
-                  
-        nodes[862][39227137] = {
-        id = 1012,
-        type = "Dungeon",
-        } -- The MOTHERLODE ALLIANCE
+        if (self.faction == "Alliance") or db.show["EnemyFaction"] then
+          nodes[876][61865000] = {
+          id = 1023,
+          type = "Dungeon",
+          } -- Siege of Boralus
+        end
 
-        nodes[876][61825067] = {
-        id = 1023, -- LFG 1700, 1701
-        type = "Dungeon",
-        } -- Siege of Boralus
-      end
-
-      if (self.faction == "Horde") then
-
-        nodes[876][69936482] = {
-        id = 1023,
-        type = "Dungeon",
-        } -- Siege of Boralus
+        if (self.faction == "Horde") or db.show["EnemyFaction"] then
+          nodes[876][69936482] = {
+          id = 1023,
+          type = "Dungeon",
+          } -- Siege of Boralus
+        end
       end
 
       --Kul Tiras Raids
@@ -3229,41 +3861,107 @@ nodes[2112] = { } -- Valdrakken
         type = "Raid",
         } -- The Eternal Palace
 
-        if (self.faction == "Alliance") then
-        nodes[876][62005250] = {
-        id = 1176,
-        type = "Raid",
-        } -- Battle of Dazar'alor
+        if (self.faction == "Alliance") or db.show["EnemyFaction"] then
+          nodes[876][61645308] = {
+          id = 1176,
+          type = "Raid",
+          } -- Battle of Dazar'alor
         end
       end
 
       -- Kul Tiras Portals
       if (not self.db.profile.hidePortals) then
 
-        if (self.faction == "Horde") then
-          nodes[876][25676657] = { 
-          name = L["Portal to Zuldazar"],
-          type = "HPortal",
+        if (self.faction == "Alliance") or db.show["EnemyFaction"] then
+          nodes[876][61085021] = {
+          name = L["Portalroom from Boralus (inside building)"],
+          type = "APortal",
           showInZone = true,
+          hideOnContinent = false,
+          } -- portalroom from Boralus
+
+          nodes[1161][70351605] = {
+          name = L["Portalroom from Boralus (inside building)"],
+          type = "APortal",
+          showInZone = true,
+          hideOnContinent = false,
+          } -- Portalroom from Boralus
+
+          nodes[895][74072427] = {
+          name = L["Portalroom from Boralus (inside building)"],
+          type = "APortal",
+          showInZone = true,
+          } -- Portalroom from Boralus
+
+          nodes[1161][69641590] = {
+          name = L["Portal to Silithus"],
+          type = "APortal",
+          showInZone = false,
+          hideOnContinent = true,
+          } -- Portalroom from Boralus
+
+          nodes[1161][70131684] = {
+          name = L["Portal to Stormwind City"],
+          type = "APortal",
+          showInZone = false,
+        } -- Portalroom from Boralus
+
+          nodes[1161][70381499] = {
+          name = L["Portal to Exodar"],
+          type = "APortal",
+          showInZone = false,
+        } -- Portalroom from Boralus
+
+          nodes[1161][70891536] = {
+          name = L["Portal to Ironforge"],
+          type = "APortal",
+          showInZone = false,
+        } -- Portalroom from Boralus
+
+          nodes[1161][66202451] = {
+          name = L["These portals are only active in the game if your faction is currently occupying (Ar'gorok for the Arathi Highlands portal) or (Bashal'Aran for the Darkshore portal)"],
+          type = "APortal",
+          showInZone = true,
+        } -- Portalroom from Boralus
+
+          nodes[1161][66202451] = {
+          name = L["These portals are only active in the game if your faction is currently occupying (Ar'gorok for the Arathi Highlands portal) or (Bashal'Aran for the Darkshore portal)"],
+          type = "APortal",
+          showInZone = true,
+        } -- Portalroom from Boralus
+        end
+      end
+
+      -- Kul Tiras Ships
+      if (not self.db.profile.hideShips) then
+
+        if (self.faction == "Horde") or db.show["EnemyFaction"] then
+          nodes[876][25676657] = { 
+          name = L["Back to Zuldazar"],
+          type = "HShip",
           } -- Portal from Drustvar to Zuldazar
 
           nodes[876][54391406] = { 
-          name = L["Portal to Zuldazar"],
-          type = "HPortal",
-          showInZone = true,
+          name = L["Back to Zuldazar"],
+          type = "HShip",
           } -- Portal from Stormsong Valley to Zuldazar
 
           nodes[876][68326548] = { 
-          name = L["Portal to Zuldazar"],
-          type = "HPortal",
-          showInZone = true,
+          name = L["Back to Zuldazar"],
+          type = "HShip",
           } -- Portal from Tiragarde Sound to Zuldazar
 
           nodes[876][20182395] = { 
-          name = L["Portal to Zuldazar"],
-          type = "HPortal",
-          showInZone = true,
+          name = L["Back to Zuldazar"],
+          type = "HShip",
           } -- Portal from Mechagon to Zuldazar
+        end
+
+        if (self.faction == "Alliance") or db.show["EnemyFaction"] then
+          nodes[876][62485167] = {
+          name = L["Ship to Stormwind City"],
+          type = "AShip",
+          } -- Ship to Stormwind
         end
       end
     end
@@ -3274,12 +3972,12 @@ nodes[2112] = { } -- Valdrakken
       -- Shadowlands Dungeons
       if (not self.db.profile.hideDungeons) then
 
-        nodes[1533][60007577] = {
+        nodes[1533][40085519] = {
         id = 1182,
         type = "Dungeon",
         } -- The Necrotic Wake
 
-        nodes[1533][58472870] = {
+        nodes[1533][58602852] = {
         id = 1186,
         type = "Dungeon",
         } -- Spires of Ascension
@@ -3299,12 +3997,12 @@ nodes[2112] = { } -- Valdrakken
         type = "Dungeon",
         } -- Mists of Tirna Scithe
 
-        nodes[1565][68606598] = {
+        nodes[1565][68646667] = {
         id = 1188,
         type = "Dungeon",
         } -- De Other Side
 
-        nodes[1525][77964852] = {
+        nodes[1525][78624930] = {
         id = 1185,
         type = "Dungeon",
         } -- Halls of Atonement
@@ -3314,7 +4012,12 @@ nodes[2112] = { } -- Valdrakken
         type = "Dungeon",
         } -- Sanguine Depths
 
-        nodes[1565][00003200] = {
+        nodes[1550][31957638] = {
+        id = 1194,
+        type = "Dungeon",
+        } -- Tazavesh, the Veiled Market
+
+        nodes[2016][88914392] = {
         id = 1194,
         type = "Dungeon",
         } -- Tazavesh, the Veiled Market
@@ -3323,7 +4026,12 @@ nodes[2112] = { } -- Valdrakken
       --Shadowlands Raids
       if (not self.db.profile.hideRaids) then
 
-        nodes[1533][99999999] = {
+        nodes[1550][89067983] = {
+        id = 1195,
+        type = "Raid",
+        } -- Sepulcher of the First Ones
+
+        nodes[1970][80765336] = {
         id = 1195,
         type = "Raid",
         } -- Sepulcher of the First Ones
@@ -3333,16 +4041,21 @@ nodes[2112] = { } -- Valdrakken
         type = "Raid",
         } -- Castle Nathria 
 
-        nodes[1543][68688540] = {
+        nodes[1550][27081359] = {
         id = 1193,
         type = "Raid",
         } -- Sanctum of Domination   
+
+        nodes[1543][69703210] = {
+        id = 1193,
+        type = "Raid",
+        } -- Sanctum of Domination  
       end
 
       -- Shadowlands Portals
       if (not self.db.profile.hidePortals) then
 
-        if (self.faction == "Horde") then
+        if (self.faction == "Horde") or db.show["EnemyFaction"] then
           nodes[1670][20805432] = {
           name = L["Portal to Orgrimmar"],
           type = "HPortal",
@@ -3358,7 +4071,7 @@ nodes[2112] = { } -- Valdrakken
           } --  Oribos to Orgrimmar Portal
         end
 
-        if (self.faction == "Alliance") then
+        if (self.faction == "Alliance") or db.show["EnemyFaction"] then
           nodes[1670][20654625] = {
           name = L["Portal to Stormwind City"],
           type = "APortal",
@@ -3458,9 +4171,9 @@ nodes[2112] = { } -- Valdrakken
         type = "Portal",
         hideOnContinent = false,
         showInZone = true,
-      } --  Portal from Valdrakken to Nazmir, Uldum and Tiragarde Sound
+        } --  Portal from Valdrakken to Nazmir, Uldum and Tiragarde Sound
 
-        if (self.faction == "Horde") then
+        if (self.faction == "Horde") or db.show["EnemyFaction"] then
           nodes[2112][56593828] = {
           name = L["Portal to Orgrimmar (inside building)"],
           type = "HPortal",
@@ -3469,7 +4182,7 @@ nodes[2112] = { } -- Valdrakken
           } --  Valdrakken to Orgrimmar Portal
         end
 
-        if (self.faction == "Alliance") then
+        if (self.faction == "Alliance") or db.show["EnemyFaction"] then
           nodes[2112][59804169] = {
           name = L["Portal to Stormwind City (inside building)"],
           type = "APortal",
@@ -3477,21 +4190,34 @@ nodes[2112] = { } -- Valdrakken
           showInZone = true,
           } --  Valdrakken to Stormwind City Portal
         end
+      end
 
-        if (not self.db.profile.hideZeppelins) then
-          if (self.faction == "Horde") then
-          nodes[1978][59572607] = {
-          name = L["Zeppelin to Orgrimmar"],
-          type = "HZeppelin",
+
+      if (not self.db.profile.hideZeppelins) then      -- Zeppelin
+
+        if (self.faction == "Horde") or db.show["EnemyFaction"] then
+        nodes[1978][59572607] = {
+        name = L["Zeppelin to Orgrimmar"],
+        type = "HZeppelin",
+        showInZone = true,
+        } -- Zeppelin from The Walking Shores to Orgrimmar 
+        end
+      end
+
+      if (not self.db.profile.hideShip) then
+
+        if (self.faction == "Alliance") or db.show["EnemyFaction"] then
+          nodes[1978][59732701] = {
+          name = L["Ship to Stormwind City"],
+          type = "AShip",
           showInZone = true,
-          } -- Zeppelin from The Walking Shores to Orgrimmar - Dragonflight
-          end
+          } -- Zeppelin from The Walking Shores to Stormwind
         end
       end
     end
   end
 end --End of Line 596
-
+end --HideMapNote Line
 
 function Addon:ProcessTable()
 table.wipe(lfgIDs)
@@ -3518,9 +4244,6 @@ lfgIDs = {
 
 [900]=1488
 }
-
-
-
 
 function Addon:UpdateAlter(id, name)
   if (lfgIDs[id]) then
@@ -3553,7 +4276,6 @@ for i,v in pairs(nodes) do
     end
   end
 end
-
 
 function Addon:UpdateInstanceNames(node)
   local dungeonInfo = EJ_GetInstanceInfo
