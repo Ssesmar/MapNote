@@ -18,8 +18,10 @@ L["• gray colored symbols"] = "• simboli di colore grigio"
 L["If you are assigned to a dungeon or raid and have an ID, this option will turn the dungeon or raid icon gray until this ID is reset so that you can see which dungeon or raid you have started or completed"] = "Utilizza simboli di colore grigio per dungeon e raid in cui hai ucciso dei boss e quindi sei assegnato a quel dungeon o raid fino a quando l'ID non viene reimpostato da Blizzard"
 L["• gray multiple points"] = "• punti multipli grigi"
 L["Colors multi-points of dungeons and/or raids in gray if you are assigned to any dungeon or raid of this multi-point and have an ID so that you can see that you have started or completed any dungeon or raid of the multi-point"] = "Visualizza più punti in grigio se ti sono stati assegnati in >QUALSIASI< del dungeon o raid elencato del punto"
-L["• enemy faction"] = true
-L["Shows enemy faction (horde/alliance) symbols too"] = true
+L["• enemy faction"] = "• fazione nemica"
+L["Shows enemy faction (horde/alliance) symbols too"] = "Mostra anche i simboli della fazione nemica (orda/alleanza)"
+L["• Old Raids/Dungeons"] = "• Antiguas incursiones/mazmorras"
+L["Show vanilla versions of dungeons and raids such as Naxxramas, Scholomance or Scarlet Monastery, which require achievements or other things"] = "Mostra versioni vanilla di dungeon e incursioni come Naxxramas, Scholomance o Scarlet Monastero, che richiedono obiettivi o altre cose"
 
 
 --2
@@ -128,12 +130,13 @@ L["Passage"] = "Passaggio"
 
 
 --6 Portals
+L["Dark Portal (Portal to Warspear, Ashran)"] = "Portale Oscuro (Portale per Lancia da Guerra, Ashran)"
+L["Dark Portal (Portal to Stormshield, Ashran)"] = "Portale Oscuro (Portale per Stormshield, Ashran)"
 L["Portal to Orgrimmar"] = "Portale per Orgrimmar"
 L["Portal to Orgrimmar (inside building)"] = "Portale per Orgrimmar (all'interno dell'edificio)"
 L["Portal to Stormwind City"] = "Portale per Stormwind City"
 L["Portal to Stormwind City (inside building)"] = "Portale per Stormwind City (all'interno dell'edificio)"
 L["Portal to Nazmir, Uldum or Tiragarde Sound"] = "Portale per Nazmir, Uldum o Tiragarde Sound"
-L["Portal to Orgrimmar (new Tirisfal timeline)"] = "Portale per Orgrimmar (nuova sequenza temporale di Tirisfal)"
 L["Portal to Warspear, Ashran (at basement)"] = "Portale per Warspear, Ashran (nel seminterrato)"
 L["Portal to Stormshield, Ashran (inside portal chamber)"] = "Portale per Stormshield, Ashran (all'interno della camera del portale)"
 L["Portal to Caverns of Time"] = "Portale per le Caverne del Tempo"
@@ -180,6 +183,10 @@ L["These portals are only active in the game if your faction is currently occupy
 L["Portal to Boralus (its only shown up ingame if your faction is currently occupying Bashal'Aran"] = "Portale per Boralus (viene visualizzato nel gioco solo se la tua fazione sta attualmente occupando Bashal'Aran"
 L["Portal to Zandalar (its only shown up ingame if your faction is currently occupying Bashal'Aran"] = "Portale per Zandalar (viene visualizzato nel gioco solo se la tua fazione sta attualmente occupando Bashal'Aran"
 L["Portal to Zandalar(horde)/Boralus(alliance)"] = "Portale per Zandalar(orda)/Boralus(alleanza)"
+L["Portal to Howling Fjord"] = "Portale per il Fiordo Ululante"
+L["Portal to Stranglethorn"] = "Portale per Rovotorto"
+L["Portal to The Emerald Dream"] = "Portale per Il Sogno di Smeraldo"
+L["Portal to Ohn'ahran Plains"] = "Portale per le pianure di Ohn'ahran"
 
 
 --7 Zeppelins
@@ -209,3 +216,14 @@ L["Ship to Stormwind City or to Vol'Dun or to Nazmir or to Zuldazar"] = "Spedisc
 L["Ship to Echo Isles, Durotar or to Drustvar or to Tiragarde Sound or to Stormsong Valley"] = "Spedisci alle Isole dell'Eco, a Durotar o a Drustvar o allo Stretto di Tiragarde o alla Valle dei Sacraonda"
 L["Back to Zuldazar"] = "Torniamo a Zuldazar"
 L["Back to Boralus"] = "Torniamo a Boralus"
+
+
+--10 old dungeons/raids
+L["Old version of Scarlet Monastery Armory (need to activate the old keychain at 48.33 55.88 inside the Scarlet Monastery)"] = "Vecchia versione dell'Armeria del Monastero Scarlatto (è necessario attivare il vecchio portachiavi a 48.33 55.88 all'interno del Monastero Scarlatto)"
+L["Old version of Naxxramas - Secret Entrance (Wards of the Dread Citadel - Achievement)"] = "Vecchia versione di Naxxramas - Ingresso segreto (Protezioni della Cittadella del Terrore - Impresa)"
+L["Old keychain - use the old keychain to activate the old versions of Scarlet Monastery dungeons (you need to get first (The Scarlet Key) from Hallow's End world event or buy from auction house)"] = "Vecchio portachiavi: usa il vecchio portachiavi per attivare le vecchie versioni dei dungeon del Monastero Scarlatto (devi prima ottenere (La chiave scarlatta) dall'evento mondiale Hallow's End o acquistarlo dalla casa d'aste)"
+L["Old version of Scarlet Monastery Cathedral (need to activate the old keychain at 48.33 55.88 inside the Scarlet Monastery)"] = "Vecchia versione della Cattedrale del Monastero Scarlatto (è necessario attivare il vecchio portachiavi a 48.33 55.88 all'interno del Monastero Scarlatto)"
+L["Old version of Scarlet Monastery Graveyard (need to activate the old keychain at 48.33 55.88 inside the Scarlet Monastery)"] = "Vecchia versione del Cimitero del Monastero Scarlatto (è necessario attivare il vecchio portachiavi a 48.33 55.88 all'interno del Monastero Scarlatto)"
+L["Old version of Scarlet Monastery Library (need to activate the old keychain at 48.33 55.88 inside the Scarlet Monastery)"] = "Vecchia versione della Biblioteca del Monastero Scarlatto (è necessario attivare il vecchio portachiavi a 48.33 55.88 all'interno del Monastero Scarlatto)"
+L["Old version of Scarlet Monastery Armory (need to activate the old keychain at 48.33 55.88 inside the Scarlet Monastery)"] = "Vecchia versione dell'Armeria del Monastero Scarlatto (è necessario attivare il vecchio portachiavi a 48.33 55.88 all'interno del Monastero Scarlatto)"
+L["Old version of Scholomance - Secret Entrance (Memory of Scholomance - Achievement)"] = "Vecchia versione di Scholomance - Ingresso segreto (Memoria di Scholomance - Obiettivo)"

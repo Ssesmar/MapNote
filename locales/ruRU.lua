@@ -18,8 +18,10 @@ L["• gray colored symbols"] = "• символы серого цвета"
 L["If you are assigned to a dungeon or raid and have an ID, this option will turn the dungeon or raid icon gray until this ID is reset so that you can see which dungeon or raid you have started or completed"] = "Если вы назначены в подземелье или рейд и у вас есть идентификатор, эта опция сделает значок подземелья или рейда серым, пока этот идентификатор не будет сброшен, чтобы вы могли видеть, какое подземелье или рейд вы начали или завершили"
 L["• gray multiple points"] = "• серый несколько точек"
 L["Colors multi-points of dungeons and/or raids in gray if you are assigned to any dungeon or raid of this multi-point and have an ID so that you can see that you have started or completed any dungeon or raid of the multi-point"] = "Окрашивает мультиточки подземелий и/или рейдов в серый цвет, если вы назначены в какое-либо подземелье или рейд этой мультиточки и у вас есть идентификатор, чтобы вы могли видеть, что вы начали или завершили любое подземелье или рейд этой мультиточки"
-L["• enemy faction"] = true
-L["Shows enemy faction (horde/alliance) symbols too"] = true
+L["• enemy faction"] = "• вражеская фракция"
+L["Shows enemy faction (horde/alliance) symbols too"] = "Также отображаются символы вражеской фракции (орды/альянса)"
+L["• Old Raids/Dungeons"] = "• Старые рейды/подземелья"
+L["Show vanilla versions of dungeons and raids such as Naxxramas, Scholomance or Scarlet Monastery, which require achievements or other things"] = "Показать ванильные версии подземелий и рейдов, таких как Наксрамас, Некроситет или Монастырь Алого ордена, для которых требуются достижения или другие вещи"
 
 
 --2
@@ -128,12 +130,13 @@ L["Passage"] = "Проход"
 
 
 --6 Portals
+L["Dark Portal (Portal to Warspear, Ashran)"] = "Темный портал (Портал в Копье Войны, Ашран)"
+L["Dark Portal (Portal to Stormshield, Ashran)"] = "Темный портал (Портал в Штормщит, Ашран)"
 L["Portal to Orgrimmar"] = "Портал в Оргриммар"
 L["Portal to Orgrimmar (inside building)"] = "Портал в Оргриммар (внутри здания)"
 L["Portal to Stormwind City"] = "Портал в Штормград"
 L["Portal to Stormwind City (inside building)"] = "Портал в Штормград (внутри здания)"
 L["Portal to Nazmir, Uldum or Tiragarde Sound"] = "Портал в Назмир, Ульдум или Тирагардское поморье"
-L["Portal to Orgrimmar (new Tirisfal timeline)"] = "Портал в Оргриммар (новая временная шкала Тирисфаля)"
 L["Portal to Warspear, Ashran (at basement)"] = "Портал в Копье Войны, Ашран (в подвале)"
 L["Portal to Stormshield, Ashran (inside portal chamber)"] = "Портал в Штормщит, Ашран (внутри портала)"
 L["Portal to Caverns of Time"] = "Портал в Пещеры Времени"
@@ -180,6 +183,10 @@ L["These portals are only active in the game if your faction is currently occupy
 L["Portal to Boralus (its only shown up ingame if your faction is currently occupying Bashal'Aran"] = "Портал в Боралус (он отображается в игре только в том случае, если ваша фракция в настоящее время оккупирует Башал'Аран)"
 L["Portal to Zandalar (its only shown up ingame if your faction is currently occupying Bashal'Aran"] = "Портал в Зандалар (он отображается в игре только в том случае, если ваша фракция в настоящее время оккупирует Башал'Аран)"
 L["Portal to Zandalar(horde)/Boralus(alliance)"] = "Портал в Зандалар(орда)/Боралус(альянс)"
+L["Portal to Howling Fjord"] = "Портал в Ревущий фьорд"
+L["Portal to Stranglethorn"] = "Портал в Тернистую долину"
+L["Portal to The Emerald Dream"] = "Портал в Изумрудный сон"
+L["Portal to Ohn'ahran Plains"] = "Портал на равнины Он'ахран"
 
 
 --7 Zeppelins
@@ -209,3 +216,14 @@ L["Ship to Stormwind City or to Vol'Dun or to Nazmir or to Zuldazar"] = "Отп�
 L["Ship to Echo Isles, Durotar or to Drustvar or to Tiragarde Sound or to Stormsong Valley"] = "Отправляйтесь на Острова Эха, в Дуротар, или в Друствар, или в Тирагардское поморье, или в долину Штормов"
 L["Back to Zuldazar"] = "Вернуться в Зулдазар"
 L["Back to Boralus"] = "Назад в Боралус"
+
+
+--10 old dungeons/raids
+L["Old version of Scarlet Monastery Armory (need to activate the old keychain at 48.33 55.88 inside the Scarlet Monastery)"] = "Старая версия Оружейной палаты Монастыря Алого ордена (необходимо активировать старый брелок по координатам 48.33 55.88 внутри Монастыря Алого ордена)"
+L["Old version of Naxxramas - Secret Entrance (Wards of the Dread Citadel - Achievement)"] = "Старая версия Наксрамаса — Тайный вход (Защиты Цитадели Ужаса — Достижение)"
+L["Old keychain - use the old keychain to activate the old versions of Scarlet Monastery dungeons (you need to get first (The Scarlet Key) from Hallow's End world event or buy from auction house)"] = "Старый брелок — используйте старый брелок для активации старых версий подземелий Монастыря Алого ордена (вам нужно сначала получить (Алый ключ) на мировом событии «Конец Хэллоуина» или купить на аукционе)"
+L["Old version of Scarlet Monastery Cathedral (need to activate the old keychain at 48.33 55.88 inside the Scarlet Monastery)"] = "Старая версия Собора Монастыря Алого ордена (необходимо активировать старый брелок по координатам 48.33 55.88 внутри Монастыря Алого ордена)"
+L["Old version of Scarlet Monastery Graveyard (need to activate the old keychain at 48.33 55.88 inside the Scarlet Monastery)"] = "Старая версия Кладбища Монастыря Алого ордена (необходимо активировать старый брелок по координатам 48.33 55.88 внутри Монастыря Алого ордена)"
+L["Old version of Scarlet Monastery Library (need to activate the old keychain at 48.33 55.88 inside the Scarlet Monastery)"] = "Старая версия библиотеки Монастыря Алого ордена (необходимо активировать старый брелок по координатам 48.33 55.88 внутри Монастыря Алого ордена)"
+L["Old version of Scarlet Monastery Armory (need to activate the old keychain at 48.33 55.88 inside the Scarlet Monastery)"] = "Старая версия Оружейной палаты Монастыря Алого ордена (необходимо активировать старый брелок по координатам 48.33 55.88 внутри Монастыря Алого ордена)"
+L["Old version of Scholomance - Secret Entrance (Memory of Scholomance - Achievement)"] = "Старая версия Некроситета – Тайный вход (Память о Некроситете – Достижение)"

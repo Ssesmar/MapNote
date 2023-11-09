@@ -18,8 +18,10 @@ L["• gray colored symbols"] = "• 灰色符号"
 L["If you are assigned to a dungeon or raid and have an ID, this option will turn the dungeon or raid icon gray until this ID is reset so that you can see which dungeon or raid you have started or completed"] = "如果您被分配到地下城或团队副本并拥有 ID，此选项会将地下城或团队副本图标变为灰色，直到重置此 ID，以便您可以查看已开始或完成的地下城或团队副本"
 L["• gray multiple points"] = "• 灰色多点"
 L["Colors multi-points of dungeons and/or raids in gray if you are assigned to any dungeon or raid of this multi-point and have an ID so that you can see that you have started or completed any dungeon or raid of the multi-point"] = "如果您被分配到此多点的任何地下城或突袭并且拥有 ID，则将地下城和/或突袭的多点颜色显示为灰色，以便您可以看到您已开始或完成多点的任何地下城或突袭"
-L["• enemy faction"] = true
-L["Shows enemy faction (horde/alliance) symbols too"] = true
+L["• enemy faction"] = "• 敌方派系"
+L["Shows enemy faction (horde/alliance) symbols too"] = "也显示敌方派系（部落/联盟）符号"
+L["• Old Raids/Dungeons"] = "• 旧的突袭/地下城"
+L["Show vanilla versions of dungeons and raids such as Naxxramas, Scholomance or Scarlet Monastery, which require achievements or other things"] = "显示普通版本的地下城和突袭，例如纳克萨玛斯、通灵学院或血色修道院，这需要成就或其他东西"
 
 
 --2
@@ -128,12 +130,13 @@ L["Passage"] = "通道"
 
 
 --6 Portals
+L["Dark Portal (Portal to Warspear, Ashran)"] = "黑暗之门（战矛之门，阿什兰）"
+L["Dark Portal (Portal to Stormshield, Ashran)"] = "黑暗之门（风暴之盾之门，阿什兰）"
 L["Portal to Orgrimmar"] = "通往奥格瑞玛的传送门"
 L["Portal to Orgrimmar (inside building)"] = "通往奥格瑞玛的传送门（建筑物内）"
 L["Portal to Stormwind City"] = "通往暴风城的传送门"
 L["Portal to Stormwind City (inside building)"] = "通往暴风城的传送门（建筑物内）"
 L["Portal to Nazmir, Uldum or Tiragarde Sound"] = "通往纳兹米尔、奥丹姆或提拉加德海峡的传送门"
-L["Portal to Orgrimmar (new Tirisfal timeline)"] = "奥格瑞玛传送门（新提瑞斯法时间线）"
 L["Portal to Warspear, Ashran (at basement)"] = "战矛传送门，阿什兰（地下室）"
 L["Portal to Stormshield, Ashran (inside portal chamber)"] = "通往风暴之盾的传送门，阿什兰（传送门室内）"
 L["Portal to Caverns of Time"] = "通往时间之穴的门户"
@@ -180,6 +183,10 @@ L["These portals are only active in the game if your faction is currently occupy
 L["Portal to Boralus (its only shown up ingame if your faction is currently occupying Bashal'Aran"] = "通往伯拉勒斯的传送门（只有当你的阵营当前占领巴沙尔阿兰时，它才会出现在游戏中）"
 L["Portal to Zandalar (its only shown up ingame if your faction is currently occupying Bashal'Aran"] = "赞达拉传送门（只有当你的阵营当前占领巴沙尔阿兰时，它才会出现在游戏中）"
 L["Portal to Zandalar(horde)/Boralus(alliance)"] = "通往赞达拉（部落）/伯拉勒斯（联盟）的传送门"
+L["Portal to Howling Fjord"] = "通往嚎风峡湾的传送门"
+L["Portal to Stranglethorn"] = "荆棘谷传送门"
+L["Portal to The Emerald Dream"] = "通往翡翠梦境的传送门"
+L["Portal to Ohn'ahran Plains"] = "通往奥纳阿兰平原的传送门"
 
 
 --7 Zeppelins
@@ -209,3 +216,14 @@ L["Ship to Stormwind City or to Vol'Dun or to Nazmir or to Zuldazar"] = "运送�
 L["Ship to Echo Isles, Durotar or to Drustvar or to Tiragarde Sound or to Stormsong Valley"] = "运送到回音群岛、杜隆塔尔、德鲁斯瓦、提拉加德海峡或斯托颂谷地"
 L["Back to Zuldazar"] = "返回祖达萨"
 L["Back to Boralus"] = "回到伯拉勒斯"
+
+
+--10 old dungeons/raids
+L["Old version of Scarlet Monastery Armory (need to activate the old keychain at 48.33 55.88 inside the Scarlet Monastery)"] = "旧版血色修道院军械库（需要在血色修道院内于48.33 55.88激活旧钥匙串）"
+L["Old version of Naxxramas - Secret Entrance (Wards of the Dread Citadel - Achievement)"] = "旧版本的纳克萨玛斯 - 秘密入口（恐惧城堡的守卫 - 成就）"
+L["Old keychain - use the old keychain to activate the old versions of Scarlet Monastery dungeons (you need to get first (The Scarlet Key) from Hallow's End world event or buy from auction house)"] = "旧钥匙扣 - 使用旧钥匙扣激活旧版本的血色修道院地下城（你需要从万圣节世界活动中获得第一把（血色钥匙）或从拍卖行购买）"
+L["Old version of Scarlet Monastery Cathedral (need to activate the old keychain at 48.33 55.88 inside the Scarlet Monastery)"] = "旧版血色修道院大教堂（需要在血色修道院内于48.33 55.88激活旧钥匙串）"
+L["Old version of Scarlet Monastery Graveyard (need to activate the old keychain at 48.33 55.88 inside the Scarlet Monastery)"] = "旧版血色修道院墓地（需要在血色修道院内于48.33 55.88激活旧钥匙扣）"
+L["Old version of Scarlet Monastery Library (need to activate the old keychain at 48.33 55.88 inside the Scarlet Monastery)"] = "旧版血色修道院图书馆（需要在血色修道院内于48.33 55.88激活旧钥匙串）"
+L["Old version of Scarlet Monastery Armory (need to activate the old keychain at 48.33 55.88 inside the Scarlet Monastery)"] = "旧版血色修道院军械库（需要在血色修道院内于48.33 55.88激活旧钥匙串）"
+L["Old version of Scholomance - Secret Entrance (Memory of Scholomance - Achievement)"] = "旧版通灵学院 - 秘密入口（通灵学院的记忆 - 成就）"

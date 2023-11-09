@@ -1,17 +1,30 @@
-local L = LibStub("AceLocale-3.0"):GetLocale("MapNote")
+--## Interface: 100200
+--## Version: 1.6
+--## Title: |cff00ccff> |cffff0000Map|r|cff00ccffNote|r|cffff0000 <
+--## Notes: Shows locations of |cffffcc00dungeons, raids, portals, ships, zeppelins, entrance/exit and passages symbols!|r
+--## Author: BadBoyBarny
+--## RequiredDeps: HandyNotes
+--## X-Curse-Project-ID: 912524
+--## IconTexture: Interface\AddOns\MapNote\Images\MN_Logo
+--## SavedVariables: MapNoteDB
 
+local L = LibStub("AceLocale-3.0"):GetLocale("MapNote")
 
 local db
 local icons = { }
 local nodes = { }
 local minimap = { }
+local mapIDs = { }
 local lfgIDs = { }
 local assignedIDs = { }
 
 icons["Dungeon"] = "Interface\\MINIMAP\\Dungeon"
 icons["Raid"] = "Interface\\MINIMAP\\Raid"
+icons["VDungeon"] = "Interface\\Addons\\MapNote\\images\\vanilladungeons.tga"
+icons["VRaid"] = "Interface\\Addons\\MapNote\\images\\vanilladungeons.tga"
+icons["VKey1"] = "Interface\\Addons\\MapNote\\images\\vkey1.blp"
 icons["Multiple"] = "Interface\\Addons\\MapNote\\images\\merged.tga"
-icons["Locked"] = "Interface\\Addons\\MapNote\\images\\gray.tga"
+icons["Locked"] = "Interface\\Addons\\MapNote\\images\\gray.blp"
 icons["Zeppelin"] = "Interface\\Addons\\MapNote\\images\\zeppelin.tga"
 icons["HZeppelin"] = "Interface\\Addons\\MapNote\\images\\hzeppelin.tga"
 icons["AZeppelin"] = "Interface\\Addons\\MapNote\\images\\azeppelin.tga"
@@ -26,7 +39,7 @@ icons["Passageup"] = "Interface\\Addons\\MapNote\\images\\passageup"
 icons["Passagedown"] = "Interface\\Addons\\MapNote\\images\\passagedown"
 icons["Passageright"] = "Interface\\Addons\\MapNote\\images\\passageright"
 icons["Passageleft"] = "Interface\\Addons\\MapNote\\images\\passageleft"
-icons["TransportHelper"] = "Interface\\MINIMAP\\Vehicle-silvershardmines-minecart"
+icons["TransportHelper"] = "Interface\\Addons\\MapNote\\images\\tport.blp"
 
 
 local function updateAssignedID()
@@ -88,7 +101,7 @@ function pluginHandler:OnEnter(uiMapId, coord)
 	tooltip:Show()
 end
 
-function pluginHandler:OnLeave(mapFile, coord)
+function pluginHandler:OnLeave(uiMapID, coord)
     if self:GetParent() == WorldMapButton then
       WorldMapTooltip:Hide()
     else
@@ -225,8 +238,8 @@ do
 end
 
 local waypoints = {}
-local function setWaypoint(mapFile, coord)
-	local dungeon = nodes[mapFile][coord]
+local function setWaypoint(uiMapID, coord)
+	local dungeon = nodes[uiMapID][coord]
 
 	local waypoint = nodes[dungeon]
 	if waypoint and TomTom:IsValidWaypoint(waypoint) then
@@ -235,7 +248,7 @@ local function setWaypoint(mapFile, coord)
 
 	local title = dungeon.name
 	local x, y = HandyNotes:getXY(coord)
-	waypoints[dungeon] = TomTom:AddWaypoint(mapFile, x, y, {
+	waypoints[dungeon] = TomTom:AddWaypoint(uiMapID, x, y, {
 		title = dungeon.name,
 		persistent = nil,
 		minimap = true,
@@ -267,7 +280,7 @@ function pluginHandler:OnClick(button, pressed, uiMapId, coord)
         local difficulty = string.match(link, 'journal:.-:.-:(.-)|h') 
         if (not dungeonID or not difficulty) then return end
         EncounterJournal_OpenJournal(difficulty, dungeonID)
-        _G.EncounterJournal:SetScript("OnShow", BadBoyBarnyEncounterJournal_OnShow)
+        _G.EncounterJournal:SetScript("OnShow", BBBEncounterJournal_OnShow)
     end
 end
 
@@ -279,6 +292,7 @@ local defaults = {
       Dungeon = true,
       DungeonMap = true,
       EnemyFaction = true,
+      OldVanilla = true,
       Raid = true,
       Multiple = true,
       Gray = true,
@@ -299,10 +313,11 @@ local defaults = {
       assignedgray = true,
       graymultipleID = true,
       showEnemyFaction = true,
-
+      showOldVanilla = true,
+    
     --2 Azeroth map
       showAzeroth = true,
-      azerothScale = 1.5,
+      azerothScale = 1.2,
       hideAzerothRaid = false,
       hideAzerothDungeon = false,
       hideAzerothMultiple = false,
@@ -320,7 +335,7 @@ local defaults = {
 
     --3 Continent map
       showContinent = true,
-      continentScale = 1.5,
+      continentScale = 1.2,
       hideRaids = false,
       hideDungeons = false,
       hideMultiple = false,
@@ -340,7 +355,7 @@ local defaults = {
       hideDragonIsles = false,
 
     --4 Inside Dungeon Map
-      showDungeonMap = false,
+      showDungeonMap = true,
       hideExit = false,
       hidePassage = false,
   },
@@ -443,6 +458,15 @@ local options = {
           order = 6,
           get = function() return db.show["EnemyFaction"] end,
           set = function(info, v) db.show["EnemyFaction"] = v self:FullUpdate() HandyNotes:SendMessage("HandyNotes_NotifyUpdate", "MapNote") end,
+         },
+        showOldVanilla = {
+          disabled = function() return db.show["HideMapNote"] end,
+          type = "toggle",
+          name = L["• Old Raids/Dungeons"],
+          desc = L["Show vanilla versions of dungeons and raids such as Naxxramas, Scholomance or Scarlet Monastery, which require achievements or other things"],
+          order = 7,
+          get = function() return db.show["OldVanilla"] end,
+          set = function(info, v) db.show["OldVanilla"] = v self:FullUpdate() HandyNotes:SendMessage("HandyNotes_NotifyUpdate", "MapNote") end,
         }
       }
     },
@@ -476,7 +500,7 @@ local options = {
           type = "range",
           name = L["symbol size"],
           desc = L["Resizes symbols on the continent map"],
-          min = 0.5, max = 3, step = 0.1,
+          min = 0.5, max = 2, step = 0.1,
           order = 20.3,
           },
         Azerothheader2 = {
@@ -628,7 +652,7 @@ local options = {
           type = "range",
           name = L["symbol size"],
           desc = L["Resizes symbols on the continent map"],
-          min = 0.5, max = 3, step = 0.1,
+          min = 0.5, max = 2, step = 0.1,
           order = 30.2,
           },
         continentheader2 = {
@@ -855,6 +879,23 @@ table.wipe(minimap)
 -- Dungeon MapNote
 nodes[280] = { } -- Maraudon Caverns of Maraudon
 nodes[281] = { } -- Caverns of Maraudon
+-- Outland
+nodes[246] = { } -- Shattered Halls
+nodes[256] = { } -- Auchenai Crypts
+nodes[258] = { } -- Sethekk Halls
+nodes[260] = { } -- Shadow Labyrinth
+nodes[261] = { } -- Blood Furnace
+nodes[262] = { } -- The Underbog
+nodes[263] = { } -- Steamvault
+nodes[265] = { } -- Slave Pens
+nodes[266] = { } -- Botanica
+nodes[267] = { } -- Mechanar
+nodes[269] = { } -- Arcatraz
+nodes[272] = { } -- Mana Tombs
+nodes[332] = { } -- Serpentshrine Cavern
+nodes[330] = { } -- Gruul
+nodes[331] = { } -- Magtheridons
+nodes[334] = { } -- The Eye
 nodes[339] = { } -- Black Temple
 nodes[340] = { } -- Karabor Sewers
 nodes[341] = { } -- Sanctuary of Shadows
@@ -863,6 +904,18 @@ nodes[343] = { } -- Gorefiend's Vigil
 nodes[344] = { } -- Den of Mortal Delights
 nodes[345] = { } -- Chamber of Command
 nodes[346] = { } -- Temple Summit
+nodes[347] = { } -- Hellfire Ramparts
+-- Draenor
+nodes[573] = { } -- Bloodmaul Slag Mines
+nodes[574] = { } -- Shadowmoon Burial Grounds
+nodes[593] = { } -- Auchindoun
+nodes[595] = { } -- Iron Docks
+nodes[598] = { } -- Blackrock Foundry
+nodes[601] = { } -- Skyreach
+nodes[606] = { } -- Grimrail Depot
+nodes[611] = { } -- Highmaul
+nodes[620] = { } -- The Everbloom
+nodes[661] = { } -- Hellfire Citadel
 -- Shadowlands
 nodes[1663] = { } -- Halls of Atonement
 nodes[1666] = { } -- The Necrotic Wake
@@ -890,6 +943,7 @@ nodes[2097] = { } -- Algeth'ar Academy
 nodes[2190] = { } -- Dawn of the Infinite
 nodes[2119] = { } -- Vault of the Incarnates
 nodes[2166] = { } -- Aberrus, the Shadowed Crucible
+nodes[2232] = { } -- Amirdrassil
 
 
 -- Map MapNote
@@ -901,6 +955,7 @@ nodes[12] = { } -- Kalimdor
 nodes[13] = { } -- Eastern Kingdoms   
 nodes[14] = { } -- Arathi Highlands
 nodes[15] = { } -- Badlands
+nodes[17] = { } -- Blasted Lands
 nodes[18] = { } -- Tirisfal   
 nodes[19] = { } -- ScarletMonasteryEntrance 
 nodes[21] = { } -- Silverpine    
@@ -935,6 +990,7 @@ nodes[210] = { } -- Stranglethorn Vale
 nodes[224] = { } -- Stranglethorn Vale
 nodes[327] = { } -- AhnQiraj The Fallen Kingdom  
 nodes[469] = { } -- New Tinkertown 
+nodes[2070] = { } -- New Tirisfal
 -- Outland
 nodes[95] = { } -- Ghostlands    
 nodes[100] = { } -- Hellfire 
@@ -1031,8 +1087,127 @@ nodes[2025] = { } -- Thaldraszus
 nodes[2026] = { } -- The Forbidden Reach
 nodes[2133] = { } -- Zaralek Cavern
 nodes[2112] = { } -- Valdrakken
+nodes[2200] = { } -- The Emerald Dream
 
 if not db.show["HideMapNote"] then
+
+  -- Old Vanilla versions from Dungeons/Raids
+  if db.show["OldVanilla"] then
+
+    nodes[947][90194066] = { 
+    name = L["Old version of Naxxramas - Secret Entrance (Wards of the Dread Citadel - Achievement)"],
+    type = "VRaid",
+    showInZone = true,
+    hideOnContinent = false,
+    }-- Old Naxxramas version - Secret Entrance - Wards of the Dread Citadel
+
+    nodes[947][89714326] = { 
+    name = L["Old version of Scholomance - Secret Entrance (Memory of Scholomance - Achievement)"],
+    type = "VRaid",
+    showInZone = true,
+    hideOnContinent = false,
+    }-- Old version of Scholomance - Secret Entrance
+
+    nodes[13][54113049] = { 
+    name = L["Old version of Naxxramas - Secret Entrance (Wards of the Dread Citadel - Achievement)"],
+    type = "VRaid",
+    showInZone = true,
+    }-- Old Naxxramas version - Secret Entrance - Wards of the Dread Citadel
+
+    nodes[23][42152576] = { 
+    name = L["Old version of Naxxramas - Secret Entrance (Wards of the Dread Citadel - Achievement)"],
+    type = "VRaid",
+    showInZone = true,
+    hideOnContinent = true,
+    }-- Old Naxxramas version - Secret Entrance - Wards of the Dread Citadel
+
+    nodes[19][48275496] = {
+    name = L["Old keychain - use the old keychain to activate the old versions of Scarlet Monastery dungeons (you need to get first (The Scarlet Key) from Hallow's End world event or buy from auction house)"],
+    type = "VKey1",
+    showInZone = true,
+    } -- Scarlet Monastery Key for Old dungeons
+
+    nodes[13][46193139] = {
+    name = L["Old keychain - use the old keychain to activate the old versions of Scarlet Monastery dungeons (you need to get first (The Scarlet Key) from Hallow's End world event or buy from auction house)"],
+    type = "VKey1",
+    showInZone = true,
+    } -- Scarlet Monastery Key for Old dungeons
+
+    nodes[18][83863199] = {
+    name = L["Old keychain - use the old keychain to activate the old versions of Scarlet Monastery dungeons (you need to get first (The Scarlet Key) from Hallow's End world event or buy from auction house)"],
+    type = "VKey1",
+    showInZone = true,
+    hideOnContinent = true,
+    } -- Scarlet Monastery Key for Old dungeons
+
+    nodes[947][86344322] = {
+    name = L["Old keychain - use the old keychain to activate the old versions of Scarlet Monastery dungeons (you need to get first (The Scarlet Key) from Hallow's End world event or buy from auction house)"],
+    type = "VKey1",
+    showInZone = true,
+    } -- Scarlet Monastery Key for Old dungeons
+
+    nodes[18][85353028] = {
+    name = L["Old version of Scarlet Monastery Cathedral (need to activate the old keychain at 48.33 55.88 inside the Scarlet Monastery)"],
+    type = "VDungeon",
+    showInZone = false,
+    } -- Scarlet Monastery - Cathedral
+
+    nodes[18][85153180] = {
+    name = L["Old version of Scarlet Monastery Library (need to activate the old keychain at 48.33 55.88 inside the Scarlet Monastery)"],
+    type = "VDungeon",
+    showInZone = false,
+    } -- Scarlet Monastery - Library
+
+    nodes[18][84763039] = {
+    name = L["Old version of Scarlet Monastery Graveyard (need to activate the old keychain at 48.33 55.88 inside the Scarlet Monastery)"],
+    type = "VDungeon",
+    showInZone = false,
+    } -- Scarlet Monastery - Graveyard
+
+    nodes[18][85573138] = {
+    name = L["Old version of Scarlet Monastery Armory (need to activate the old keychain at 48.33 55.88 inside the Scarlet Monastery)"],
+    type = "VDungeon",
+    showInZone = false,
+    } -- Scarlet Monastery - Armory
+
+    nodes[19][78882223] = {
+    name = L["Old version of Scarlet Monastery Cathedral (need to activate the old keychain at 48.33 55.88 inside the Scarlet Monastery)"],
+    type = "VDungeon",
+    showInZone = true,
+    } -- Scarlet Monastery - Cathedral
+
+    nodes[19][78255762] = {
+    name = L["Old version of Scarlet Monastery Library (need to activate the old keychain at 48.33 55.88 inside the Scarlet Monastery)"],
+    type = "VDungeon",
+    showInZone = true,
+    } -- Scarlet Monastery - Library
+
+    nodes[19][68832372] = {
+    name = L["Old version of Scarlet Monastery Graveyard (need to activate the old keychain at 48.33 55.88 inside the Scarlet Monastery)"],
+    type = "VDungeon",
+    showInZone = true,
+    } -- Scarlet Monastery - Graveyard
+
+    nodes[19][86414766] = {
+    name = L["Old version of Scarlet Monastery Armory (need to activate the old keychain at 48.33 55.88 inside the Scarlet Monastery)"],
+    type = "VDungeon",
+    showInZone = true,
+    } -- Scarlet Monastery - Armory
+
+    nodes[13][51383556] = {
+    type = "VDungeon",
+    name = L["Old version of Scholomance - Secret Entrance (Memory of Scholomance - Achievement)"],
+    showInZone = true,
+    } -- Old Scholomance version - Memory of Scholomance - Secret Entrance Old Scholomance version
+
+    nodes[22][70897246] = {
+    type = "VDungeon",
+    name = L["Old version of Scholomance - Secret Entrance (Memory of Scholomance - Achievement)"],
+    showInZone = true,
+    hideOnContinent = true,
+    } -- Old Scholomance version - Memory of Scholomance - Secret Entrance Old Scholomance version
+  end
+
   --Inside Dungeon MapNote
   if db.show["DungeonMap"] then
 
@@ -1058,13 +1233,178 @@ if not db.show["HideMapNote"] then
       } -- Maraudon Caverns of Maraudon Purple Crystal 
 
 
+    --Draenor
+
+
     --Outland
       nodes[340][21756343] = {
       name = L["Exit"],
       type = "Exit",
       showInZone = true,
-      } -- Black Temple passage
+      } -- Black Temple exit
 
+      nodes[334][50168768] = {
+      name = L["Exit"],
+      type = "Exit",
+      showInZone = true,
+      } -- The Eye
+
+      nodes[330][81397732] = {
+      name = L["Exit"],
+      type = "Exit",
+      showInZone = true,
+      } -- Gruul
+
+      nodes[331][60991776] = {
+      name = L["Exit"],
+      type = "Exit",
+      showInZone = true,
+      } -- Magtheridons
+
+      nodes[332][13436343] = {
+      name = L["Exit"],
+      type = "Exit",
+      showInZone = true,
+      } -- Serpentshrine Cavern
+
+      nodes[266][90343942] = {
+      name = L["Exit"],
+      type = "Exit",
+      showInZone = true,
+      } -- Botanica
+
+      nodes[267][49378580] = {
+      name = L["Exit"],
+      type = "Exit",
+      showInZone = true,
+      } -- Mechanar
+
+      nodes[269][41378627] = {
+      name = L["Exit"],
+      type = "Exit",
+      showInZone = true,
+      } -- Arcatraz
+
+      nodes[265][21121328] = {
+      name = L["Exit"],
+      type = "Exit",
+      showInZone = true,
+      } -- Slave Pens
+
+      nodes[263][17353047] = {
+      name = L["Exit"],
+      type = "Exit",
+      showInZone = true,
+      } -- Steamvault
+
+      nodes[347][52207097] = {
+      name = L["Exit"],
+      type = "Exit",
+      showInZone = true,
+      } -- Hellfire Ramparts
+
+      nodes[262][28027003] = {
+      name = L["Exit"],
+      type = "Exit",
+      showInZone = true,
+      } -- The Underbog
+
+      nodes[261][48439051] = {
+      name = L["Exit"],
+      type = "Exit",
+      showInZone = true,
+      } -- Blood Furnace
+
+      nodes[260][21750952] = {
+      name = L["Exit"],
+      type = "Exit",
+      showInZone = true,
+      } -- Shadow Labyrinth
+
+      nodes[246][61929285] = {
+      name = L["Exit"],
+      type = "Exit",
+      showInZone = true,
+      } -- Shattered Halls
+
+      nodes[258][73393824] = {
+      name = L["Exit"],
+      type = "Exit",
+      showInZone = true,
+      } -- Sethekk Halls
+
+      nodes[272][33361564] = {
+      name = L["Exit"],
+      type = "Exit",
+      showInZone = true,
+      } -- Mana Tombs
+
+      nodes[256][44197716] = {
+      name = L["Exit"],
+      type = "Exit",
+      showInZone = true,
+      } -- Auchenai Crypts
+
+    -- Draenor
+      nodes[595][52048698] = {
+      name = L["Exit"],
+      type = "Exit",
+      showInZone = true,
+      } -- Bloodmaul Slag Mines
+
+      nodes[574][08256955] = {
+      name = L["Exit"],
+      type = "Exit",
+      showInZone = true,
+      } -- Shadowmoon Burial Grounds
+
+      nodes[593][49849145] = {
+      name = L["Exit"],
+      type = "Exit",
+      showInZone = true,
+      } -- Auchindoun
+
+      nodes[595][29594366] = {
+      name = L["Exit"],
+      type = "Exit",
+      showInZone = true,
+      } -- Iron Docks
+
+      nodes[598][41059246] = {
+      name = L["Exit"],
+      type = "Exit",
+      showInZone = true,
+      } -- Blackrock Foundry
+
+      nodes[601][60362459] = {
+      name = L["Exit"],
+      type = "Exit",
+      showInZone = true,
+      } -- Skyreach
+
+      nodes[606][32422553] = {
+      name = L["Exit"],
+      type = "Exit",
+      showInZone = true,
+      } -- Grimrail Depoot
+
+      nodes[611][26772324] = {
+      name = L["Exit"],
+      type = "Exit",
+      showInZone = true,
+      } -- Highmaul    
+
+      nodes[620][72295519] = {
+      name = L["Exit"],
+      type = "Exit",
+      showInZone = true,
+      } -- Everbloom     
+
+      nodes[661][72604342] = {
+      name = L["Exit"],
+      type = "Exit",
+      showInZone = true,
+      } -- Hellfire Citadel 
 
     --Shadowlands
       nodes[1663][89875409] = {
@@ -1200,6 +1540,12 @@ if not db.show["HideMapNote"] then
       type = "Exit",
       showInZone = true,
       } -- Aberrus, the Shadowed Crucible
+
+      nodes[2232][50789310] = {
+      name = L["Exit"],
+      type = "Exit",
+      showInZone = true,
+      } -- Aberrus, the Shadowed Crucible
       end
 
     if (not self.db.profile.hidePassage) then
@@ -1231,6 +1577,7 @@ if not db.show["HideMapNote"] then
         showInZone = true,
         } -- Black Temple passage
 
+        
         nodes[340][27240693] = {
         name = L["Passage"],
         type = "Passageup",
@@ -1543,6 +1890,13 @@ if not db.show["HideMapNote"] then
         showInZone = true,
         } -- Stratholme
 
+        nodes[947][90503929] = {
+        id = 236,
+        lfgid = 274,
+        type = "Dungeon",
+        showInZone = true,
+        }-- Stratholme Service Entrance
+
         nodes[947][84445688] = {
         id = 231,
         type = "Dungeon",
@@ -1605,13 +1959,6 @@ if not db.show["HideMapNote"] then
         type = "Dungeon",
         showInZone = true,
         } -- Grim Batol
-
-        nodes[947][90194066] = { 
-        name = "Old Naxxramas - Secret Entrance - Wards of the Dread Citadel",
-        id =  754,
-        type = "Raid",
-        showInZone = true,
-        }-- Old Naxxramas - Secret Entrance - Wards of the Dread Citadel
       end
 
       if (not self.db.profile.hideAzerothMultiple) then
@@ -1624,7 +1971,7 @@ if not db.show["HideMapNote"] then
 
         nodes[947][89225843] = { 
         id = { 1197, 239 },
-        type = "Multiple",
+        type = "Dungeon",
         showInZone = true,
         } --  Legacy of Tyr Dragonflight Dungeon & Vanilla Uldaman    
 
@@ -1656,6 +2003,22 @@ if not db.show["HideMapNote"] then
           type = "HPortal",
           showInZone = true,
           } -- Portal from Silvermoon to Orgrimmar 
+
+          nodes[947][89587016] = {
+          name = L["Dark Portal (Portal to Warspear, Ashran)"],
+          type = "HPortal",
+          showInZone = true,
+          hideOnContinent = true,
+          } -- Portal from Blasted Lands to Warspear
+        end
+
+        if (self.faction == "Alliance") or db.show["EnemyFaction"] then
+          nodes[947][89587016] = {
+          name = L["Dark Portal (Portal to Stormshield, Ashran)"],
+          type = "APortal",
+          showInZone = true,
+          hideOnContinent = true,
+          } -- Portal from Blasted Lands to Stormshield
         end
       end
 
@@ -1715,7 +2078,7 @@ if not db.show["HideMapNote"] then
         showInZone = true,
         } -- Gundrak
 
-        nodes[947][49491277] = {
+        nodes[947][50781352] = {
         id = 283,
         type = "Dungeon",
         showInZone = true,
@@ -1772,6 +2135,21 @@ if not db.show["HideMapNote"] then
 
       if (not self.db.profile.hideAzerothPortals) then  --Portals
 
+        if (self.faction == "Horde") or db.show["EnemyFaction"] then
+          nodes[947][49401233] = {
+          name = L["Portal to Orgrimmar"],
+          type = "HPortal",
+          showInZone = true,
+          } -- Portal from Old Dalaran to Orgrimmar
+        end
+
+        if (self.faction == "Alliance") or db.show["EnemyFaction"] then
+          nodes[947][49151346] = {
+          name = L["Portal to Stormwind City"],
+          type = "APortal",
+          showInZone = true,
+          } -- Portal from Old Dalaran to Stormwind
+        end
       end
 
       if (not self.db.profile.hideAzerothZeppelins) then  --Zeppelins
@@ -1984,11 +2362,11 @@ if not db.show["HideMapNote"] then
       if (not self.db.profile.hideAzerothPortals) then  --Portals
         
         if (self.faction == "Horde") or db.show["EnemyFaction"] then
-          nodes[947][58574511] = {
+          nodes[947][58124501] = {
           name = L["Portal to Orgrimmar"],
           type = "HPortal",
           showInZone = true,
-          } -- Portal from Dalaran to Orgrimmar 
+          } -- Portal from New Dalaran to Orgrimmar 
 
           nodes[947][55624409] = {
           name = L["Portal to Orgrimmar"],
@@ -1999,11 +2377,11 @@ if not db.show["HideMapNote"] then
         end
 
         if (self.faction == "Alliance") or db.show["EnemyFaction"] then
-          nodes[947][58574511] = {
+          nodes[947][57774634] = {
           name = L["Portal to Stormwind City"],
           type = "APortal",
           showInZone = true,
-          } -- Portal from Dalaran to Stormwind
+          } -- Portal from New Dalaran to Stormwind
 
           nodes[947][55624409] = {
           name = L["Portal to Stormwind City"],
@@ -2292,6 +2670,12 @@ if not db.show["HideMapNote"] then
         type = "Raid",
         showInZone = true,
         }-- Aberrus, the Shadowed Crucible
+
+        nodes[947][71222297] = {
+        id = 1207,
+        type = "Raid",
+        showInZone = true,
+        }-- Amirdrassil, the Dream's Hope
       end
 
       if (not self.db.profile.hideAzerothPortals) then  --Portals
@@ -2305,6 +2689,12 @@ if not db.show["HideMapNote"] then
       end
 
       if (not self.db.profile.hideAzerothZeppelins) then  --Zeppelins
+
+        nodes[947][72202222] = {
+        name = L["Portal to The Emerald Dream"],
+        type = "Portal",
+        showInZone = true,
+        }-- Portal to The Emerald Dream
 
         if (self.faction == "Horde") or db.show["EnemyFaction"] then
           nodes[947][77851451] = {
@@ -2695,6 +3085,319 @@ if not db.show["HideMapNote"] then
     end
 
 
+    -- Eastern  Kingdom
+    if (not self.db.profile.hideEasternKingdom) then
+
+      -- Eastern  Kingdom Dungeons
+      if db.show["Dungeon"] then
+
+        nodes[95][85206430] = {
+        id = 77,
+        type = "Dungeon",
+        } -- Zul'Aman
+
+        nodes[122][61303090] = {
+        id = 249,
+        type = "Dungeon",
+        } -- Magisters' Terrace
+
+        nodes[13][31796256] = {
+        id = 65,
+        type = "Dungeon",
+        } -- Throne of Tides
+
+        nodes[13][42397323] = {
+        id = 238,
+        type = "Dungeon",
+        } -- The Stockade
+
+        nodes[13][47448471] = {
+        id = 76,
+        type = "Dungeon",
+        } -- Zul'Gurub
+
+        nodes[13][40764187] = {
+        id = 64,
+        type = "Dungeon",
+        } -- Shadowfang Keep
+
+        nodes[13][46583029] = {
+        id = { 311, 316 },
+        type = "Dungeon",
+        } -- Scarlet Halls, Monastery
+
+        nodes[13][52176317] = { 
+        id = { 1197, 239 },
+        type = "Dungeon",
+        } --  Legacy of Tyr Dragonflight Dungeon & Vanilla Uldaman
+
+        nodes[13][53646537] = { 
+        id = 239,
+        name = "Uldaman back entrance",
+        type = "Dungeon",
+        } -- Uldaman (Secondary Entrance)
+
+        nodes[13][50573677] = { 
+        id = 246,
+        type = "Dungeon",
+        } -- Scholomance
+
+        nodes[13][52712836] = {
+        id = 236,
+        lfgid = 40,
+        type = "Dungeon",
+        } -- Stratholme
+
+        nodes[13][54472924] = {
+        id = 236,
+        lfgid = 274,
+        type = "Dungeon",
+        }-- Stratholme Service Entrance
+
+        nodes[13][42915972] = {
+        id = 231,
+        type = "Dungeon",
+        } -- Gnomeregan
+
+        nodes[13][49428163] = {
+        id = 860,
+        type = "Dungeon",
+        } -- Return to Karazhan
+
+        nodes[13][53977927] = {
+        id = 237,
+        type = "Dungeon",
+        } -- The Temple of Atal'hakkar
+
+        nodes[13][40808194] = {
+        id = 63,
+        type = "Dungeon",
+        } -- Deadmines    
+
+        nodes[13][53135585] = {
+        id = 71,
+        type = "Dungeon",
+        } -- Grim Batol
+      end
+
+      -- Eastern  Kingdom Raids
+      if (not self.db.profile.hideRaids) then
+
+        nodes[122][44304570] = {
+        id = 752,
+        type = "Raid",
+        } -- Sunwell Plateau
+
+        nodes[13][47546862] = {
+        id = 73,
+        type = "Raid",
+        } -- Blackwind Descent
+
+        nodes[13][54905899] = {
+        id = 72,
+        type = "Raid",
+        } -- The Bastion of Twilight
+
+        nodes[13][35565150] = {
+        id = 75,
+        type = "Raid",
+        } -- Baradin Hold
+      end
+
+      --Eastern Kingdom Multiple
+      if (not self.db.profile.hideMultiple) then
+
+        nodes[13][46886972] = {
+        id = { 741, 742, 66, 228, 229, 559 },
+        type = "Multiple",
+        } -- Molten Core, Blackwing Lair, Blackrock Caverns, Blackrock Depths, Lower Blackrock Spire, Upper Blackrock Spire
+      
+        nodes[13][49428163] = {
+        id = { 745, 860 }, 
+        type = "Multiple",
+        } -- Karazhan, Return to Karazhan
+      end
+
+      --Eastern Kingdom Portals
+      if (not self.db.profile.hidePortals) then
+
+        if (self.faction == "Horde") or db.show["EnemyFaction"] then
+          nodes[18][60735867] = {
+          name = L["Portal to Orgrimmar"],
+          type = "HPortal",
+          showInZone = true,
+          } -- Portal to Orgrimmar from Tirisfal  
+
+          nodes[18][61905899] = {
+          name = L["Portal to Stranglethorn"],
+          type = "HPortal",
+          showInZone = true,
+          } -- Portal to Orgrimmar from Tirisfal  
+
+          nodes[2070][59506694] = {
+          name = L["Portal to Orgrimmar"],
+          type = "HPortal",
+          showInZone = true,
+          } -- Portal to Orgrimmar from Tirisfal  
+
+          nodes[2070][59506797] = {
+          name = L["Portal to Stranglethorn"],
+          type = "HPortal",
+          showInZone = true,
+          } -- Portal to Stranglethorn from Tirisfal  
+
+          nodes[2070][60126689] = {
+          name = L["Portal to Howling Fjord"],
+          type = "HPortal",
+          showInZone = true,
+          } -- Portal to Howling Fjord from Tirisfal  
+
+          nodes[50][37545099] = {
+          name = L["Portal to Ruins of Lordaeron, Undercity (on the tower)"],
+          type = "HPortal",
+          showInZone = true,
+          } -- Portal to Undercity from Grom'gol  
+
+          nodes[224][42233253] = {
+          name = L["Portal to Ruins of Lordaeron, Undercity (on the tower)"],
+          type = "HPortal",
+          showInZone = true,
+          hideOnContinent = true,
+          } -- Portal to Undercity from Grom'gol  
+
+          nodes[13][43358708] = {
+          name = L["Portal to Ruins of Lordaeron, Undercity (on the tower)"],
+          type = "HPortal",
+          showInZone = true,
+          } -- Portal to Undercity from Grom'gol  
+
+          nodes[94][54552795] = {
+          name = L["Portal to Orgrimmar"],
+          type = "HPortal",
+          showInZone = true,
+          hideOnContinent = false,
+          } -- Portal to Orgrimmar from Silvermoon
+
+          nodes[110][58511859] = {
+          name = L["Portal to Orgrimmar"],
+          type = "HPortal",
+          showInZone = true,
+          hideOnContinent = true,
+          } -- Portal to Orgrimmar from Silvermoon
+
+          nodes[14][27442938] = {
+          name = L["Portal to Zandalar"],
+          type = "HPortal",
+          showInZone = true,
+          hideOnContinent = false,
+          } -- Portal from Arathi to Zandalar
+
+          nodes[17][55005418] = {
+          name = L["Dark Portal (Portal to Warspear, Ashran)"],
+          type = "HPortal",
+          showInZone = true,
+          } -- Portal from Blasted Lands to Warspear
+        end
+
+        if (self.faction == "Alliance") or db.show["EnemyFaction"] then
+          nodes[84][43748538] = { 
+          name = L["Portal to Caverns of Time (inside portal chamber)"],
+          type = "APortal",
+          showInZone = false,
+          hideOnContinent = true,
+          } -- Portal to Caverns of Time
+
+          nodes[84][44888577] = { 
+          name = L["Portal to Shattrath (inside portal chamber)"],
+          type = "APortal",
+          showInZone = false,
+          hideOnContinent = true,
+          } -- Portal to Shattrath
+
+          nodes[84][43638719] = { 
+          name = L["Portal to Exodar (inside portal chamber)"],
+          type = "APortal",
+          showInZone = false,
+          hideOnContinent = true,
+          } -- Portal to Exodar
+
+          nodes[84][44388868] = { 
+          name = L["Portal to Dalaran, Crystalsong Forest (inside portal chamber)"],
+          type = "APortal",
+          showInZone = false,
+          hideOnContinent = true,
+          } -- Portal to Dalaran
+
+          nodes[84][45708715] = { 
+          name = L["Portal to The Jade Forest (inside portal chamber)"],
+          type = "APortal",
+          showInZone = false,
+          hideOnContinent = true,
+          } -- Portal to Jade Forest
+
+          nodes[84][48099198] = { 
+          name = L["Portal to Stormshield, Ashran (inside portal chamber)"],
+          type = "APortal",
+          showInZone = false,
+          hideOnContinent = true,
+          } -- Portal to Stormshield
+
+          nodes[84][46869339] = { 
+          name = L["Portal to Azsuna (inside portal chamber)"],
+          type = "APortal",
+          showInZone = false,
+          hideOnContinent = true,
+          } -- Portal to Azsuna
+
+          nodes[84][47579495] = { 
+          name = L["Portal to Oribos (inside portal chamber)"],
+          type = "APortal",
+          showInZone = false,
+          hideOnContinent = true,
+          } -- Portal to Oribos
+
+          nodes[84][48849344] = { 
+          name = L["Portal to Valdrakken (inside portal chamber)"],
+          type = "APortal",
+          showInZone = false,
+          hideOnContinent = true,
+          } -- Portal to Valdrakken
+
+          nodes[84][48759519] = { 
+          name = L["Portal to Boralus (inside portal chamber)"],
+          type = "APortal",
+          showInZone = false,
+          hideOnContinent = true,
+          } -- Portal to Boralus
+
+          nodes[17][55005418] = {
+          name = L["Dark Portal (Portal to Stormshield, Ashran)"],
+          type = "APortal",
+          showInZone = true,
+          } -- Portal from Blasted Lands to Warspear
+        end
+      end
+
+      --Eastern Kingdom Ships
+      if (not self.db.profile.hideShips) then
+
+        nodes[224][37037615] = { 
+        name = L["Ship to Ratchet, Northern Barrens"],
+        type = "Ship",
+        hideOnContinent = false,
+        } -- Ship from Booty Bay to Ratchet
+
+        if (self.faction == "Alliance") or db.show["EnemyFaction"] then
+          nodes[13][40937205] = { 
+          name = L["Ships to Valiance Keep, Borean Tundra and to Boralus Harbor, Tiragarde Sound"],
+          type = "AShip",
+          showInZone = true,
+          } -- Ship from Stormwind to Valiance Keep
+        end
+      end
+    end
+
+
     -- OUTLAND
     if (not self.db.profile.hideOutland) then
 
@@ -2776,7 +3479,7 @@ if not db.show["HideMapNote"] then
         }
 
         nodes[102][50204100] = {
-        id = { 260, 261, 262, 748 },
+        id = { 748, 260, 261, 262 },
         type = "Multiple",
         showInZone = true,
         } -- Slave Pens, The Steamvault, The Underbog, Serpentshrine Cavern
@@ -2870,9 +3573,10 @@ if not db.show["HideMapNote"] then
         type = "Dungeon",
         } -- Gundrak Right Entrance
 
-        nodes[113][48124154] = {
+        nodes[127][34154413] = {
         id = 283,
         type = "Dungeon",
+        showInZone = true,
         } -- The Violet Hold
       end
 
@@ -2920,7 +3624,37 @@ if not db.show["HideMapNote"] then
         } -- The Eye of Eternity, The Nexus, The Oculus
       end
 
-      if (not self.db.profile.hideAzerothZeppelins) then  --Zeppelins
+      if (self.faction == "Horde") or db.show["EnemyFaction"] then
+        nodes[125][55322545] = {
+        name = L["Portal to Orgrimmar"],
+        type = "HPortal",
+        hideOnContinent = false,
+        showInZone = true,
+        } --  Dalaran to Orgrimmar Portal
+
+        nodes[127][31103140] = {
+        name = L["Portal to Orgrimmar"],
+        type = "HPortal",
+        showInZone = true,
+        } --  Dalaran to Orgrimmar Portal
+      end
+
+      if (self.faction == "Alliance") or db.show["EnemyFaction"] then
+        nodes[125][40796326] = {
+        name = L["Portal to Stormwind City"],
+        type = "APortal",
+        hideOnContinent = false,
+        showInZone = true,
+        } --  Dalaran to Stormwind City Portal
+
+        nodes[127][26614271] = {
+        name = L["Portal to Stormwind City"],
+        type = "APortal",
+        showInZone = true,
+        } --  Dalaran to Stormwind City Portal
+      end
+
+      if (not self.db.profile.hideZeppelins) then  --Zeppelins
 
         if (self.faction == "Horde") or db.show["EnemyFaction"] then
           nodes[113][18766562] = {
@@ -2931,7 +3665,7 @@ if not db.show["HideMapNote"] then
         end
       end
 
-      if (not self.db.profile.hideAzerothShips) then  --Ships
+      if (not self.db.profile.hideShips) then  --Ships
 
         if (self.faction == "Alliance") or db.show["EnemyFaction"] then
           nodes[113][24557044] = {
@@ -2945,276 +3679,6 @@ if not db.show["HideMapNote"] then
           type = "AShip",
           showInZone = true,
           } -- Ship to Stormwind from Borean Tundra
-        end
-      end
-    end
-
-
-    -- Eastern  Kingdom
-    if (not self.db.profile.hideEasternKingdom) then
-
-      -- Eastern  Kingdom Dungeons
-      if db.show["Dungeon"] then
-
-        nodes[95][85206430] = {
-        id = 77,
-        type = "Dungeon",
-        } -- Zul'Aman
-
-        nodes[122][61303090] = {
-        id = 249,
-        type = "Dungeon",
-        } -- Magisters' Terrace
-
-        nodes[13][31796256] = {
-        id = 65,
-        type = "Dungeon",
-        } -- Throne of Tides
-
-        nodes[13][42397323] = {
-        id = 238,
-        type = "Dungeon",
-        } -- The Stockade
-
-        nodes[13][47448471] = {
-        id = 76,
-        type = "Dungeon",
-        } -- Zul'Gurub
-
-        nodes[13][40764187] = {
-        id = 64,
-        type = "Dungeon",
-        } -- Shadowfang Keep
-
-        nodes[13][46583029] = {
-        id = { 311, 316 },
-        type = "Dungeon",
-        } -- Scarlet Halls, Monastery
-
-        nodes[13][52176317] = { 
-        id = { 1197, 239 },
-        type = "Multiple",
-        } --  Legacy of Tyr Dragonflight Dungeon & Vanilla Uldaman
-
-        nodes[13][53646537] = { 
-        id = 239,
-        name = "Uldaman back entrance",
-        type = "Dungeon",
-        } -- Uldaman (Secondary Entrance)
-
-        nodes[13][50953632] = { 
-        id = 246,
-        type = "Dungeon",
-        } -- Scholomance
-
-        nodes[22][70897246] = {
-        type = "Dungeon",
-        name = "Old Scholomance - Secret Entrance - Memory of Scholomance",
-        hideOnContinent = true,
-        } -- Old Scholomance - Memory of Scholomance - Secret Entrance Vanilla Scholomance
-
-        nodes[13][52712836] = {
-        id = 236,
-        lfgid = 40,
-        type = "Dungeon",
-        } -- Stratholme
-
-        nodes[13][54472924] = {
-        id = 236,
-        lfgid = 274,
-        type = "Dungeon",
-        }-- Stratholme Service Entrance
-
-        nodes[13][42915972] = {
-        id = 231,
-        type = "Dungeon",
-        } -- Gnomeregan
-
-        nodes[13][49428163] = {
-        id = 860,
-        type = "Dungeon",
-        } -- Return to Karazhan
-
-        nodes[13][53977927] = {
-        id = 237,
-        type = "Dungeon",
-        } -- The Temple of Atal'hakkar
-
-        nodes[13][40808194] = {
-        id = 63,
-        type = "Dungeon",
-        } -- Deadmines    
-
-        nodes[13][53135585] = {
-        id = 71,
-        type = "Dungeon",
-        } -- Grim Batol
-      end
-
-      -- Eastern  Kingdom Raids
-      if (not self.db.profile.hideRaids) then
-
-        nodes[122][44304570] = {
-        id = 752,
-        type = "Raid",
-        } -- Sunwell Plateau
-
-        nodes[13][53572964] = { 
-        name = "Old Naxxramas - Secret Entrance - Wards of the Dread Citadel",
-        id =  754,
-        type = "Raid",
-        }-- Old Naxxramas - Secret Entrance - Wards of the Dread Citadel
-
-        nodes[13][47546862] = {
-        id = 73,
-        type = "Raid",
-        } -- Blackwind Descent
-
-        nodes[13][54905899] = {
-        id = 72,
-        type = "Raid",
-        } -- The Bastion of Twilight
-
-        nodes[13][35565150] = {
-        id = 75,
-        type = "Raid",
-        } -- Baradin Hold
-      end
-
-      --Eastern Kingdom Multiple
-      if (not self.db.profile.hideMultiple) then
-
-        nodes[13][46886972] = {
-        id = { 741, 742, 66, 228, 229, 559 },
-        type = "Multiple",
-        } -- Molten Core, Blackwing Lair, Blackrock Caverns, Blackrock Depths, Lower Blackrock Spire, Upper Blackrock Spire
-      
-        nodes[13][49428163] = {
-        id = { 745, 860 }, 
-        type = "Multiple",
-        } -- Karazhan, Return to Karazhan
-      end
-
-      --Eastern Kingdom Portals
-      if (not self.db.profile.hidePortals) then
-
-        if (self.faction == "Horde") or db.show["EnemyFaction"] then
-          nodes[18][60205802] = {
-          name = L["Portal to Orgrimmar (new Tirisfal timeline)"],
-          type = "HPortal",
-          showInZone = true,
-          } -- Portal to Orgrimmar from Tirisfal  
-
-          nodes[94][54552795] = {
-          name = L["Portal to Orgrimmar"],
-          type = "HPortal",
-          showInZone = true,
-          hideOnContinent = false,
-          } -- Portal to Orgrimmar from Silvermoon
-
-          nodes[110][58511859] = {
-          name = L["Portal to Orgrimmar"],
-          type = "HPortal",
-          showInZone = true,
-          hideOnContinent = true,
-          } -- Portal to Orgrimmar from Silvermoon
-
-          nodes[14][27442938] = {
-          name = L["Portal to Zandalar"],
-          type = "HPortal",
-          showInZone = true,
-          hideOnContinent = false,
-          } -- Portal from Arathi to Zandalar
-        end
-
-        if (self.faction == "Alliance") or db.show["EnemyFaction"] then
-          nodes[84][43748538] = { 
-          name = L["Portal to Caverns of Time (inside portal chamber)"],
-          type = "APortal",
-          showInZone = false,
-          hideOnContinent = true,
-          } -- Portal to Caverns of Time
-
-          nodes[84][44888577] = { 
-          name = L["Portal to Shattrath (inside portal chamber)"],
-          type = "APortal",
-          showInZone = false,
-          hideOnContinent = true,
-          } -- Portal to Shattrath
-
-          nodes[84][43638719] = { 
-          name = L["Portal to Exodar (inside portal chamber)"],
-          type = "APortal",
-          showInZone = false,
-          hideOnContinent = true,
-          } -- Portal to Exodar
-
-          nodes[84][44388868] = { 
-          name = L["Portal to Dalaran, Crystalsong Forest (inside portal chamber)"],
-          type = "APortal",
-          showInZone = false,
-          hideOnContinent = true,
-          } -- Portal to Dalaran
-
-          nodes[84][45708715] = { 
-          name = L["Portal to The Jade Forest (inside portal chamber)"],
-          type = "APortal",
-          showInZone = false,
-          hideOnContinent = true,
-          } -- Portal to Jade Forest
-
-          nodes[84][48099198] = { 
-          name = L["Portal to Stormshield, Ashran (inside portal chamber)"],
-          type = "APortal",
-          showInZone = false,
-          hideOnContinent = true,
-          } -- Portal to Stormshield
-
-          nodes[84][46869339] = { 
-          name = L["Portal to Azsuna (inside portal chamber)"],
-          type = "APortal",
-          showInZone = false,
-          hideOnContinent = true,
-          } -- Portal to Azsuna
-
-          nodes[84][47579495] = { 
-          name = L["Portal to Oribos (inside portal chamber)"],
-          type = "APortal",
-          showInZone = false,
-          hideOnContinent = true,
-          } -- Portal to Oribos
-
-          nodes[84][48849344] = { 
-          name = L["Portal to Valdrakken (inside portal chamber)"],
-          type = "APortal",
-          showInZone = false,
-          hideOnContinent = true,
-          } -- Portal to Valdrakken
-
-          nodes[84][48759519] = { 
-          name = L["Portal to Boralus (inside portal chamber)"],
-          type = "APortal",
-          showInZone = false,
-          hideOnContinent = true,
-          } -- Portal to Boralus
-        end
-      end
-
-      --Eastern Kingdom Ships
-      if (not self.db.profile.hideShips) then
-
-        nodes[224][37037615] = { 
-        name = L["Ship to Ratchet, Northern Barrens"],
-        type = "Ship",
-        hideOnContinent = false,
-        } -- Ship from Booty Bay to Ratchet
-
-        if (self.faction == "Alliance") or db.show["EnemyFaction"] then
-          nodes[13][40937205] = { 
-          name = L["Ships to Valiance Keep, Borean Tundra and to Boralus Harbor, Tiragarde Sound"],
-          type = "AShip",
-          showInZone = true,
-          } -- Ship from Stormwind to Valiance Keep
         end
       end
     end
@@ -3580,11 +4044,11 @@ if not db.show["HideMapNote"] then
           showInZone = true,
           } --  Dalaran to Stormwind City Portal
 
-          nodes[619][45606186] = {
+          nodes[619][45296767] = {
           name = L["Portal to Stormwind City"],
           type = "APortal",
           showInZone = false,
-          } --  Portal from Hellfire to Stormwind
+          } --  Portal from Dalaran to Stormwind
 
           nodes[630][44664143] = {
           name = L["Portal to Stormwind City"],
@@ -4154,6 +4618,18 @@ if not db.show["HideMapNote"] then
         id = 1208,
         type = "Raid",
         }-- Aberrus, the Shadowed Crucible
+
+        nodes[2200][27323111] = {
+        id = 1207,
+        type = "Raid",
+        }-- Amirdrassil, the Dream's Hope
+
+        nodes[2023][18425233] = {
+        id = 1207,
+        type = "Raid",
+        showInZone = false,
+        hideOnContinent = true,
+        }-- Amirdrassil, the Dream's Hope
       end
 
       -- Dragonflight Portals
@@ -4167,11 +4643,32 @@ if not db.show["HideMapNote"] then
         } --  Portal from Valdrakken to Nazmir, Uldum and Tiragarde Sound
 
         nodes[2112][53875511] = {
+        uiMapId = 2025,
         name = L["Portal to Nazmir, Uldum or Tiragarde Sound"],
         type = "Portal",
         hideOnContinent = false,
         showInZone = true,
         } --  Portal from Valdrakken to Nazmir, Uldum and Tiragarde Sound
+
+        nodes[2023][18295223] = {
+        name = L["Portal to The Emerald Dream"],
+        type = "Portal",
+        showInZone = true,
+        hideOnContinent = true,
+        }-- Portal to The Emerald Dream
+
+        nodes[1978][31195663] = {
+        name = L["Portal to The Emerald Dream"],
+        type = "Portal",
+        showInZone = true,
+        }-- Portal to The Emerald Dream
+
+        nodes[2200][73065245] = {
+        name = L["Portal to Ohn'ahran Plains"],
+        type = "Portal",
+        showInZone = true,
+        hideOnContinent = false,
+        }-- Portal The Emerald Dream to Ohn'ahran Plains
 
         if (self.faction == "Horde") or db.show["EnemyFaction"] then
           nodes[2112][56593828] = {
@@ -4243,6 +4740,14 @@ lfgIDs = {
 [800]=1319, [861]=1439, [875]=1527,
 
 [900]=1488
+
+}
+
+mapIDs = {
+  
+    -- Black Temple
+['bt_black_temple'] = 339, ['bt_karabor_sewers'] = 340, ['bt_sanctuary_of_shadows'] = 341, ['bt_halls_of_anguish'] = 342, ['bt_gorefiends_vigil'] = 343, ['bt_den_of_mortal_delights'] = 344, ['bt_chamber_of_command'] = 345, ['bt_temple_summit'] = 346,
+
 }
 
 function Addon:UpdateAlter(id, name)

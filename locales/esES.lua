@@ -18,8 +18,10 @@ L["• gray colored symbols"] = "• símbolos de color gris"
 L["If you are assigned to a dungeon or raid and have an ID, this option will turn the dungeon or raid icon gray until this ID is reset so that you can see which dungeon or raid you have started or completed"] = "Si estás asignado a una mazmorra o banda y tienes una identificación, esta opción hará que el ícono de la mazmorra o banda se vuelva gris hasta que esta ID se restablezca para que puedas ver qué mazmorra o banda has iniciado o completado"
 L["• gray multiple points"] = "• puntos múltiples grises"
 L["Colors multi-points of dungeons and/or raids in gray if you are assigned to any dungeon or raid of this multi-point and have an ID so that you can see that you have started or completed any dungeon or raid of the multi-point"] = "Colorea los multipuntos de mazmorras y/o raids en gris si estás asignado a alguna mazmorra o raid de este multipunto y tienes un ID para que puedas ver que has iniciado o completado cualquier mazmorra o raid de este multipunto"
-L["• enemy faction"] = true
-L["Shows enemy faction (horde/alliance) symbols too"] = true
+L["• enemy faction"] = "• facción enemiga"
+L["Shows enemy faction (horde/alliance) symbols too"] = "También muestra símbolos de facciones enemigas (horda/alianza)."
+L["• Old Raids/Dungeons"] = "• Antiguas incursiones/mazmorras"
+L["Show vanilla versions of dungeons and raids such as Naxxramas, Scholomance or Scarlet Monastery, which require achievements or other things"] = "Muestra versiones básicas de mazmorras y bandas como Naxxramas, Scholomance o Scarlet Monasterio, que requieren logros u otras cosas"
 
 
 --2
@@ -128,12 +130,13 @@ L["Passage"] = "Paso"
 
 
 --6 Portals
+L["Dark Portal (Portal to Warspear, Ashran)"] = "Portal Oscuro (Portal a Warspear, Ashran)"
+L["Dark Portal (Portal to Stormshield, Ashran)"] = "Portal Oscuro (Portal a Stormshield, Ashran)"
 L["Portal to Orgrimmar"] = "Portal a Orgrimmar"
 L["Portal to Orgrimmar (inside building)"] = "Portal a Orgrimmar (dentro del edificio)"
 L["Portal to Stormwind City"] = "Portal a la ciudad de Ventormenta"
 L["Portal to Stormwind City (inside building)"] = "Portal a la ciudad de Ventormenta (dentro del edificio)"
 L["Portal to Nazmir, Uldum or Tiragarde Sound"] = "Portal a Nazmir, Uldum o Tiragarde Sound"
-L["Portal to Orgrimmar (new Tirisfal timeline)"] = "Portal a Orgrimmar (nueva línea temporal de Tirisfal)"
 L["Portal to Warspear, Ashran (at basement)"] = "Portal a Warspear, Ashran (en el sótano)"
 L["Portal to Stormshield, Ashran (inside portal chamber)"] = "Portal a Stormshield, Ashran (dentro de la cámara del portal)"
 L["Portal to Caverns of Time"] = "Portal a las Cavernas del Tiempo"
@@ -180,6 +183,10 @@ L["These portals are only active in the game if your faction is currently occupy
 L["Portal to Boralus (its only shown up ingame if your faction is currently occupying Bashal'Aran"] = "Portal a Boralus (solo aparece en el juego si tu facción está actualmente ocupando Bashal'Aran"
 L["Portal to Zandalar (its only shown up ingame if your faction is currently occupying Bashal'Aran"] = "Portal a Zandalar (solo aparece en el juego si tu facción está actualmente ocupando Bashal'Aran"
 L["Portal to Zandalar(horde)/Boralus(alliance)"] = "Portal a Zandalar(horda)/Boralus(alianza)"
+L["Portal to Howling Fjord"] = "Portal al Fiordo Aquilonal"
+L["Portal to Stranglethorn"] = "Portal a Tuercespina"
+L["Portal to The Emerald Dream"] = "Portal al sueño esmeralda"
+L["Portal to Ohn'ahran Plains"] = "Portal a las llanuras de Ohn'ahran"
 
 
 --7 Zeppelins
@@ -209,3 +216,14 @@ L["Ship to Stormwind City or to Vol'Dun or to Nazmir or to Zuldazar"] = "Enviar 
 L["Ship to Echo Isles, Durotar or to Drustvar or to Tiragarde Sound or to Stormsong Valley"] = "Envío a las Islas Echo, Durotar o Drustvar o al Estrecho de Tiragarde o al Valle Canto Tormenta"
 L["Back to Zuldazar"] = "Volver a Zuldazar"
 L["Back to Boralus"] = "Volver a Boralús"
+
+
+--10 old dungeons/raids
+L["Old version of Scarlet Monastery Armory (need to activate the old keychain at 48.33 55.88 inside the Scarlet Monastery)"] = "Versión antigua de la Armería del Monasterio Escarlata (es necesario activar el llavero antiguo en 48.33 55.88 dentro del Monasterio Escarlata)"
+L["Old version of Naxxramas - Secret Entrance (Wards of the Dread Citadel - Achievement)"] = "Versión antigua de Naxxramas - Entrada secreta (Wards of the Dread Citadel - Logro)"
+L["Old keychain - use the old keychain to activate the old versions of Scarlet Monastery dungeons (you need to get first (The Scarlet Key) from Hallow's End world event or buy from auction house)"] = "Llavero antiguo: usa el llavero antiguo para activar las versiones antiguas de las mazmorras del Monasterio Escarlata (debes obtener primero (La Llave Escarlata) del evento mundial de Hallow's End o comprarla en la casa de subastas)"
+L["Old version of Scarlet Monastery Cathedral (need to activate the old keychain at 48.33 55.88 inside the Scarlet Monastery)"] = "Versión antigua de la Catedral del Monasterio Escarlata (es necesario activar el llavero antiguo en 48.33 55.88 dentro del Monasterio Escarlata)"
+L["Old version of Scarlet Monastery Graveyard (need to activate the old keychain at 48.33 55.88 inside the Scarlet Monastery)"] = "Versión antigua del Cementerio del Monasterio Escarlata (es necesario activar el llavero antiguo en 48.33 55.88 dentro del Monasterio Escarlata)"
+L["Old version of Scarlet Monastery Library (need to activate the old keychain at 48.33 55.88 inside the Scarlet Monastery)"] = "Versión antigua de la Biblioteca del Monasterio Escarlata (es necesario activar el llavero antiguo en 48.33 55.88 dentro del Monasterio Escarlata)"
+L["Old version of Scarlet Monastery Armory (need to activate the old keychain at 48.33 55.88 inside the Scarlet Monastery)"] = "Versión antigua de la Armería del Monasterio Escarlata (es necesario activar el llavero antiguo en 48.33 55.88 dentro del Monasterio Escarlata)"
+L["Old version of Scholomance - Secret Entrance (Memory of Scholomance - Achievement)"] = "Versión antigua de Scholomance - Entrada secreta (Memoria de Scholomance - Logro)"

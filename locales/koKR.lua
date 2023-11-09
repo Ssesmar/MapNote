@@ -18,8 +18,10 @@ L["• gray colored symbols"] = "• 회색 색상의 기호"
 L["If you are assigned to a dungeon or raid and have an ID, this option will turn the dungeon or raid icon gray until this ID is reset so that you can see which dungeon or raid you have started or completed"] = "던전이나 공격대에 배정되어 있고 ID가 있는 경우, 이 옵션을 사용하면 해당 ID가 재설정될 때까지 던전이나 공격대 아이콘이 회색으로 바뀌므로 어떤 던전이나 공격대를 시작했거나 완료했는지 확인할 수 있습니다"
 L["• gray multiple points"] = "• 회색 다중 포인트"
 L["Colors multi-points of dungeons and/or raids in gray if you are assigned to any dungeon or raid of this multi-point and have an ID so that you can see that you have started or completed any dungeon or raid of the multi-point"] = "이 멀티 포인트의 던전이나 레이드에 배정되어 있고 멀티 포인트의 던전이나 레이드를 시작했거나 완료했음을 알 수 있도록 ID를 가지고 있는 경우 멀티 포인트 던전 및/또는 레이드를 회색으로 표시합니다"
-L["• enemy faction"] = true
-L["Shows enemy faction (horde/alliance) symbols too"] = true
+L["• enemy faction"] = "• 적 세력"
+L["Shows enemy faction (horde/alliance) symbols too"] = "적 진영(호드/얼라이언스) 기호도 표시됩니다"
+L["• Old Raids/Dungeons"] = "• 기존 레이드/던전"
+L["Show vanilla versions of dungeons and raids such as Naxxramas, Scholomance or Scarlet Monastery, which require achievements or other things"] = "낙스라마스, 스칼로맨스, 붉은십자군 수도원 등 업적이나 기타 사항이 필요한 던전 및 공격대의 바닐라 버전을 보여줍니다"
 
 
 --2
@@ -128,12 +130,13 @@ L["Passage"] = "통로"
 
 
 --6 Portals
+L["Dark Portal (Portal to Warspear, Ashran)"] = "어둠의 문(아쉬란, 전쟁의 창으로 가는 문)"
+L["Dark Portal (Portal to Stormshield, Ashran)"] = "어둠의 문(아쉬란의 폭풍방패로 통하는 문)"
 L["Portal to Orgrimmar"] = "오그리마로 가는 차원문"
 L["Portal to Orgrimmar (inside building)"] = "오그리마로 가는 문(건물 내부)"
 L["Portal to Stormwind City"] = "스톰윈드 시로 가는 차원문"
 L["Portal to Stormwind City (inside building)"] = "스톰윈드 시티로 가는 문(건물 내부)"
 L["Portal to Nazmir, Uldum or Tiragarde Sound"] = "나즈미르, 울둠, 티라가드 해협으로 통하는 차원문"
-L["Portal to Orgrimmar (new Tirisfal timeline)"] = "오그리마로 가는 차원문(새로운 티리스팔 시간표)"
 L["Portal to Warspear, Ashran (at basement)"] = "Warspear, Ashran으로 향하는 포털(지하)"
 L["Portal to Stormshield, Ashran (inside portal chamber)"] = "Stormshield, Ashran으로 향하는 포털(포탈 챔버 내부)"
 L["Portal to Caverns of Time"] = "시간의 동굴로 통하는 문"
@@ -180,6 +183,10 @@ L["These portals are only active in the game if your faction is currently occupy
 L["Portal to Boralus (its only shown up ingame if your faction is currently occupying Bashal'Aran"] = "보랄러스로 향하는 차원문(당신의 세력이 현재 바샬아란을 점령하고 있는 경우에만 게임 내에서 표시됩니다)"
 L["Portal to Zandalar (its only shown up ingame if your faction is currently occupying Bashal'Aran"] = "잔달라로 향하는 차원문(당신의 세력이 현재 바샬아란을 점령하고 있는 경우에만 게임 내에서 표시됩니다)"
 L["Portal to Zandalar(horde)/Boralus(alliance)"] = "잔달라(호드)/보랄러스(얼라이언스)로 가는 차원문"
+L["Portal to Howling Fjord"] = "울부짖는 협만으로 가는 차원문"
+L["Portal to Stranglethorn"] = "가시덤불로 가는 차원문"
+L["Portal to The Emerald Dream"] = "에메랄드 드림으로 향하는 포털"
+L["Portal to Ohn'ahran Plains"] = "온아란 평원으로 가는 차원문"
 
 
 --7 Zeppelins
@@ -209,3 +216,14 @@ L["Ship to Stormwind City or to Vol'Dun or to Nazmir or to Zuldazar"] = "스톰�
 L["Ship to Echo Isles, Durotar or to Drustvar or to Tiragarde Sound or to Stormsong Valley"] = "메아리 섬, 듀로타, 드러스트바, 티라가드 해협, 스톰송 계곡으로 배송하세요."
 L["Back to Zuldazar"] = "줄다자르로 돌아가기"
 L["Back to Boralus"] = "보랄러스로 돌아가기"
+
+
+--10 old dungeons/raids
+L["Old version of Scarlet Monastery Armory (need to activate the old keychain at 48.33 55.88 inside the Scarlet Monastery)"] = "붉은십자군 수도원 무기고의 이전 버전(붉은십자군 수도원 내부 48.33 55.88에서 이전 키체인을 활성화해야 함)"
+L["Old version of Naxxramas - Secret Entrance (Wards of the Dread Citadel - Achievement)"] = "이전 버전의 낙스라마스 - 비밀 입구(공포의 성채의 수호물 - 업적)"
+L["Old keychain - use the old keychain to activate the old versions of Scarlet Monastery dungeons (you need to get first (The Scarlet Key) from Hallow's End world event or buy from auction house)"] = "오래된 열쇠고리 - 오래된 열쇠고리를 사용하여 붉은십자군 수도원 던전의 이전 버전을 활성화합니다(할로윈엔드 월드 이벤트에서 먼저 (주홍빛 열쇠)를 얻거나 경매장에서 구매해야 합니다)"
+L["Old version of Scarlet Monastery Cathedral (need to activate the old keychain at 48.33 55.88 inside the Scarlet Monastery)"] = "Scarlet Monastery Cathedral의 이전 버전(Scarlet Monastery 내부 48.33 55.88에서 이전 키체인을 활성화해야 함)"
+L["Old version of Scarlet Monastery Graveyard (need to activate the old keychain at 48.33 55.88 inside the Scarlet Monastery)"] = "Scarlet Monastery Graveyard의 이전 버전(Scarlet Monastery 내부 48.33 55.88에서 이전 키체인을 활성화해야 함)"
+L["Old version of Scarlet Monastery Library (need to activate the old keychain at 48.33 55.88 inside the Scarlet Monastery)"] = "Scarlet Monastery Library의 이전 버전(Scarlet Monastery 내부 48.33 55.88에서 이전 키체인을 활성화해야 함)"
+L["Old version of Scarlet Monastery Armory (need to activate the old keychain at 48.33 55.88 inside the Scarlet Monastery)"] = "붉은십자군 수도원 무기고의 이전 버전(붉은십자군 수도원 내부 48.33 55.88에서 이전 키체인을 활성화해야 함)"
+L["Old version of Scholomance - Secret Entrance (Memory of Scholomance - Achievement)"] = "이전 버전의 스칼로맨스 - 비밀 입구(스칼로맨스의 기억 - 업적)"

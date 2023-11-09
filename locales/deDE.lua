@@ -20,6 +20,8 @@ L["• gray multiple points"] = "• Mehrfachpunkte eingrauen"
 L["Colors multi-points of dungeons and/or raids in gray if you are assigned to any dungeon or raid of this multi-point and have an ID so that you can see that you have started or completed any dungeon or raid of the multi-point"] = "Färbt Mehrfachpunkte von Dungeons und oder Schlachtzügen in grau ein, wenn du bei irgendeinem Dungeon oder Schlachtzug dieses Mehrfachpunktes zugewiesen bist also eine ID hast, damit du siehst, dass du irgendeinem Dungeon oder Schlachtzug des Mehrfachpunktes angefangen bzw erledigt hast"
 L["• enemy faction"] = "• gegnerische Fraktion"
 L["Shows enemy faction (horde/alliance) symbols too"] = "Zeige die Symbole der gegnerischen Fraktion (Horde/Allianz) auch an"
+L["• Old Raids/Dungeons"] = "• Alte Schlachtzüge/Dungeons"
+L["Show vanilla versions of dungeons and raids such as Naxxramas, Scholomance or Scarlet Monastery, which require achievements or other things"] = "Zeige Vanilla Versionen von Dungeons und Schlachtzügen an wie zum beispiel Naxxramas, Scholomance oder das Scharlachrote Kloster wofür Erfolge oder andere dinge vorrausgesetzt werden"
 
 
 --2
@@ -128,13 +130,14 @@ L["Passage"] = "Durchgang"
 
 
 --6 Portals
+L["Dark Portal (Portal to Warspear, Ashran)"] = "Das Dunkle Portal (Portal zum Kriegsspeer, Ashran)"
+L["Dark Portal (Portal to Stormshield, Ashran)"] = "Das Dunkle Portal (Portal zum Sturmschild, Ashran)"
 L["Portal to Orgrimmar"] = "Portal nach Orgrimmar"
 L["Portal to Orgrimmar (inside building)"] = "Portal nach Orgrimmar (im Gebäude)"
 L["Portal to Stormwind City"] = "Portal nach Sturmwind"
 L["Portal to Stormwind City (inside building)"] = "Portal nach Sturmwind (im Gebäude)"
 L["Portal to Nazmir, Uldum or Tiragarde Sound"] = "Portal nach Nazmir, Uldum oder Tiragardesund"
-L["Portal to Orgrimmar (new Tirisfal timeline)"] = "Portal nach Orgrimmar (neue Tirisfal Zeitlinie)"
-L["Portal to Warspear, Ashran (at basement)"] = "Portal nach Kriegsspeer, Ashran (im Keller)"
+L["Portal to Warspear, Ashran (at basement)"] = "Portal zum Kriegsspeer, Ashran (im Keller)"
 L["Portal to Stormshield, Ashran (inside portal chamber)"] = "Portal zum Sturmschild, Ashran (in der Portalkammer)"
 L["Portal to Caverns of Time"] = "Portal zu den Höhlen der Zeit"
 L["Portal to Caverns of Time (at basement)"] = "Portal zu den Höhlen der Zeit (im Keller)"
@@ -180,6 +183,10 @@ L["These portals are only active in the game if your faction is currently occupy
 L["Portal to Boralus (its only shown up ingame if your faction is currently occupying Bashal'Aran"] = "Portal nach Boralus (wird im Spiel nur angezeigt, wenn eure Fraktion zurzeit Bashal'Aran besetzt)"
 L["Portal to Zandalar (its only shown up ingame if your faction is currently occupying Bashal'Aran"] = "Portal nach Zandalar (wird im Spiel nur angezeigt, wenn eure Fraktion zurzeit Bashal'Aran besetzt)"
 L["Portal to Zandalar(horde)/Boralus(alliance)"] = "Portal nach Zandalar(Horde)/Boralus(Allianz)"
+L["Portal to Howling Fjord"] = "Portal zum Heulenden Fjord"
+L["Portal to Stranglethorn"] = "Portal zum Schlingendorntal"
+L["Portal to The Emerald Dream"] = "Portal zum Smaragdgrünen Traum"
+L["Portal to Ohn'ahran Plains"] = "Portal zu den Ebenen von Ohn'ahra"
 
 
 --7 Zeppelins
@@ -209,3 +216,14 @@ L["Ship to Stormwind City or to Vol'Dun or to Nazmir or to Zuldazar"] = "Schiff 
 L["Ship to Echo Isles, Durotar or to Drustvar or to Tiragarde Sound or to Stormsong Valley"] = "Schiff zu den Echo Inseln, Durotar oder nach Drustvar oder nach Tiragardesund oder zum Sturmsangtal"
 L["Back to Zuldazar"] = "Zurück nach Zuldazar"
 L["Back to Boralus"] = "Zurück nach Boralus"
+
+
+--10 old dungeons/raids
+L["Old version of Scarlet Monastery Armory (need to activate the old keychain at 48.33 55.88 inside the Scarlet Monastery)"] = "Alte Version der Waffenkammer des Scharlachroten Klosters (der alte Schlüsselbund muss bei 48,33 55,88 im Scharlachroten Kloster aktiviert werden)"
+L["Old version of Naxxramas - Secret Entrance (Wards of the Dread Citadel - Achievement)"] = "Alte Version von Naxxramas – Geheimer Eingang (Schutze der Zitadelle des Schreckens – Erfolg)"
+L["Old keychain - use the old keychain to activate the old versions of Scarlet Monastery dungeons (you need to get first (The Scarlet Key) from Hallow's End world event or buy from auction house)"] = "Alter Schlüsselbund – Verwenden Sie den alten Schlüsselbund, um die alten Versionen der Dungeons des Scharlachroten Klosters zu aktivieren (Sie müssen zuerst (den Scharlachroten Schlüssel) beim Weltereignis „Kopflose Reiter“ erhalten oder im Auktionshaus kaufen)"
+L["Old version of Scarlet Monastery Cathedral (need to activate the old keychain at 48.33 55.88 inside the Scarlet Monastery)"] = "Alte Version der Kathedrale des Scharlachroten Klosters (der alte Schlüsselbund muss bei 48,33 55,88 im Scharlachroten Kloster aktiviert werden)"
+L["Old version of Scarlet Monastery Graveyard (need to activate the old keychain at 48.33 55.88 inside the Scarlet Monastery)"] = "Alte Version der Friedhof des Scharlachroten Klosters (der alte Schlüsselbund muss bei 48,33 55,88 im Scharlachroten Kloster aktiviert werden)"
+L["Old version of Scarlet Monastery Library (need to activate the old keychain at 48.33 55.88 inside the Scarlet Monastery)"] = "Alte Version der Bibliothek des Scharlachroten Klosters (der alte Schlüsselbund muss bei 48,33 55,88 im Scharlachroten Kloster aktiviert werden)"
+L["Old version of Scarlet Monastery Armory (need to activate the old keychain at 48.33 55.88 inside the Scarlet Monastery)"] = "Alte Version der Waffenkammer des Scharlachroten Klosters (der alte Schlüsselbund muss bei 48,33 55,88 im Scharlachroten Kloster aktiviert werden)"
+L["Old version of Scholomance - Secret Entrance (Memory of Scholomance - Achievement)"] = "Alte Version von Scholomance – Geheimer Eingang (Erinnerung an Scholomance – Erfolg)"

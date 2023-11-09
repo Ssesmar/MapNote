@@ -18,8 +18,10 @@ L["• gray colored symbols"] = "• symboles de couleur grise"
 L["If you are assigned to a dungeon or raid and have an ID, this option will turn the dungeon or raid icon gray until this ID is reset so that you can see which dungeon or raid you have started or completed"] = "Si vous êtes affecté à un donjon ou à un raid et que vous disposez d'un identifiant, cette option rendra l'icône du donjon ou du raid grise jusqu'à ce que cet identifiant soit réinitialisé afin que vous puissiez voir quel donjon ou raid vous avez commencé ou terminé"
 L["• gray multiple points"] = "• gris plusieurs points"
 L["Colors multi-points of dungeons and/or raids in gray if you are assigned to any dungeon or raid of this multi-point and have an ID so that you can see that you have started or completed any dungeon or raid of the multi-point"] = "Colore les multi-points des donjons et/ou raids en gris si vous êtes affecté à un donjon ou raid de ce multi-point et que vous disposez d'un identifiant afin que vous puissiez voir que vous avez commencé ou terminé n'importe quel donjon ou raid du multi-point"
-L["• enemy faction"] = true
-L["Shows enemy faction (horde/alliance) symbols too"] = true
+L["• enemy faction"] = "• faction ennemie"
+L["Shows enemy faction (horde/alliance) symbols too"] = "Affiche également les symboles de la faction ennemie (horde/alliance)"
+L["• Old Raids/Dungeons"] = "• Anciens Raids/Donjons"
+L["Show vanilla versions of dungeons and raids such as Naxxramas, Scholomance or Scarlet Monastery, which require achievements or other things"] = "Afficher des versions vanille de donjons et de raids tels que Naxxramas, Scholomance ou Scarlet Ministry, qui nécessitent des succès ou d'autres choses"
 
 
 --2
@@ -128,12 +130,13 @@ L["Passage"] = "Passage"
 
 
 --6 Portals
+L["Dark Portal (Portal to Warspear, Ashran)"] = "Portail des Ténèbres (Portail vers Warspear, Ashran)"
+L["Dark Portal (Portal to Stormshield, Ashran)"] = "Portail sombre (Portail vers Stormshield, Ashran)"
 L["Portal to Orgrimmar"] = "Portail vers Orgrimmar"
 L["Portal to Orgrimmar (inside building)"] = "Portail vers Orgrimmar (à l'intérieur du bâtiment)"
 L["Portal to Stormwind City"] = "Portail vers la ville de Hurlevent"
 L["Portal to Stormwind City (inside building)"] = "Portail vers Stormwind City (à l'intérieur du bâtiment)"
 L["Portal to Nazmir, Uldum or Tiragarde Sound"] = "Portail vers Nazmir, Uldum ou Tiragarde Sound"
-L["Portal to Orgrimmar (new Tirisfal timeline)"] = "Portail vers Orgrimmar (nouvelle chronologie de Tirisfal)"
 L["Portal to Warspear, Ashran (at basement)"] = "Portail vers Warspear, Ashran (au sous-sol)"
 L["Portal to Stormshield, Ashran (inside portal chamber)"] = "Portail vers Stormshield, Ashran (à l'intérieur de la chambre du portail)"
 L["Portal to Caverns of Time"] = "Portail vers les Cavernes du Temps"
@@ -180,6 +183,10 @@ L["These portals are only active in the game if your faction is currently occupy
 L["Portal to Boralus (its only shown up ingame if your faction is currently occupying Bashal'Aran"] = "Portail vers Boralus (il n'apparaît dans le jeu que si votre faction occupe actuellement Bashal'Aran"
 L["Portal to Zandalar (its only shown up ingame if your faction is currently occupying Bashal'Aran"] = "Portail vers Zandalar (il n'apparaît dans le jeu que si votre faction occupe actuellement Bashal'Aran"
 L["Portal to Zandalar(horde)/Boralus(alliance)"] = "Portail vers Zandalar (horde)/Boralus (alliance)"
+L["Portal to Howling Fjord"] = "Portail vers le Fjord Hurlant"
+L["Portal to Stranglethorn"] = "Portail vers Strangleronce"
+L["Portal to The Emerald Dream"] = "Portail vers le rêve d'émeraude"
+L["Portal to Ohn'ahran Plains"] = "Portail vers les plaines d'Ohn'ahran"
 
 
 --7 Zeppelins
@@ -209,3 +216,14 @@ L["Ship to Stormwind City or to Vol'Dun or to Nazmir or to Zuldazar"] = "Expédi
 L["Ship to Echo Isles, Durotar or to Drustvar or to Tiragarde Sound or to Stormsong Valley"] = "Naviguez vers les îles Écho, Durotar ou Drustvar ou vers le détroit de Tiragarde ou vers la vallée Chantorage"
 L["Back to Zuldazar"] = "Retour à Zuldazar"
 L["Back to Boralus"] = "Retour à Boralus"
+
+
+--10 old dungeons/raids
+L["Old version of Scarlet Monastery Armory (need to activate the old keychain at 48.33 55.88 inside the Scarlet Monastery)"] = "Ancienne version de l'Armurerie du Monastère Écarlate (nécessité d'activer l'ancien trousseau au 48.33 55.88 à l'intérieur du Monastère Écarlate)"
+L["Old version of Naxxramas - Secret Entrance (Wards of the Dread Citadel - Achievement)"] = "Ancienne version de Naxxramas - Entrée secrète (Wards of the Dread Citadel - Achievement)"
+L["Old keychain - use the old keychain to activate the old versions of Scarlet Monastery dungeons (you need to get first (The Scarlet Key) from Hallow's End world event or buy from auction house)"] = "Ancien porte-clés - utilisez l'ancien porte-clés pour activer les anciennes versions des donjons du monastère écarlate (vous devez d'abord obtenir (la clé écarlate) lors de l'événement mondial de la Sanssaint ou acheter à la maison de ventes aux enchères)"
+L["Old version of Scarlet Monastery Cathedral (need to activate the old keychain at 48.33 55.88 inside the Scarlet Monastery)"] = "Ancienne version de la cathédrale du monastère écarlate (nécessité d'activer l'ancien trousseau au 48.33 55.88 à l'intérieur du monastère écarlate)"
+L["Old version of Scarlet Monastery Graveyard (need to activate the old keychain at 48.33 55.88 inside the Scarlet Monastery)"] = "Ancienne version du cimetière du monastère écarlate (nécessité d'activer l'ancien trousseau au 48.33 55.88 à l'intérieur du monastère écarlate)"
+L["Old version of Scarlet Monastery Library (need to activate the old keychain at 48.33 55.88 inside the Scarlet Monastery)"] = "Ancienne version de la bibliothèque du monastère écarlate (nécessité d'activer l'ancien trousseau au 48.33 55.88 à l'intérieur du monastère écarlate)"
+L["Old version of Scarlet Monastery Armory (need to activate the old keychain at 48.33 55.88 inside the Scarlet Monastery)"] = "Ancienne version de l'Armurerie du Monastère Écarlate (nécessité d'activer l'ancien trousseau au 48.33 55.88 à l'intérieur du Monastère Écarlate)"
+L["Old version of Scholomance - Secret Entrance (Memory of Scholomance - Achievement)"] = "Ancienne version de Scholomance - Entrée Secrète (Mémoire de Scholomance - Succès)"

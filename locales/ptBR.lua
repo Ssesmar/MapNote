@@ -18,8 +18,10 @@ L["• gray colored symbols"] = "• símbolos de cor cinza"
 L["If you are assigned to a dungeon or raid and have an ID, this option will turn the dungeon or raid icon gray until this ID is reset so that you can see which dungeon or raid you have started or completed"] = "Se você estiver atribuído a uma masmorra ou raide e tiver um ID, esta opção deixará o ícone da masmorra ou raide cinza até que esse ID seja redefinido para que você possa ver qual masmorra ou raide você iniciou ou concluiu"
 L["• gray multiple points"] = "• vários pontos cinza"
 L["Colors multi-points of dungeons and/or raids in gray if you are assigned to any dungeon or raid of this multi-point and have an ID so that you can see that you have started or completed any dungeon or raid of the multi-point"] = "Colore multipontos de masmorras e/ou raids em cinza se você estiver designado para qualquer masmorra ou raid deste multiponto e tiver um ID para que você possa ver que iniciou ou completou qualquer masmorra ou raid deste multiponto"
-L["• enemy faction"] = true
-L["Shows enemy faction (horde/alliance) symbols too"] = true
+L["• enemy faction"] = "• facção inimiga"
+L["Shows enemy faction (horde/alliance) symbols too"] = "Também mostra símbolos de facção inimiga (horda/aliança)"
+L["• Old Raids/Dungeons"] = "• Raids/Masmorras Antigas"
+L["Show vanilla versions of dungeons and raids such as Naxxramas, Scholomance or Scarlet Monastery, which require achievements or other things"] = "Mostre versões básicas de masmorras e ataques como Naxxramas, Scholomance ou Scarlet Monastery, que exigem conquistas ou outras coisas"
 
 
 --2
@@ -128,12 +130,13 @@ L["Passage"] = "Passagem"
 
 
 --6 Portals
+L["Dark Portal (Portal to Warspear, Ashran)"] = "Portal Negro (Portal para Lança de Guerra, Ashran)"
+L["Dark Portal (Portal to Stormshield, Ashran)"] = "Portal Negro (Portal para Stormshield, Ashran)"
 L["Portal to Orgrimmar"] = "Portal para Orgrimmar"
 L["Portal to Orgrimmar (inside building)"] = "Portal para Orgrimmar (dentro do edifício)"
 L["Portal to Stormwind City"] = "Portal para Ventobravo"
 L["Portal to Stormwind City (inside building)"] = "Portal para Ventobravo (dentro do prédio)"
 L["Portal to Nazmir, Uldum or Tiragarde Sound"] = "Portal para Nazmir, Uldum ou Tiragarde Sound"
-L["Portal to Orgrimmar (new Tirisfal timeline)"] = "Portal para Orgrimmar (nova linha do tempo de Tirisfal)"
 L["Portal to Warspear, Ashran (at basement)"] = "Portal para Warspear, Ashran (no porão)"
 L["Portal to Stormshield, Ashran (inside portal chamber)"] = "Portal para Stormshield, Ashran (dentro da câmara do portal)"
 L["Portal to Caverns of Time"] = "Portal para Cavernas do Tempo"
@@ -180,6 +183,10 @@ L["These portals are only active in the game if your faction is currently occupy
 L["Portal to Boralus (its only shown up ingame if your faction is currently occupying Bashal'Aran"] = "Portal para Boralus (só aparece no jogo se sua facção estiver ocupando Bashal'Aran"
 L["Portal to Zandalar (its only shown up ingame if your faction is currently occupying Bashal'Aran"] = "Portal para Zandalar (só aparece no jogo se sua facção estiver ocupando Bashal'Aran"
 L["Portal to Zandalar(horde)/Boralus(alliance)"] = "Portal para Zandalar(horda)/Boralus(aliança)"
+L["Portal to Howling Fjord"] = "Portal para o Fiorde Uivante"
+L["Portal to Stranglethorn"] = "Portal para a Selva do Espinhaço"
+L["Portal to The Emerald Dream"] = "Portal para o sonho esmeralda"
+L["Portal to Ohn'ahran Plains"] = "Portal para as Planícies de Ohn'ahran"
 
 
 --7 Zeppelins
@@ -209,3 +216,14 @@ L["Ship to Stormwind City or to Vol'Dun or to Nazmir or to Zuldazar"] = "Envie p
 L["Ship to Echo Isles, Durotar or to Drustvar or to Tiragarde Sound or to Stormsong Valley"] = "Envie para Echo Isles, Durotar ou para Drustvar ou para Tiragarde Sound ou para Stormsong Valley"
 L["Back to Zuldazar"] = "De volta a Zuldazar"
 L["Back to Boralus"] = "De volta a Boralus"
+
+
+--10 old dungeons/raids
+L["Old version of Scarlet Monastery Armory (need to activate the old keychain at 48.33 55.88 inside the Scarlet Monastery)"] = "Versão antiga do Scarlet Monastery Armory (é necessário ativar o chaveiro antigo em 48.33 55.88 dentro do Scarlet Monastery)"
+L["Old version of Naxxramas - Secret Entrance (Wards of the Dread Citadel - Achievement)"] = "Versão antiga de Naxxramas - Entrada Secreta (Wards of the Dread Citadel - Conquista)"
+L["Old keychain - use the old keychain to activate the old versions of Scarlet Monastery dungeons (you need to get first (The Scarlet Key) from Hallow's End world event or buy from auction house)"] = "Chaveiro antigo - use o chaveiro antigo para ativar as versões antigas das masmorras do Monastério Escarlate (você precisa obter primeiro (A Chave Escarlate) do evento mundial Hallow's End ou comprar na casa de leilões)"
+L["Old version of Scarlet Monastery Cathedral (need to activate the old keychain at 48.33 55.88 inside the Scarlet Monastery)"] = "Versão antiga da Catedral do Mosteiro Escarlate (é necessário ativar o chaveiro antigo em 48.33 55.88 dentro do Mosteiro Escarlate)"
+L["Old version of Scarlet Monastery Graveyard (need to activate the old keychain at 48.33 55.88 inside the Scarlet Monastery)"] = "Versão antiga do Cemitério do Monastério Escarlate (é necessário ativar o chaveiro antigo em 48.33 55.88 dentro do Monastério Escarlate)"
+L["Old version of Scarlet Monastery Library (need to activate the old keychain at 48.33 55.88 inside the Scarlet Monastery)"] = "Versão antiga da Biblioteca do Monastério Escarlate (é necessário ativar o chaveiro antigo em 48.33 55.88 dentro do Monastério Escarlate)"
+L["Old version of Scarlet Monastery Armory (need to activate the old keychain at 48.33 55.88 inside the Scarlet Monastery)"] = "Versão antiga do Scarlet Monastery Armory (é necessário ativar o chaveiro antigo em 48.33 55.88 dentro do Scarlet Monastery)"
+L["Old version of Scholomance - Secret Entrance (Memory of Scholomance - Achievement)"] = "Versão antiga de Scholomance - Secret Entrance (Memory of Scholomance - Achievement)"

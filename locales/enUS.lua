@@ -20,6 +20,8 @@ L["• gray multiple points"] = true
 L["Colors multi-points of dungeons and/or raids in gray if you are assigned to any dungeon or raid of this multi-point and have an ID so that you can see that you have started or completed any dungeon or raid of the multi-point"] = true
 L["• enemy faction"] = true
 L["Shows enemy faction (horde/alliance) symbols too"] = true
+L["• Old Raids/Dungeons"] = true
+L["Show vanilla versions of dungeons and raids such as Naxxramas, Scholomance or Scarlet Monastery, which require achievements or other things"] = true
 
 
 --2
@@ -128,12 +130,13 @@ L["Passage"] = true
 
 
 --6 Portals
+L["Dark Portal (Portal to Warspear, Ashran)"] = true
+L["Dark Portal (Portal to Stormshield, Ashran)"] = true
 L["Portal to Orgrimmar"] = true
 L["Portal to Orgrimmar (inside building)"] = true
 L["Portal to Stormwind City"] = true
 L["Portal to Stormwind City (inside building)"] = true
 L["Portal to Nazmir, Uldum or Tiragarde Sound"] = true
-L["Portal to Orgrimmar (new Tirisfal timeline)"] = true
 L["Portal to Warspear, Ashran (at basement)"] = true
 L["Portal to Stormshield, Ashran (inside portal chamber)"] = true
 L["Portal to Caverns of Time"] = true
@@ -180,6 +183,10 @@ L["These portals are only active in the game if your faction is currently occupy
 L["Portal to Boralus (its only shown up ingame if your faction is currently occupying Bashal'Aran"] = true
 L["Portal to Zandalar (its only shown up ingame if your faction is currently occupying Bashal'Aran"] = true
 L["Portal to Zandalar(horde)/Boralus(alliance)"] = true
+L["Portal to Howling Fjord"] = true
+L["Portal to Stranglethorn"] = true
+L["Portal to The Emerald Dream"] = true
+L["Portal to Ohn'ahran Plains"] = true
 
 
 --7 Zeppelins
@@ -209,3 +216,14 @@ L["Ship to Stormwind City or to Vol'Dun or to Nazmir or to Zuldazar"] = true
 L["Ship to Echo Isles, Durotar or to Drustvar or to Tiragarde Sound or to Stormsong Valley"] = true
 L["Back to Zuldazar"] = true
 L["Back to Boralus"] = true
+
+
+--10 old dungeons/raids
+L["Old version of Scarlet Monastery Armory (need to activate the old keychain at 48.33 55.88 inside the Scarlet Monastery)"] = true
+L["Old version of Naxxramas - Secret Entrance (Wards of the Dread Citadel - Achievement)"] = true
+L["Old keychain - use the old keychain to activate the old versions of Scarlet Monastery dungeons (you need to get first (The Scarlet Key) from Hallow's End world event or buy from auction house)"] = true
+L["Old version of Scarlet Monastery Cathedral (need to activate the old keychain at 48.33 55.88 inside the Scarlet Monastery)"] = true
+L["Old version of Scarlet Monastery Graveyard (need to activate the old keychain at 48.33 55.88 inside the Scarlet Monastery)"] = true
+L["Old version of Scarlet Monastery Library (need to activate the old keychain at 48.33 55.88 inside the Scarlet Monastery)"] = true
+L["Old version of Scarlet Monastery Armory (need to activate the old keychain at 48.33 55.88 inside the Scarlet Monastery)"] = true
+L["Old version of Scholomance - Secret Entrance (Memory of Scholomance - Achievement)"] = true
