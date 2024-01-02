@@ -126,16 +126,24 @@ function pluginHandler:OnEnter(uiMapId, coord)
 	    tooltip:AddLine(v, nil, nil, nil, false)
 	  end
 
-    if nodeData.eoID then --  outputs the Continent or Zone name and displays it in the tooltip
-      local linkToMap = C_Map.GetMapInfo(nodeData.eoID).parentMapID
-      if linkToMap then
-        local eoIDname = C_Map.GetMapInfo(linkToMap).name
-        if eoIDname then
-          tooltip:AddDoubleLine("=>  " .. eoIDname, nil, nil, false)
-        end
-      end
-    end
+    --if nodeData.upID then --  outputs the Continent or Zone name and displays it in the tooltip
+    --  local linkToMap = C_Map.GetMapInfo(nodeData.upID).parentMapID
+    --  if linkToMap then
+    --    local upIDname = C_Map.GetMapInfo(linkToMap).name
+    --    if upIDname then
+    --      tooltip:AddDoubleLine("=>  " .. upIDname, nil, nil, false)
+    --    end
+    --  end
+    --end
     
+    if nodeData.eoID then
+        local linkToMap = C_Map.GetMapInfo(nodeData.eoID) -- no longer getting the name of parentMapID
+        local eoIDname = linkToMap.name
+        if eoIDname then
+            tooltip:AddDoubleLine("=|T4578752:8:20|t" .. eoIDname, nil, nil, false)
+        end
+    end
+
     if nodeData.mnID then -- outputs the Zone or Dungeonmap name and displays it in the tooltip
       local mnIDname = C_Map.GetMapInfo(nodeData.mnID).name
       if mnIDname then
@@ -340,6 +348,10 @@ function pluginHandler:OnClick(button, pressed, uiMapId, coord)
         WorldMapFrame:SetMapID(nodes[uiMapId][coord].mnID)
       end
 
+      if (nodes[uiMapId] and nodes[uiMapId][coord] and nodes[uiMapId][coord].eoID) then
+        WorldMapFrame:SetMapID(nodes[uiMapId][coord].eoID)
+      end
+
       local dungeonID
       if (type(nodes[uiMapId][coord].id) == "table") then
           dungeonID = nodes[uiMapId][coord].id[1]
@@ -372,6 +384,10 @@ function pluginHandler:OnClick(button, pressed, uiMapId, coord)
 
       if (nodes[uiMapId] and nodes[uiMapId][coord] and nodes[uiMapId][coord].mnID) then
         WorldMapFrame:SetMapID(nodes[uiMapId][coord].mnID)
+      end
+
+      if (nodes[uiMapId] and nodes[uiMapId][coord] and nodes[uiMapId][coord].eoID) then
+        WorldMapFrame:SetMapID(nodes[uiMapId][coord].eoID)
       end
 
       local dungeonID

@@ -272,8 +272,8 @@ if not db.show.HideMapNote then
             nodes[130][47331948] = { mnID = 131, name = L["Passage"], type = "PassageUpL", showInZone = true } -- The Culling of Stratholme
             nodes[131][50477779] = { mnID = 130, name = L["Passage"], type = "PassageDownL", showInZone = true } -- Stratholme City
           --Hour of Twillight
-            nodes[399][49847285] = { mnID = 400, name = L["Passage"], type = "PassageDownL", showInZone = true } -- Hour of Twillight
-            nodes[400][43881265] = { mnID = 399, name = L["Passage"], type = "PassageUpL", showInZone = true } -- Wyrmrest Temple
+            nodes[399][49697080] = { mnID = 400, name = L["Passage"], type = "PassageDownL", showInZone = true } -- Hour of Twillight
+            nodes[400][44661477] = { mnID = 399, name = L["Passage"], type = "PassageUpL", showInZone = true } -- Wyrmrest Temple
 
 
         --#################################
@@ -356,9 +356,9 @@ if not db.show.HideMapNote then
         --#### Kalimdor Dungeon Portals #####
         --###################################
           --Dragon Soul
-            nodes[411][57698846] = { eoID = 409, mnID = 409, name = "", type = "Portal", showInZone = true } -- Maw of Shu'ma
-            nodes[410][23324020] = { eoID = 409, mnID = 409, name = "", type = "Portal", showInZone = true } -- Maw of Go'rath
-            nodes[412][52181359] = { eoID = 409, mnID = 409, name = "", type = "Portal", showInZone = true } -- Eye of Eternity
+            nodes[411][57698846] = { eoID = 409, name = "", type = "Portal", showInZone = true } -- Maw of Shu'ma
+            nodes[410][23324020] = { eoID = 409, name = "", type = "Portal", showInZone = true } -- Maw of Go'rath
+            nodes[412][52181359] = { eoID = 409, name = "", type = "Portal", showInZone = true } -- Eye of Eternity
             nodes[409][50606029] = { eoID = 412, mnID = 412, name = "", type = "Portal", showInZone = true } -- Dragon Soul o Eye of Eternity
         --##########################################
         --#### Eastern Kingdom Dungeon Portals #####
