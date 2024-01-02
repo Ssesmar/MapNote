@@ -1,0 +1,27 @@
+## Interface: 100200
+## Title: HandyNotes: |cffff0000Map|r|cff00ccffNotes|r
+## Version: 1.6.9
+## Notes: Show dungeons, raids, portals, ships, zeppelins, entrance/exit and passages symbols on different maps!
+## Author: BadBoyBarny
+## RequiredDeps: HandyNotes
+## X-Curse-Project-ID: 912524
+## IconTexture: Interface\AddOns\HandyNotes_MapNotes\Images\MNL4
+## SavedVariables: HandyNotes_MapNotesDB, MNMiniMapButtonDB
+
+locales\Locales.xml
+libs\LibDBIcon-1.0\embeds.xml
+libs\LibDBIcon-1.0\lib.xml
+
+nodes\MapNotesNodesInfo.lua
+nodes\AzerothNodeslocation.lua
+nodes\ContinentNodesLocation.lua
+nodes\InsideDungeonNodesLocation.lua
+
+
+core\IconClass.lua
+core\defaults.lua
+core\options.lua
+core\main.lua
+core\ccmmb.lua
+core\mmb.lua
+
