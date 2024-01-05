@@ -118,7 +118,7 @@ if not db.show.HideMapNote then
                 nodes[85][50863628] = { mnID = 207, name = "", type = "HPortal", hideOnContinent = true, showInZone = true } -- Portal to Deepholm
                 nodes[85][49203647] = { mnID = 203, name = "", type = "HPortal", hideOnContinent = true, showInZone = true } -- Portal to Vashjir
                 nodes[207][50945311] = { mnID = 85, name = "", type = "HPortal", showInZone = true } -- Portal To Orgrimmar from Deepholm
-                nodes[198][63482447] = { mnID = 85, name = "", type = "HPortal", showInZone = true, hideOnContinent = true } -- Portal To Orgrimmar from Hyjal
+                nodes[198][63482447] = { mnID = 85, dnID = "test", name = "", type = "HPortal", showInZone = true, hideOnContinent = true } -- Portal To Orgrimmar from Hyjal
               end
     
               if self.faction == "Alliance" or db.show.EnemyFaction then
@@ -167,7 +167,8 @@ if not db.show.HideMapNote then
             nodes[13][42397323] = { id = 238, type = "Dungeon" } -- The Stockade 
             nodes[13][47448471] = { id = 76, type = "Dungeon" } -- Zul'Gurub 
             nodes[13][40764187] = { id = 64, type = "Dungeon" } -- Shadowfang Keep 
-            nodes[15][36502765] = { id = 239, type = "Dungeon", showInZone = true, hideOnContinent = true} -- Uldaman (inside cave) 
+            nodes[16][36502765] = { id = 239, type = "Dungeon", showInZone = true, hideOnContinent = true} -- Uldaman (inside cave) 
+            nodes[15][60673748] = { id = 239, type = "Dungeon", showInZone = false, hideOnContinent = true} -- Uldaman second entrance(inside cave) 
             nodes[13][50573677] = { id = 246, type = "Dungeon" } -- Scholomance
             nodes[13][52712836] = { id = 236, lfgid = 40, type = "Dungeon" } -- Stratholme 
             nodes[13][42915972] = { id = 231, type = "Dungeon" } -- Gnomeregan 
@@ -185,21 +186,22 @@ if not db.show.HideMapNote then
             nodes[13][47546862] = { id = 73, type = "Raid" } -- Blackwind Descent 
             nodes[13][54905899] = { id = 72, type = "Raid" } -- The Bastion of Twilight 
             nodes[13][35565150] = { id = 75, type = "Raid" } -- Baradin Hold
-            nodes[33][38693901] = { id = 741, type = "Raid", showInZone = true, hideOnContinent = true } -- Molten Core
           end
 
 
           -- Eastern  Kingdom Passage
-          if self.db.profile.showContinentPassage then
+          if self.db.profile.showContinentPassage then            
+            nodes[36][21063760] = { mnID = 33, name = "", type = "PassageDungeonM", showInZone = true, hideOnContinent = true} -- Molten Core, Blackwing Lair, Blackrock Caverns, Blackrock Depths, Lower Blackrock Spire, Upper Blackrock Spire 
+            nodes[32][35268404] = { mnID = 33, name = "", type = "PassageDungeonM", showInZone = true, hideOnContinent = true} -- Molten Core, Blackwing Lair, Blackrock Caverns, Blackrock Depths, Lower Blackrock Spire, Upper Blackrock Spire 
             nodes[13][53646537] = { id = 239, name = "", type = "PassageDungeonM" } -- Uldaman (Secondary Entrance) 
             nodes[15][58543698] = { id = 239, name = "", type = "PassageDungeonM", showInZone = true, hideOnContinent = true} -- Uldaman (Secondary Entrance) 
             nodes[13][54472924] = { id = 236, lfgid = 274, type = "PassageDungeonM" }-- Stratholme Service Entrance 
             nodes[23][43251854] = { id = 236, lfgid = 274, type = "PassageDungeonM", showInZone = true }-- Stratholme Service Entrance 
-            nodes[33][68635371] = { id = 66, type = "PassageDungeonM", showInZone = true, hideOnContinent = true } -- Blackrock Caverns
-            nodes[33][65896169] = { id = { 66, 559, 229, 742 }, type = "PassageDungeonM", showInZone = true, hideOnContinent = true } -- Blackrock Caverns
-            nodes[33][40093972] = { id = 228, type = "PassageDungeonM", showInZone = true, hideOnContinent = true } -- Blackrock Depths
-            nodes[33][63524395] = { id = { 742, 559, 229 }, type = "PassageDungeonM", showInZone = true, hideOnContinent = true } -- Blackrock Depths
-            nodes[34][58792725] = { id = { 559, 229, 742 }, type = "PassageDungeonM", showInZone = true, hideOnContinent = true } -- Blackrock Depths
+            nodes[33][68635371] = { mnID = 34, dnID = DUNGEON_FLOOR_BURNINGSTEPPES15, name = "", type = "PassageDungeonM", showInZone = true, hideOnContinent = true } -- Blackrock Caverns
+            nodes[33][65896169] = { mnID = 34, dnID = DUNGEON_FLOOR_BURNINGSTEPPES15, name = "", type = "PassageDungeonM", showInZone = true, hideOnContinent = true } -- Blackrock Caverns
+            nodes[33][45004700] = { mnID = 35, dnID = DUNGEON_FLOOR_MOLTENCORE1.."\n" .. DUNGEON_FLOOR_BURNINGSTEPPES16, name = "", type = "PassageRaidM", showInZone = true, hideOnContinent = true } -- Blackrock Depths
+            nodes[34][58792725] = { mnID = 33, dnID = DUNGEON_FLOOR_BURNINGSTEPPES14, name = "", type = "PassageDungeonM", showInZone = true, hideOnContinent = true } -- Blackrock Depths
+            nodes[35][58168728] = { mnID = 33, dnID = DUNGEON_FLOOR_BURNINGSTEPPES14, name = "", type = "PassageDungeonM", showInZone = true, hideOnContinent = true } -- Blackrock Depths
           end
     
 
@@ -464,6 +466,8 @@ if not db.show.HideMapNote then
             nodes[504][33223269] = { mnID = 388, name = "", type = "Portal", hideOnContinent = true, showInZone = true } -- Portal from IsleoftheThunderKing to Shado-Pan Garrison
     
             if self.faction == "Horde" or db.show.EnemyFaction then
+              nodes[371][28501401] = { mnID = 85, name = "", type = "HPortal", showInZone = true, hideOnContinent = true } -- Portal from Jade Forest to Orgrimmar
+              nodes[379][85946249] = { mnID = 85, name = "", type = "HPortal", showInZone = true, hideOnContinent = true } -- Portal from Jade Forest to Orgrimmar
               nodes[424][59733518] = { mnID = 85, name = "", type = "HPortal", showInZone = true } -- Portal from Jade Forest to Orgrimmar
             end
           end

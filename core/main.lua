@@ -126,20 +126,15 @@ function pluginHandler:OnEnter(uiMapId, coord)
 	    tooltip:AddLine(v, nil, nil, nil, false)
 	  end
 
-    if nodeData.eoID then --  outputs the Continent or Zone name and displays it in the tooltip
-      local linkToMap = C_Map.GetMapInfo(nodeData.eoID).parentMapID
-      if linkToMap then
-        local eoIDname = C_Map.GetMapInfo(linkToMap).name
-        if eoIDname then
-          tooltip:AddDoubleLine("=>  " .. eoIDname, nil, nil, false)
-        end
-      end
+    if nodeData.dnID then -- outputs the names we set and displays it in the tooltip
+      tooltip:AddDoubleLine(nodeData.dnID, nil, nil, false)
     end
     
-    if nodeData.mnID then -- outputs the Zone or Dungeonmap name and displays it in the tooltip
+    if not nodeData.dnID and nodeData.mnID then -- outputs the Zone or Dungeonmap name and displays it in the tooltip
       local mnIDname = C_Map.GetMapInfo(nodeData.mnID).name
       if mnIDname then
-        tooltip:AddDoubleLine("=>  " .. mnIDname, nil, nil, false)
+        tooltip:AddDoubleLine(mnIDname, nil, nil, false)
+        --tooltip:AddDoubleLine("|T4578752:8:20|t" .. mnIDname, nil, nil, false)
       end 
     end
      	tooltip:Show()
@@ -200,19 +195,19 @@ do
 				end
 			end
 
-			local icon = icons[value.type]
+			local icon = icons[value.type] --show locked multi raids/dungeon
 			if ((anyLocked and db.graymultipleID) or (allLocked and not db.graymultipleID)) then
 				icon = icons["MultipleMgray"]
 			end
 
       if ((anyLocked and db.invertlockout) or (allLocked and not db.invertlockout) and db.uselockoutalpha) then
-				alpha = db.mapnoteAlpha
+				alpha = db.azerothAlpha
       else
-				alpha = db.mapnoteAlpha
+				alpha = db.azerothAlpha
 			end
 
-			if value.showInZone or t.minimapUpdate or not db.show.Azeroth then
-			  return state, nil, icon, db.mapnoteScale, alpha --set this to the same Scale as for iterCont, cause we only wanna use 1 Scale options at the moment
+			if (value.showInZone or t.minimapUpdate) and db.show.Azeroth then
+			  return state, nil, icon, db.azerothScale, alpha
 			end
       
 			state, value = next(data, state)
@@ -238,7 +233,7 @@ do
 
 					local allLocked = true
 					local anyLocked = false
-          --
+          
 					local instances = { strsplit("\n", value.name) }
 					for i, v in pairs(instances) do
 						if (not assignedIDs[v] and not assignedIDs[lfgIDs[v]]) then
@@ -248,19 +243,19 @@ do
 						end
 					end
 
-          icon = icons[value.type]
+          icon = icons[value.type] --show locked raids/dungeon
 					if ((anyLocked and db.assignedgray) or (allLocked and db.assignedgray)) then   
 						icon = icons["Locked"]
 					end
           
           if ((anyLocked and db.invertlockout) or (allLocked and not db.invertlockout) and db.uselockoutalpha) then
-						alpha = db.mapnoteAlpha
+						alpha = db.continentAlpha
           else
-            alpha = db.mapnoteAlpha
+            alpha = db.continentAlpha
           end
 
 					if not value.hideOnContinent and db.show.Continent then
-						return state, zone, icon, db.mapnoteScale, alpha --set this to the same Scale as for iterCont, cause we only wanna use 1 Scale options at the moment 
+						return state, zone, icon, db.continentScale, alpha
           end
 
 					state, value = next(data, state)  -- Get next data
@@ -315,7 +310,7 @@ local function setWaypoint(uiMapID, coord)
     local title = dungeon.name
     local x, y = HandyNotes:getXY(coord)
     waypoints[dungeon] = TomTom:AddWaypoint(uiMapID , x, y, {
-        title = dungeon.eoID or dungeon.mnID or dungeon.name,
+        title = dungeon.dnID or dungeon.mnID or dungeon.name,
         persistent = nil,
         minimap = true,
         world = true
@@ -487,6 +482,21 @@ end
 function Addon:ProcessTable()
   table.wipe(lfgIDs)
 
+  lfgIDs = {
+    [63]=326, [64]=327, [66]=323, [65]=1150, [67]=1148, [68]=1147, [69]=1151, [70]=321, [71]=1149, [72]=316, [73]=314, [74]=318, [75]=329, [76]=334, [77]=340, [78]=362,
+    [186]=439, [184]=1152, [185]=437, [187]=448,
+    [226]=4, [227]=10, [229]=32, [231]=14, [233]=20, [234]=16, [236]=1458, [239]=22, [240]=1, [241]=24, [246]=472, [247]=178, [248]=188, [249]=1154,
+    [250]=1013, [252]=180, [253]=181, [254]=1011, [257]=191, [258]=192, [261]=185, [271]=1016, [272]=241, [273]=215, [274]=1017, [275]=1018,
+    [276]=256, [277]=213, [278]=1153, [279]=210, [280]=252, [281]=1019, [282]=1296, [283]=221, [284]=249, [285]=242, [286]=1020,
+    [302]=1466, [303]=1464, [311]=473, [312]=1468, [313]=1469, [316]=474, [317]=532, [320]=834, [321]=1467, [324]=1465, [330]=534, [369]=766, [362]=634, [385]=1005,
+    [457]=900, [476]=1010, [477]=897,
+    [536]=1006, [537]=1009, [547]=1008, [556]=1003, [558]=1007, [559]=1004,
+    [669]=989,
+    [707]=1044, [716]=1175, [721]=1473, [726]=1190, [727]=1192, [740]=1205, [741]=48, [742]=50, [743]=160, [744]=161, [745]=175, [746]=177, [747]=176, [748]=194, [749]=193,
+    [751]=196, [753]=240, [754]=227, [755]=238, [756]=1423, [757]=248, [758]=280, [759]=244, [760]=257, [761]=1502, [762]=1202, [767]=1207, [768]=1350, [777]=1209, [786]=1353,
+    [800]=1319, [861]=1439, [875]=1527,
+    [900]=1488,
+  }
   --moved lfgID´s to MapNotesNodesInfo.lua
 
   function Addon:UpdateAlter(id, name)

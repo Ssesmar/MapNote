@@ -76,7 +76,7 @@ if not db.show.HideMapNote then
     
             if self.faction == "Horde" or db.show.EnemyFaction then
               nodes[947][23994090] = { mnID = 862, name = L["(its only shown up ingame if your faction is currently occupying Bashal'Aran)"], type = "HPortal", showInZone = true } -- Portal from New Darkshore to Zandalar
-              nodes[947][28464305] = { mnID = 947, name = "", type = "HPortal", showInZone = true } -- Portal Tol Orgrimmar from Hyjal
+              nodes[947][28464305] = { mnID = 85, name = "", type = "HPortal", showInZone = true } -- Portal Tol Orgrimmar from Hyjal
             end
     
             if self.faction == "Alliance" or db.show.EnemyFaction then

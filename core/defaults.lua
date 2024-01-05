@@ -24,8 +24,8 @@ ns.defaults = {
   
       --1
         ShiftWorld = false,
-        mapnoteScale = 1.2,
-        mapnoteAlpha = 1,    
+        --AzerothScale = 1.2,
+        --AzerothAlpha = 1,    
         hideAddon = false,
         hideMMB = false,
         journal = true,
@@ -37,7 +37,8 @@ ns.defaults = {
       
       --2 Azeroth map
         showAzeroth = true,
-        --azerothScale = 1.2,
+        azerothScale = 1.2,
+        azerothAlpha = 1,
         showAzerothRaid = true,
         showAzerothDungeon = true,
         showAzerothPassage = true,
@@ -58,7 +59,8 @@ ns.defaults = {
   
       --3 Continent map
         showContinent = true,
-        --continentScale = 1.2,
+        continentScale = 1.2,
+        continentAlpha = 1,
         showContinentRaids = true,
         showContinentDungeons = true,
         showContinentPassage = true,
@@ -83,6 +85,8 @@ ns.defaults = {
   
       --4 Inside Dungeon Map
         showDungeonMap = true,
+        dungeonScale = 1.2,
+        dungeonAlpha = 1,
         showDungeonExit = true,
         showDungeonPassage = true,
         showDungeonPortal = true,
