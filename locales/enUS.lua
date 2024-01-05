@@ -20,7 +20,7 @@ L["General settings / Additional functions"] = true
 L["Shift function!"] = true
 L["When enabled, you must press Shift before left- or right-clicking to interact with MapNotes icons. But this has an advantage because there are so many symbols in the game, including from other addons, so you don't accidentally click on a symbol and change the map, or mistakenly create a TomTom point."] = true
 L["symbol size"] = true
-L["Resizes symbols on the azeroth, continent, zone, dungeon and minimap"] = true
+L["Changes the size of the symbols"] = true
 L["symbol visibility"] = true
 L["Changes the visibility of the symbols"] = true
 L["hide minimap button"] = true
@@ -52,7 +52,6 @@ L["Information: Individual Azeroth symbols that are too close to other symbols o
 L["Azeroth map"] = true
 L["Certain symbols can be displayed or not displayed. If the option (Activate symbols) has been activated in this category"] = true
 L["Activates the display of all possible symbols on the Azeroth map"] = true
-L["Resizes symbols on the zone map, azeroth map and minimap"] = true
 L["Show symbols of raids on the Azeroth map"] = true
 L["Show symbols of dungeons on the Azeroth map"] = true
 L["Show symbols of passage to raids and dungeons on the Azeroth map"] = true
@@ -180,3 +179,4 @@ L["This Darkshore portal is only active if your faction is currently occupying B
 L["(Grand Admiral Jes-Tereth) will take you to Vol'Dun, Nazmir or Zuldazar"] = true
 L["(Dread-Admiral Tattersail) will take you to Drustvar, Tiragarde Sound or Stormsong Valley"] = true
 L["Old Keyring \n You get the Scarlet Key in the \n [Loot-Filled Pumpkin] from [Hallow's End Event] or from the [Auction House] \n now you can activate the [Old Keyring] here \n to activate old dungeonversions from the Scarlet Monastery"] = true
+L["Appears first after a certain instance progress \n or requires a certain achievement"] = true
