@@ -15,6 +15,7 @@ libs\LibDBIcon-1.0\lib.xml
 nodes\MapNotesNodesInfo.lua
 nodes\AzerothNodeslocation.lua
 nodes\ContinentNodesLocation.lua
+nodes\ZoneNodeslocation.lua
 nodes\InsideDungeonNodesLocation.lua
 
 
