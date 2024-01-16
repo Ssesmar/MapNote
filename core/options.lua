@@ -6,67 +6,9 @@ if not HandyNotes then return end
 local L = LibStub("AceLocale-3.0"):GetLocale(ADDON_NAME)
 local COLORED_ADDON_NAME = "|cffff0000Map|r|cff00ccffNotes|r"
 local MNMMBIcon = LibStub("LibDBIcon-1.0", true)
-local iconLink = "Interface\\Addons\\" .. ADDON_NAME .. "\\images\\"
 
 function ns.LoadOptions(self)
-
-
-TextIcon = IconClass
-TextIconMNL4 = TextIcon(iconLink .. "MNL4") 
-TextIconPassageDungeonRaidM = TextIcon(iconLink .. "PassageDungeonRaidM", 64, 64, 10, 50, 50, 1)
-TextIconPassageDungeonM = TextIcon(iconLink .. "PassageDungeonM", 64, 64, 10, 50, 50, 1)
-TextIconPassageRaidM = TextIcon(iconLink .. "PassageRaidM", 64, 64, 10, 50, 50, 1)
-TextIconPassageDungeonRaidMultiM = TextIcon(iconLink .. "PassageDungeonRaidMultiM", 64, 64, 10, 50, 50, 1)
-TextIconPassageDungeonMultiM = TextIcon(iconLink .. "PassageDungeonMultiM", 64, 64, 10, 50, 50, 1)
-TextIconPassageRaidMultiM = TextIcon(iconLink .. "PassageRaidMultiM", 64, 64, 10, 50, 50, 1)
-TextIconPortal = TextIcon(iconLink .. "portal", 64, 64, 10, 50, 50, 1) --(0, 0, 0, 0, 0, 0 = horizontal reflection?, ?, skalierung?, y achse,? )
-TextIconHPortal = TextIcon("Interface/Minimap/Vehicle-HordeMagePortal", 64, 64, 10, 50, 50, 1)
-TextIconAPortal = TextIcon("Interface/Minimap/Vehicle-AllianceMagePortal", 64, 64, 10, 50, 50, 1)
-TextIconDungeon = TextIcon("Interface\\MINIMAP\\Dungeon", 64, 64, 10, 50, 50, 1)
-TextIconRaid = TextIcon("Interface\\MINIMAP\\Raid", 64, 64, 10, 50, 50, 1)
-TextIconVDungeon = TextIcon(iconLink .. "vanilladungeons", 64, 64, 10, 50, 50, 1)
-TextIconVRaid = TextIcon(iconLink .. "vanilladungeons", 64, 64, 10, 50, 50, 1)
-TextIconVKey1 = TextIcon(iconLink .. "vkey1")
-TextIconMultipleM = TextIcon(iconLink .. "multipleM", 64, 64, 10, 50, 50, 1)
-TextIconMultipleD = TextIcon(iconLink .. "multipleD", 64, 64, 10, 50, 50, 1)
-TextIconMultipleR = TextIcon(iconLink .. "multipleR", 64, 64, 10, 50, 50, 1)
-TextIconMultipleMgray = TextIcon(iconLink .. "multipleMgray", 64, 64, 10, 50, 50, 1)
-TextIconMultipleDgray = TextIcon(iconLink .. "multipleDgray", 64, 64, 10, 50, 50, 1)
-TextIconMultipleRgray = TextIcon(iconLink .. "multipleRgray", 64, 64, 10, 50, 50, 1)
-TextIconLocked = TextIcon(iconLink .. "gray", 64, 64, 10, 50, 50, 1)
-TextIconZeppelin = TextIcon(iconLink .. "zeppelin")
-TextIconHZeppelin = TextIcon(iconLink .. "zeppelinH")
-TextIconAZeppelin = TextIcon(iconLink .. "zeppelinA")
-TextIconShip = TextIcon(iconLink .. "ship")
-TextIconHShip = TextIcon(iconLink .. "shipH")
-TextIconAShip = TextIcon(iconLink .. "shipA")
-TextIconExit = TextIcon("interface/TARGETINGFRAME/UI-RaidTargetingIcon_7", 64, 64, 10, 50, 50, 1)
-TextIconPassageup = TextIcon(iconLink .. "PassageUpL")
-TextIconPassagedown = TextIcon(iconLink .. "PassageDownL")
-TextIconPassageright = TextIcon(iconLink .. "PassageRightL")
-TextIconPassageleft = TextIcon(iconLink .. "PassageLeftL")
-TextIconTravelL = TextIcon(iconLink .. "travelL")
-TextIconTransportHelper = TextIcon(iconLink .. "tport", 64, 64, 10, 50, 50, 1)
-TextIconOgreWaygate = TextIcon("Interface/Minimap/Vehicle-AllianceWarlockPortal", 64, 64, 10, 50, 50, 1)
-TextIconCheck = TextIcon("Interface/Buttons/UI-CheckBox-Up", 64, 64, 10, 50, 50, 1)
-TextIconHorde = TextIcon("interface/pvprankbadges/pvprankhorde")
-TextIconAlliance = TextIcon("interface/pvprankbadges/pvprankalliance")
-TextIconTomTom = TextIcon(iconLink .."tomtompoint")
-TextIconJournal = TextIcon("interface/icons/inv_misc_book_09")
-TextIconKilledBosses = TextIcon("Interface/TargetingFrame/UI-RaidTargetingIcon_8")
-TextIconKalimdor = TextIcon("Interface/CharacterFrame/TemporaryPortrait-Female-Orc")
-TextIconEK = TextIcon("Interface/CharacterFrame/TemporaryPortrait-Female-Human")
-TextIconBC = TextIcon("Interface/Icons/Achievement_Boss_Illidan")
-TextIconNorthrend = TextIcon("interface/lfgframe/ui-lfr-portrait")
-TextIconPandaria = TextIcon("Interface/CharacterFrame/TEMPORARYPORTRAIT-FEMALE-PANDAREN")
-TextIconDraenor = TextIcon("Interface/CharacterFrame/TemporaryPortrait-Male-MagharOrc")
-TextIconLegion = TextIcon("Interface/Icons/artifactability_HavocDemonHunter_AnguishoftheDeceiver")
-TextIconZandalar = TextIcon("Interface/CharacterFrame/TemporaryPortrait-Female-ZandalariTroll")
-TextIconKT = TextIcon("Interface/CharacterFrame/TemporaryPortrait-Male-KulTiran")
-TextIconSL = TextIcon("interface/icons/achievement_leader_sylvanas")
-TextIconDF = TextIcon("Interface/CharacterFrame/TemporaryPortrait-Male-Dracthyr")
-
-
+  
 ns.options = {
   type = "group",
   name = TextIconMNL4:GetIconString() .. " " .. COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString(),

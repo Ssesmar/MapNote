@@ -3,32 +3,11 @@ local ADDON_NAME, ns = ...
 
 ns.defaults = {
     profile = {
-        show = {
-        ClassicIcons = true,
-        Azeroth = true,
-        Continent = true,
-        ZoneMap = true,
-        Dungeon = true,
-        DungeonMap = true,
-        EnemyFaction = true,
-        OldVanilla = true,
-        Raid = true,
-        Multiple = true,
-        Gray = true,
-        Portal = true,
-        HPortal = true,
-        APortal = true,
-        Zeppelin = true,
-        Ship = true,
-        HShip = true,
-        AShip = true,
-        },
-  
       --1
         ShiftWorld = false,
         ClassicIcons = false,
-        mapnoteScale = 1.2,
-        mapnoteAlpha = 1,    
+        mapnoteScale = 1.5,
+        mapnoteAlpha = 1,
         hideAddon = false,
         hideMMB = false,
         journal = true,
@@ -120,5 +99,26 @@ ns.defaults = {
         showDungeonPassage = true,
         showDungeonPortal = true,
         showDungeonTransport = true,
+
+      --0 show.show commands
+        show = {
+          Azeroth = true,
+          Continent = true,
+          ZoneMap = true,
+          Dungeon = true,
+          DungeonMap = true,
+          EnemyFaction = true,
+          OldVanilla = true,
+          Raid = true,
+          Multiple = true,
+          Gray = true,
+          Portal = true,
+          HPortal = true,
+          APortal = true,
+          Zeppelin = true,
+          Ship = true,
+          HShip = true,
+          AShip = true,
+          },
     },
 }

@@ -15,6 +15,8 @@ nodes[947] = { } -- Azeroth
 --############################
 
 -- Azeroth/Continent map nodes
+nodes[1]  = { } -- Durotar
+nodes[7]  = { } -- Mulgore
 nodes[10] = { } -- Barrens    
 nodes[11] = { } -- Wailing Caverns
 nodes[12] = { } -- Kalimdor 
@@ -31,6 +33,7 @@ nodes[74] = { } -- Timeless Tunnel
 nodes[75] = { } -- Caverns of Time lower half
 nodes[81] = { } -- Silithus    
 nodes[85] = { } -- Orgrimmar 
+nodes[88] = { } -- Thunder Bluff
 nodes[199] = { } -- Southern Barrens  
 nodes[327] = { } -- AhnQiraj The Fallen Kingdom 
 -- Dungeon map nodes
@@ -101,6 +104,7 @@ nodes[33] = { } -- BlackrockMountain
 nodes[34] = { } -- BlackrockMountain - Blackrock Caverns
 nodes[35] = { } -- BlackrockMountain - Blackrock Depths
 nodes[36] = { } -- BurningSteppes    
+nodes[37] = { } -- Elwynn Forest
 nodes[42] = { } -- DeadwindPass   
 nodes[50] = { } -- StranglethornJungle
 nodes[51] = { } -- SwampOfSorrows
@@ -403,7 +407,6 @@ nodes[567] = { } -- Siege of Orgrimmar - Inside Dungeon Map
 --############################
 
 -- Azeroth/Continent map nodes
-nodes[1]  = { } -- Durotar
 nodes[463] = { } -- Echo Isles
 nodes[525] = { } -- FrostfireRidge
 nodes[543] = { } -- Gorgrond
@@ -574,5 +577,6 @@ nodes[2097] = { } -- Algeth'ar Academy
 nodes[2190] = { } -- Dawn of the Infinite
 nodes[2119] = { } -- Vault of the Incarnates
 nodes[2166] = { } -- Aberrus, the Shadowed Crucible
-nodes[2232] = { } -- Amirdrassil
+nodes[2232] = { } -- Amirdrassil - Inside Dungeon Map
+nodes[2238] = { } -- Amirdrassil - Inside Dungeon Map
 end

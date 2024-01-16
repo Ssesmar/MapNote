@@ -1,6 +1,6 @@
 --## Interface: 100200
 --## Title: HandyNotes: |cffff0000Map|r|cff00ccffNotes|r
---## Version: 1.6.9
+--## Version: 1.7.0
 --## Notes: Show different icons (location for: Raids and Dungeons Entrances, Portals, Ships, Zeppelin, Exits and Passage) on every map!
 --## Author: BadBoyBarny
 --## RequiredDeps: HandyNotes
@@ -25,50 +25,6 @@ local nodes = { }
 local minimap = { }
 local lfgIDs = { }
 local assignedIDs = { }
-
-
-local icons = { 
-["Dungeon"] = "Interface\\MINIMAP\\Dungeon",
-["Raid"] = "Interface\\MINIMAP\\Raid",
-["PassageDungeonRaidM"] = iconLink .. "PassageDungeonM",
-["PassageDungeonM"] = iconLink .. "PassageDungeonM",
-["PassageRaidM"] = iconLink .. "passageRaidM",
-["PassageDungeonL"] = iconLink .. "PassageDungeonL",
-["PassageRaidL"] = iconLink .. "passageRaidL",
-["PassageDungeonRaidMultiM"] = iconLink .. "PassageDungeonRaidMultiM",
-["PassageDungeonMultiM"] = iconLink .. "PassageDungeonMultiM",
-["PassageRaidMultiM"] = iconLink .. "passageRaidMultiM",
-["TravelL"] = iconLink .. "travelL",
-["TravelM"] = iconLink .. "travelm",
-["VDungeon"] = iconLink .. "vanilladungeons",
-["VRaid"] = iconLink .. "vanilladungeons",
-["VKey1"] = iconLink .. "vkey1",
-["MultipleM"] = iconLink .. "multipleM",
-["MultipleD"] = iconLink .. "multipleD",
-["MultipleR"] = iconLink .. "multipleR",
-["MultipleMgray"] = iconLink .. "multipleMgray",
-["Locked"] = iconLink .. "gray",
-["Zeppelin"] = iconLink .. "zeppelin",
-["HZeppelin"] = iconLink .. "zeppelinH",
-["AZeppelin"] = iconLink .. "zeppelinA",
-["Portal"] = iconLink .. "portal",
-["HPortal"] = "interface/minimap/vehicle-hordemageportal",
-["APortal"] = "Interface/Minimap/Vehicle-AllianceMagePortal",
-["Ship"] = iconLink .. "ship",
-["HShip"] = iconLink .. "shipH",
-["AShip"] = iconLink .. "shipA",
-["Exit"] = "interface/TARGETINGFRAME/UI-RaidTargetingIcon_7",
-["PassageUpL"] = iconLink .. "passageupL",
-["PassageDownL"] = iconLink .. "passagedownL",
-["PassageRightL"] = iconLink .. "passagerightL",
-["PassageLeftL"] = iconLink .. "passageleftL",
-["PassageUpM"] = iconLink .. "passageupM",
-["PassageDownM"] = iconLink .. "passagedownM",
-["PassageRightM"] = iconLink .. "passagerightM",
-["PassageLeftM"] = iconLink .. "passageleftM",
-["TransportHelper"] = iconLink .. "tport",
-["OgreWaygate"] = "Interface/Minimap/Vehicle-AllianceWarlockPortal",
-}
 
 function MapNotesMiniButton:OnInitialize() --mmb.lua
   self.db = LibStub("AceDB-3.0"):New("MNMiniMapButtonDB", { profile = { minimap = { hide = false, }, }, }) 
@@ -137,25 +93,32 @@ function pluginHandler:OnEnter(uiMapId, coord)
 	    tooltip:AddLine(v, nil, nil, nil, false)
 	  end
 
-    --if nodeData.id and not nodeData.mnID then
-    --  tooltip:AddLine(v, nil, nil, nil, false)
-    --end
-
     if nodeData.dnID then -- outputs the names we set and displays it in the tooltip
       tooltip:AddDoubleLine(nodeData.dnID, nil, nil, false)
     end
     
-    if not nodeData.dnID and nodeData.mnID and not nodeData.id then -- outputs the Zone or Dungeonmap name and displays it in the tooltip
+    if nodeData.dnID and nodeData.mnID then -- outputs the Zone or Dungeonmap name and displays it in the tooltip
       local mnIDname = C_Map.GetMapInfo(nodeData.mnID).name
       if mnIDname then
         tooltip:AddDoubleLine(mnIDname, nil, nil, false)
         --tooltip:AddDoubleLine("|T4578752:8:20|t" .. mnIDname, nil, nil, false)
       end 
     end
+
+    if nodeData.TransportName then -- outputs transport name for TomTom to the tooltip
+      tooltip:AddDoubleLine(nodeData.TransportName, nil, nil, false) 
+    end
+
+    if not nodeData.dnID and nodeData.mnID and not nodeData.id and not nodeData.TransportName then -- outputs the Zone or Dungeonmap name and displays it in the tooltip
+      local mnIDname = C_Map.GetMapInfo(nodeData.mnID).name
+      if mnIDname then
+        tooltip:AddDoubleLine("=> " .. mnIDname, nil, nil, false)
+        --tooltip:AddDoubleLine("|T4578752:8:20|t" .. mnIDname, nil, nil, false)
+      end 
+    end
      	tooltip:Show()
   end
 end
-
 
 function pluginHandler:OnLeave(uiMapID, coord)
     if self:GetParent() == WorldMapButton then
@@ -168,7 +131,7 @@ end
 
 do
 	local tablepool = setmetatable({}, {__mode = 'k'})
-	
+
 	local function deepCopy(object)
 		local lookup_table = {}
 		local function _copy(object)
@@ -197,7 +160,7 @@ do
     
 		while value do
 			local alpha
-			local icon = icons[value.type]
+			local icon = ns.icons[value.type]
 
 			local allLocked = true
 			local anyLocked = false
@@ -214,7 +177,7 @@ do
 			end
       
         if (anyLocked and db.graymultipleID) or ((allLocked and not db.graymultipleID) and db.assignedgray) then  
-        icon = icons["Locked"]
+        icon = ns.icons["Locked"]
       end
 
       if (anyLocked and db.invertlockout) or ((allLocked and not db.invertlockout) and db.uselockoutalpha) then
@@ -233,7 +196,6 @@ do
 		tablepool[t] = true
 	end
 
-
 	local function iterCont(t, prestate)
 		if not t then return end
     --if not db.show.Continent then return end
@@ -249,7 +211,7 @@ do
 
 				while state do -- Have we reached the end of this zone?
           local alpha
-          local icon = icons[value.type]
+          local icon = ns.icons[value.type]
           
 					local allLocked = true
 					local anyLocked = false
@@ -264,7 +226,7 @@ do
 					end
 
           if (anyLocked and db.graymultipleID) or ((allLocked and not db.graymultipleID) and db.assignedgray) then   
-						icon = icons["Locked"]
+						icon = ns.icons["Locked"]
 					end
 
           if (anyLocked and db.invertlockout) or ((allLocked and not db.invertlockout) and db.uselockoutalpha) then
@@ -320,20 +282,19 @@ local waypoints = {}
 local function setWaypoint(uiMapID, coord)
     local dungeon = nodes[uiMapID][coord]
 
-
     local waypoint = nodes[dungeon]
     if waypoint and TomTom:IsValidWaypoint(waypoint) then
         return
     end
-
+    
     local title = dungeon.name
     local x, y = HandyNotes:getXY(coord)
     waypoints[dungeon] = TomTom:AddWaypoint(uiMapID , x, y, {
-        title = dungeon.dnID or dungeon.mnID or dungeon.name,
+        title = dungeon.TransportName or dungeon.name,
         persistent = nil,
         minimap = true,
         world = true
-    })
+    })  
 end
 
 function pluginHandler:OnClick(button, pressed, uiMapId, coord)
@@ -368,6 +329,8 @@ function pluginHandler:OnClick(button, pressed, uiMapId, coord)
 
       if nodes[uiMapId][coord].mnID and nodes[uiMapId][coord].id then
         mnID = nodes[uiMapId][coord].mnID[1] --change id function to mnID function
+      else
+        mnID = nodes[uiMapId][coord].mnID
       end
 
       if (not dungeonID) then return end
@@ -436,6 +399,7 @@ ns.Addon = Addon
 Addon:RegisterEvent("PLAYER_LOGIN")
 Addon:SetScript("OnEvent", function(self, event, ...) return self[event](self, ...)end)
 
+
 local function updateStuff()
   updateAssignedID()
   HandyNotes:SendMessage("HandyNotes_NotifyUpdate", "MapNotes")
@@ -448,7 +412,6 @@ function Addon:PLAYER_ENTERING_WORLD()
       self:PopulateMinimap()
       self:ProcessTable()
   end
-
     updateAssignedID()
     updateStuff()
 end

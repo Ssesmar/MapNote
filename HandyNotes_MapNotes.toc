@@ -1,6 +1,6 @@
-## Interface: 100200
+## Interface: 100205
 ## Title: HandyNotes: |cffff0000Map|r|cff00ccffNotes|r
-## Version: 1.6.9
+## Version: 1.7.0
 ## Notes: Show dungeons, raids, portals, ships, zeppelins, entrance/exit and passages symbols on different maps!
 ## Author: BadBoyBarny
 ## RequiredDeps: HandyNotes
@@ -21,6 +21,7 @@ nodes\InsideDungeonNodesLocation.lua
 
 core\IconClass.lua
 core\defaults.lua
+core\icons.lua
 core\options.lua
 core\main.lua
 core\ccmmb.lua
