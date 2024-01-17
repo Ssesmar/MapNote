@@ -1,13 +1,3 @@
---## Interface: 100200
---## Title: HandyNotes: |cffff0000Map|r|cff00ccffNotes|r
---## Version: 1.7.0
---## Notes: Show different icons (location for: Raids and Dungeons Entrances, Portals, Ships, Zeppelin, Exits and Passage) on every map!
---## Author: BadBoyBarny
---## RequiredDeps: HandyNotes
---## X-Curse-Project-ID: 912524
---## IconTexture: Interface\AddOns\HandyNotes_MapNotes\Images\MNL4
---## SavedVariables: HandyNotes_MapNotesDB, MNMiniMapButtonDB
-
 local ADDON_NAME, ns = ...
 
 local HandyNotes = LibStub("AceAddon-3.0"):GetAddon("HandyNotes", true)
@@ -25,6 +15,7 @@ local nodes = { }
 local minimap = { }
 local lfgIDs = { }
 local assignedIDs = { }
+
 
 function MapNotesMiniButton:OnInitialize() --mmb.lua
   self.db = LibStub("AceDB-3.0"):New("MNMiniMapButtonDB", { profile = { minimap = { hide = false, }, }, }) 
@@ -45,20 +36,17 @@ local function updateAssignedID()
     end
 end
 
+
 local pluginHandler = { }
 function pluginHandler:OnEnter(uiMapId, coord)
   local nodeData = nil
 
-	if (minimap[uiMapId] and minimap[uiMapId][coord]) then
-	  nodeData = minimap[uiMapId][coord]
-	end
-
 	if (nodes[uiMapId] and nodes[uiMapId][coord]) then
 	  nodeData = nodes[uiMapId][coord]
 	end
-	
+
 	if (not nodeData) then return end
-	
+
 	local tooltip = self:GetParent() == WorldMapButton and WorldMapTooltip or GameTooltip
 	if ( self:GetCenter() > UIParent:GetCenter() ) then -- compare X coordinate
 	  tooltip:SetOwner(self, "ANCHOR_LEFT")
@@ -117,6 +105,7 @@ function pluginHandler:OnEnter(uiMapId, coord)
       end 
     end
      	tooltip:Show()
+      ns.WorldMapDataProvider:RefreshAllData()
   end
 end
 
@@ -126,8 +115,8 @@ function pluginHandler:OnLeave(uiMapID, coord)
     else
       GameTooltip:Hide()
     end
+    ns.WorldMapDataProvider:RefreshAllData()
 end
-
 
 do
 	local tablepool = setmetatable({}, {__mode = 'k'})
@@ -175,8 +164,8 @@ do
 					anyLocked = true
 				end
 			end
-      
-        if (anyLocked and db.graymultipleID) or ((allLocked and not db.graymultipleID) and db.assignedgray) then  
+     
+      if (anyLocked and db.graymultipleID) or ((allLocked and not db.graymultipleID) and db.assignedgray) then  
         icon = ns.icons["Locked"]
       end
 
@@ -198,7 +187,6 @@ do
 
 	local function iterCont(t, prestate)
 		if not t then return end
-    --if not db.show.Continent then return end
 
     local state, value
   	local zone = t.C[t.Z]
@@ -488,22 +476,8 @@ end
 
 function Addon:ProcessTable()
   table.wipe(lfgIDs)
+  ns.lfgIDs = lfgIDs
 
-  lfgIDs = {
-    [63]=326, [64]=327, [66]=323, [65]=1150, [67]=1148, [68]=1147, [69]=1151, [70]=321, [71]=1149, [72]=316, [73]=314, [74]=318, [75]=329, [76]=334, [77]=340, [78]=362,
-    [186]=439, [184]=1152, [185]=437, [187]=448,
-    [226]=4, [227]=10, [229]=32, [231]=14, [233]=20, [234]=16, [236]=1458, [239]=22, [240]=1, [241]=24, [246]=472, [247]=178, [248]=188, [249]=1154,
-    [250]=1013, [252]=180, [253]=181, [254]=1011, [257]=191, [258]=192, [261]=185, [271]=1016, [272]=241, [273]=215, [274]=1017, [275]=1018,
-    [276]=256, [277]=213, [278]=1153, [279]=210, [280]=252, [281]=1019, [282]=1296, [283]=221, [284]=249, [285]=242, [286]=1020,
-    [302]=1466, [303]=1464, [311]=473, [312]=1468, [313]=1469, [316]=474, [317]=532, [320]=834, [321]=1467, [324]=1465, [330]=534, [369]=766, [362]=634, [385]=1005,
-    [457]=900, [476]=1010, [477]=897,
-    [536]=1006, [537]=1009, [547]=1008, [556]=1003, [558]=1007, [559]=1004,
-    [669]=989,
-    [707]=1044, [716]=1175, [721]=1473, [726]=1190, [727]=1192, [740]=1205, [741]=48, [742]=50, [743]=160, [744]=161, [745]=175, [746]=177, [747]=176, [748]=194, [749]=193,
-    [751]=196, [753]=240, [754]=227, [755]=238, [756]=1423, [757]=248, [758]=280, [759]=244, [760]=257, [761]=1502, [762]=1202, [767]=1207, [768]=1350, [777]=1209, [786]=1353,
-    [800]=1319, [861]=1439, [875]=1527,
-    [900]=1488,
-  }
   function Addon:UpdateAlter(id, name)
     if (lfgIDs[id]) then
       local lfgIDs1, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, lfgIDs2 = GetLFGDungeonInfo(lfgIDs[id])

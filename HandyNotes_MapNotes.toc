@@ -23,6 +23,7 @@ core\IconClass.lua
 core\defaults.lua
 core\icons.lua
 core\options.lua
+core\test.lua
 core\main.lua
 core\ccmmb.lua
 core\mmb.lua

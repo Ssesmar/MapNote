@@ -26,7 +26,7 @@ if not db.show.HideMapNote then
         
         -- Kalimdor Dungeons
             if self.db.profile.showZoneDungeons then       
-
+            nodes[1][44150947] = { id = 226, type = "Dungeon", showInZone = true, hideOnContinent = true } -- Ragefire
             nodes[11][54916646] = { id = 240, type = "Dungeon", showInZone = true, hideOnContinent = true } -- Wailing Caverns 
             nodes[63][16451100] = { id = 227, type = "Dungeon", showInZone = false, hideOnContinent = true} -- Blackfathom Deeps 
             nodes[67][78285518] = { id = 232, type = "Dungeon", showInZone = true, hideOnContinent = true } -- Maraudon Foulspore Cavern 
@@ -45,7 +45,8 @@ if not db.show.HideMapNote then
           end
     
         --Kalimdor ClassicIcons passage
-          if self.db.profile.showZonePassage and not self.db.profile.show.ClassicIcons then  
+          if self.db.profile.showZonePassage and not self.db.profile.show.ClassicIcons then
+            nodes[1][44150947] = { id = 226, type = "PassageDungeonM", showInZone = true, hideOnContinent = true } -- Ragefire
             nodes[85][55895097] = { mnID = 86, id = 226, dnID = DUNGEON_FLOOR_ORGRIMMAR1, name = "", type = "PassageDungeonM", showInZone = true, hideOnContinent = true } -- Ragefire   
             nodes[85][46116716] = { mnID = 86, id = 226, dnID = DUNGEON_FLOOR_ORGRIMMAR1, name = "", type = "PassageDungeonM", showInZone = true, hideOnContinent = true } -- Ragefire  
             nodes[85][41516079] = { mnID = 86, id = 226, dnID = DUNGEON_FLOOR_ORGRIMMAR1, name = "", type = "PassageDungeonM", showInZone = true, hideOnContinent = true } -- Ragefire    
@@ -297,6 +298,8 @@ if not db.show.HideMapNote then
             nodes[224][36947582] = { mnID = 10, name = "", type = "Ship", showInZone = true, hideOnContinent = true, TransportName = L["Ship"] .. " => " .. POSTMASTER_LETTER_BARRENS_SUBTITLE } -- Ship from Booty Bay to Ratchet
 
             if self.faction == "Alliance" or db.show.EnemyFaction then
+              nodes[37][08722976] = { mnID = 1161, name = "", type = "AShip", showInZone = true, hideOnContinent = true, TransportName = L["Ship"] .. " => " .. L["Boralus, Tiragarde Sound"] } -- Ship from Stormwind to Boralus
+              nodes[37][07622435] = { mnID = 114, name = "", type = "AShip", showInZone = true, hideOnContinent = true, TransportName = L["Ship"] .. " => " .. POSTMASTER_LETTER_VALIANCEKEEP } -- Ship from Stormwind to Valiance Keep
               nodes[84][22085658] = { mnID = 1161, name = "", type = "AShip", showInZone = true, hideOnContinent = true, TransportName = L["Ship"] .. " => " .. L["Boralus, Tiragarde Sound"] } -- Ship from Stormwind to Boralus
               nodes[84][16992544] = { mnID = 114, name = "", type = "AShip", showInZone = true, hideOnContinent = true, TransportName = L["Ship"] .. " => " .. POSTMASTER_LETTER_VALIANCEKEEP } -- Ship from Stormwind to Valiance Keep
             end

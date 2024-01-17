@@ -56,7 +56,7 @@ if not db.show.HideMapNote then
             nodes[12][43913301] = { id = 227, type = "PassageDungeonM", showInZone = true } -- Blackfathom Deeps 
             nodes[12][52215315] = { mnID = 11, dnID = DUNGEON_FLOOR_WAILINGCAVERNS1, name = "", type = "PassageDungeonM" } -- Wailing Caverns  
             nodes[12][38395594] = { id = 232, type = "PassageDungeonM" } -- Maraudon 
-            nodes[12][58304269] = { id = 226, type = "PassageDungeonM" } -- Ragefire 
+            nodes[12][57304230] = { id = 226, type = "PassageDungeonM" } -- Ragefire 
           end
 
 
@@ -69,7 +69,7 @@ if not db.show.HideMapNote then
             nodes[12][43913301] = { id = 227, type = "Dungeon", showInZone = true } -- Blackfathom Deeps 
             nodes[12][52215315] = { id = 240, name = "", type = "Dungeon" } -- Wailing Caverns  
             nodes[12][38395594] = { id = 232, type = "Dungeon" } -- Maraudon 
-            nodes[12][58304269] = { id = 226, type = "Dungeon" } -- Ragefire 
+            nodes[12][57304230] = { id = 226, type = "Dungeon" } -- Ragefire 
           end
 
           if self.db.profile.showContinentMultiple then
@@ -102,7 +102,7 @@ if not db.show.HideMapNote then
     
               
               if self.faction == "Horde" or db.show.EnemyFaction then  
-                nodes[12][58134432] = { mnID = 85, name = "", type = "HPortal", showInZone = true, TransportName = ORGRIMMAR .. " " .. L["Portals"] .. "\n" .. " => " .. L["Silvermoon City"] .. "\n" .. " => " .. L["Valdrakken"] .. "\n" .. " => " .. L["Oribos"] .. "\n" .. " => " .. L["Azsuna"] .. "\n" .. " => " .. L["Zuldazar"] .. "\n" .. " => " .. L["Shattrath City"] .. "\n" .. " => " .. DUNGEON_FLOOR_DALARANCITY1 .. "\n" .. " => " .. DUNGEON_FLOOR_TANARIS18 .. "\n" .. " => " .. POSTMASTER_LETTER_HYJAL .. "\n" .. " => " .. L["Twilight Highlands"] .. "\n" .. " => " .. ARTIFACT_SHAMAN_TITLECARD_DEEPHOLM .. "\n" .. " => " .. L["Vashj'ir"] .. "\n" .. " => " .. L["Uldum"] .. "\n" .. " => " .. DUNGEON_FLOOR_TOLBARADWARLOCKSCENARIO0} -- Portalroom from Dazar'alor
+                nodes[12][58844230] = { mnID = 85, name = "", type = "HPortal", showInZone = true, TransportName = ORGRIMMAR .. " " .. L["Portals"] .. "\n" .. " => " .. L["Silvermoon City"] .. "\n" .. " => " .. L["Valdrakken"] .. "\n" .. " => " .. L["Oribos"] .. "\n" .. " => " .. L["Azsuna"] .. "\n" .. " => " .. L["Zuldazar"] .. "\n" .. " => " .. L["Shattrath City"] .. "\n" .. " => " .. DUNGEON_FLOOR_DALARANCITY1 .. "\n" .. " => " .. DUNGEON_FLOOR_TANARIS18 .. "\n" .. " => " .. POSTMASTER_LETTER_HYJAL .. "\n" .. " => " .. L["Twilight Highlands"] .. "\n" .. " => " .. ARTIFACT_SHAMAN_TITLECARD_DEEPHOLM .. "\n" .. " => " .. L["Vashj'ir"] .. "\n" .. " => " .. L["Uldum"] .. "\n" .. " => " .. DUNGEON_FLOOR_TOLBARADWARLOCKSCENARIO0} -- Portalroom from Dazar'alor
                 nodes[12][45842223] = { mnID = 862, name = L["(its only shown up ingame if your faction is currently occupying Bashal'Aran)"], type = "HPortal", showInZone = true, } -- Portal from New Darkshore to Zandalar 
               end
     
