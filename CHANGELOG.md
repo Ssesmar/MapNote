@@ -1,5 +1,5 @@
 # MapNote
-## [1.6.9](https://github.com/Ssesmar/MapNote) (2023-01-08)
+## [1.7.1](https://github.com/Ssesmar/MapNote) (2024-01-22)
 - Note:
 
 
@@ -7,7 +7,7 @@
 REQUIRES --> HandyNotes <-- to be installed                                                                                    
 
 
-    Show different icons (Raids, Dungeons, Portals, Ships, Zeppelin, Exits and Passage) on Azeroth map, Continent map, Zone map / Minimap and Instance map
+    A collection of different symbols on different maps. Show Raids and Dungeons Entrances, Portals, Ships, Zeppelin, Exits and Passage icons
     Displays Horde and Alliance icons that can also be activated by the other faction
     All symbols are clickable (except on the minimap) and have a function
 
@@ -34,5 +34,3 @@ Chat commands:
     to hide minimapbutton: /mnbh or /MNBH
 
 Full supported languages: enUS, deDE, esMX, ptBR, itIT, zhCN, zhTW, ruRU ,koKR, frFR, esES
-
-- [Full Changelog](https://github.com/Ssesmar/MapNote/compare/1.6.8...1.6.9) [Previous Releases](https://github.com/Ssesmar/MapNote/releases)
