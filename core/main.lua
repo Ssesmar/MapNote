@@ -55,7 +55,6 @@ function pluginHandler:OnEnter(uiMapId, coord)
     if (not nodeData.name) then return end
 
 	local instances = { strsplit("\n", nodeData.name) }
-	
 
 	updateAssignedID()
 	
@@ -83,23 +82,22 @@ function pluginHandler:OnEnter(uiMapId, coord)
       tooltip:AddDoubleLine(nodeData.dnID, nil, nil, false)
     end
     
-    if nodeData.dnID and nodeData.mnID then -- outputs the Zone or Dungeonmap name and displays it in the tooltip
-      local mnIDname = C_Map.GetMapInfo(nodeData.mnID).name
-      if mnIDname then
-        tooltip:AddDoubleLine(mnIDname, nil, nil, false)
-        --tooltip:AddDoubleLine("|T4578752:8:20|t" .. mnIDname, nil, nil, false)
-      end 
-    end
-
     if nodeData.TransportName then -- outputs transport name for TomTom to the tooltip
       tooltip:AddDoubleLine(nodeData.TransportName, nil, nil, false) 
     end
 
+    --if nodeData.dnID and nodeData.mnID then -- outputs the Zone or Dungeonmap name and displays it in the tooltip
+    --  local mnID = C_Map.GetMapInfo(nodeData.mnID).name
+    --  if mnID then
+    --    tooltip:AddDoubleLine(mnID, nil, nil, false)
+    --    --tooltip:AddDoubleLine("|T4578752:8:20|t" .. mnIDname, nil, nil, false)
+    --  end 
+    --end
+
     if not nodeData.dnID and nodeData.mnID and not nodeData.id and not nodeData.TransportName then -- outputs the Zone or Dungeonmap name and displays it in the tooltip
-      local mnIDname = C_Map.GetMapInfo(nodeData.mnID).name
-      if mnIDname then
-        tooltip:AddDoubleLine("=> " .. mnIDname, nil, nil, false)
-        --tooltip:AddDoubleLine("|T4578752:8:20|t" .. mnIDname, nil, nil, false)
+      local mnID = C_Map.GetMapInfo(nodeData.mnID).name
+      if nodeData.mnID then
+        tooltip:AddDoubleLine("=> " .. mnID, nil, nil, false)
       end 
     end
      	tooltip:Show()
@@ -116,26 +114,6 @@ end
 
 do
 	local tablepool = setmetatable({}, {__mode = 'k'})
-
---	local function deepCopy(object)
---		local lookup_table = {}
---		local function _copy(object)
---			if type(object) ~= "table" then
---				return object
---			elseif lookup_table[object] then
---				return lookup_table[object]
---			end
---
---			local new_table = {}
---			  lookup_table[object] = new_table
---			for index, value in pairs(object) do
---				new_table[_copy(index)] = _copy(value)
---			end
---
---			return setmetatable(new_table, getmetatable(object))
---		end
---			return _copy(object)
---	end
 
 	local function iter(t, prestate)
 		if not t then return end
@@ -238,7 +216,6 @@ do
 
 	function pluginHandler:GetNodes2(uiMapId, isMinimapUpdate, coord)
     --print(uiMapId)
-		--local C = deepCopy(HandyNotes:GetContinentZoneList(uiMapId)) -- Is this a continent?
     local C = HandyNotes:GetContinentZoneList(uiMapId) -- Is this a continent?
 		if C then
 			table.insert(C, uiMapId)
@@ -298,12 +275,13 @@ function pluginHandler:OnClick(button, pressed, uiMapId, coord)
       local mnID = nodes[uiMapId][coord].mnID
       if mnID then
          WorldMapFrame:SetMapID(mnID)
-         --self:SetFrameLevel(WorldMapFrame:GetFrameLevel() + 20)
-      if (not EncounterJournal_OpenJournal) then 
-        UIParentLoadAddOn('Blizzard_EncounterJournal')
-      end
+         
+        if (not EncounterJournal_OpenJournal) then 
+          UIParentLoadAddOn('Blizzard_EncounterJournal')
+        end
         _G.EncounterJournal:SetScript("OnShow", nil)
         return
+        --self:SetFrameLevel(WorldMapFrame:GetFrameLevel() + 20) --another try
       end
            
       local dungeonID
@@ -347,10 +325,10 @@ function pluginHandler:OnClick(button, pressed, uiMapId, coord)
       local mnID = nodes[uiMapId][coord].mnID
       if mnID then
          WorldMapFrame:SetMapID(mnID)
-         --self:SetFrameLevel(WorldMapFrame:GetFrameLevel() + 20)
-      if (not EncounterJournal_OpenJournal) then 
-        UIParentLoadAddOn('Blizzard_EncounterJournal')
-      end
+         --self:SetFrameLevel(WorldMapFrame:GetFrameLevel() + 20) --another try
+        if (not EncounterJournal_OpenJournal) then 
+          UIParentLoadAddOn('Blizzard_EncounterJournal')
+        end
         _G.EncounterJournal:SetScript("OnShow", nil)
         return
       end
@@ -381,6 +359,15 @@ function pluginHandler:OnClick(button, pressed, uiMapId, coord)
   end
 end
 
+
+--local WorldMapPinMixin = CreateFromMixins(MapCanvasPinMixin) --another try
+--function WorldMapPinMixin:SetPassThroughButtons() end
+--function WorldMapPinMixin:ApplyFrameLevel()
+--  -- Allow frame level adjustments in POIs even if the current frame level
+--  -- type has a range of only 1 frame level
+--  MapCanvasPinMixin.ApplyFrameLevel(self)
+--  self:SetFrameLevel(self:GetFrameLevel() + self.frameOffset)
+--end
 
 local Addon = CreateFrame("Frame")
   ns.Addon = Addon
@@ -421,6 +408,10 @@ local Addon = CreateFrame("Frame")
   function Addon:PopulateTable()
     ns.nodes = nodes
     table.wipe(nodes)
+
+    --self:SetFrameStrata(nodes:GetFrameStrata()) --another try
+    --self:SetFrameLevel(nodes:GetFrameLevel() + 3) --another try
+
     ns.LoadMapNotesNodesInfo() -- load nodes\MapNotesNodesInfo.lua
     ns.LoadAzerothNodesLocationInfo(self) -- load nodes\AzerothNodeslocation.lua
     ns.LoadContinentNodesLocationinfo(self) -- load nodes\ContinentNodesLocation.lua
