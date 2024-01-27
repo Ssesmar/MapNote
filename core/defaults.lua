@@ -16,7 +16,7 @@ ns.defaults = {
         assignedgray = true,
         graymultipleID = true,
         showEnemyFaction = true,
-        showSpecialInfo = true,
+        RemoveBlizzPOIs = true,
       
       --2 Azeroth map
         showAzeroth = true,
@@ -101,7 +101,6 @@ ns.defaults = {
 
       --0 show.show commands
         show = {
-          mapnoteScale = true,
           Azeroth = true,
           Continent = true,
           ZoneMap = true,

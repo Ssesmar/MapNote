@@ -13,6 +13,8 @@ libs\LibDBIcon-1.0\embeds.xml
 libs\LibDBIcon-1.0\lib.xml
 
 
+nodes\BlizzAreaPoisInfo.lua
+nodes\LfgIdsInfo.lua
 nodes\MapNotesNodesInfo.lua
 nodes\AzerothNodeslocation.lua
 nodes\ContinentNodesLocation.lua
@@ -21,6 +23,7 @@ nodes\InsideDungeonNodesLocation.lua
 
 
 core\IconClass.lua
+core\areaPOIs.lua
 core\defaults.lua
 core\icons.lua
 core\options.lua

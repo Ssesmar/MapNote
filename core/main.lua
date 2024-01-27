@@ -86,14 +86,6 @@ function pluginHandler:OnEnter(uiMapId, coord)
       tooltip:AddDoubleLine(nodeData.TransportName, nil, nil, false) 
     end
 
-    --if nodeData.dnID and nodeData.mnID then -- outputs the Zone or Dungeonmap name and displays it in the tooltip
-    --  local mnID = C_Map.GetMapInfo(nodeData.mnID).name
-    --  if mnID then
-    --    tooltip:AddDoubleLine(mnID, nil, nil, false)
-    --    --tooltip:AddDoubleLine("|T4578752:8:20|t" .. mnIDname, nil, nil, false)
-    --  end 
-    --end
-
     if not nodeData.dnID and nodeData.mnID and not nodeData.id and not nodeData.TransportName then -- outputs the Zone or Dungeonmap name and displays it in the tooltip
       local mnID = C_Map.GetMapInfo(nodeData.mnID).name
       if nodeData.mnID then
@@ -261,6 +253,14 @@ end
 
 function pluginHandler:OnClick(button, pressed, uiMapId, coord)
 
+  local url = nodes[uiMapId][coord].url
+  if (not pressed) then return end
+  if IsAltKeyDown(button == "LeftButton" and nodes[uiMapId][coord].url) then
+    if not url then return end
+      print(url)
+    return
+  end
+
   if not db.show.ShiftWorld then
 
     if (not pressed) then return end
@@ -359,18 +359,8 @@ function pluginHandler:OnClick(button, pressed, uiMapId, coord)
   end
 end
 
-
---local WorldMapPinMixin = CreateFromMixins(MapCanvasPinMixin) --another try
---function WorldMapPinMixin:SetPassThroughButtons() end
---function WorldMapPinMixin:ApplyFrameLevel()
---  -- Allow frame level adjustments in POIs even if the current frame level
---  -- type has a range of only 1 frame level
---  MapCanvasPinMixin.ApplyFrameLevel(self)
---  self:SetFrameLevel(self:GetFrameLevel() + self.frameOffset)
---end
-
 local Addon = CreateFrame("Frame")
-  ns.Addon = Addon
+  --ns.Addon = Addon
   Addon:RegisterEvent("PLAYER_LOGIN")
   Addon:SetScript("OnEvent", function(self, event, ...) return self[event](self, ...)end)
 
@@ -394,6 +384,7 @@ local Addon = CreateFrame("Frame")
 
     ns.LoadOptions(self)
     ns.Addon = Addon
+    --ns.class = select(2, UnitClass('player')) --added
 
     HandyNotes:RegisterPluginDB("MapNotes", pluginHandler, ns.options)
     self.db = LibStub("AceDB-3.0"):New(ADDON_NAME .. "DB", ns.defaults, true)
@@ -470,7 +461,7 @@ local Addon = CreateFrame("Frame")
         self:UpdateInstanceNames(u)
       end
     end
-    end
+  end
 
   function Addon:FullUpdate()
     self:PopulateTable()
