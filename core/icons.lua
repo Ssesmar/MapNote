@@ -54,6 +54,7 @@ ns.icons = {
 ["WayGateGolden"] = iconLink .. "WayGateGolden",
 ["WayGateGreen"] = iconLink .. "WayGateGreen",
 ["GPortal"] = iconLink .. "GPortal",
+["Carriage"] = iconLink .. "Carriage",
 --travel
 ["TravelL"] = iconLink .. "travelL",
 ["TravelM"] = iconLink .. "travelm",
@@ -125,6 +126,7 @@ TextIconHIcon = TextIcon(iconLink .. "HIcon", 64, 64, 1, 50, 1, 50)
 TextIconTransportHelper = TextIcon(iconLink .. "tport", 64, 64, 1, 50, 1, 50)
 TextIconTransport = TextIcon(iconLink .. "tport2", 64, 64, 1, 50, 1, 50)
 TextIconOgreWaygate = TextIcon("Interface/Minimap/Vehicle-AllianceWarlockPortal", 64, 64, 1, 50, 1, 50)
+TextIconCarriage = TextIcon("interface/minimap/vehicle-carriage")
 --information
 TextIconCheck = TextIcon("Interface/Buttons/UI-CheckBox-Up", 64, 64, 1, 50, 1, 50)
 TextIconHorde = TextIcon("interface/pvprankbadges/pvprankhorde")

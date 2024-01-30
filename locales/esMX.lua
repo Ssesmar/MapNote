@@ -150,7 +150,10 @@ L["in the basement"] = "En el sótano"
 L["(on the tower)"] = "(en la torre)"
 L["(inside portal chamber)"] = "(dentro de la cámara del portal)"
 L["(inside building)"] = "(dentro del edificio)"
---10 places--10 plazas
+--10 places
+L["Bel'ameth, Amirdrassil"] = "Bel'ameth, Amirdrassil"
+L["Darnassus"] = "Darnaso"
+L["Teldrassil"] = "Teldrassil"
 L["Graveyard"] = "Cementerio"
 L["Library"] = "Biblioteca"
 L["Cathedral"] = "Catedral"

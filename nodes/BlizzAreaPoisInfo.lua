@@ -42,7 +42,7 @@ ns.BlizzAreaPoisInfo = {
     --8, -- Ironforge Icon
     11, -- Wetlands Menethil Harbor
     16, -- Stormwind City Icon
-    --1785, -- Exodar Icon
+    1785, -- Exodar Icon
     --5793, -- Rest of Darnassus
 
     -- City Horde

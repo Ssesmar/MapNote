@@ -20,6 +20,7 @@ nodes[7]  = { } -- Mulgore
 nodes[10] = { } -- Barrens    
 nodes[11] = { } -- Wailing Caverns
 nodes[12] = { } -- Kalimdor 
+nodes[57] = { } -- Teldrassil
 nodes[62] = { } -- Darkshore Vanilla
 nodes[63] = { } -- Ashenvale  
 nodes[64] = { } -- Thousand Needles  
@@ -33,7 +34,11 @@ nodes[74] = { } -- Timeless Tunnel
 nodes[75] = { } -- Caverns of Time lower half
 nodes[81] = { } -- Silithus    
 nodes[85] = { } -- Orgrimmar 
+nodes[87] = { } -- Ironforge
 nodes[88] = { } -- Thunder Bluff
+nodes[89] = { } -- Teldrassil
+nodes[97] = { } -- Azurmythosinsel
+nodes[103] = { } -- Exodar
 nodes[199] = { } -- Southern Barrens  
 nodes[327] = { } -- AhnQiraj The Fallen Kingdom 
 -- Dungeon map nodes
@@ -571,6 +576,7 @@ nodes[2026] = { } -- The Forbidden Reach
 nodes[2133] = { } -- Zaralek Cavern
 nodes[2112] = { } -- Valdrakken
 nodes[2200] = { } -- The Emerald Dream
+nodes[2239] = { } -- Bel'ameth, Amirdrassil
 nodes[2266] = { } -- The Timeways - Millenia's Threshold
 -- Dungeon map nodes
 nodes[2073] = { } -- The Azure Vault

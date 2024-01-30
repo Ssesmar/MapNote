@@ -150,7 +150,10 @@ L["in the basement"] = "在地下室"
 L["(on the tower)"] = "（在塔上）"
 L["(inside portal chamber)"] = "（傳送門室內）"
 L["(inside building)"] = "（建築物內）"
---10 places --10個地方
+--10 places
+L["Bel'ameth, Amirdrassil"] = "貝拉梅斯，阿米達希爾"
+L["Darnassus"] = "達納蘇斯"
+L["Teldrassil"] = "泰達希爾"
 L["Graveyard"] = "墓地"
 L["Library"] = "圖書館"
 L["Cathedral"] = "大教堂"

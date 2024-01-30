@@ -151,6 +151,9 @@ L["(on the tower)"] = true
 L["(inside portal chamber)"] = true
 L["(inside building)"] = true
 --10 places
+L["Bel'ameth, Amirdrassil"] = true
+L["Darnassus"] = true
+L["Teldrassil"] = true
 L["Graveyard"] = true
 L["Library"] = true
 L["Cathedral"] = true

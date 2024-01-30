@@ -14,8 +14,6 @@ local minimap = { }
 local lfgIDs = { }
 local assignedIDs = { }
 
-
-
 function MapNotesMiniButton:OnInitialize() --mmb.lua
   self.db = LibStub("AceDB-3.0"):New("MNMiniMapButtonDB", { profile = { minimap = { hide = false, }, }, }) 
   MNMMBIcon:Register("MNMiniMapButton", ns.miniButton, self.db.profile.minimap)
@@ -42,9 +40,9 @@ function pluginHandler:OnEnter(uiMapId, coord)
 	if (nodes[uiMapId] and nodes[uiMapId][coord]) then
 	  nodeData = nodes[uiMapId][coord]
 	end
-
+	
 	if (not nodeData) then return end
-
+	
 	local tooltip = self:GetParent() == WorldMapButton and WorldMapTooltip or GameTooltip
 	if ( self:GetCenter() > UIParent:GetCenter() ) then -- compare X coordinate
 	  tooltip:SetOwner(self, "ANCHOR_LEFT")
@@ -55,6 +53,7 @@ function pluginHandler:OnEnter(uiMapId, coord)
     if (not nodeData.name) then return end
 
 	local instances = { strsplit("\n", nodeData.name) }
+
 
 	updateAssignedID()
 	
@@ -82,21 +81,30 @@ function pluginHandler:OnEnter(uiMapId, coord)
       tooltip:AddDoubleLine(nodeData.dnID, nil, nil, false)
     end
     
+    if nodeData.dnID and nodeData.mnID then -- outputs the Zone or Dungeonmap name and displays it in the tooltip
+      local mnIDname = C_Map.GetMapInfo(nodeData.mnID).name
+      if mnIDname then
+        tooltip:AddDoubleLine(mnIDname, nil, nil, false)
+        --tooltip:AddDoubleLine("|T4578752:8:20|t" .. mnIDname, nil, nil, false)
+      end 
+    end
+
     if nodeData.TransportName then -- outputs transport name for TomTom to the tooltip
       tooltip:AddDoubleLine(nodeData.TransportName, nil, nil, false) 
     end
 
     if not nodeData.dnID and nodeData.mnID and not nodeData.id and not nodeData.TransportName then -- outputs the Zone or Dungeonmap name and displays it in the tooltip
-      local mnID = C_Map.GetMapInfo(nodeData.mnID).name
-      if nodeData.mnID then
-        tooltip:AddDoubleLine("=> " .. mnID, nil, nil, false)
+      local mnIDname = C_Map.GetMapInfo(nodeData.mnID).name
+      if mnIDname then
+        tooltip:AddDoubleLine("=> " .. mnIDname, nil, nil, false)
+        --tooltip:AddDoubleLine("|T4578752:8:20|t" .. mnIDname, nil, nil, false)
       end 
     end
      	tooltip:Show()
   end
 end
 
-function pluginHandler:OnLeave(uiMapID, coord, tooltip)
+function pluginHandler:OnLeave(uiMapID, coord)
     if self:GetParent() == WorldMapButton then
       WorldMapTooltip:Hide()
     else
@@ -104,8 +112,29 @@ function pluginHandler:OnLeave(uiMapID, coord, tooltip)
     end
 end
 
+
 do
 	local tablepool = setmetatable({}, {__mode = 'k'})
+
+	local function deepCopy(object)
+		local lookup_table = {}
+		local function _copy(object)
+			if type(object) ~= "table" then
+				return object
+			elseif lookup_table[object] then
+				return lookup_table[object]
+			end
+
+			local new_table = {}
+			  lookup_table[object] = new_table
+			for index, value in pairs(object) do
+				new_table[_copy(index)] = _copy(value)
+			end
+
+			return setmetatable(new_table, getmetatable(object))
+		end
+			return _copy(object)
+	end
 
 	local function iter(t, prestate)
 		if not t then return end
@@ -130,8 +159,8 @@ do
 					anyLocked = true
 				end
 			end
-     
-      if (anyLocked and db.graymultipleID) or ((allLocked and not db.graymultipleID) and db.assignedgray) then  
+      
+        if (anyLocked and db.graymultipleID) or ((allLocked and not db.graymultipleID) and db.assignedgray) then  
         icon = ns.icons["Locked"]
       end
 
@@ -153,6 +182,7 @@ do
 
 	local function iterCont(t, prestate)
 		if not t then return end
+    --if not db.show.Continent then return end
 
     local state, value
   	local zone = t.C[t.Z]
@@ -208,7 +238,7 @@ do
 
 	function pluginHandler:GetNodes2(uiMapId, isMinimapUpdate, coord)
     --print(uiMapId)
-    local C = HandyNotes:GetContinentZoneList(uiMapId) -- Is this a continent?
+		local C = deepCopy(HandyNotes:GetContinentZoneList(uiMapId)) -- Is this a continent?
 		if C then
 			table.insert(C, uiMapId)
 			local tbl = next(tablepool) or {}
@@ -253,14 +283,6 @@ end
 
 function pluginHandler:OnClick(button, pressed, uiMapId, coord)
 
-  local url = nodes[uiMapId][coord].url
-  if (not pressed) then return end
-  if IsAltKeyDown(button == "LeftButton" and nodes[uiMapId][coord].url) then
-    if not url then return end
-      print(url)
-    return
-  end
-
   if not db.show.ShiftWorld then
 
     if (not pressed) then return end
@@ -275,13 +297,11 @@ function pluginHandler:OnClick(button, pressed, uiMapId, coord)
       local mnID = nodes[uiMapId][coord].mnID
       if mnID then
          WorldMapFrame:SetMapID(mnID)
-         
-        if (not EncounterJournal_OpenJournal) then 
-          UIParentLoadAddOn('Blizzard_EncounterJournal')
-        end
+      if (not EncounterJournal_OpenJournal) then 
+        UIParentLoadAddOn('Blizzard_EncounterJournal')
+      end
         _G.EncounterJournal:SetScript("OnShow", nil)
         return
-        --self:SetFrameLevel(WorldMapFrame:GetFrameLevel() + 20) --another try
       end
            
       local dungeonID
@@ -292,9 +312,9 @@ function pluginHandler:OnClick(button, pressed, uiMapId, coord)
       end
 
       if nodes[uiMapId][coord].mnID and nodes[uiMapId][coord].id then
-        mnID = nodes[uiMapId][coord].mnID[1] --change id function to multi mnID function
+        mnID = nodes[uiMapId][coord].mnID[1] --change id function to mnID function
       else
-        mnID = nodes[uiMapId][coord].mnID --change id function to mnID function
+        mnID = nodes[uiMapId][coord].mnID
       end
 
       if (not dungeonID) then return end
@@ -325,10 +345,9 @@ function pluginHandler:OnClick(button, pressed, uiMapId, coord)
       local mnID = nodes[uiMapId][coord].mnID
       if mnID then
          WorldMapFrame:SetMapID(mnID)
-         --self:SetFrameLevel(WorldMapFrame:GetFrameLevel() + 20) --another try
-        if (not EncounterJournal_OpenJournal) then 
-          UIParentLoadAddOn('Blizzard_EncounterJournal')
-        end
+      if (not EncounterJournal_OpenJournal) then 
+        UIParentLoadAddOn('Blizzard_EncounterJournal')
+      end
         _G.EncounterJournal:SetScript("OnShow", nil)
         return
       end
@@ -360,110 +379,105 @@ function pluginHandler:OnClick(button, pressed, uiMapId, coord)
 end
 
 local Addon = CreateFrame("Frame")
-  --ns.Addon = Addon
-  Addon:RegisterEvent("PLAYER_LOGIN")
-  Addon:SetScript("OnEvent", function(self, event, ...) return self[event](self, ...)end)
+--ns.Addon = Addon
+Addon:RegisterEvent("PLAYER_LOGIN")
+Addon:SetScript("OnEvent", function(self, event, ...) return self[event](self, ...)end)
 
 
-  local function updateStuff()
+local function updateStuff()
   updateAssignedID()
   HandyNotes:SendMessage("HandyNotes_NotifyUpdate", "MapNotes")
+end
+
+function Addon:PLAYER_ENTERING_WORLD()
+  if (not self.faction) then
+      self.faction = UnitFactionGroup("player")
+      self:PopulateTable()
+      self:ProcessTable()
   end
+    updateAssignedID()
+    updateStuff()
+end
 
-  function Addon:PLAYER_ENTERING_WORLD()
-    if (not self.faction) then
-        self.faction = UnitFactionGroup("player")
-        self:PopulateTable()
-        self:ProcessTable()
-    end
-      updateAssignedID()
-      updateStuff()
+function Addon:PLAYER_LOGIN()
+
+  ns.LoadOptions(self)
+  ns.Addon = Addon
+
+  HandyNotes:RegisterPluginDB("MapNotes", pluginHandler, ns.options)
+  self.db = LibStub("AceDB-3.0"):New(ADDON_NAME .. "DB", ns.defaults, true)
+  db = self.db.profile
+  Addon:RegisterEvent("PLAYER_ENTERING_WORLD") -- Check for any lockout changes when we zone
+  LibStub("AceConfigRegistry-3.0"):RegisterOptionsTable("MNMiniMapButton", ns.options)
+  if db.show.HideMMB then 
+    MNMMBIcon:Hide("MNMiniMapButton")
   end
+end
 
-  function Addon:PLAYER_LOGIN()
+function Addon:PopulateTable()
+  ns.nodes = nodes
+  table.wipe(nodes)
+  ns.LoadMapNotesNodesInfo() -- load nodes\MapNotesNodesInfo.lua
+  ns.LoadAzerothNodesLocationInfo(self) -- load nodes\AzerothNodeslocation.lua
+  ns.LoadContinentNodesLocationinfo(self) -- load nodes\ContinentNodesLocation.lua
+  ns.LoadZoneMapNodesLocationinfo(self) -- load nodes\ZoneNodesLocation.lua
+  ns.LoadInsideDungeonNodesLocationInfo(self) -- load nodes\InsideDungeonNodesLocation.lua
+end
 
-    ns.LoadOptions(self)
-    ns.Addon = Addon
-    --ns.class = select(2, UnitClass('player')) --added
+function Addon:UpdateInstanceNames(node)
+  local dungeonInfo = EJ_GetInstanceInfo
+    local id = node.id
 
-    HandyNotes:RegisterPluginDB("MapNotes", pluginHandler, ns.options)
-    self.db = LibStub("AceDB-3.0"):New(ADDON_NAME .. "DB", ns.defaults, true)
-    db = self.db.profile
-    Addon:RegisterEvent("PLAYER_ENTERING_WORLD") -- Check for any lockout changes when we zone
-    LibStub("AceConfigRegistry-3.0"):RegisterOptionsTable("MNMiniMapButton", ns.options)
-    if db.show.HideMMB then 
-      MNMMBIcon:Hide("MNMiniMapButton")
-    end
-  end
+      if (node.lfgid) then
+        dungeonInfo = GetLFGDungeonInfo
+        id = node.lfgid 
+      end
 
-  function Addon:PopulateTable()
-    ns.nodes = nodes
-    table.wipe(nodes)
-
-    --self:SetFrameStrata(nodes:GetFrameStrata()) --another try
-    --self:SetFrameLevel(nodes:GetFrameLevel() + 3) --another try
-
-    ns.LoadMapNotesNodesInfo() -- load nodes\MapNotesNodesInfo.lua
-    ns.LoadAzerothNodesLocationInfo(self) -- load nodes\AzerothNodeslocation.lua
-    ns.LoadContinentNodesLocationinfo(self) -- load nodes\ContinentNodesLocation.lua
-    ns.LoadZoneMapNodesLocationinfo(self) -- load nodes\ZoneNodesLocation.lua
-    ns.LoadInsideDungeonNodesLocationInfo(self) -- load nodes\InsideDungeonNodesLocation.lua
-  end
-
-  function Addon:UpdateInstanceNames(node)
-    local dungeonInfo = EJ_GetInstanceInfo
-      local id = node.id
-
-        if (node.lfgid) then
-          dungeonInfo = GetLFGDungeonInfo
-          id = node.lfgid 
-        end
-
-        if (type(id) == "table") then
-          for i,v in pairs(node.id) do
-            local name = dungeonInfo(v)
-              self:UpdateAlter(v, name)
-            if (node.name) then
-              node.name = node.name .. "\n" .. name
-            else
-              node.name = name
-            end
-          end
-        elseif (id) then
-          node.name = dungeonInfo(id)
-          self:UpdateAlter(id, node.name)
-        end
-  end
-
-  function Addon:ProcessTable()
-    table.wipe(lfgIDs)
-    ns.lfgIDs = lfgIDs
-
-    function Addon:UpdateAlter(id, name)
-      if (lfgIDs[id]) then
-        local lfgIDs1, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, lfgIDs2 = GetLFGDungeonInfo(lfgIDs[id])
-          if (lfgIDs2 and lfgIDs1 == name) then
-        	  lfgIDs1 = lfgIDs2
-          end
-
-        if (lfgIDs1) then
-          if (lfgIDs1 == name) then
+      if (type(id) == "table") then
+        for i,v in pairs(node.id) do
+          local name = dungeonInfo(v)
+            self:UpdateAlter(v, name)
+          if (node.name) then
+            node.name = node.name .. "\n" .. name
           else
-          lfgIDs[id] = nil
-          lfgIDs[name] = lfgIDs1
+            node.name = name
           end
+        end
+      elseif (id) then
+        node.name = dungeonInfo(id)
+        self:UpdateAlter(id, node.name)
+      end
+end
+
+function Addon:ProcessTable()
+  table.wipe(lfgIDs)
+  ns.lfgIDs = lfgIDs
+
+  function Addon:UpdateAlter(id, name)
+    if (lfgIDs[id]) then
+      local lfgIDs1, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, lfgIDs2 = GetLFGDungeonInfo(lfgIDs[id])
+        if (lfgIDs2 and lfgIDs1 == name) then
+      	  lfgIDs1 = lfgIDs2
+        end
+
+      if (lfgIDs1) then
+        if (lfgIDs1 == name) then
+        else
+        lfgIDs[id] = nil
+        lfgIDs[name] = lfgIDs1
         end
       end
     end
+  end
 
-    for i,v in pairs(nodes) do
-      for j,u in pairs(v) do
-        self:UpdateInstanceNames(u)
-      end
+  for i,v in pairs(nodes) do
+    for j,u in pairs(v) do
+      self:UpdateInstanceNames(u)
     end
   end
+end
 
-  function Addon:FullUpdate()
-    self:PopulateTable()
-    self:ProcessTable()
-  end
+function Addon:FullUpdate()
+  self:PopulateTable()
+  self:ProcessTable()
+end
