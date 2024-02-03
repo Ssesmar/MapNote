@@ -66,7 +66,7 @@ ns.options = {
           order = 1.5,
           },
         RemoveBlizzPOIs = {
-          disabled = function() return not ns.Addon.db.profile.show.DungeonMap end,
+          --disabled = function() return ns.Addon.db.profile.show.HideMapNote end,
           type = "toggle",
           name = COLORED_ADDON_NAME .. " " .. "|cffff0000" .. PET_BATTLE_UI_VS .. " " .. "|cff00ccff" .. SLASH_TEXTTOSPEECH_BLIZZARD,
           desc = TextIconMNL4:GetIconString() ..  " " .. TextIconHIcon:GetIconString() ..  " " .. TextIconAIcon:GetIconString() .. " " .. L["Hides certain Blizzard icons (e.g. Horde/Alliance/Neutral capitals icon or general travel icons on the map) and replaces them with almost identical MapNotes icons, providing additional information and functionality"] .. "\n" .. "\n" .. L["Removes the Blizzard symbols only where MapNotes symbols and Blizzard symbols overlap, thereby making the tooltip and the function of the MapNote symbols usable again on the overlapping points"] .. "\n" .. "\n" .. "|cffffff00" .. L["If the map is open, after enabling or disabling this option, the map must be reopened once for the changes to display correctly"],
@@ -101,6 +101,7 @@ ns.options = {
             if ns.Addon.db.profile.show.ShiftWorld then print(COLORED_ADDON_NAME .. "|cffffff00", L["Shift function"], "|cffff0000" .. L["is activated"] .. " " .. L["You must now always press Shift + Click at the same time to interact with the MapNotes icons"]) end end end,
           },
         ClassicIcons = {
+          disabled = function() return ns.Addon.db.profile.show.HideMapNote end,
           type = "toggle",
           name = "|cffffff00" .. CLASSIC_STYLE,
           desc = L["Changes all passage symbols on all maps to dungeon, raid or multiple symbols. In addition, the passage option will be disabled everywhere and the symbols will be added to the respective raids, dungeons or multiple options (The dungeon map remains unchanged from all this)"] .. "\n" .. "\n" .. L["At the same time, all icons representing additional instance inputs are removed"],

@@ -1,7 +1,7 @@
 local ADDON_NAME, ns = ...
 local Addon = ns.Addon
 
-local function RemoveAreaPOIs()
+local function RemoveBlizzPOIs()
     if (not ns.Addon.db.profile.show.RemoveBlizzPOIs) then return end
   
     for pin in WorldMapFrame:EnumeratePinsByTemplate("AreaPOIPinTemplate") do
@@ -15,9 +15,9 @@ local function RemoveAreaPOIs()
   end
   
   hooksecurefunc(WorldMapFrame, "OnMapChanged", function()
-    RemoveAreaPOIs()
+    RemoveBlizzPOIs()
   end)
   
   WorldMapFrame:HookScript("OnShow", function()
-    RemoveAreaPOIs()
+    RemoveBlizzPOIs()
   end)

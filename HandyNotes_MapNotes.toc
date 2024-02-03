@@ -13,13 +13,14 @@ libs\LibDBIcon-1.0\embeds.xml
 libs\LibDBIcon-1.0\lib.xml
 
 
-nodes\BlizzAreaPoisInfo.lua
+nodes\BlizzAreaPoisNodesInfo.lua
 nodes\LfgIdsInfo.lua
 nodes\MapNotesNodesInfo.lua
-nodes\AzerothNodeslocation.lua
+nodes\AzerothNodesLocation.lua
 nodes\ContinentNodesLocation.lua
-nodes\ZoneNodeslocation.lua
+nodes\ZoneNodesLocation.lua
 nodes\InsideDungeonNodesLocation.lua
+nodes\OnlyZoneDungeonNodesLocation.lua
 
 
 core\IconClass.lua

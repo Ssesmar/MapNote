@@ -236,7 +236,7 @@ do
 		tablepool[t] = true
 	end
 
-	function pluginHandler:GetNodes2(uiMapId, isMinimapUpdate, coord)
+	function pluginHandler:GetNodes2(uiMapId, isMinimapUpdate)
     --print(uiMapId)
 		local C = deepCopy(HandyNotes:GetContinentZoneList(uiMapId)) -- Is this a continent?
 		if C then
@@ -292,6 +292,11 @@ function pluginHandler:OnClick(button, pressed, uiMapId, coord)
         return
     end
 
+    if (button == "LeftButton" and db.WorldMapFrame) then
+      WorldMapFrame:Maximize()
+    end
+
+
     if (button == "LeftButton" and db.journal) then
 
       local mnID = nodes[uiMapId][coord].mnID
@@ -303,18 +308,18 @@ function pluginHandler:OnClick(button, pressed, uiMapId, coord)
         _G.EncounterJournal:SetScript("OnShow", nil)
         return
       end
-           
+      
+      if nodes[uiMapId][coord].mnID and nodes[uiMapId][coord].id then
+        mnID = nodes[uiMapId][coord].mnID[1] --change id function to mnID function
+      else
+        mnID = nodes[uiMapId][coord].mnID --single coords function
+      end
+
       local dungeonID
       if (type(nodes[uiMapId][coord].id) == "table") then
         dungeonID = nodes[uiMapId][coord].id[1] --multi coords journal function
       else
-        dungeonID = nodes[uiMapId][coord].id --single coords journal function
-      end
-
-      if nodes[uiMapId][coord].mnID and nodes[uiMapId][coord].id then
-        mnID = nodes[uiMapId][coord].mnID[1] --change id function to mnID function
-      else
-        mnID = nodes[uiMapId][coord].mnID
+        dungeonID = nodes[uiMapId][coord].id --single coords function
       end
 
       if (not dungeonID) then return end
@@ -327,7 +332,8 @@ function pluginHandler:OnClick(button, pressed, uiMapId, coord)
       if (not EncounterJournal_OpenJournal) then 
         UIParentLoadAddOn('Blizzard_EncounterJournal')
       end
-      EncounterJournal_OpenJournal(difficulty, dungeonID) 
+      if WorldMapFrame:IsMaximized() then WorldMapFrame:Minimize() end
+      EncounterJournal_OpenJournal(difficulty, dungeonID)
       _G.EncounterJournal:SetScript("OnShow", nil)
     end
   end
@@ -351,16 +357,18 @@ function pluginHandler:OnClick(button, pressed, uiMapId, coord)
         _G.EncounterJournal:SetScript("OnShow", nil)
         return
       end
+      
+      if nodes[uiMapId][coord].mnID and nodes[uiMapId][coord].id then
+        mnID = nodes[uiMapId][coord].mnID[1] --change id function to mnID function
+      else
+        mnID = nodes[uiMapId][coord].mnID --single coords function
+      end
 
       local dungeonID
       if (type(nodes[uiMapId][coord].id) == "table") then
         dungeonID = nodes[uiMapId][coord].id[1] --multi coords journal function
       else
         dungeonID = nodes[uiMapId][coord].id --single coords journal function
-      end
-
-      if nodes[uiMapId][coord].mnID and nodes[uiMapId][coord].id then
-        dungeonID = nodes[uiMapId][coord].mnID[1] --change id function to mnID function
       end
 
       if (not dungeonID) then return end
@@ -372,6 +380,7 @@ function pluginHandler:OnClick(button, pressed, uiMapId, coord)
       if (not EncounterJournal_OpenJournal) then 
         UIParentLoadAddOn('Blizzard_EncounterJournal')
       end
+      if WorldMapFrame:IsMaximized() then WorldMapFrame:Minimize() end
       EncounterJournal_OpenJournal(difficulty, dungeonID)
       _G.EncounterJournal:SetScript("OnShow", nil)
     end
@@ -393,6 +402,7 @@ function Addon:PLAYER_ENTERING_WORLD()
   if (not self.faction) then
       self.faction = UnitFactionGroup("player")
       self:PopulateTable()
+      self:PopulateMinimap()
       self:ProcessTable()
   end
     updateAssignedID()
@@ -414,14 +424,30 @@ function Addon:PLAYER_LOGIN()
   end
 end
 
+function Addon:PopulateMinimap() -- This use to ignore duplicate dungeon's but now it doesn't
+local temp = { }
+   for k,v in pairs(nodes) do
+      if (minimap[k]) then
+         for c,d in pairs(v) do -- Looks at the nodes in the normal node table and if they are also not in the temp table then add them to the minimap
+            if (not temp[c] and not d.hideOnMinimap) then
+              minimap[k][c] = d
+           end
+         end
+      end
+   end
+end
+
 function Addon:PopulateTable()
   ns.nodes = nodes
+  ns.minimap = minimap
   table.wipe(nodes)
+  table.wipe(minimap)
   ns.LoadMapNotesNodesInfo() -- load nodes\MapNotesNodesInfo.lua
   ns.LoadAzerothNodesLocationInfo(self) -- load nodes\AzerothNodeslocation.lua
   ns.LoadContinentNodesLocationinfo(self) -- load nodes\ContinentNodesLocation.lua
   ns.LoadZoneMapNodesLocationinfo(self) -- load nodes\ZoneNodesLocation.lua
   ns.LoadInsideDungeonNodesLocationInfo(self) -- load nodes\InsideDungeonNodesLocation.lua
+  ns.LoadOnlyZoneDungeonMapNodesLocationinfo(self) -- load OnlyZoneDungeonNodesLocation.lua
 end
 
 function Addon:UpdateInstanceNames(node)
@@ -479,5 +505,6 @@ end
 
 function Addon:FullUpdate()
   self:PopulateTable()
+  self:PopulateMinimap()
   self:ProcessTable()
 end
