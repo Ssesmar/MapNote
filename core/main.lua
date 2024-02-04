@@ -14,6 +14,14 @@ local minimap = { }
 local lfgIDs = { }
 local assignedIDs = { }
 
+
+--function WorldMapButton:OnInitialize()
+--  self.db = LibStub('AceDB-3.0'):New("MNWorldMapButtonDB", ns.optionDefaults,'Default')
+--  -- Add quick-toggle menu button to top-right corner of world map
+--  local template = ADDON_NAME .. 'WorldMapOptionsButtonTemplate'
+--  ns.world_map_button = LibStub('Krowi_WorldMapButtons-1.4')
+--end
+
 function MapNotesMiniButton:OnInitialize() --mmb.lua
   self.db = LibStub("AceDB-3.0"):New("MNMiniMapButtonDB", { profile = { minimap = { hide = false, }, }, }) 
   MNMMBIcon:Register("MNMiniMapButton", ns.miniButton, self.db.profile.minimap)
@@ -424,7 +432,7 @@ function Addon:PLAYER_LOGIN()
   end
 end
 
-function Addon:PopulateMinimap() -- This use to ignore duplicate dungeon's but now it doesn't
+function Addon:PopulateMinimap()
 local temp = { }
    for k,v in pairs(nodes) do
       if (minimap[k]) then
@@ -440,9 +448,12 @@ end
 function Addon:PopulateTable()
   ns.nodes = nodes
   ns.minimap = minimap
+
   table.wipe(nodes)
   table.wipe(minimap)
+
   ns.LoadMapNotesNodesInfo() -- load nodes\MapNotesNodesInfo.lua
+  ns.LoadMapNotesMinimapInfo() -- load nodes\MapNotesMinimapNodesInfo.lua
   ns.LoadAzerothNodesLocationInfo(self) -- load nodes\AzerothNodeslocation.lua
   ns.LoadContinentNodesLocationinfo(self) -- load nodes\ContinentNodesLocation.lua
   ns.LoadZoneMapNodesLocationinfo(self) -- load nodes\ZoneNodesLocation.lua

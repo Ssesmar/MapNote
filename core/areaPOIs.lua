@@ -1,5 +1,4 @@
 local ADDON_NAME, ns = ...
-local Addon = ns.Addon
 
 local function RemoveBlizzPOIs()
     if (not ns.Addon.db.profile.show.RemoveBlizzPOIs) then return end

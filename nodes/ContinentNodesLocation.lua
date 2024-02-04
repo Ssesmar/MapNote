@@ -238,7 +238,7 @@ if not db.show.HideMapNote then
 
         --Eastern Kingdom Multiple
           if self.db.profile.showContinentMultiple then
-            nodes[13][49428163] = { mnID = 42, id = { 745, 860 }, Type = "MultipleM" } -- Karazhan, Return to Karazhan
+            nodes[13][49428163] = { mnID = 42, id = { 745, 860 }, type = "MultipleM" } -- Karazhan, Return to Karazhan
             nodes[13][46583029] = { mnID = 19, id = { 311, 316 }, type = "MultipleD" } -- Scarlet Halls, Monastery 
             nodes[13][52176317] = { mnID = 15, id = { 1197, 239 }, type = "MultipleD" } --  Legacy of Tyr Dragonflight Dungeon & Vanilla Uldaman 
           end
@@ -823,6 +823,7 @@ if not db.show.HideMapNote then
           if self.db.profile.showContinentRaids then
             nodes[1550][89067983] = { id = 1195, type = "Raid" } -- Sepulcher of the First Ones
             nodes[1550][27081359] = { id = 1193, type = "Raid" } -- Sanctum of Domination
+            nodes[1550][23795072] = { id = 1190, type = "Raid" } -- Castle Nathria
           end
     
     

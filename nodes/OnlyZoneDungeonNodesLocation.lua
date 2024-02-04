@@ -4,7 +4,6 @@ local L = LibStub("AceLocale-3.0"):GetLocale(ADDON_NAME)
 function ns.LoadOnlyZoneDungeonMapNodesLocationinfo(self)
 local db = ns.Addon.db.profile
 local nodes = ns.nodes
-local minimap = ns.minimap
 
 --#####################################################################################################
 --##########################        function to hide all nodes below         ##########################
@@ -28,22 +27,71 @@ if not db.show.HideMapNote then
         -- Kalimdor Dungeons
             if self.db.profile.showZoneDungeons then       
             nodes[11][54916646] = { id = 240, type = "Dungeon", showInZone = true, hideOnContinent = true } -- Wailing Caverns 
-            nodes[63][16451100] = { id = 227, type = "Dungeon", showInZone = false, hideOnContinent = true } -- Blackfathom Deeps 
             nodes[948][51102882] = { id = 67, type = "Dungeon", showInZone = true, hideOnContinent = true } -- The Stonecore
+
+            -- Dungeon Nodes above Blizzards Icons to make it Clickable for maximized Maps
+            nodes[1][46200001] = { id = 226, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Ragefire
+            nodes[10][80190006] = { id = 226, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Ragefire
+            nodes[76][18729718] = { id = 226, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Ragefire
+            nodes[85][51685850] = { id = 226, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Ragefire
+            nodes[86][66715154] = { id = 226, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Ragefire - Chasm of shadows
+            nodes[62][33009467] = { id = 227, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Blackfathom Deeps 
+            nodes[77][15097658] = { id = 227, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Blackfathom Deeps 
+            nodes[10][40496868] = { id = 240, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Wailing Caverns
+            nodes[7][79421794] = { id = 240, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Wailing Caverns
+            nodes[199][46952074] = { id = 240, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Wailing Caverns
+            nodes[69][59514032] = { id = 230, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Dire Maul
+            nodes[199][40779446] = { id = 234, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Razorfen Kraul
+            nodes[199][51899825] = { id = 233, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Razorfen Downs
+            nodes[70][13176945] = { id = 234, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Razorfen Kraul
+            nodes[70][28867479] = { id = 233, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Razorfen Downs
+            nodes[64][28021695] = { id = 234, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Razorfen Kraul
+            nodes[64][46742333] = { id = 233, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Razorfen Downs
+            nodes[1527][60526415] = { id = 69, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Lost City of the Tol'vir
+            nodes[1527][69095283] = { id = 70, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Halls of Origination
+            nodes[71][24619233] = { id = 70, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Halls of Origination
+            nodes[1527][76708435] = { id = 68, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- The Vortex Pinnacle
+            nodes[71][39482205] = { id = 241, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Zul'Farrak
+            nodes[78][93073504] = { id = 241, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Zul'Farrak
+            nodes[64][56309765] = { id = 241, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Zul'Farrak
+            nodes[75][57042578] = { id = 184, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- End Time
+            nodes[75][68382951] = { id = 186, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Hour of Twilight
+            nodes[75][26333279] = { id = 251, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Old Hillsbrad Foothills
+            nodes[75][22136381] = { id = 185, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Well of Eternity
+            nodes[75][34438489] = { id = 255, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- The Black Morass
+            nodes[75][60118272] = { id = 279, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- The Culling of Stratholme
+            nodes[207][47385205] = { id = 67, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- The Stonecore
           end
 
-        -- Kalimdor Dungeons hidden if ClassicIcons is activ
+        -- Kalimdor Dungeons without ClassicIcons is activ
           if self.db.profile.showZoneDungeons and not self.db.profile.show.ClassicIcons then 
             nodes[69][60323015] = { id = 230, lfgid = 36, type = "Dungeon", showInZone = true, hideOnContinent = true } -- Dire Maul - Capital Gardens - West left Entrance 
             nodes[69][60303130] = { id = 230, lfgid = 36, type = "Dungeon", showInZone = true, hideOnContinent = true } -- Dire Maul - Capital Gardens - West right Entrance 
             nodes[69][62502490] = { id = 230, lfgid = 38, type = "Dungeon", showInZone = true, hideOnContinent = true } -- Dire Maul - Gordok Commons - North  
             nodes[67][78285518] = { id = 232, type = "Dungeon", showInZone = true, hideOnContinent = true } -- Maraudon Foulspore Cavern 
             nodes[68][52152417] = { id = 232, type = "Dungeon", showInZone = true, hideOnContinent = true } -- Maraudon Foulspore Cavern 
-            nodes[68][44517669] = { id = 232, type = "Dungeon", showInZone = true, hideOnContinent = true } -- Maraudon Foulspore Cavern first Entrance 
+            nodes[68][44517669] = { id = 232, type = "Dungeon", showInZone = true, hideOnContinent = true } -- Maraudon Foulspore Cavern first Entrance
           end
 
         --Kalimdor Raids
           if self.db.profile.showZoneRaids then
+          -- Raid Nodes above Blizzards Icons to make it Clickable for maximized Maps
+          nodes[63][79821712] = { id = 78, type = "Raid", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Firelands
+          nodes[198][46797838] = { id = 78, type = "Raid", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Firelands
+          nodes[199][68439906] = { id = 760, type = "Raid", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Onyxias Lair
+          nodes[70][52217593] = { id = 760, type = "Raid", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Onyxias Lair
+          nodes[64][74612469] = { id = 760, type = "Raid", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Onyxias Lair
+          nodes[81][36449403] = { id = 743, type = "Raid", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Ruins of Ahn'Qiraj
+          nodes[81][24328729] = { id = 744, type = "Raid", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Temple of Ahn'Qiraj
+          nodes[327][58941423] = { id = 743, type = "Raid", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Ruins of Ahn'Qiraj
+          nodes[327][46790747] = { id = 744, type = "Raid", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Temple of Ahn'Qiraj
+          nodes[1527][15130940] = { id = 743, type = "Raid", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Ruins of Ahn'Qiraj
+          nodes[1527][07180499] = { id = 744, type = "Raid", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Temple of Ahn'Qiraj
+          nodes[1527][37008143] = { id = 74, type = "Raid", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Throne of the Four Winds
+          nodes[1527][55184395] = { id = 1180, type = "Raid", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Ny'alotha the Waking City
+          nodes[71][12668471] = { id = 1180, type = "Raid", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Ny'alotha the Waking City
+          nodes[75][39601704] = { id = 750, type = "Raid", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- The Battle of Mount Hyjal
+          nodes[75][60872115] = { id = 187, type = "Raid", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Dragon Soul
 
           end
 
@@ -53,8 +101,8 @@ if not db.show.HideMapNote then
             nodes[85][46116716] = { mnID = 86, id = 226, dnID = DUNGEON_FLOOR_ORGRIMMAR1, name = "", type = "PassageDungeonM", showInZone = true, hideOnContinent = true } -- Ragefire  
             nodes[85][41516079] = { mnID = 86, id = 226, dnID = DUNGEON_FLOOR_ORGRIMMAR1, name = "", type = "PassageDungeonM", showInZone = true, hideOnContinent = true } -- Ragefire    
             nodes[10][38916921] = { mnID = 11, dnID = DUNGEON_FLOOR_WAILINGCAVERNS1, name = "", type = "PassageDungeonM", showInZone = true, hideOnContinent = true } -- Wailing Caverns 
-            nodes[66][29106256] = { id = 232, type = "PassageDungeonL", showInZone = true, hideOnContinent = true } -- Maraudon Outside
-            nodes[63][14181414] = { id = 227, type = "PassageDungeonL", showInZone = true, hideOnContinent = true } -- Blackfathom Deeps
+            nodes[66][29226253] = { id = 232, type = "PassageDungeonL", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Maraudon Outside
+            nodes[63][14161380] = { id = 227, type = "PassageDungeonL", showInZone = true, hideOnContinent = true, hideOnMinimap = false } -- Blackfathom Deeps 
             nodes[69][65503524] = { id = 230, lfgid = 34, type = "PassageDungeonM", showInZone = true, hideOnContinent = true } -- Dire Maul - Warpwood Quarter - East above Camp Mojache   
             nodes[69][77073692] = { id = 230, lfgid = 34, type = "PassageDungeonM", showInZone = true, hideOnContinent = true } -- Dire Maul - Warpwood Quarter - East above Camp Mojache   
           end
@@ -63,6 +111,8 @@ if not db.show.HideMapNote then
           if self.db.profile.show.ClassicIcons then  
 
             if self.db.profile.showZoneDungeons then 
+              nodes[63][14161380] = { id = 227, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = false } -- Blackfathom Deeps 
+              nodes[66][29226253] = { id = 232, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Maraudon Outside
               --nodes[69][65503524] = { id = 230, lfgid = 34, type = "Dungeon", showInZone = true, hideOnContinent = true } -- Dire Maul - Warpwood Quarter - East above Camp Mojache   
               --nodes[69][77073692] = { id = 230, lfgid = 34, type = "Dungeon", showInZone = true, hideOnContinent = true } -- Dire Maul - Warpwood Quarter - East above Camp Mojache   
             end
@@ -99,21 +149,53 @@ if not db.show.HideMapNote then
             nodes[55][24735143] = { id = 63, type = "Dungeon", showInZone = true, hideOnContinent = true } -- Deadmines
 
           -- Dungeon Nodes above Blizzards Icons to make it Clickable for maximized Maps
-            nodes[15][50090980] = { id = 239, type = "Dungeon", showInZone = false, hideOnContinent = true, hideOnMinimap = true } -- test
-            nodes[50][72083291] = { id = 76, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Deadmines 
-            nodes[52][42527168] = { id = 63, type = "Dungeon", showInZone = true, hideOnContinent = true } -- Deadmines 
-            
+            nodes[50][72083291] = { id = 76, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Zul'gurub
+            nodes[224][63942179] = { id = 76, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Zul'gurub
+            nodes[224][22130243] = { id = 63, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true  } -- Deadmines 
+            nodes[37][20223635] = { id = 238, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- The Stockade
+            nodes[84][51926779] = { id = 238, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- The Stockade
+            nodes[15][42031147] = { id = 239, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Uldaman
+            nodes[15][41121030] = { id = 1197, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Uldaman: Legacy of Tyr
+            nodes[48][43478705] = { id = 239, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Uldaman
+            nodes[241][19205411] = { id = 71, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Grim Batol
+            nodes[56][74006930] = { id = 71, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Grim Batol
+            nodes[26][26210814] = { id = 246, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Scholomance
+            nodes[25][91190689] = { id = 246, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Scholomance
+            nodes[22][69797356] = { id = 246, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Scholomance
+            nodes[23][07369102] = { id = 246, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Scholomance
+            nodes[25][05895291] = { id = 64, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Shadowfang Keep
+            nodes[21][44926788] = { id = 64, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Shadowfang Keep
+            nodes[18][85323227] = { id = 311, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Scarlet Halls
+            nodes[18][84823043] = { id = 316, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Scarlet Monastery
+            nodes[22][28811749] = { id = 311, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Scarlet Halls
+            nodes[22][28281555] = { id = 316, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Scarlet Monastery
+            nodes[23][27071151] = { id = 236, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Stratholme
+            nodes[95][81956434] = { id = 77, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Zul'Aman
+            nodes[122][60973073] = { id = 249, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Magisters'Terrace
+            nodes[203][48174041] = { id = 65, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Throne of the Tides
           end
 
 
         -- Eastern Kingdom Raids
           if self.db.profile.showZoneRaids then
-            nodes[122][44304570] = { id = 752, type = "Raid", hideOnContinent = true } -- Sunwell Plateau 
+
+            -- Raid Nodes above Blizzards Icons to make it Clickable for maximized Maps
+            nodes[224][76080344] = { id = 745, type = "Raid", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Karazhan
+            nodes[17][22232177] = { id = 745, type = "Raid", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Karazhan
+            nodes[42][46987490] = { id = 745, type = "Raid", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Karazhan
+            nodes[36][23132639] = { id = 73, type = "Raid", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Blackwing Descent
+            nodes[32][39029679] = { id = 73, type = "Raid", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Blackwing Descent
+            nodes[48][81242207] = { id = 72, type = "Raid", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Bastion of Twilight
+            nodes[241][34097788] = { id = 72, type = "Raid", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Bastion of Twilight
+            nodes[122][44264560] = { id = 752, type = "Raid", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Sunwell Plateau
+            nodes[244][46054793] = { id = 75, type = "Raid", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Baradin Hold
           end
 
 
           -- Eastern Kingdom Passage
-          if self.db.profile.showZonePassage and not self.db.profile.show.ClassicIcons then       
+          if self.db.profile.showZonePassage and not self.db.profile.show.ClassicIcons then  
+            nodes[27][31393804] = { id = 239, type = "PassageDungeonM", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Gnomeregan     
+            nodes[51][69675353] = { id = 237, type = "PassageDungeonM", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- The Temple of Atal'hakkar 
             nodes[36][21063760] = { mnID = 33, name = "", type = "PassageDungeonRaidMultiM", showInZone = true, hideOnContinent = true } -- Molten Core, Blackwing Lair, Blackrock Caverns, Blackrock Depths, Lower Blackrock Spire, Upper Blackrock Spire 
             nodes[32][35268404] = { mnID = 33, name = "", type = "PassageDungeonM", showInZone = true, hideOnContinent = true } -- Molten Core, Blackwing Lair, Blackrock Caverns, Blackrock Depths, Lower Blackrock Spire, Upper Blackrock Spire 
             nodes[15][58543698] = { id = 239, name = "", type = "PassageDungeonM", showInZone = true, hideOnContinent = true } -- Uldaman (Secondary Entrance) 
@@ -125,7 +207,7 @@ if not db.show.HideMapNote then
             nodes[35][58168728] = { mnID = 33, dnID = DUNGEON_FLOOR_BURNINGSTEPPES14, name = "", type = "PassageDungeonM", showInZone = true, hideOnContinent = true } -- Blackrock Depths
 
             -- Passage Nodes above Blizzards Icons to make it Clickable for maximized Maps
-            nodes[52][42527168] = { id = 63, type = "PassageDungeonM", showInZone = true, hideOnContinent = true } -- Deadmines   
+            nodes[52][42527168] = { id = 63, type = "PassageDungeonM", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Deadmines   
           end
 
 
@@ -137,6 +219,9 @@ if not db.show.HideMapNote then
             end
 
             if self.db.profile.showZoneDungeons then
+              nodes[27][31393804] = { id = 239, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Gnomeregan
+              nodes[51][69675353] = { id = 237, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- The Temple of Atal'hakkar 
+              nodes[52][42527168] = { id = 63, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Deadmines 
               nodes[35][58168728] = { mnID = 33, dnID = DUNGEON_FLOOR_BURNINGSTEPPES14, name = "", type = "Dungeon", showInZone = true, hideOnContinent = true } -- Blackrock Depths
               nodes[32][35268404] = { mnID = 33, name = "", type = "Dungeon", showInZone = true, hideOnContinent = true } -- Molten Core, Blackwing Lair, Blackrock Caverns, Blackrock Depths, Lower Blackrock Spire, Upper Blackrock Spire 
               --nodes[15][58543698] = { id = 239, name = "", type = "Dungeon", showInZone = true, hideOnContinent = true } -- Uldaman (Secondary Entrance) 
@@ -150,12 +235,7 @@ if not db.show.HideMapNote then
 
           end
 
-
-        --Eastern Kingdom Multiple
-          if self.db.profile.showZoneMultiple then
-
-          end
-
+          
         --Eastern Kingdom ContinentOldVanilla
           if self.db.profile.showZoneOldVanilla then
             nodes[23][35722308] = { mnID = 166, name = L["Secret Entrance"] .. " " .. L["(Wards of the Dread Citadel - Achievement)"] .. " - " .. L["Old Version"], type = "VInstance", showInZone = true, hideOnContinent = true }-- Old Naxxramas version - Secret Entrance - Wards of the Dread Citadel 
@@ -187,18 +267,37 @@ if not db.show.HideMapNote then
         -- Outland Dungeons
           if self.db.profile.showZoneDungeons then
 
+        -- Dungeon Nodes above Blizzards Icons to make it Clickable for maximized Maps
+            nodes[108][39627318] = { id = 253, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Shadow Labyrinth
+            nodes[108][44596560] = { id = 252, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Sethekk Halls
+            nodes[108][39645806] = { id = 250, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Mana Tombs
+            nodes[108][34676559] = { id = 247, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Auchenai Crypts
+            nodes[107][96898503] = { id = 250, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Mana Tombs
+            nodes[107][92039239] = { id = 247, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Auchenai Crypts
+            nodes[102][48953592] = { id = 260, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- The Slave Pens
+            nodes[102][50473333] = { id = 261, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- The Steamvault
+            nodes[105][35179927] = { id = 261, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- The Steamvault
+            nodes[102][54173443] = { id = 262, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- The Underbog
+            nodes[100][47925342] = { id = 248, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Hellfire Ramparts
+            nodes[100][48065191] = { id = 259, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- The Shattered Halls
+            nodes[100][46015179] = { id = 256, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- The Blood Furnace
+            nodes[109][71695506] = { id = 257, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- The Botanica
+            nodes[109][74365774] = { id = 254, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- The Arcatraz
+            nodes[109][70536964] = { id = 258, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- The Mechanar
           end
 
 
         -- Outland Raids
           if self.db.profile.showZoneRaids then
 
-          end
-
-
-        -- Outland Multiple
-          if self.db.profile.showZoneMultiple then
-
+          -- Raid Nodes above Blizzards Icons to make it Clickable for maximized Maps
+            nodes[104][71054628] = { id = 751, type = "Raid", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Black Temple
+            nodes[102][51903348] = { id = 748, type = "Raid", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Serpentshrine Cavern
+            nodes[105][36509941] = { id = 748, type = "Raid", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Serpentshrine Cavern
+            nodes[100][46575283] = { id = 747, type = "Raid", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Magtheridon's Lair
+            nodes[105][69062414] = { id = 746, type = "Raid", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Gruul's Lair
+            nodes[109][06895168] = { id = 746, type = "Raid", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Gruul's Lair
+            nodes[109][73596372] = { id = 746, type = "Raid", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- The Eye
           end
         end
 
@@ -212,19 +311,48 @@ if not db.show.HideMapNote then
           -- Northrend Dungeon
           if self.db.profile.showZoneDungeons then
             nodes[127][34154413] = { id = 283, type = "Dungeon", showInZone = true, hideOnContinent = true } -- The Violet Hold
+
+            -- Dungeon Nodes above Blizzards Icons to make it Clickable for maximized Maps
+            nodes[117][57884951] = { id = 285, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Utgarde Keep
+            nodes[117][57224649] = { id = 286, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Utgarde Pinnacle
+            nodes[116][17552120] = { id = 273, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Drak'Tharon Keep
+            nodes[121][76432140] = { id = 274, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Gundrak
+            nodes[121][80892832] = { id = 274, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = false } -- Gundrak
+            nodes[121][28678693] = { id = 273, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Drak'Tharon Keep
+            nodes[115][28385167] = { id = 271, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Ahn'kahet: The Old Kingdom
+            nodes[115][25995079] = { id = 272, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Azjol-Nerub
+            nodes[120][87996837] = { id = 274, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Gundrak
+            nodes[120][45322148] = { id = 275, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Halls of Lightning
+            nodes[120][39582689] = { id = 277, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Halls of Stone
+            nodes[120][14753428] = { id = 284, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Trial of the Champion
+            nodes[118][54848985] = { id = 280, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- The Forge of Souls
+            nodes[118][55319084] = { id = 276, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Halls of Reflection
+            nodes[118][54729168] = { id = 278, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Pit of Saron
+            nodes[118][74172044] = { id = 284, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Trial of the Champion
+            nodes[123][78140236] = { id = 280, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- The Forge of Souls
+            nodes[123][79120444] = { id = 276, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Halls of Reflection
+            nodes[123][77890620] = { id = 278, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Pit of Saron
+            nodes[114][28592772] = { id = 281, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- The Nexus
+            nodes[114][26602746] = { id = 282, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- The Oculus
           end
 
           -- Northrend Raids
           if self.db.profile.showZoneRaids then
 
+          -- Raid Nodes above Blizzards Icons to make it Clickable for maximized Maps
+            nodes[116][03065282] = { id = 754, type = "Raid", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Naxxramas
+            nodes[115][87345100] = { id = 754, type = "Raid", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Naxxramas
+            nodes[115][61345259] = { id = 761, type = "Raid", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- The Ruby Sanctum
+            nodes[115][60005701] = { id = 755, type = "Raid", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- The Obsidian Sanctum
+            nodes[120][41571779] = { id = 759, type = "Raid", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Ulduar
+            nodes[120][15623548] = { id = 757, type = "Raid", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Trial of the Crusader
+            nodes[118][53808709] = { id = 758, type = "Raid", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- TIcecrown Citadel
+            nodes[118][41519428] = { id = 753, type = "Raid", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Vault of Archavon
+            nodes[118][75162180] = { id = 757, type = "Raid", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Trial of the Crusader
+            nodes[119][93866206] = { id = 753, type = "Raid", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Vault of Archavon
+            nodes[123][50041168] = { id = 753, type = "Raid", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Vault of Archavon
+            nodes[114][27522673] = { id = 756, type = "Raid", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- The Eye of Eternity
           end
-
-
-        -- Northrend Multiple
-          if self.db.profile.showZoneMultiple then
-
-          end
-
         end
 
 
@@ -237,12 +365,30 @@ if not db.show.HideMapNote then
         -- Pandaria Dungeons
           if self.db.profile.showZoneDungeons then
 
+          -- Dungeon Nodes above Blizzards Icons to make it Clickable for maximized Maps
+          nodes[371][56175786] = { id = 313, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Temple of the Jade Serpent
+          nodes[371][14504859] = { id = 321, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Mogu'shan Palace
+          nodes[418][35931925] = { id = 302, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Stormstout Brewery
+          nodes[376][36066909] = { id = 302, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Stormstout Brewery
+          nodes[422][91105965] = { id = 302, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Stormstout Brewery
+          nodes[422][75842030] = { id = 303, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Gate of the Setting Sun
+          nodes[376][15261542] = { id = 303, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Gate of the Setting Sun
+          nodes[388][34688151] = { id = 324, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Siege of Niuzao Temple
+          nodes[388][78992402] = { id = 312, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Shado-Pan Monastery
+          nodes[379][36714746] = { id = 312, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Shado-Pan Monastery
           end
 
 
         -- Pandaria Raids
           if self.db.profile.showZoneRaids then
 
+          -- Raid Nodes above Blizzards Icons to make it Clickable for maximized Maps
+            nodes[371][21595793] = { id = 320, type = "Raid", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Terrace of Endless Spring
+            nodes[376][69680536] = { id = 320, type = "Raid", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Terrace of Endless Spring
+            nodes[371][12005202] = { id = 369, type = "Raid", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Siege of Orgrimmar
+            nodes[422][38923499] = { id = 330, type = "Raid", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Heart of Fear
+            nodes[379][59603917] = { id = 317, type = "Raid", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Mogu'Shan Vaults
+            nodes[504][63833203] = { id = 362, type = "Raid", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Throne of Thunder
           end
 
         end
@@ -258,12 +404,26 @@ if not db.show.HideMapNote then
         -- Draenor Dungeons
           if self.db.profile.showZoneDungeons then
 
+          -- Raid Nodes above Blizzards Icons to make it Clickable for maximized Maps
+            nodes[525][49922480] = { id = 385, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Blackmaul Slag Mines
+            nodes[543][07494267] = { id = 385, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Blackmaul Slag Mines
+            nodes[543][45411353] = { id = 558, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Iron Docks
+            nodes[543][55153173] = { id = 536, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Grimrail Depot
+            nodes[543][59574566] = { id = 556, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- The Everbloom
+            nodes[535][46297394] = { id = 547, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Auchindoun
+            nodes[539][31864255] = { id = 537, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Shadowmoon Burial Grounds
+            nodes[542][35583361] = { id = 476, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Skyreach
+            nodes[542][75031543] = { id = 537, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Shadowmoon Burial Grounds
           end
 
 
         --Draenor Raids
           if self.db.profile.showZoneRaids then
-
+          
+            -- Raid Nodes above Blizzards Icons to make it Clickable for maximized Maps
+            nodes[534][46965264] = { id = 669, type = "Raid", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Hellfire Citadel
+            nodes[550][32963837] = { id = 477, type = "Raid", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Highmaul
+            nodes[543][51562719] = { id = 457, type = "Raid", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Blackrock Foundry
           end
 
         end
@@ -278,12 +438,33 @@ if not db.show.HideMapNote then
         --Broken Isles Dungeons
           if self.db.profile.showZoneDungeons then
 
+          -- Raid Nodes above Blizzards Icons to make it Clickable for maximized Maps
+            nodes[630][48068212] = { id = 707, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Vault of the Wardens
+            nodes[630][61164111] = { id = 716, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Eye of Azshara
+            nodes[630][87515684] = { id = 777, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Assault on Violet Hold
+            nodes[627][65576738] = { id = 777, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Assault on Violet Hold
+            nodes[646][15313666] = { id = 777, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Assault on Violet Hold
+            nodes[646][64811675] = { id = 900, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Cathedral of Eternal Night
+            nodes[680][50766553] = { id = 800, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Court of Stars
+            nodes[680][41166150] = { id = 726, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- The Arcway
+            nodes[641][37215031] = { id = 740, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Black Rook Hold
+            nodes[641][59133135] = { id = 762, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Darkheart Thicket
+            nodes[650][49566854] = { id = 767, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Neltharion's Lair
+            nodes[634][52474544] = { id = 727, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Maw of Souls
+            nodes[634][72647049] = { id = 721, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Halls of Valor
+            nodes[882][22165661] = { id = 945, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Seat of the Triumvirate
           end
 
 
         --Broken Isles Raids
           if self.db.profile.showZoneRaids then
 
+          -- Raid Nodes above Blizzards Icons to make it Clickable for maximized Maps
+            nodes[646][64002136] = { id = 875, type = "Raid", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Tomb of Sargeras
+            nodes[680][43725729] = { id = 786, type = "Raid", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- The Nighthold
+            nodes[641][56673747] = { id = 768, type = "Raid", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- The Emerald Nightmare
+            nodes[680][71127281] = { id = 861, type = "Raid", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Trial of Valor
+            nodes[885][54826253] = { id = 946, type = "Raid", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Antorus, the Burning Throne
           end
 
         end
@@ -298,16 +479,18 @@ if not db.show.HideMapNote then
         --Zandalar Dungeons
           if self.db.profile.showZoneDungeons then
 
-
             if self.faction == "Horde" or db.show.EnemyFaction then
               nodes[1165][44049256] = { id = 1012, type = "Dungeon", showInZone = true, hideOnContinent = true } -- The MOTHERLODE HORDE
               --nodes[862][55995989] = { id = 1012, type = "Dungeon", hideOnContinent = true } -- The MOTHERLODE HORDE
 
             end
 
-            if self.faction == "Alliance" or db.show.EnemyFaction then
-
-            end
+          -- Dungeon Nodes above Blizzards Icons to make it Clickable for maximized Maps
+            nodes[862][37593948] = { id = 1041, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Kings' Rest
+            nodes[862][56105984] = { id = 1012, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- The Motherlode
+            nodes[862][43533948] = { id = 968, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Atal'Dazar
+            nodes[863][51256464] = { id = 1022, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- The Underrot
+            nodes[864][51922546] = { id = 1030, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Temple of Sethraliss
           end
 
 
@@ -315,9 +498,11 @@ if not db.show.HideMapNote then
           if self.db.profile.showZoneRaids then
             nodes[1528][47353182] = {  id = 1179, type = "Raid", showInZone = true, hideOnContinent = true } -- The Eternal Palace
 
-            if self.faction == "Horde" or db.show.EnemyFaction then
-            end
+          -- Raid Nodes above Blizzards Icons to make it Clickable for maximized Maps
+            nodes[862][54262993] = { id = 1176, type = "Raid", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Battle of Dazar'alor
+            nodes[863][54146302] = { id = 1031, type = "Raid", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Uldir
           end
+
 
         --Zandalar Raids without ClassicIcons
           if self.db.profile.showZonePassage and not self.db.profile.show.ClassicIcons then
@@ -345,28 +530,29 @@ if not db.show.HideMapNote then
 
         -- Kul Tiras Dungeons
           if self.db.profile.showZoneDungeons then
-            nodes[942][78932647] = { id = 1036, type = "Dungeon",  showInZone = false, hideOnContinent = true } -- Shrine of Storm 
-            nodes[1462][72933647] = { id = 1178, type = "Dungeon", showInZone = false, hideOnContinent = true } -- Operation: Mechagon 
-            nodes[895][84467888] = { id = 1001, type = "Dungeon", showInZone = false, hideOnContinent = true } -- Freehold 
-            nodes[896][33681229] = { id = 1021, type = "Dungeon", showInZone = false, hideOnContinent = true } -- Waycrest Manor 
-            nodes[1169][39646802] = { id = 1002, type = "Dungeon", showInZone = false, hideOnContinent = true } -- Tol Dagor
+
+            -- Dungeon Nodes above Blizzards Icons to make it Clickable for maximized Maps
+            nodes[942][78592663] = { id = 1036, type = "Dungeon",  showInZone = true, hideOnContinent = true, hideOnMinimap = false } -- Shrine of Storm 
+            nodes[1462][72933649] = { id = 1178, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = false } -- Operation: Mechagon 
+            nodes[895][84567878] = { id = 1001, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = false } -- Freehold 
+            nodes[896][33671253] = { id = 1021, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = false } -- Waycrest Manor 
+            nodes[1169][38926976] = { id = 1002, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = false } -- Tol Dagor
 
             if self.faction == "Alliance" or db.show.EnemyFaction then
               nodes[1161][71971537] = { id = 1023, type = "Dungeon", showInZone = true, hideOnContinent = true, TransportName = QUESTLINE_LOCATED_BELOW } -- Siege of Boralus
             end
 
             if self.faction == "Horde" or db.show.EnemyFaction then
-              nodes[895][88295106] = { id = 1023, type = "Dungeon", showInZone = true, hideOnContinent = true  } -- Siege of Boralus
+              nodes[895][88285102] = { id = 1023, type = "Dungeon", showInZone = true, hideOnContinent = true  } -- Siege of Boralus
             end
           end
 
         -- Kul Tiras Raids
           if self.db.profile.showZoneRaids then
 
+          -- Raid Nodes above Blizzards Icons to make it Clickable for maximized Maps
+            nodes[942][83894693] = { id = 1036, type = "Raid",  showInZone = true, hideOnContinent = true, hideOnMinimap = false } -- Crucible of Storms
 
-            if self.faction == "Alliance" or db.show.EnemyFaction then
-
-            end
           end
 
         end
@@ -380,23 +566,27 @@ if not db.show.HideMapNote then
 
         -- Shadowlands Dungeons
           if self.db.profile.showZoneDungeons then
-            nodes[1533][40085519] = { id = 1182, type = "Dungeon", hideOnContinent = true } -- The Necrotic Wake
-            nodes[1533][58602852] = { id = 1186, type = "Dungeon", hideOnContinent = true } -- Spires of Ascension
-            nodes[1536][59306484] = { id = 1183, type = "Dungeon", hideOnContinent = true } -- Plaguefall
-            nodes[1536][53215314] = { id = 1187, type = "Dungeon", hideOnContinent = true } -- Theater of Pain
-            nodes[1565][35715421] = { id = 1184, type = "Dungeon", hideOnContinent = true } -- Mists of Tirna Scithe
-            nodes[1565][68646667] = { id = 1188, type = "Dungeon", hideOnContinent = true } -- De Other Side
-            nodes[1525][78624930] = { id = 1185, type = "Dungeon", hideOnContinent = true } -- Halls of Atonement
-            nodes[1525][51093007] = { id = 1189, type = "Dungeon", hideOnContinent = true } -- Sanguine Depths
-            nodes[2016][88914392] = { id = 1194, type = "Dungeon", hideOnContinent = true } -- Tazavesh, the Veiled Market
+
+          -- Raid Nodes above Blizzards Icons to make it Clickable for maximized Maps
+            nodes[1533][40145521] = { id = 1182, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = false } -- The Necrotic Wake
+            nodes[1533][58552857] = { id = 1186, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = false } -- Spires of Ascension
+            nodes[1536][59396501] = { id = 1183, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = false } -- Plaguefall
+            nodes[1536][53115291] = { id = 1187, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = false } -- Theater of Pain
+            nodes[1565][35485413] = { id = 1184, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = false } -- Mists of Tirna Scithe
+            nodes[1565][68666660] = { id = 1188, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = false } -- De Other Side
+            nodes[1525][78474907] = { id = 1185, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = false } -- Halls of Atonement
+            nodes[1525][51073012] = { id = 1189, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = false } -- Sanguine Depths
+            nodes[2016][88914392] = { id = 1194, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = false } -- Tazavesh, the Veiled Market
           end
 
 
         -- Shadowlands Raids
           if self.db.profile.showZoneRaids then
-            nodes[1970][80765336] = { id = 1195, type = "Raid", hideOnContinent = true } -- Sepulcher of the First Ones
-            nodes[1525][45764149] = { id = 1190, type = "Raid", hideOnContinent = true } -- Castle Nathria
-            nodes[1543][69703210] = { id = 1193, type = "Raid", hideOnContinent = true } -- Sanctum of Domination  
+
+          -- Raid Nodes above Blizzards Icons to make it Clickable for maximized Maps
+            nodes[1970][80495340] = { id = 1195, type = "Raid", showInZone = true, hideOnContinent = true, hideOnMinimap = false } -- Sepulcher of the First Ones
+            nodes[1525][46424149] = { id = 1190, type = "Raid", showInZone = true, hideOnContinent = true, hideOnMinimap = false } -- Castle Nathria
+            nodes[1543][69743201] = { id = 1193, type = "Raid", showInZone = true, hideOnContinent = true, hideOnMinimap = false } -- Sanctum of Domination  
           end
         end
 
@@ -410,13 +600,26 @@ if not db.show.HideMapNote then
         -- Dragonflight Dungeons
           if self.db.profile.showZoneDungeons then
 
+          -- Dungeon Nodes above Blizzards Icons to make it Clickable for maximized Maps
+            nodes[2023][60843898] = { id = 1198, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- The Nokhud Offensive
+            nodes[2024][38896459] = { id = 1203, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- The Azure Vault
+            nodes[2024][11514885] = { id = 1196, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Brackenhide Hollow
+            nodes[2025][61148446] = { id = 1209, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Dawn of the Infinite
+            nodes[2025][59216057] = { id = 1204, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Halls of Infusion
+            nodes[2025][58274235] = { id = 1201, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Algeth'ar Academy
+            nodes[2022][60087571] = { id = 1202, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Ruby Life Pools
+            nodes[2022][25715631] = { id = 1199, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Neltharus
           end
 
 
         -- Dragonflight Raids
           if self.db.profile.showZoneRaids then
-            nodes[2025][73065567] = { id = 1200, type = "Raid", hideOnContinent = true } -- Vault of the Incarnates
-            nodes[2133][48451022] = { id = 1208, type = "Raid", hideOnContinent = true } -- Aberrus, the Shadowed Crucible
+
+          -- Raid Nodes above Blizzards Icons to make it Clickable for maximized Maps
+            nodes[2200][27313104] = { id = 1207, type = "Raid", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Amirdrassil, the Dream's Hope
+            nodes[2025][74855511] = { id = 1200, type = "Raid", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Vault of the Incarnates
+            nodes[2025][73065567] = { id = 1200, type = "Raid", showInZone = false, hideOnContinent = true, hideOnMinimap = false } -- Vault of the Incarnates -- real entrance position
+            nodes[2133][48451191] = { id = 1208, type = "Raid", showInZone = true, hideOnContinent = true, hideOnMinimap = false } -- Aberrus, the Shadowed Crucible          
           end
 
 

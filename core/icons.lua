@@ -8,7 +8,9 @@ local iconLink = "Interface\\Addons\\" .. ADDON_NAME .. "\\images\\"
 ns.icons = { 
 --instance
 ["Dungeon"] = iconLink .. "DungeonSymbol",
+["DungeonXL"] = iconLink .. "DungeonSymbolXL",
 ["Raid"] = iconLink .. "RaidSymbol",
+["RaidXL"] = iconLink .. "RaidSymbolXL",
 ["VInstance"] = iconLink .. "vanillaInstance",
 ["VKey1"] = iconLink .. "vkey1",
 ["MultipleM"] = iconLink .. "multipleM",

@@ -11,11 +11,13 @@
 locales\Locales.xml
 libs\LibDBIcon-1.0\embeds.xml
 libs\LibDBIcon-1.0\lib.xml
+libs\Krowi_WorldMapButtons\Krowi_WorldMapButtons-1.4.xml
 
 
 nodes\BlizzAreaPoisNodesInfo.lua
 nodes\LfgIdsInfo.lua
 nodes\MapNotesNodesInfo.lua
+nodes\MapNotesMinimapNodesInfo.lua
 nodes\AzerothNodesLocation.lua
 nodes\ContinentNodesLocation.lua
 nodes\ZoneNodesLocation.lua

@@ -60,6 +60,17 @@ ns.options = {
             if not ns.Addon.db.profile.HideMMB then MNMMBIcon:Show("MNMiniMapButton") print(COLORED_ADDON_NAME .. "|cffffff00", L["-> MiniMapButton <-"], "|cff00ff00" .. L["is activated"]) else
             if ns.Addon.db.profile.HideMMB then MNMMBIcon:Hide("MNMiniMapButton") print(COLORED_ADDON_NAME .. "|cffffff00", L["-> MiniMapButton <-"], "|cffff0000" .. L["is deactivated"]) end end end,
           },
+        --hideWMB = {
+        --  type = "toggle",
+        --  name = "|cffff0000" .. "test",
+        --  desc = "test",
+        --  order = 1.3,
+        --  width = 1.50,
+        --  get = function() return ns.Addon.db.profile.HideWMB end,
+        --  set = function(info, v) ns.Addon.db.profile.HideWMB = v self:FullUpdate() HandyNotes:SendMessage("HandyNotes_NotifyUpdate", "MapNotes")
+        --    if not ns.Addon.db.profile.HideWMB then MNMMBIcon:Show("MNMiniMapButton") print(COLORED_ADDON_NAME .. "|cffffff00", L["-> MiniMapButton <-"], "|cff00ff00" .. L["is activated"]) else
+        --    if ns.Addon.db.profile.HideWMB then MNMMBIcon:Hide("MNMiniMapButton") print(COLORED_ADDON_NAME .. "|cffffff00", L["-> MiniMapButton <-"], "|cffff0000" .. L["is deactivated"]) end end end,
+        --  },
          DescriptionHeader = {
           type = "header",
           name = "",
