@@ -3,6 +3,8 @@ if not L then return end
 
 --1 General tab--1 Вкладка "Общие"
 L["Description"] = "Описание"
+L["Position of the real Instance Entrance"] = "Положение ввода реального экземпляра"
+L["Way to the Instance Entrance"] = "Путь к вводу экземпляра"
 L["Hides certain Blizzard icons (e.g. Horde/Alliance/Neutral capitals icon or general travel icons on the map) and replaces them with almost identical MapNotes icons, providing additional information and functionality"] = "Скрытые определенные символы метели (например, символы столиц Орды / Альянс / Нейтральные или общие перемещения на карте) и заменяют их почти идентичными символами MapNotes, которые предлагают дополнительную информацию и функции"
 L["Removes the Blizzard symbols only where MapNotes symbols and Blizzard symbols overlap, thereby making the tooltip and the function of the MapNote symbols usable again on the overlapping points"] = "Удаляет символы Blizzard только там, где символы MapNotes и символы перекрытия Blizzard, что означает, что подсказка и функция символов MapNote можно использовать снова в перекрывающихся точках"
 L["If the map is open, after enabling or disabling this option, the map must be reopened once for the changes to display correctly"] = "Если карта открыта, карта должна быть снова открыта после активации или деактивации этой опции, чтобы изменения были правильно отображены"

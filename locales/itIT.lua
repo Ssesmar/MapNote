@@ -3,6 +3,8 @@ if not L then return end
 
 --1 General tab
 L["Description"] = "Descrizione"
+L["Position of the real Instance Entrance"] = "Posizione dell'input di istanza reale"
+L["Way to the Instance Entrance"] = "Modo per l'input di istanza"
 L["Hides certain Blizzard icons (e.g. Horde/Alliance/Neutral capitals icon or general travel icons on the map) and replaces them with almost identical MapNotes icons, providing additional information and functionality"] = "Nascosti alcuni simboli di bufera di neve (ad es. Simboli dei capitali dell'Orda / Alleanza / Simboli di viaggio neutri o generali sulla mappa) e li sostituisce con simboli di mapnote quasi identici che offrono ulteriori informazioni e funzioni"
 L["Removes the Blizzard symbols only where MapNotes symbols and Blizzard symbols overlap, thereby making the tooltip and the function of the MapNote symbols usable again on the overlapping points"] = "Rimuove i simboli di bufera di neve solo dove i simboli mapnotes e i simboli di sovrapposizione della bufera di neve, il che significa che la titoli e la funzione dei simboli MapNote possono essere nuovamente utilizzati sui punti sovrapposti"
 L["If the map is open, after enabling or disabling this option, the map must be reopened once for the changes to display correctly"] = "Se la scheda è aperta, la scheda deve essere nuovamente aperta dopo aver attivato o disattivato questa opzione in modo che le modifiche vengano visualizzate correttamente"

@@ -60,6 +60,7 @@ ns.icons = {
 --travel
 ["TravelL"] = iconLink .. "travelL",
 ["TravelM"] = iconLink .. "travelm",
+["Point"] = iconLink .. "Point",
 --special icons
 ["HIcon"] = iconLink .. "HIcon",
 ["AIcon"] = iconLink .. "AIcon",

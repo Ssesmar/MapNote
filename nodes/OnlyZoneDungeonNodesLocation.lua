@@ -64,7 +64,7 @@ if not db.show.HideMapNote then
           end
 
         -- Kalimdor Dungeons without ClassicIcons is activ
-          if self.db.profile.showZoneDungeons and not self.db.profile.show.ClassicIcons then 
+          if self.db.profile.showZoneDungeons and not self.db.profile.show.ClassicIcons then
             nodes[69][60323015] = { id = 230, lfgid = 36, type = "Dungeon", showInZone = true, hideOnContinent = true } -- Dire Maul - Capital Gardens - West left Entrance 
             nodes[69][60303130] = { id = 230, lfgid = 36, type = "Dungeon", showInZone = true, hideOnContinent = true } -- Dire Maul - Capital Gardens - West right Entrance 
             nodes[69][62502490] = { id = 230, lfgid = 38, type = "Dungeon", showInZone = true, hideOnContinent = true } -- Dire Maul - Gordok Commons - North  
@@ -88,6 +88,7 @@ if not db.show.HideMapNote then
           nodes[1527][15130940] = { id = 743, type = "Raid", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Ruins of Ahn'Qiraj
           nodes[1527][07180499] = { id = 744, type = "Raid", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Temple of Ahn'Qiraj
           nodes[1527][37008143] = { id = 74, type = "Raid", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Throne of the Four Winds
+          nodes[1527][38238069] = { dnID = L["Position of the real Instance Entrance"], id = 74, type = "Raid", showInZone = false, hideOnContinent = true, hideOnMinimap = false } -- Throne of the Four Winds
           nodes[1527][55184395] = { id = 1180, type = "Raid", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Ny'alotha the Waking City
           nodes[71][12668471] = { id = 1180, type = "Raid", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Ny'alotha the Waking City
           nodes[75][39601704] = { id = 750, type = "Raid", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- The Battle of Mount Hyjal
@@ -95,24 +96,31 @@ if not db.show.HideMapNote then
 
           end
 
-        --Kalimdor ClassicIcons passage
+        --Kalimdor Passage without ClassicIcons
           if self.db.profile.showZonePassage and not self.db.profile.show.ClassicIcons then
-            nodes[85][55895097] = { mnID = 86, id = 226, dnID = DUNGEON_FLOOR_ORGRIMMAR1, name = "", type = "PassageDungeonM", showInZone = true, hideOnContinent = true } -- Ragefire   
-            nodes[85][46116716] = { mnID = 86, id = 226, dnID = DUNGEON_FLOOR_ORGRIMMAR1, name = "", type = "PassageDungeonM", showInZone = true, hideOnContinent = true } -- Ragefire  
-            nodes[85][41516079] = { mnID = 86, id = 226, dnID = DUNGEON_FLOOR_ORGRIMMAR1, name = "", type = "PassageDungeonM", showInZone = true, hideOnContinent = true } -- Ragefire    
-            nodes[10][38916921] = { mnID = 11, dnID = DUNGEON_FLOOR_WAILINGCAVERNS1, name = "", type = "PassageDungeonM", showInZone = true, hideOnContinent = true } -- Wailing Caverns 
-            nodes[66][29226253] = { id = 232, type = "PassageDungeonL", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Maraudon Outside
-            nodes[63][14161380] = { id = 227, type = "PassageDungeonL", showInZone = true, hideOnContinent = true, hideOnMinimap = false } -- Blackfathom Deeps 
-            nodes[69][65503524] = { id = 230, lfgid = 34, type = "PassageDungeonM", showInZone = true, hideOnContinent = true } -- Dire Maul - Warpwood Quarter - East above Camp Mojache   
-            nodes[69][77073692] = { id = 230, lfgid = 34, type = "PassageDungeonM", showInZone = true, hideOnContinent = true } -- Dire Maul - Warpwood Quarter - East above Camp Mojache   
+            nodes[199][45089400] = { dnID = L["Way to the Instance Entrance"], id = 233, type = "PassageDungeonM", showInZone = true, hideOnContinent = true, hideOnMinimap = false } -- Razorfen Downs
+            nodes[64][41662882] = { dnID = L["Way to the Instance Entrance"], id = 233, type = "PassageDungeonM", showInZone = true, hideOnContinent = true, hideOnMinimap = false } -- Razorfen Downs
+            nodes[1527][71755222] = { dnID = L["Way to the Instance Entrance"], id = 70, type = "PassageDungeonM", showInZone = true, hideOnContinent = true, hideOnMinimap = false } -- Halls of Origination
+            nodes[85][55895097] = { mnID = 86, id = 226, TransportName = L["Way to the Instance Entrance"], name = "", type = "PassageDungeonM", showInZone = true, hideOnContinent = true } -- Ragefire   
+            nodes[85][46116716] = { mnID = 86, id = 226, TransportName = L["Way to the Instance Entrance"], name = "", type = "PassageDungeonM", showInZone = true, hideOnContinent = true } -- Ragefire  
+            nodes[85][41516079] = { mnID = 86, id = 226, TransportName = L["Way to the Instance Entrance"], name = "", type = "PassageDungeonM", showInZone = true, hideOnContinent = true } -- Ragefire    
+            nodes[10][38916921] = { mnID = 11, id = 240, TransportName = L["Way to the Instance Entrance"], name = "", type = "PassageDungeonM", showInZone = true, hideOnContinent = true } -- Wailing Caverns 
+            nodes[66][29226253] = { dnID = L["Way to the Instance Entrance"], id = 232, type = "PassageDungeonL", showInZone = true, hideOnContinent = true, hideOnMinimap = false } -- Maraudon Outside
+            nodes[63][14161380] = { dnID = L["Way to the Instance Entrance"], id = 227, type = "PassageDungeonL", showInZone = true, hideOnContinent = true, hideOnMinimap = false } -- Blackfathom Deeps 
+            nodes[69][65503524] = { dnID = L["Way to the Instance Entrance"], id = 230, lfgid = 34, type = "PassageDungeonM", showInZone = true, hideOnContinent = true } -- Dire Maul - Warpwood Quarter - East above Camp Mojache   
+            nodes[69][77073692] = { dnID = L["Way to the Instance Entrance"], id = 230, lfgid = 34, type = "PassageDungeonM", showInZone = true, hideOnContinent = true } -- Dire Maul - Warpwood Quarter - East above Camp Mojache   
           end
 
 
+        --Kalimdor ClassicIcons
           if self.db.profile.show.ClassicIcons then  
 
             if self.db.profile.showZoneDungeons then 
-              nodes[63][14161380] = { id = 227, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = false } -- Blackfathom Deeps 
-              nodes[66][29226253] = { id = 232, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Maraudon Outside
+              nodes[199][45089400] = { dnID = L["Way to the Instance Entrance"], id = 233, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = false } -- Razorfen Downs
+              nodes[64][41662882] = { dnID = L["Way to the Instance Entrance"], id = 233, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = false } -- Razorfen Downs
+              nodes[1527][71755222] = { dnID = L["Way to the Instance Entrance"], id = 70, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = false } -- Halls of Origination
+              nodes[63][14161380] = { dnID = L["Way to the Instance Entrance"], id = 227, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = false } -- Blackfathom Deeps 
+              nodes[66][29226253] = { dnID = L["Way to the Instance Entrance"], id = 232, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = false } -- Maraudon Outside
               --nodes[69][65503524] = { id = 230, lfgid = 34, type = "Dungeon", showInZone = true, hideOnContinent = true } -- Dire Maul - Warpwood Quarter - East above Camp Mojache   
               --nodes[69][77073692] = { id = 230, lfgid = 34, type = "Dungeon", showInZone = true, hideOnContinent = true } -- Dire Maul - Warpwood Quarter - East above Camp Mojache   
             end
@@ -173,6 +181,9 @@ if not db.show.HideMapNote then
             nodes[95][81956434] = { id = 77, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Zul'Aman
             nodes[122][60973073] = { id = 249, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Magisters'Terrace
             nodes[203][48174041] = { id = 65, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Throne of the Tides
+            nodes[33][80454193] = { id = 229, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Lower Blackrock Spire
+            nodes[33][79033379] = { id = 559, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Upper Blackrock Spire
+            nodes[35][39281819] = { id = 228, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Blackrock Depths
           end
 
 
@@ -189,25 +200,28 @@ if not db.show.HideMapNote then
             nodes[241][34097788] = { id = 72, type = "Raid", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Bastion of Twilight
             nodes[122][44264560] = { id = 752, type = "Raid", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Sunwell Plateau
             nodes[244][46054793] = { id = 75, type = "Raid", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Baradin Hold
+            nodes[33][64017153] = { id = 742, type = "Raid", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Blackwing Lair
+            nodes[35][53778131] = { id = 741, type = "Raid", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Molten Core
           end
 
 
           -- Eastern Kingdom Passage
           if self.db.profile.showZonePassage and not self.db.profile.show.ClassicIcons then  
-            nodes[27][31393804] = { id = 239, type = "PassageDungeonM", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Gnomeregan     
-            nodes[51][69675353] = { id = 237, type = "PassageDungeonM", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- The Temple of Atal'hakkar 
-            nodes[36][21063760] = { mnID = 33, name = "", type = "PassageDungeonRaidMultiM", showInZone = true, hideOnContinent = true } -- Molten Core, Blackwing Lair, Blackrock Caverns, Blackrock Depths, Lower Blackrock Spire, Upper Blackrock Spire 
+            nodes[469][32793702] = { dnID = L["Way to the Instance Entrance"], id = 231, type = "PassageDungeonM", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Gnomeregan
+            nodes[27][31393804] = { dnID = L["Way to the Instance Entrance"], id = 231, type = "PassageDungeonM", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Gnomeregan     
+            nodes[51][69675353] = { dnID = L["Way to the Instance Entrance"], id = 237, type = "PassageDungeonM", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- The Temple of Atal'hakkar 
+            nodes[36][21063760] = { mnID = 33, id = { 741, 742, 66, 228, 229, 559 }, name = L["Way to the Instance Entrance"], type = "PassageDungeonRaidMultiM", showInZone = true, hideOnContinent = true } -- Molten Core, Blackwing Lair, Blackrock Caverns, Blackrock Depths, Lower Blackrock Spire, Upper Blackrock Spire 
             nodes[32][35268404] = { mnID = 33, name = "", type = "PassageDungeonM", showInZone = true, hideOnContinent = true } -- Molten Core, Blackwing Lair, Blackrock Caverns, Blackrock Depths, Lower Blackrock Spire, Upper Blackrock Spire 
-            nodes[15][58543698] = { id = 239, name = "", type = "PassageDungeonM", showInZone = true, hideOnContinent = true } -- Uldaman (Secondary Entrance) 
-            nodes[23][43251854] = { id = 236, lfgid = 274, type = "PassageDungeonM", showInZone = true, hideOnContinent = true }-- Stratholme Service Entrance 
-            nodes[33][68635371] = { mnID = 34, dnID = DUNGEON_FLOOR_BURNINGSTEPPES15, name = "", type = "PassageDungeonM", showInZone = true, hideOnContinent = true } -- Blackrock Caverns
-            nodes[33][65896169] = { mnID = 34, dnID = DUNGEON_FLOOR_BURNINGSTEPPES15, name = "", type = "PassageDungeonM", showInZone = true, hideOnContinent = true } -- Blackrock Caverns
-            nodes[33][45004700] = { mnID = 35, dnID = DUNGEON_FLOOR_MOLTENCORE1.."\n" .. DUNGEON_FLOOR_BURNINGSTEPPES16, name = "", type = "PassageRaidM", showInZone = true, hideOnContinent = true } -- Blackrock Depths
+            nodes[15][58543698] = { dnID = L["Way to the Instance Entrance"], id = 239, name = "", type = "PassageDungeonM", showInZone = true, hideOnContinent = true } -- Uldaman (Secondary Entrance) 
+            nodes[23][43251854] = { dnID = L["Way to the Instance Entrance"], id = 236, lfgid = 274, type = "PassageDungeonM", showInZone = true, hideOnContinent = true }-- Stratholme Service Entrance 
+            nodes[33][68635371] = { mnID = 34, id = { 66 }, name = L["Way to the Instance Entrance"], type = "PassageDungeonM", showInZone = true, hideOnContinent = true } -- Blackrock Caverns
+            nodes[33][65896169] = { mnID = 34, id = { 66 }, name = L["Way to the Instance Entrance"], type = "PassageDungeonM", showInZone = true, hideOnContinent = true } -- Blackrock Caverns
+            nodes[33][45004700] = { mnID = 35, id = { 741, 228 }, name = L["Way to the Instance Entrance"], type = "PassageRaidM", showInZone = true, hideOnContinent = true } -- Blackrock Depths
             nodes[34][58792725] = { mnID = 33, dnID = DUNGEON_FLOOR_BURNINGSTEPPES14, name = "", type = "PassageDungeonM", showInZone = true, hideOnContinent = true } -- Blackrock Depths
             nodes[35][58168728] = { mnID = 33, dnID = DUNGEON_FLOOR_BURNINGSTEPPES14, name = "", type = "PassageDungeonM", showInZone = true, hideOnContinent = true } -- Blackrock Depths
 
             -- Passage Nodes above Blizzards Icons to make it Clickable for maximized Maps
-            nodes[52][42527168] = { id = 63, type = "PassageDungeonM", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Deadmines   
+            nodes[52][42527168] = { dnID = L["Way to the Instance Entrance"], id = 63, type = "PassageDungeonM", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Deadmines   
           end
 
 
@@ -219,9 +233,10 @@ if not db.show.HideMapNote then
             end
 
             if self.db.profile.showZoneDungeons then
-              nodes[27][31393804] = { id = 239, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Gnomeregan
-              nodes[51][69675353] = { id = 237, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- The Temple of Atal'hakkar 
-              nodes[52][42527168] = { id = 63, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Deadmines 
+              nodes[469][32793702] = { dnID = L["Way to the Instance Entrance"], id = 231, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Gnomeregan
+              nodes[27][31393804] = { dnID = L["Way to the Instance Entrance"], id = 239, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Gnomeregan
+              nodes[51][69675353] = { dnID = L["Way to the Instance Entrance"], id = 237, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- The Temple of Atal'hakkar 
+              nodes[52][42527168] = { dnID = L["Way to the Instance Entrance"], id = 63, type = "Dungeon", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Deadmines 
               nodes[35][58168728] = { mnID = 33, dnID = DUNGEON_FLOOR_BURNINGSTEPPES14, name = "", type = "Dungeon", showInZone = true, hideOnContinent = true } -- Blackrock Depths
               nodes[32][35268404] = { mnID = 33, name = "", type = "Dungeon", showInZone = true, hideOnContinent = true } -- Molten Core, Blackwing Lair, Blackrock Caverns, Blackrock Depths, Lower Blackrock Spire, Upper Blackrock Spire 
               --nodes[15][58543698] = { id = 239, name = "", type = "Dungeon", showInZone = true, hideOnContinent = true } -- Uldaman (Secondary Entrance) 
@@ -230,7 +245,7 @@ if not db.show.HideMapNote then
             end
 
             if self.db.profile.showZoneRaids then
-              nodes[33][45004700] = { mnID = 35, dnID = DUNGEON_FLOOR_MOLTENCORE1.."\n" .. DUNGEON_FLOOR_BURNINGSTEPPES16, name = "", type = "Raid", showInZone = true, hideOnContinent = true } -- Blackrock Depths
+              nodes[33][45004700] = { mnID = 35, id = { 741, 228 }, name = L["Way to the Instance Entrance"], type = "Raid", showInZone = true, hideOnContinent = true } -- Blackrock Depths
             end
 
           end
@@ -618,7 +633,7 @@ if not db.show.HideMapNote then
           -- Raid Nodes above Blizzards Icons to make it Clickable for maximized Maps
             nodes[2200][27313104] = { id = 1207, type = "Raid", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Amirdrassil, the Dream's Hope
             nodes[2025][74855511] = { id = 1200, type = "Raid", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Vault of the Incarnates
-            nodes[2025][73065567] = { id = 1200, type = "Raid", showInZone = false, hideOnContinent = true, hideOnMinimap = false } -- Vault of the Incarnates -- real entrance position
+            nodes[2025][73065567] = { dnID = L["Position of the real Instance Entrance"], id = 1200, type = "Raid", showInZone = false, hideOnContinent = true, hideOnMinimap = false } -- Vault of the Incarnates
             nodes[2133][48451191] = { id = 1208, type = "Raid", showInZone = true, hideOnContinent = true, hideOnMinimap = false } -- Aberrus, the Shadowed Crucible          
           end
 

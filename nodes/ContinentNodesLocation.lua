@@ -46,7 +46,7 @@ if not db.show.HideMapNote then
           if self.db.profile.showContinentRaids then
             nodes[12][45929663] = { id = 74, type = "Raid" } -- Throne of the Four Winds 
             nodes[12][54243397] = { id = 78, type = "Raid" } -- Firelands 
-            nodes[12][56436963] = { id = 760, type = "Raid" } -- Onyxia's Lair 
+            nodes[12][56526946] = { id = 760, type = "Raid" } -- Onyxia's Lair 
             nodes[12][42068358] = { id = 743, type = "Raid" } -- Ruins of Ahn'Qiraj 
             nodes[12][40678358] = { id = 744, type = "Raid" } -- Temple of Ahn'Qiraj
             nodes[12][49159032] = { id = 1180, type = "Raid" } -- Ny'Alotha, The Waking City
@@ -214,7 +214,7 @@ if not db.show.HideMapNote then
             nodes[13][42915972] = { id = 231, type = "PassageDungeonM" } -- Gnomeregan             
             nodes[13][53646537] = { id = 239, name = "", type = "PassageDungeonM" } -- Uldaman (Secondary Entrance) 
             nodes[13][54412915] = { id = 236, lfgid = 274, type = "PassageDungeonM", showInZone = true }-- Stratholme Service Entrance 
-            nodes[13][46886972] = { id = { 741, 742, 66, 228, 229, 559 }, type = "PassageDungeonRaidMultiM" } -- Molten Core, Blackwing Lair, Blackrock Caverns, Blackrock Depths, Lower Blackrock Spire, Upper Blackrock Spire 
+            nodes[13][46886972] = { mnID = 33, id = { 741, 742, 66, 228, 229, 559 }, type = "PassageDungeonRaidMultiM", showInZone = true } -- Molten Core, Blackwing Lair, Blackrock Caverns, Blackrock Depths, Lower Blackrock Spire, Upper Blackrock Spire 
           end
     
 
@@ -231,7 +231,7 @@ if not db.show.HideMapNote then
           end
 
           if self.db.profile.showContinentMultiple then
-            nodes[13][46886972] = { id = { 741, 742, 66, 228, 229, 559 }, type = "MultipleM" } -- Molten Core, Blackwing Lair, Blackrock Caverns, Blackrock Depths, Lower Blackrock Spire, Upper Blackrock Spire 
+            nodes[13][46886972] = { mnID = 33, id = { 741, 742, 66, 228, 229, 559 }, type = "MultipleM", showInZone = true } -- Molten Core, Blackwing Lair, Blackrock Caverns, Blackrock Depths, Lower Blackrock Spire, Upper Blackrock Spire 
           end
 
         end

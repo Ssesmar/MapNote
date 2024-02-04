@@ -3,6 +3,8 @@ local L = LibStub("AceLocale-3.0"):NewLocale("HandyNotes_MapNotes", "enUS", true
 
 --1 General tab
 L["Description"] = true
+L["Position of the real Instance Entrance"] = true
+L["Way to the Instance Entrance"] = true
 L["Hides certain Blizzard icons (e.g. Horde/Alliance/Neutral capitals icon or general travel icons on the map) and replaces them with almost identical MapNotes icons, providing additional information and functionality"] = true
 L["Removes the Blizzard symbols only where MapNotes symbols and Blizzard symbols overlap, thereby making the tooltip and the function of the MapNote symbols usable again on the overlapping points"] = true
 L["If the map is open, after enabling or disabling this option, the map must be reopened once for the changes to display correctly"] = true
