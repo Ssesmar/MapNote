@@ -1,5 +1,5 @@
 # MapNote
-## [1.7.4](https://github.com/Ssesmar/MapNote) (2024-02-4)
+## [1.7.4](https://github.com/Ssesmar/MapNote) (2024-02-07)
 - Note:
 
 
@@ -7,7 +7,7 @@
 REQUIRES --> HandyNotes <-- to be installed                                                                                    
 
 
-    A collection of different symbols on different maps. Show Raids and Dungeons Entrances, Portals, Ships, Zeppelin, Exits and Passage icons
+    A collection of various icons on various maps from previous expansions up to Dragonflight. Displays raid and dungeon entrances, portals, ships, zeppelins, exits and passage icons
     Displays Horde and Alliance icons that can also be activated by the other faction
     All symbols are clickable (except on the minimap) and have a function
 

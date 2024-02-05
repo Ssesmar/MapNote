@@ -1,7 +1,7 @@
 ## Interface: 100205
 ## Title: HandyNotes: |cffff0000Map|r|cff00ccffNotes|r
-## Version: 1.7.3
-## Notes: A collection of different icons on different maps. Show Raids and Dungeons Entrances, Portals, Ships, Zeppelin, Exits and Passage icons
+## Version: 1.7.4
+## Notes: A collection of various icons on various maps from previous expansions up to Dragonflight. Displays raid and dungeon entrances, portals, ships, zeppelins, exits and passage icons
 ## Author: BadBoyBarny
 ## RequiredDeps: HandyNotes
 ## X-Curse-Project-ID: 912524

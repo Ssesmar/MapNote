@@ -8,16 +8,20 @@ local iconLink = "Interface\\Addons\\" .. ADDON_NAME .. "\\images\\"
 ns.icons = { 
 --instance
 ["Dungeon"] = iconLink .. "DungeonSymbol",
+["DungeonL"] = iconLink .. "DungeonSymbolL", -- zone icons
 ["DungeonXL"] = iconLink .. "DungeonSymbolXL",
 ["Raid"] = iconLink .. "RaidSymbol",
+["RaidL"] = iconLink .. "RaidSymbolL", -- zone icons
 ["RaidXL"] = iconLink .. "RaidSymbolXL",
 ["VInstance"] = iconLink .. "vanillaInstance",
+["VInstanceL"] = iconLink .. "vanillaInstanceL",
 ["VKey1"] = iconLink .. "vkey1",
 ["MultipleM"] = iconLink .. "multipleM",
 ["MultipleD"] = iconLink .. "multipleD",
 ["MultipleR"] = iconLink .. "multipleR",
 ["MultipleMgray"] = iconLink .. "multipleMgray",
 ["Locked"] = iconLink .. "gray",
+["GrayL"] = iconLink .. "grayL",
 --zeppelin
 ["Zeppelin"] = iconLink .. "zeppelin",
 ["HZeppelin"] = iconLink .. "zeppelinH",
@@ -33,10 +37,13 @@ ns.icons = {
 --world passage
 ["PassageDungeonRaidM"] = iconLink .. "PassageDungeonM",
 ["PassageDungeonM"] = iconLink .. "PassageDungeonM",
+["PassageDungeonL"] = iconLink .. "PassageDungeonL", -- zone icons
+["PassageDungeonXL"] = iconLink .. "PassageDungeonXL",
 ["PassageRaidM"] = iconLink .. "passageRaidM",
-["PassageDungeonL"] = iconLink .. "PassageDungeonL",
-["PassageRaidL"] = iconLink .. "passageRaidL",
+["PassageRaidL"] = iconLink .. "passageRaidL", -- zone icons
+["PassageRaidXL"] = iconLink .. "passageRaidXL",
 ["PassageDungeonRaidMultiM"] = iconLink .. "PassageDungeonRaidMultiM",
+["PassageDungeonRaidMultiL"] = iconLink .. "PassageDungeonRaidMultiL", -- zone icons
 ["PassageDungeonMultiM"] = iconLink .. "PassageDungeonMultiM",
 ["PassageRaidMultiM"] = iconLink .. "passageRaidMultiM",
 --inside dungeon icons

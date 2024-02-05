@@ -5,6 +5,7 @@ if not L then return end
 L["Description"] = "描述"
 L["Position of the real Instance Entrance"] = "真实实例输入的位置"
 L["Way to the Instance Entrance"] = "实例输入的方法"
+L["Also disables all Blizzard Instance icons on the zone map. However, these can be reactivated on the map at the top right under the 'Map filter' dungeon entrance magnifying glass. Disable and enable MapNotes VS again. blizzard, deactivates the instance icons on the zone map again"] = "还可以停用区域卡上的所有暴风雪实例符号。 但是，这些可以在卢佩“卡过滤器”地牢输入的顶部的地图上重新激活。 mapnotes vs的重新分解和激活。 暴雪，再次在区域卡上停用实例符号"
 L["Hides certain Blizzard icons (e.g. Horde/Alliance/Neutral capitals icon or general travel icons on the map) and replaces them with almost identical MapNotes icons, providing additional information and functionality"] = "隐藏了某些暴风雪符号（例如，地图上的大写 /联盟 /中性或一般旅行符号的首都符号），并用几乎相同的mapnotes符号代替它们，这些符号提供了其他信息和功能"
 L["Removes the Blizzard symbols only where MapNotes symbols and Blizzard symbols overlap, thereby making the tooltip and the function of the MapNote symbols usable again on the overlapping points"] = "仅在MAPNOTES符号和暴雪重叠符号的情况"
 L["If the map is open, after enabling or disabling this option, the map must be reopened once for the changes to display correctly"] = "如果卡打开，则必须在激活或停用此选项后再次打开卡，以使更改正确显示"

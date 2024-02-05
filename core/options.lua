@@ -68,8 +68,8 @@ ns.options = {
         --  width = 1.50,
         --  get = function() return ns.Addon.db.profile.HideWMB end,
         --  set = function(info, v) ns.Addon.db.profile.HideWMB = v self:FullUpdate() HandyNotes:SendMessage("HandyNotes_NotifyUpdate", "MapNotes")
-        --    if not ns.Addon.db.profile.HideWMB then MNMMBIcon:Show("MNMiniMapButton") print(COLORED_ADDON_NAME .. "|cffffff00", L["-> MiniMapButton <-"], "|cff00ff00" .. L["is activated"]) else
-        --    if ns.Addon.db.profile.HideWMB then MNMMBIcon:Hide("MNMiniMapButton") print(COLORED_ADDON_NAME .. "|cffffff00", L["-> MiniMapButton <-"], "|cffff0000" .. L["is deactivated"]) end end end,
+        --    if not ns.Addon.db.profile.HideWMB then MNMMBIcon:Show("MNMiniMapButton") else
+        --    if ns.Addon.db.profile.HideWMB then MNMMBIcon:Hide("MNMiniMapButton") end end end,
         --  },
          DescriptionHeader = {
           type = "header",
@@ -80,13 +80,13 @@ ns.options = {
           --disabled = function() return ns.Addon.db.profile.show.HideMapNote end,
           type = "toggle",
           name = COLORED_ADDON_NAME .. " " .. "|cffff0000" .. PET_BATTLE_UI_VS .. " " .. "|cff00ccff" .. SLASH_TEXTTOSPEECH_BLIZZARD,
-          desc = TextIconMNL4:GetIconString() ..  " " .. TextIconHIcon:GetIconString() ..  " " .. TextIconAIcon:GetIconString() .. " " .. L["Hides certain Blizzard icons (e.g. Horde/Alliance/Neutral capitals icon or general travel icons on the map) and replaces them with almost identical MapNotes icons, providing additional information and functionality"] .. "\n" .. "\n" .. L["Removes the Blizzard symbols only where MapNotes symbols and Blizzard symbols overlap, thereby making the tooltip and the function of the MapNote symbols usable again on the overlapping points"] .. "\n" .. "\n" .. "|cffffff00" .. L["If the map is open, after enabling or disabling this option, the map must be reopened once for the changes to display correctly"],
+          desc = TextIconMNL4:GetIconString() ..  " " .. TextIconHIcon:GetIconString() ..  " " .. TextIconAIcon:GetIconString() .. " " .. L["Hides certain Blizzard icons (e.g. Horde/Alliance/Neutral capitals icon or general travel icons on the map) and replaces them with almost identical MapNotes icons, providing additional information and functionality"] .. "\n" .. "\n" .. TextIconRaid:GetIconString() .. " " .. TextIconDungeon:GetIconString() .. " " ..  L["Also disables all Blizzard Instance icons on the zone map. However, these can be reactivated on the map at the top right under the 'Map filter' dungeon entrance magnifying glass. Disable and enable MapNotes VS again. blizzard, deactivates the instance icons on the zone map again"] .. "\n" .. "\n" .. L["Removes the Blizzard symbols only where MapNotes symbols and Blizzard symbols overlap, thereby making the tooltip and the function of the MapNote symbols usable again on the overlapping points"] .. "\n" .. "\n" .. "|cffffff00" .. L["If the map is open, after enabling or disabling this option, the map must be reopened once for the changes to display correctly"],
           order = 1.6,
           width = 1.05,
           get = function() return ns.Addon.db.profile.show.RemoveBlizzPOIs end,
           set = function(info, v) ns.Addon.db.profile.show.RemoveBlizzPOIs = v self:FullUpdate() HandyNotes:SendMessage("HandyNotes_NotifyUpdate", "MapNotes") 
-                if ns.Addon.db.profile.show.RemoveBlizzPOIs then print(COLORED_ADDON_NAME, "|cffffff00" .. SLASH_TEXTTOSPEECH_BLIZZARD .. " " .. L["icons"], "|cffff0000" .. L["are hidden"] ) else
-                if not ns.Addon.db.profile.show.RemoveBlizzPOIs then print(COLORED_ADDON_NAME, "|cffffff00" .. SLASH_TEXTTOSPEECH_BLIZZARD .. " " ..L["icons"], "|cff00ccff" .. L["are shown"] )end end end,
+                if ns.Addon.db.profile.show.RemoveBlizzPOIs then SetCVar("showDungeonEntrancesOnMap", 0) print(COLORED_ADDON_NAME, "|cffffff00" .. SLASH_TEXTTOSPEECH_BLIZZARD .. " " .. L["icons"], "|cffff0000" .. L["are hidden"] ) else
+                if not ns.Addon.db.profile.show.RemoveBlizzPOIs then SetCVar("showDungeonEntrancesOnMap", 1) print(COLORED_ADDON_NAME, "|cffffff00" .. SLASH_TEXTTOSPEECH_BLIZZARD .. " " ..L["icons"], "|cff00ccff" .. L["are shown"] )end end end,
           },
         showEnemyFaction = {
           disabled = function() return ns.Addon.db.profile.show.HideMapNote end,

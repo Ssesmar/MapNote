@@ -122,7 +122,7 @@ end
 
 
 do
-	local tablepool = setmetatable({}, {__mode = 'k'})
+	local tablepool = setmetatable({}, {__mode = 'uiMapId'})
 
 	local function deepCopy(object)
 		local lookup_table = {}
@@ -169,7 +169,7 @@ do
 			end
       
         if (anyLocked and db.graymultipleID) or ((allLocked and not db.graymultipleID) and db.assignedgray) then  
-        icon = ns.icons["Locked"]
+        icon = ns.icons["GrayL"]
       end
 
       if (anyLocked and db.invertlockout) or ((allLocked and not db.invertlockout) and db.uselockoutalpha) then
@@ -433,16 +433,15 @@ function Addon:PLAYER_LOGIN()
 end
 
 function Addon:PopulateMinimap()
-local temp = { }
-   for k,v in pairs(nodes) do
-      if (minimap[k]) then
-         for c,d in pairs(v) do -- Looks at the nodes in the normal node table and if they are also not in the temp table then add them to the minimap
-            if (not temp[c] and not d.hideOnMinimap) then
-              minimap[k][c] = d
-           end
-         end
+  for uiMapId,uiMapIdDetails in pairs(nodes) do
+      if (minimap[uiMapId]) then
+          for coords,icondetails in pairs(uiMapIdDetails) do 
+              if (not icondetails.hideOnMinimap) then
+                  minimap[uiMapId][coords] = icondetails
+              end
+          end
       end
-   end
+  end
 end
 
 function Addon:PopulateTable()

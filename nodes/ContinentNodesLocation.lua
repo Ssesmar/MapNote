@@ -201,7 +201,7 @@ if not db.show.HideMapNote then
         --Eastern  Kingdom Raids
           if self.db.profile.showContinentRaids then
             nodes[13][55160370] = { id = 752, type = "Raid" } -- Sunwell Plateau 
-            nodes[13][47546862] = { id = 73, type = "Raid" } -- Blackwind Descent 
+            nodes[13][47536894] = { id = 73, type = "Raid" } -- Blackwind Descent 
             nodes[13][54905899] = { id = 72, type = "Raid" } -- The Bastion of Twilight 
             nodes[13][35565150] = { id = 75, type = "Raid" } -- Baradin Hold
           end
