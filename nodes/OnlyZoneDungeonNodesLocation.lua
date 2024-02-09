@@ -160,7 +160,7 @@ if not db.show.HideMapNote then
             nodes[224][63942179] = { id = 76, type = "DungeonL", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Zul'gurub
             nodes[224][22130243] = { id = 63, type = "DungeonL", showInZone = true, hideOnContinent = true, hideOnMinimap = true  } -- Deadmines 
             nodes[37][20223635] = { id = 238, type = "DungeonL", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- The Stockade
-            nodes[84][51926779] = { id = 238, type = "DungeonL", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- The Stockade
+            nodes[84][51196779] = { id = 238, type = "DungeonL", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- The Stockade
             nodes[15][41121030] = { id = 1197, type = "DungeonL", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Uldaman: Legacy of Tyr
             nodes[48][43478705] = { id = 239, type = "DungeonL", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Uldaman
             nodes[241][19205411] = { id = 71, type = "DungeonL", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Grim Batol
@@ -356,6 +356,7 @@ if not db.show.HideMapNote then
             nodes[123][77890620] = { id = 278, type = "DungeonL", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Pit of Saron
             nodes[114][28592772] = { id = 281, type = "DungeonL", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- The Nexus
             nodes[114][26602746] = { id = 282, type = "DungeonL", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- The Oculus
+            nodes[125][66166745] = { id = 283, type = "DungeonL", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- The Violet Hold
           end
 
           -- Northrend Raids
@@ -477,7 +478,7 @@ if not db.show.HideMapNote then
             nodes[882][22165661] = { id = 945, type = "DungeonL", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Seat of the Triumvirate
           end
 
-
+          
         --Broken Isles Raids
           if self.db.profile.showZoneRaids then
 
@@ -485,10 +486,24 @@ if not db.show.HideMapNote then
             nodes[646][64002136] = { id = 875, type = "RaidL", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Tomb of Sargeras
             nodes[680][43725729] = { id = 786, type = "RaidL", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- The Nighthold
             nodes[641][56673747] = { id = 768, type = "RaidL", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- The Emerald Nightmare
-            nodes[680][71127281] = { id = 861, type = "RaidL", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Trial of Valor
-            nodes[885][54826253] = { id = 946, type = "RaidL", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Antorus, the Burning Throne
+            nodes[634][71127281] = { id = 861, type = "RaidL", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Trial of Valor
+            nodes[885][54826253] = { id = 946, type = "RaidL", showInZone = true, hideOnContinent = true, hideOnMinimap = false } -- Antorus, the Burning Throne
           end
 
+
+        --Zandalar Raids without ClassicIcons
+          if self.db.profile.showZonePassage and not self.db.profile.show.ClassicIcons then
+            nodes[680][43346230] = { dnID = L["Way to the Instance Entrance"], id = 726, type = "PassageDungeonL", showInZone = true, hideOnContinent = true, hideOnMinimap = false } -- The Arcway
+          end
+
+
+        --Zandalar ClassicIcons
+          if self.db.profile.show.ClassicIcons then
+
+            if self.db.profile.showZoneDungeons then
+              nodes[680][43346230] = { dnID = L["Way to the Instance Entrance"], id = 726, type = "DungeonL", showInZone = true, hideOnContinent = true, hideOnMinimap = false } -- The Arcway
+            end
+          end
         end
 
 
@@ -503,13 +518,15 @@ if not db.show.HideMapNote then
 
             if self.faction == "Horde" or db.show.EnemyFaction then
               nodes[1165][44049256] = { id = 1012, type = "DungeonL", showInZone = true, hideOnContinent = true } -- The MOTHERLODE HORDE
-              --nodes[862][55995989] = { id = 1012, type = "DungeonL", hideOnContinent = true } -- The MOTHERLODE HORDE
+              nodes[862][56105984] = { id = 1012, type = "DungeonL", showInZone = true, hideOnContinent = true, hideOnMinimap = false } -- The Motherlode
+            end
 
+            if self.faction == "Alliance" or db.show.EnemyFaction then
+              nodes[862][39307154] = { id = 1012, type = "DungeonL", showInZone = true, hideOnContinent = true, hideOnMinimap = false } -- The MOTHERLODe
             end
 
           -- Dungeon Nodes above Blizzards Icons to make it Clickable for maximized Maps
             nodes[862][37593948] = { id = 1041, type = "DungeonL", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Kings' Rest
-            nodes[862][56105984] = { id = 1012, type = "DungeonL", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- The Motherlode
             nodes[862][43533948] = { id = 968, type = "DungeonL", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Atal'Dazar
             nodes[863][51256464] = { id = 1022, type = "DungeonL", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- The Underrot
             nodes[864][51922546] = { id = 1030, type = "DungeonL", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Temple of Sethraliss
@@ -561,7 +578,9 @@ if not db.show.HideMapNote then
             nodes[1169][38926976] = { id = 1002, type = "DungeonL", showInZone = true, hideOnContinent = true, hideOnMinimap = false } -- Tol Dagor
 
             if self.faction == "Alliance" or db.show.EnemyFaction then
-              nodes[1161][71971537] = { id = 1023, type = "DungeonL", showInZone = true, hideOnContinent = true, TransportName = QUESTLINE_LOCATED_BELOW } -- Siege of Boralus
+              nodes[1161][71971537] = { id = 1023, type = "DungeonL", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Siege of Boralus
+              nodes[1161][75591953] = { dnID = L["Position of the real Instance Entrance"], id = 1023, type = "DungeonL", showInZone = true, hideOnContinent = true, hideOnMinimap = false } -- Siege of Boralus
+              nodes[895][75632450] = { id = 1023, type = "DungeonL", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Siege of Boralus
             end
 
             if self.faction == "Horde" or db.show.EnemyFaction then
@@ -575,6 +594,10 @@ if not db.show.HideMapNote then
           -- Raid Nodes above Blizzards Icons to make it Clickable for maximized Maps
             nodes[942][83894693] = { id = 1036, type = "RaidL",  showInZone = true, hideOnContinent = true, hideOnMinimap = false } -- Crucible of Storms
 
+            if self.faction == "Alliance" or db.show.EnemyFaction then
+              nodes[895][74382837] = { id = 1176, type = "RaidL", showInZone = true, hideOnContinent = true, hideOnMinimap = false } -- Battle of Dazar'alor
+              nodes[1161][70443555] = { id = 1176, type = "RaidL", showInZone = true, hideOnContinent = true, hideOnMinimap = true } -- Battle of Dazar'alor
+            end
           end
 
         end

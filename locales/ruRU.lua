@@ -1,7 +1,30 @@
 local L = LibStub("AceLocale-3.0"):NewLocale("HandyNotes_MapNotes", "ruRU")
 if not L then return end
 
---1 General tab--1 Вкладка "Общие"
+--0 Info tab
+L["Info"] = "Информация"
+L["A description of what this addon does and what functions it offers"] = "Описание того, что делает этот аддон и какие функции он предлагает"
+L["A collection of various icons on various maps from previous expansions up to Dragonflight"] = "Коллекция разных символов на разных картах от всех расширений"
+L["Displays instance entrances, portals, ships, zeppelins, exits, passage, enemy faction and other transport icons"] = "Отображает экземпляры, порталы, корабли, Zeppeline, выходы, отрывки, вражеские фракции и другие символы"
+L["All icons can be activated or deactivated separately!"] = "Все символы могут быть активированы или деактивированы отдельно!"
+L["Shift function option: You can use the MapNotes symbols with or without shift-clicking"] = "Опция функции сдвига: вы можете использовать символы MapNotes с или без него."
+L["Hide MapNotes! option: All icons can also be hidden or shown with a single click"] = "Скрыть Mapnotes! Вариант: все символы могут отображаться одним щелчком"
+L["Normally on a maximized map you cannot use instance icons from Blizzard or other addons that would open the adventure guide. But not for MapNotes! You can use all functions on minimized or maximized maps!"] = "Обычно вы не можете использовать Blizzard или другие символы экземпляра аддонс на максимизированной карте, которая откроет руководство по приключениям. Но не для Mapnotes! Вы можете использовать все функции на минимизированных или максимизированных картах!"
+L["Worldmap function"] = "Функция карты мира"
+L["Right-click on any icon adds a TomTom waypoint (except on the Azeroth and Minimap)"] = "Щелкните правой кнопкой мыши на символ добавляет набор Tomtom Way -Ground (кроме Azeroth и Mini Card)"
+L["Left-click on a Instance icon opens the corresponding dungeon in the adventure guide"] = "Щелкните слева от символа экземпляра открывает соответствующее подземелье в руководстве приключений"
+L["Azeroth/Continent Map: Left-click on a transport symbol opens the map where the symbol is"] = "Карта Ацерота/Континента: нажимайте слева на транспортном символе, открывается карта, где символ"
+L["Zone map: Left-click on a transport symbol opens the map of the symbol's destination"] = "Зоневая карта: щелкните слева на транспортном символе, открывается карта, от цели символа"
+L["Example zone map: => Orgrimmar. Left-click on this icon opens the map of Orgrimmar"] = "Пример зоны карты: '=> orgrimmar' Щелкните на левом"
+L["Example Azeroth/continent map: 'Jade Forest Portal => Orgrimmar' Left-click on this symbol opens the map of the Jade Forest. So you can see where you need to go to get to the portal"] = "Пример Азерота/Континента Карта: «Jadewald Portal => Orgrimmar». Так что вы видите, куда вам нужно пойти, чтобы добраться до портала"
+L["Maximized Map function"] = "Максимизированная карта функция"
+L["After the adventure guide is opened using a MapNote instance icon and you then switch to the dungeon map using the 'Show map' option in the adventure guide, the map is shown reduced in size so that you can move with the character within the instance and see where you have to go. This minimized map feature ends when you close the map or once! Press the “World map on/off” button (which you have set under 'ESC - Keyboard assignment - Interface function'), whereupon the map will be maximized"] = "После того, как лидер приключений был открыт символом экземпляра, а затем переключен на карту Dungeon в Руководстве по приключениям через опцию «Показать карту», ​​карта отображается в сокращении, чтобы вы могли перемещаться с символом в экземпляре и посмотреть Куда вы должны идти. Это минимизированная функция карты заканчивается, когда вы закрываете карту или один раз! Нажмите кнопку «Вкл/выключение карты мира» (которую вы установили в разделе «ESC - Mayout клавиатура - интерфейсфункция»), после чего карта максимизирована"
+L["Minimap button function"] = "Мини -гарден функция"
+L["Left-click opens or close the MapNote setting menu"] = "Левый -Клик открывает или закрывает меню настройки MapNote"
+L["Right-click opens or close the HandyNote setting menu"] = "Право -клик открывает или закрывает меню настройки синоте сотового телефона"
+L["Shift+Right-click hide the minimap button"] = "Shift+Right -Click, скрыть кнопку Mini Garden"
+L["Chat commands"] = "Команды чата"
+--1 General tab
 L["Description"] = "Описание"
 L["Position of the real Instance Entrance"] = "Положение ввода реального экземпляра"
 L["Way to the Instance Entrance"] = "Путь к вводу экземпляра"
@@ -44,6 +67,8 @@ L["gray all"] = "Все серые"
 L["Colors EVERYONE! Assigned dungeons and raids also have multiple points in gray (if you have an ID)"] = "Раскрасьте все! Присвоенные подземелья и рейды серые также несколько точек (если у вас есть идентификатор)"
 L["enemy faction"] = "вражеская фракция"
 L["Shows enemy faction (horde/alliance) icons"] = "Показывает значки вражеской фракции (орды/альянса)"
+L["chat message"] = "Сообщения чата"
+L["Deactivate MapNotes chat messages except 'Hide MapNotes!' and 'MapNotes VS. blizzard'"] = "Деактивировать сообщения чата mapnotes, кроме «скрыть mapnotes!» и 'mapnotes vs. Метель '"
 L["Shows special transport icons like"] = "Показывает специальные транспортные иконки, как"
 L["Combines several different grouped symbols that lie on one point, thus showing all possible transport/instance symbols that are located here instead of just one of several possible ones"] = "Объединяет несколько различных сгруппированных символов, которые лежат на одной точке, показывая все возможные символы транспорта/экземпляра, которые расположены здесь вместо одного из нескольких возможных"
 L["Left-clicking on one of these symbols on the map opens the corresponding map, which contains all of the points listed by the symbol on the map"] = "Щелчок левой кнопкой мыши по одному из этих символов на карте открывает соответствующую карту, которая содержит все точки, перечисленные этим символом на карте"
@@ -54,15 +79,15 @@ L["to open MapNotes menu: /mno, /MNO"] = "чтобы открыть меню Map
 L["to close MapNotes menu: /mnc, /MNC"] = "чтобы закрыть меню MapNotes: /mnc, /MNC"
 L["to show minimap button: /mnb or /MNB"] = "чтобы отобразить кнопку мини-карты: /mnb или /MNB"
 L["to hide minimap button: /mnbh or /MNBH"] = "чтобы скрыть кнопку мини-карты: /mnbh или /MNBH"
---2 Azeroth tab specific --2 Специальная вкладка Азерот
+--2 Azeroth tab specific
 L["Azeroth map"] = "Карта Азерота"
---3 Continent tab specific --3 Конкретная вкладка "Континент"
+--3 Continent tab specific
 L["Continent map"] = "Карта континента"
---4 Zone tab specific --4 Вкладка "Зона"
+--4 Zone tab specific
 L["Zone / Minimap"] = "Зоны / мини -карта"
---5 DungeonMap Tab specific --5 Специальная вкладка DungeonMap
+--5 DungeonMap Tab specific
 L["Dungeon map"] =  "Карта подземелья" 
---6 Map Tabs together --6 вкладок карты вместе
+--6 Map Tabs together
 L["Activate icons"] = "Активировать значки"
 L["Show individual icons"] = "Показать отдельные значки"
 L["Exits"] = "Выходы"
@@ -105,7 +130,7 @@ L["Show all Dragon Isles MapNotes dungeon, raid, portal, zeppelin and ship icons
 L["Certain icons can be displayed or not displayed. If the option (Activate icons) has been activated in this category"] = "Определенные значки могут отображаться или не отображаться. Если в этой категории активирована опция (Активировать значки)"
 L["Show vanilla versions of dungeons and raids such as Naxxramas, Scholomance or Scarlet Monastery, which require achievements or other things"] = "Показать ванильные версии подземелий и рейдов, таких как Наксрамас, Некроситет или Монастырь Алого ордена, для которых требуются достижения или другие вещи"
 L["Individual icons that are too close to other icons on this map are not 100% accurately placed on this map! For more precise coordinates, please use the points on the zone map"] = "Отдельные символы, которые слишком близки к другим символам на этой карте, не размещены на 100 % точно на эту карту! Для более подробных координат, используйте точки на карте зоны"
---7 Maps --7 карт
+--7 Maps
 L["Kalimdor"] = "Калимдор"
 L["Eastern Kingdom"] = "Восточное королевство"
 L["Outland"] = "Запределье"
@@ -117,7 +142,7 @@ L["Zandalar"] = "Зандалар"
 L["Kul Tiras"] = "Кул Тирас"
 L["Shadowlands"] = "Земли теней"
 L["Dragon Isles"] = "Драконьи острова"
---8 Core specific --8 специфичных для ядра
+--8 Core specific
 L["Shift function"] = "Функция переключения"
 L["-> MiniMapButton <-"] = "-> MiniMapButton <-"
 L["MapNotes menu window"] = "Окно меню MapNotes"
@@ -130,7 +155,7 @@ L["are hidden"] = "спрятаны"
 L["Left-click => Open/Close"] = "Клик левой кнопкой мыши => Открыть/Закрыть"
 L["Right-click => Open/Close"] = "Щелкните правой кнопкой мыши => Открыть/Закрыть"
 L["Shift + Right-click => hide"] = "Shift + щелчок правой кнопкой мыши => скрыть"
---9 transport --9 транспорт
+--9 transport
 L["icons"] = "иконки"
 L["Exit"] = "Выход"
 L["Entrance"] = "Вход"
@@ -221,7 +246,7 @@ L["Grok Seahandler"] = "Грок Морской Хендлер"
 L["Erul Dawnbrook"] = "Эрул Донбрук"
 L["Dread-Admiral Tattersail"] = "Ужасающий адмирал Рваный Парус"
 L["Grand Admiral Jes-Tereth"] = "Гранд-адмирал Джес-Терет"
---11 Specific --11 Конкретные
+--11 Specific
 L["Shows locations of raids, dungeons, portals ,ship and zeppelins icons on different maps"] = "Показывает расположение рейдов, подземелий, порталов, значков кораблей и дирижаблей на разных картах"
 L["(Wards of the Dread Citadel - Achievement)"] = "(Обереги Цитадели Ужаса – Достижение)"
 L["(Memory of Scholomance - Achievement)"] = "(Память о Некроситете - Достижение)"

@@ -1,7 +1,30 @@
 local L = LibStub("AceLocale-3.0"):NewLocale("HandyNotes_MapNotes", "zhTW")
 if not L then return end
 
---1 General tab--1 常規選項卡
+--0 Info tab
+L["Info"] = "資訊"
+L["A description of what this addon does and what functions it offers"] = "描述此插件的功能以及它提供的功能"
+L["A collection of various icons on various maps from previous expansions up to Dragonflight"] = "來自所有擴展名的不同卡片上不同符號的集合"
+L["Displays instance entrances, portals, ships, zeppelins, exits, passage, enemy faction and other transport icons"] = "顯示實例，門戶，船隻，Zeppeline，輸出，通道，敵方派系和其他符號"
+L["All icons can be activated or deactivated separately!"] = "所有符號都可以分別激活或停用！"
+L["Shift function option: You can use the MapNotes symbols with or without shift-clicking"] = "換檔功能選項：您可以使用或不使用Shift單擊的MAPNOTES符號"
+L["Hide MapNotes! option: All icons can also be hidden or shown with a single click"] = "隱藏mapnotes！ 選項：所有符號都可以單擊顯示"
+L["Normally on a maximized map you cannot use instance icons from Blizzard or other addons that would open the adventure guide. But not for MapNotes! You can use all functions on minimized or maximized maps!"] = "通常，您不能在最大化的卡片上使用暴風雪或其他插件實例符號，該卡將打開“冒險指南”。 但不是為了mapnotes！ 您可以在最小化或最大化卡上使用所有功能！"
+L["Worldmap function"] = "世界地圖功能"
+L["Right-click on any icon adds a TomTom waypoint (except on the Azeroth and Minimap)"] = "右鍵單擊符號添加tomtom Wayground（除了Azeroth和Mini卡除外）"
+L["Left-click on a Instance icon opens the corresponding dungeon in the adventure guide"] = "左鍵單擊實例符號將在“冒險指南”中打開相應的地牢"
+L["Azeroth/Continent Map: Left-click on a transport symbol opens the map where the symbol is"] = "艾澤拉斯/大陸圖:左鍵單擊傳輸符號，該卡打開該符號的位置"
+L["Zone map: Left-click on a transport symbol opens the map of the symbol's destination"] = "區域卡：左鍵單擊傳輸符號，卡從符號的目標打開"
+L["Example zone map: => Orgrimmar. Left-click on this icon opens the map of Orgrimmar"] = "示例區域卡：'=> orgrimmar'左單擊此符號，Orgrimmar的地圖打開"
+L["Example Azeroth/continent map: 'Jade Forest Portal => Orgrimmar' Left-click on this symbol opens the map of the Jade Forest. So you can see where you need to go to get to the portal"] = "示例艾澤拉斯/大陸地圖：“ jadewald portal => orgrimmar”左鍵單擊符號，從玉森林中打開卡片。 這樣您就可以看到要去門戶的地方"
+L["Maximized Map function"] = "最大化的卡功能"
+L["After the adventure guide is opened using a MapNote instance icon and you then switch to the dungeon map using the 'Show map' option in the adventure guide, the map is shown reduced in size so that you can move with the character within the instance and see where you have to go. This minimized map feature ends when you close the map or once! Press the “World map on/off” button (which you have set under 'ESC - Keyboard assignment - Interface function'), whereupon the map will be maximized"] = "在通過實例符號打開冒險領袖，然後通過“顯示卡”選項切換到冒險指南中的地牢卡，該卡以簡化顯示，以便您可以在實例中使用字符移動並查看你必須去哪裡。 關閉卡或一次時，此最小化的卡功能結束了！ 按下“世界地圖開/關”按鈕（您已在'ESC-鍵盤佈局 -  interfaceFunFunction'下設置了該按鈕），然後將卡最大化"
+L["Minimap button function"] = "Mini -Garden功能"
+L["Left-click opens or close the MapNote setting menu"] = "左鍵單擊打開或關閉MAPNOTE設置菜單"
+L["Right-click opens or close the HandyNote setting menu"] = "右鍵單擊打開或關閉手機styote設置菜單"
+L["Shift+Right-click hide the minimap button"] = "Shift+正確 - 單擊，隱藏迷你花園按鈕"
+L["Chat commands"] = "聊天命令"
+--1 General tab
 L["Description"] = "描述"
 L["Position of the real Instance Entrance"] = "真實實例輸入的位置"
 L["Way to the Instance Entrance"] = "實例輸入的方法"
@@ -44,6 +67,8 @@ L["gray all"] = "全是灰色"
 L["Colors EVERYONE! Assigned dungeons and raids also have multiple points in gray (if you have an ID)"] = "為大家著色！ 分配的地牢和突襲也有多個點（如果您有ID）"
 L["enemy faction"] = "敵對派系"
 L["Shows enemy faction (horde/alliance) icons"] = "顯示敵方派系（部落/聯盟）圖示"
+L["chat message"] = "聊天消息" 
+L["Deactivate MapNotes chat messages except 'Hide MapNotes!' and 'MapNotes VS. blizzard'"] = "停用mapnotes聊天消息，除了“隱藏mapnotes！” 和'mapnotes vs。 暴風雪" 
 L["Shows special transport icons like"] = "顯示特殊的運輸圖標"
 L["Combines several different grouped symbols that lie on one point, thus showing all possible transport/instance symbols that are located here instead of just one of several possible ones"] = "結合幾個位於一個點的幾個不同的分組符號，從而顯示了所有可能位於此處的運輸/實例符號，而不僅僅是幾個可能的傳輸符號"
 L["Left-clicking on one of these symbols on the map opens the corresponding map, which contains all of the points listed by the symbol on the map"] = "左鍵點擊地圖上的這些符號之一會開啟對應的地圖，其中包含地圖上該符號列出的所有點"
@@ -54,15 +79,15 @@ L["to open MapNotes menu: /mno, /MNO"] = "開啟 MapNotes 選單：/mno、/MNO"
 L["to close MapNotes menu: /mnc, /MNC"] = "關閉 MapNotes 選單：/mnc、/MNC"
 L["to show minimap button: /mnb or /MNB"] = "顯示小地圖按鈕：/mnb 或 /MNB"
 L["to hide minimap button: /mnbh or /MNBH"] = "隱藏小地圖按鈕：/mnbh 或 /MNBH"
---2 Azeroth tab specific --2 艾澤拉斯標籤特定
+--2 Azeroth tab specific
 L["Azeroth map"] = "艾澤拉斯地圖"
---3 Continent tab specific --3 大陸選項卡特定
+--3 Continent tab specific
 L["Continent map"] = "大陸地圖"
---4 Zone tab specific --4 區域選項卡特定
+--4 Zone tab specific
 L["Zone / Minimap"] = "區域 /迷你卡"
---5 DungeonMap Tab specific --5 DungeonMap 選項卡特定
+--5 DungeonMap Tab specific
 L["Dungeon map"] =  "地下城地圖" 
---6 Map Tabs together --6 個地圖選項卡在一起
+--6 Map Tabs together
 L["Activate icons"] = "啟動圖示"
 L["Show individual icons"] = "顯示單獨的圖示"
 L["Exits"] = "退出"
@@ -105,7 +130,7 @@ L["Show all Dragon Isles MapNotes dungeon, raid, portal, zeppelin and ship icons
 L["Certain icons can be displayed or not displayed. If the option (Activate icons) has been activated in this category"] = "某些圖示可以顯示或不顯示。如果該類別中的選項（啟動圖示）已啟動"
 L["Show vanilla versions of dungeons and raids such as Naxxramas, Scholomance or Scarlet Monastery, which require achievements or other things"] = "顯示普通版本的地下城和突襲，例如納克薩瑪斯、通靈學院或血色修道院，這需要成就或其他東西"
 L["Individual icons that are too close to other icons on this map are not 100% accurately placed on this map! For more precise coordinates, please use the points on the zone map"] = "與此地圖上其他符號太近的個體符號並未將100％精確放在此卡上！ 有關更詳細的坐標，請使用區域卡上的點"
---7 Maps --7張地圖
+--7 Maps
 L["Kalimdor"] = "卡利姆多"
 L["Eastern Kingdom"] = "東方王國"
 L["Outland"] = "外地"
@@ -117,7 +142,7 @@ L["Zandalar"] = "贊達拉"
 L["Kul Tiras"] = "庫爾提拉斯"
 L["Shadowlands"] = "暗影國度"
 L["Dragon Isles"] = "龍之島"
---8 Core specific --8 核心特定
+--8 Core specific
 L["Shift function"] = "「平移功能」"
 L["-> MiniMapButton <-"] = "-> 迷你地圖按鈕 <-"
 L["MapNotes menu window"] = "MapNotes 選單視窗"
@@ -130,7 +155,7 @@ L["are hidden"] = "被隱藏"
 L["Left-click => Open/Close"] = "左鍵單擊=>開啟/關閉"
 L["Right-click => Open/Close"] = "右鍵單擊=>開啟/關閉"
 L["Shift + Right-click => hide"] = "Shift + 右鍵單擊 => 隱藏"
---9 transport --9 運輸
+--9 transport --9
 L["icons"] = "圖示"
 L["Exit"] = "出口"
 L["Entrance"] = "入口"
@@ -221,7 +246,7 @@ L["Grok Seahandler"] = "格羅克海手"
 L["Erul Dawnbrook"] = "埃魯道恩布魯克"
 L["Dread-Admiral Tattersail"] = "恐怖海軍上將塔特賽爾"
 L["Grand Admiral Jes-Tereth"] = "傑斯-特雷斯元帥"
---11 Specific --11 具體
+--11 Specific
 L["Shows locations of raids, dungeons, portals ,ship and zeppelins icons on different maps"] = "在不同的地圖上顯示突襲、地下城、傳送門、船隻和飛艇圖示的位置"
 L["(Wards of the Dread Citadel - Achievement)"] = "（恐懼城堡的守衛 - 成就）"
 L["(Memory of Scholomance - Achievement)"] = "（通靈學院的記憶 - 成就）"

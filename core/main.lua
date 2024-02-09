@@ -4,6 +4,7 @@ local HandyNotes = LibStub("AceAddon-3.0"):GetAddon("HandyNotes", true)
 if not HandyNotes then return end
 
 local ADDON_NAME = "HandyNotes_MapNotes"
+local L = LibStub("AceLocale-3.0"):GetLocale(ADDON_NAME)
 local MapNotesMiniButton = LibStub("AceAddon-3.0"):NewAddon("MNMiniMapButton", "AceConsole-3.0")  
 local MNMMBIcon = LibStub("LibDBIcon-1.0", true)
 
@@ -300,11 +301,6 @@ function pluginHandler:OnClick(button, pressed, uiMapId, coord)
         return
     end
 
-    if (button == "LeftButton" and db.WorldMapFrame) then
-      WorldMapFrame:Maximize()
-    end
-
-
     if (button == "LeftButton" and db.journal) then
 
       local mnID = nodes[uiMapId][coord].mnID
@@ -340,10 +336,13 @@ function pluginHandler:OnClick(button, pressed, uiMapId, coord)
       if (not EncounterJournal_OpenJournal) then 
         UIParentLoadAddOn('Blizzard_EncounterJournal')
       end
-      if WorldMapFrame:IsMaximized() then WorldMapFrame:Minimize() end
+      if WorldMapFrame:IsMaximized() then 
+        WorldMapFrame:Minimize() 
+      end
       EncounterJournal_OpenJournal(difficulty, dungeonID)
       _G.EncounterJournal:SetScript("OnShow", nil)
     end
+
   end
 
   if db.show.ShiftWorld then
@@ -388,7 +387,12 @@ function pluginHandler:OnClick(button, pressed, uiMapId, coord)
       if (not EncounterJournal_OpenJournal) then 
         UIParentLoadAddOn('Blizzard_EncounterJournal')
       end
-      if WorldMapFrame:IsMaximized() then WorldMapFrame:Minimize() end
+      if WorldMapFrame:IsMaximized() then 
+        WorldMapFrame:Minimize() 
+        if not ns.Addon.db.profile.noChatMassage then 
+          print("\n" .. TextIconMNL4:GetIconString() .. " " .. "|cffff0000Map|r|cff00ccffNotes |r" .. "|cffffff00" .. L["Information because you just used an instance icon with a maximized map"] .. "|r" .. "\n" .. TextIconMNL4:GetIconString() .. " " .. "|cffff0000Map|r|cff00ccffNotes |r" .. "|cffffff00" .. L["If the dungeon map is not maximized, you have to press the button once that would open your world map!"]) 
+        end 
+      end
       EncounterJournal_OpenJournal(difficulty, dungeonID)
       _G.EncounterJournal:SetScript("OnShow", nil)
     end

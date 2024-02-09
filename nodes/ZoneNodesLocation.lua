@@ -242,8 +242,8 @@ if not db.show.HideMapNote then
         -- Eastern Kingdom Transporter
           if self.db.profile.showZoneTransport then
 
-            nodes[87][72545022] = { mnID = 499, name = "", type = "Carriage", showInZone = true, hideOnContinent = true, TransportName = DUNGEON_FLOOR_DEEPRUNTRAM1 .. " => " .. L["Ironforge"] } -- Transport to Ironforge Carriage
-            nodes[84][66783455] = { mnID = 499, name = "", type = "Carriage", showInZone = true, hideOnContinent = true, TransportName = DUNGEON_FLOOR_DEEPRUNTRAM1 .. " => " .. STORMWIND } -- Transport to Ironforge Carriage
+            nodes[87][72545022] = { mnID = 84, name = "", type = "Carriage", showInZone = true, hideOnContinent = true, TransportName = DUNGEON_FLOOR_DEEPRUNTRAM1 .. " => " .. STORMWIND } -- Transport to Stormwind Carriage
+            nodes[84][66783455] = { mnID = 87, name = "", type = "Carriage", showInZone = true, hideOnContinent = true, TransportName = DUNGEON_FLOOR_DEEPRUNTRAM1 .. " => " .. L["Ironforge"] } -- Transport to Ironforge Carriage
             --nodes[499][66783455] = { mnID = 449, name = "", type = "Carriage", showInZone = true, hideOnContinent = true, TransportName = L["Transport"] .. " => " .. DUNGEON_FLOOR_DEEPRUNTRAM1 } -- Transport to Ironforge Carriage
 
           end
@@ -318,7 +318,7 @@ if not db.show.HideMapNote then
 
             if self.faction == "Alliance" or db.show.EnemyFaction then
               nodes[114][59636916] = { mnID = 84, name = "", type = "AShip", showInZone = true, hideOnContinent = true, TransportName = L["Ship"] .. " => " .. STORMWIND } -- Ship to Stormwind from Borean Tundra
-              nodes[117][61366271] = { mnID = 84, name = "", type = "AShip", showInZone = true, hideOnContinent = true, TransportName = L["Ship"] .. " => " .. STORMWIND } -- Ship to Stormwind from Borean Tundra
+              nodes[117][61366271] = { mnID = 56, name = "", type = "AShip", showInZone = true, hideOnContinent = true, TransportName = L["Ship"] .. " => " .. POSTMASTER_LETTER_WETLANDS } -- Ship to Wetlands from Borean Tundra
             end
 
           end

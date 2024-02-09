@@ -1,6 +1,29 @@
 local L = LibStub("AceLocale-3.0"):NewLocale("HandyNotes_MapNotes", "enUS", true)
 
 
+--0 Info tab
+L["Info"] = true
+L["A description of what this addon does and what functions it offers"] = true
+L["A collection of various icons on various maps from previous expansions up to Dragonflight"] = true
+L["Displays instance entrances, portals, ships, zeppelins, exits, passage, enemy faction and other transport icons"] = true
+L["All icons can be activated or deactivated separately!"] = true
+L["Shift function option: You can use the MapNotes symbols with or without shift-clicking"] = true
+L["Hide MapNotes! option: All icons can also be hidden or shown with a single click"] = true
+L["Normally on a maximized map you cannot use instance icons from Blizzard or other addons that would open the adventure guide. But not for MapNotes! You can use all functions on minimized or maximized maps!"] = true
+L["Worldmap function"] = true
+L["Right-click on any icon adds a TomTom waypoint (except on the Azeroth and Minimap)"] = true
+L["Left-click on a Instance icon opens the corresponding dungeon in the adventure guide"] = true
+L["Azeroth/Continent Map: Left-click on a transport symbol opens the map where the symbol is"] = true
+L["Zone map: Left-click on a transport symbol opens the map of the symbol's destination"] = true
+L["Example zone map: => Orgrimmar. Left-click on this icon opens the map of Orgrimmar"] = true
+L["Example Azeroth/continent map: 'Jade Forest Portal => Orgrimmar' Left-click on this symbol opens the map of the Jade Forest. So you can see where you need to go to get to the portal"] = true
+L["Maximized Map function"] = true
+L["Immediately after using an instance icon from MapNotes to open the Adventure Guide, if you use the 'Show Map' option in the Adventure Guide to switch to the dungeon map, the map will be displayed minimized for better orientation of your character inside the instance. This minimized map function ends when you close the map or when you press the “World Map on/off” button once! ( that you have set in the World of Warcraft 'keyboard settings' under 'Interface function') after which the map is automatically maximized again"] = true
+L["Minimap button function"] = true
+L["Left-click opens or close the MapNote setting menu"] = true
+L["Right-click opens or close the HandyNote setting menu"] = true
+L["Shift+Right-click hide the minimap button"] = true
+L["Chat commands"] = true
 --1 General tab
 L["Description"] = true
 L["Position of the real Instance Entrance"] = true
@@ -44,6 +67,8 @@ L["gray all"] = true
 L["Colors EVERYONE! Assigned dungeons and raids also have multiple points in gray (if you have an ID)"] = true
 L["enemy faction"] = true
 L["Shows enemy faction (horde/alliance) icons"] = true
+L["chat message"] = true
+L["Deactivate MapNotes chat messages except 'Hide MapNotes!' and 'MapNotes VS. blizzard'"] = true
 L["Shows special transport icons like"] = true
 L["Combines several different grouped symbols that lie on one point, thus showing all possible transport/instance symbols that are located here instead of just one of several possible ones"] = true
 L["Left-clicking on one of these symbols on the map opens the corresponding map, which contains all of the points listed by the symbol on the map"] = true

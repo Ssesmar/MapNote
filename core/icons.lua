@@ -9,23 +9,19 @@ ns.icons = {
 --instance
 ["Dungeon"] = iconLink .. "DungeonSymbol",
 ["DungeonL"] = iconLink .. "DungeonSymbolL", -- zone icons
-["DungeonXL"] = iconLink .. "DungeonSymbolXL",
 ["Raid"] = iconLink .. "RaidSymbol",
 ["RaidL"] = iconLink .. "RaidSymbolL", -- zone icons
-["RaidXL"] = iconLink .. "RaidSymbolXL",
 ["VInstance"] = iconLink .. "vanillaInstance",
 ["VInstanceL"] = iconLink .. "vanillaInstanceL",
 ["VKey1"] = iconLink .. "vkey1",
 ["MultipleM"] = iconLink .. "multipleM",
 ["MultipleD"] = iconLink .. "multipleD",
 ["MultipleR"] = iconLink .. "multipleR",
-["MultipleMgray"] = iconLink .. "multipleMgray",
 ["Locked"] = iconLink .. "gray",
 ["GrayL"] = iconLink .. "grayL",
 --zeppelin
 ["Zeppelin"] = iconLink .. "zeppelin",
 ["HZeppelin"] = iconLink .. "zeppelinH",
-["AZeppelin"] = iconLink .. "zeppelinA",
 --portal
 ["Portal"] = iconLink .. "portal",
 ["HPortal"] = iconLink .. "hportal",
@@ -38,10 +34,8 @@ ns.icons = {
 ["PassageDungeonRaidM"] = iconLink .. "PassageDungeonM",
 ["PassageDungeonM"] = iconLink .. "PassageDungeonM",
 ["PassageDungeonL"] = iconLink .. "PassageDungeonL", -- zone icons
-["PassageDungeonXL"] = iconLink .. "PassageDungeonXL",
 ["PassageRaidM"] = iconLink .. "passageRaidM",
 ["PassageRaidL"] = iconLink .. "passageRaidL", -- zone icons
-["PassageRaidXL"] = iconLink .. "passageRaidXL",
 ["PassageDungeonRaidMultiM"] = iconLink .. "PassageDungeonRaidMultiM",
 ["PassageDungeonRaidMultiL"] = iconLink .. "PassageDungeonRaidMultiL", -- zone icons
 ["PassageDungeonMultiM"] = iconLink .. "PassageDungeonMultiM",
@@ -67,7 +61,6 @@ ns.icons = {
 --travel
 ["TravelL"] = iconLink .. "travelL",
 ["TravelM"] = iconLink .. "travelm",
-["Point"] = iconLink .. "Point",
 --special icons
 ["HIcon"] = iconLink .. "HIcon",
 ["AIcon"] = iconLink .. "AIcon",
