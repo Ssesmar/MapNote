@@ -43,7 +43,7 @@ ns.options = {
           name = "|cffff0000" .. L["hide MapNotes!"] .."\n",
           desc = L["Disable MapNotes, all icons will be hidden on each map and all categories will be disabled"],
           order = 1.3,
-          width = 1.05,
+          width = 1.10,
           get = function() return ns.Addon.db.profile.show.HideMapNote end,
           set = function(info, v) ns.Addon.db.profile.show.HideMapNote = v self:FullUpdate() HandyNotes:SendMessage("HandyNotes_NotifyUpdate", "MapNotes")
                 if ns.Addon.db.profile.show.HideMapNote then print(TextIconMNL4:GetIconString() .. " " .. COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffff0000", L["All MapNotes icons have been hidden"]) else
@@ -54,7 +54,7 @@ ns.options = {
           name = "|cffff0000" .. L["hide minimap button"],
           desc = L["Hide the MapNotes button on the minimap"],
           order = 1.4,
-          width = 1.25,
+          width = 1.30,
           get = function() return ns.Addon.db.profile.show.HideMMB end,
           set = function(info, v) ns.Addon.db.profile.show.HideMMB = v self:FullUpdate() HandyNotes:SendMessage("HandyNotes_NotifyUpdate", "MapNotes")
             if not ns.Addon.db.profile.show.HideMMB then MNMMBIcon:Show("MNMiniMapButton") print(COLORED_ADDON_NAME .. "|cffffff00", L["-> MiniMapButton <-"], "|cff00ff00" .. L["is activated"]) else
@@ -68,8 +68,8 @@ ns.options = {
           width = 1.30,
           get = function() return ns.Addon.db.profile.show.HideWMB end,
           set = function(info, v) ns.Addon.db.profile.show.HideWMB = v self:FullUpdate() HandyNotes:SendMessage("HandyNotes_NotifyUpdate", "MapNotes")
-            if not ns.Addon.db.profile.show.HideWMB then ReloadUI() LibStub("AceConfigDialog-3.0"):Open("MNMiniMapButton") print(COLORED_ADDON_NAME .. "|cffffff00", L["-> WorldMapButton <-"], "|cff00ff00" .. L["is activated"]) else
-            if ns.Addon.db.profile.show.HideWMB then ReloadUI() LibStub("AceConfigDialog-3.0"):Open("MNMiniMapButton") print(COLORED_ADDON_NAME .. "|cffffff00", L["-> WorldMapButton <-"], "|cffff0000" .. L["is deactivated"]) end end end,
+            if not ns.Addon.db.profile.show.HideWMB then ns.WorldMapButton:Show() print(COLORED_ADDON_NAME .. "|cffffff00", L["-> WorldMapButton <-"], "|cff00ff00" .. L["is activated"]) else
+            if ns.Addon.db.profile.show.HideWMB then ns.WorldMapButton:Hide() print(COLORED_ADDON_NAME .. "|cffffff00", L["-> WorldMapButton <-"], "|cffff0000" .. L["is deactivated"]) end end end,
           },
         DescriptionHeader = {
           type = "header",

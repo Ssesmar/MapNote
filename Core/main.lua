@@ -445,15 +445,15 @@ function Addon:PLAYER_LOGIN()
   db = self.db.profile
   Addon:RegisterEvent("PLAYER_ENTERING_WORLD") -- Check for any lockout changes when we zone
   LibStub("AceConfigRegistry-3.0"):RegisterOptionsTable("MNMiniMapButton", ns.options)
-
   
   if db.show.HideMMB then 
     MNMMBIcon:Hide("MNMiniMapButton")
   end
 
-  if not db.show.HideWMB then 
-    -- Add worldmap button to top-right corner on the world map
-    LibStub('Krowi_WorldMapButtons-1.4'):Add(ADDON_NAME .. "WorldMapOptionsButtonTemplate","DROPDOWNTOGGLEBUTTON")
+  ns.WorldMapButton = LibStub('Krowi_WorldMapButtons-1.4'):Add(ADDON_NAME .. "WorldMapOptionsButtonTemplate","DROPDOWNTOGGLEBUTTON")
+  if ns.Addon.db.profile.show.HideWMB
+    then ns.WorldMapButton:Hide()
+    else ns.WorldMapButton:Show()
   end
 end
 
