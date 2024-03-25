@@ -40,11 +40,5 @@ function WorldMapOptionsButtonMixin:OnEnter()
 end
 
 function WorldMapOptionsButtonMixin:Refresh()
-    --local enabled = ns.Addon.db.profile.HideWMB
-    --local map = 0
-    --if enabled and map then
-    --    self:Show()
-    --else
-    --    self:Hide()
-    --end
+
 end

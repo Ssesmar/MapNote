@@ -445,6 +445,7 @@ function Addon:PLAYER_LOGIN()
   db = self.db.profile
   Addon:RegisterEvent("PLAYER_ENTERING_WORLD") -- Check for any lockout changes when we zone
   LibStub("AceConfigRegistry-3.0"):RegisterOptionsTable("MNMiniMapButton", ns.options)
+
   
   if db.show.HideMMB then 
     MNMMBIcon:Hide("MNMiniMapButton")
