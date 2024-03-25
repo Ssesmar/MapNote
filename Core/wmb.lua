@@ -15,7 +15,7 @@ function WorldMapOptionsButtonMixin:OnClick(button)
 
     if button == "LeftButton" then
         if not LibStub("AceConfigDialog-3.0"):Close("MNMiniMapButton") then
-          LibStub("AceConfigDialog-3.0"):Open("MNMiniMapButton")
+            LibStub("AceConfigDialog-3.0"):Open("MNMiniMapButton")
         end 
     end
 

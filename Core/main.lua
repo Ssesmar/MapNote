@@ -451,9 +451,11 @@ function Addon:PLAYER_LOGIN()
     MNMMBIcon:Hide("MNMiniMapButton")
   end
 
-  -- Add worldmap button to top-right corner on the world map
-  local template = ADDON_NAME .. 'WorldMapOptionsButtonTemplate'
-  ns.Addon.db.profile.HideWMB = LibStub('Krowi_WorldMapButtons-1.4'):Add(template,'DROPDOWNTOGGLEBUTTON')
+  if not db.show.HideWMB then 
+    -- Add worldmap button to top-right corner on the world map
+    local template = ADDON_NAME .. 'WorldMapOptionsButtonTemplate'
+    ns.Addon.db.profile.HideWMB = LibStub('Krowi_WorldMapButtons-1.4'):Add(template,'DROPDOWNTOGGLEBUTTON')
+  end
 end
 
 function Addon:PopulateMinimap()
