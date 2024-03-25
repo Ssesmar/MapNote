@@ -8,6 +8,5 @@
     <Script file="ccmmb.lua"/>
     <Script file="mmb.lua"/>
     <Script file="wmb.lua"/>
-    <!-- Must be outside of core/ for dev purposes -->
-    <Include file="..\wmb-template.xml"/>
+    <Include file="wmb-template.xml"/>
 </Ui>
