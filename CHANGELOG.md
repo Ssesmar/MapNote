@@ -1,5 +1,5 @@
 # MapNote
-## [1.8.0b](https://github.com/Ssesmar/MapNote) (2024-03-21)
+## [1.8.1](https://github.com/Ssesmar/MapNote) (2024-03-26)
 - Note:
 
 -- add worldmapbutton for MapNotes

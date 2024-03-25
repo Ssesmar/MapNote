@@ -63,13 +63,13 @@ ns.options = {
         hideWMB = {
           type = "toggle",
           name = "|cffff0000" .. L["hide worldmap button"],
-          desc = L["Hide the MapNotes button on the worldmap"],
+          desc = L["Hide the MapNotes button on the worldmap"] .. "\n" .. "\n" .. "|cffff0000" .. REQUIRES_RELOAD,
           order = 1.5,
           width = 1.30,
           get = function() return ns.Addon.db.profile.show.HideWMB end,
           set = function(info, v) ns.Addon.db.profile.show.HideWMB = v self:FullUpdate() HandyNotes:SendMessage("HandyNotes_NotifyUpdate", "MapNotes")
-            if not ns.Addon.db.profile.show.HideWMB then ReloadUI() print(COLORED_ADDON_NAME .. "|cffffff00", L["-> WorldMapButton <-"], "|cff00ff00" .. L["is activated"]) else
-            if ns.Addon.db.profile.show.HideWMB then ReloadUI() print(COLORED_ADDON_NAME .. "|cffffff00", L["-> WorldMapButton <-"], "|cffff0000" .. L["is deactivated"]) end end end,
+            if not ns.Addon.db.profile.show.HideWMB then ReloadUI() LibStub("AceConfigDialog-3.0"):Open("MNMiniMapButton") print(COLORED_ADDON_NAME .. "|cffffff00", L["-> WorldMapButton <-"], "|cff00ff00" .. L["is activated"]) else
+            if ns.Addon.db.profile.show.HideWMB then ReloadUI() LibStub("AceConfigDialog-3.0"):Open("MNMiniMapButton") print(COLORED_ADDON_NAME .. "|cffffff00", L["-> WorldMapButton <-"], "|cffff0000" .. L["is deactivated"]) end end end,
           },
         DescriptionHeader = {
           type = "header",
