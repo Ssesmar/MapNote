@@ -65,8 +65,6 @@
 			<OnClick method="OnClick"/>
 			<OnEnter method="OnEnter"/>
 			<OnLeave function="GameTooltip_Hide"/>
-			<OnHide method="OnHide"/>
     </Scripts>
   </DropDownToggleButton>
-
 </Ui>
