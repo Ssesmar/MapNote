@@ -16,6 +16,7 @@ OnTooltipShow = function(tooltip)
   tooltip:AddLine(L["Left-click => Open/Close"] .. " " .. COLORED_ADDON_NAME,1,1,1)
   tooltip:AddLine(L["Right-click => Open/Close"] .. " " .. "|cffffff00" .. "HandyNotes",1,1,1)
   tooltip:AddLine(L["Shift + Right-click => hide"] .. " " .. "|cffffff00" .. L["-> MiniMapButton <-"],1,1,1)
+  tooltip:AddLine(L["Middle-Mouse-Button => Open/Close"] .. " " .. "|cff00ccff" .. "-> " .. WORLDMAP_BUTTON .." <-",1,1,1)
   end,
 OnClick = function(self, button)
     if button == "RightButton" then

@@ -3,6 +3,7 @@
 - Note:
 
 -- add worldmapbutton for MapNotes
+-- add 4th option for the minimap button to open the worldmap with the middle mouse button
 
 
 - Description:
