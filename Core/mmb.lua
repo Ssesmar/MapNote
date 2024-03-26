@@ -40,4 +40,14 @@ OnClick = function(self, button)
       LibStub("AceConfigDialog-3.0"):Close("HandyNotes")
     end 
   end
-end } 
+
+  if button == "MiddleButton" then
+    if WorldMapFrame:IsShown() then
+      ToggleWorldMap()
+      WorldMapFrame:Hide()
+    else 
+      ToggleWorldMap()
+      WorldMapFrame:Show()
+    end
+  end
+end }
