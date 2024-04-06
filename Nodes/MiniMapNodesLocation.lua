@@ -45,7 +45,7 @@ if not db.show.HideMapNote then
   
             
             if self.faction == "Horde" or db.show.EnemyFaction then  
-              minimap[62][46243511] = { mnID = 862, name = L["(its only shown up ingame if your faction\n is currently occupying Bashal'Aran)"], type = "HPortal", showInZone = false, hideOnContinent = true, hideOnMinimap = false,} -- Portal from New Darkshore to Zandalar 
+              minimap[62][46243511] = { mnID = 862, name = L["(its only shown up ingame if your faction\n is currently occupying Bashal'Aran)"], type = "HPortal", showInZone = false, hideOnContinent = true, hideOnMinimap = false } -- Portal from New Darkshore to Zandalar 
               minimap[85][50765561] = { mnID = 18, name = "", type = "HPortal", showInZone = false, hideOnContinent = true, hideOnMinimap = false, TransportName = L["Portal"] .. " => " .. L["Ruins of Lordaeron"] } -- Ruins of Lordaeron 
               minimap[85][55988822] = { mnID = 110, name = "", type = "HPortalS", showInZone = false, hideOnContinent = true, hideOnMinimap = false, TransportName = L["Portal"] .. " => " .. L["Silvermoon City"] } -- Silvermoon City
               minimap[85][57098737] = { mnID = 2112, name = "", type = "HPortalS", showInZone = false, hideOnContinent = true, hideOnMinimap = false, TransportName = L["Portal"] .. " => " .. L["Valdrakken"] } --  Valdrakken 
@@ -54,9 +54,9 @@ if not db.show.HideMapNote then
               minimap[85][57479217] = { mnID = 862, name = "", type = "HPortalS", showInZone = false, hideOnContinent = true, hideOnMinimap = false, TransportName = L["Portal"] .. " => " .. L["Zuldazar"] } -- Zuldazar  
               minimap[85][57479225] = { mnID = 371, name = "", type = "HPortalS", showInZone = false, hideOnContinent = true, hideOnMinimap = false, TransportName = L["Portal"] .. " => " .. L["Jade Forest"] } -- The Jade Forest 
               minimap[85][56249171] = { mnID = 125, name = "", type = "HPortalS", showInZone = false, hideOnContinent = true, hideOnMinimap = false, TransportName = L["Portal"] .. " => " .. DUNGEON_FLOOR_DALARANCITY1 } -- Crystalsong Forest (Old Dalaran) Portalroom 
-              minimap[85][57409153] = { mnID = 111, name = L["in the basement"], type = "HPortalS", showInZone = false, hideOnContinent = true, hideOnMinimap = false,} -- Shattrath 
-              minimap[85][56399252] = { mnID = 74, name = L["in the basement"], type = "HPortalS", showInZone = false, hideOnContinent = true, hideOnMinimap = false,} -- Caverns of Time 
-              minimap[85][55209201] = { mnID = 624, name = L["in the basement"], type = "HPortalS", showInZone = false, hideOnContinent = true, hideOnMinimap = false,} -- Warspear - Ashran 
+              minimap[85][57409153] = { mnID = 111, name = L["in the basement"], type = "HPortalS", showInZone = false, hideOnContinent = true, hideOnMinimap = false } -- Shattrath 
+              minimap[85][56399252] = { mnID = 74, name = L["in the basement"], type = "HPortalS", showInZone = false, hideOnContinent = true, hideOnMinimap = false } -- Caverns of Time 
+              minimap[85][55209201] = { mnID = 624, name = L["in the basement"], type = "HPortalS", showInZone = false, hideOnContinent = true, hideOnMinimap = false } -- Warspear - Ashran 
               minimap[85][47393928] = { mnID = 245, name = "", type = "HPortalS", showInZone = false, hideOnContinent = true, hideOnMinimap = false, TransportName = L["Portal"] .. " => " .. DUNGEON_FLOOR_TOLBARADWARLOCKSCENARIO0 } --  Portal to Tol Barad
               minimap[85][48863851] = { mnID = 1527, name = "", type = "HPortalS", showInZone = false, hideOnContinent = true, hideOnMinimap = false, TransportName = L["Portal"] .. " => " .. L["Uldum"] } -- Portal to Uldum
               minimap[85][50243944] = { mnID = 241, name = "", type = "HPortalS", showInZone = false, hideOnContinent = true, hideOnMinimap = false, TransportName = L["Portal"] .. " => " .. L["Twilight Highlands"] } -- Portal to Twilight Highlands
@@ -72,7 +72,7 @@ if not db.show.HideMapNote then
               minimap[97][20235409] = { mnID = 57, name = "", type = "APortal", showInZone = false, hideOnContinent = true, hideOnMinimap = false, TransportName = L["Portal"] .. " => " .. L["Rut'theran"] } -- Portal Exodar to Teldrassil
               minimap[103][48326264] = { mnID = 84, name = "", type = "APortal", showInZone = false, hideOnContinent = true, hideOnMinimap = false, TransportName = L["Portal"] .. " => " .. STORMWIND } -- Portal Exodar to Stormwind
               minimap[62][53731873] = { mnID = 2239, name = "", type = "APortal", showInZone = false, hideOnContinent = true, hideOnMinimap = false, TransportName = L["Portal"] .. " => " .. L["Bel'ameth, Amirdrassil"] } -- Portal from New Darkshore to Bel'ameth, Amirdrassil
-              minimap[62][48023628] = { mnID = 1161, name = L["(its only shown up ingame if your faction\n is currently occupying Bashal'Aran)"], type = "APortal", showInZone = false, hideOnContinent = true, hideOnMinimap = false,} -- Portal from New Darkshore to Zandalar
+              minimap[62][48023628] = { mnID = 1161, name = L["(its only shown up ingame if your faction\n is currently occupying Bashal'Aran)"], type = "APortal", showInZone = false, hideOnContinent = true, hideOnMinimap = false } -- Portal from New Darkshore to Zandalar
               minimap[198][62602315] = { mnID = 84,  name = "" , type = "APortal", showInZone = false, hideOnContinent = true, hideOnMinimap = false, TransportName = L["Portal"] .. " => " .. STORMWIND } -- Portal To Stormwind from Hyjal
               minimap[207][48525385] = { mnID = 84, name = "", type = "APortal", showInZone = false, hideOnContinent = true, hideOnMinimap = false, TransportName = L["Portal"] .. " => " .. STORMWIND } -- Portal To Stormwind
               minimap[57][55039371] = { mnID = 84, name = "", type = "APortal", showInZone = false, hideOnContinent = true, hideOnMinimap = false, TransportName = L["Portal"] .. " => " .. STORMWIND } -- Portal To Stormwind from Teldrassil
@@ -129,13 +129,15 @@ if not db.show.HideMapNote then
 
         --Eastern Kingdom Portals
           if self.db.profile.showMiniMapPortals then
+
+            minimap[244][47135189] = { mnID = 85, name = "", type = "Portal", showInZone = false, hideOnContinent = true, hideOnMinimap = false, TransportName = L["Portal"] .."\n" .. "\n" .. " => " .. ORGRIMMAR .. "\n" .. " " .. JUST_OR .. "\n" .. " => " .. STORMWIND } -- Portal Tol Orgrimmar or Stormwind from Baradinhold Tol Barad pvp Area
     
             if self.faction == "Horde" then
-              minimap[17][55005418] = { mnID = 624, name = L["The Dark Portal"] .. " (" .. L["Portal"] .. " - " .. L["Ashran"] ..")", type = "HPortal", showInZone = false, hideOnContinent = true, hideOnMinimap = false,} -- Portal from Blasted Lands to Warspear              
+              minimap[17][55005418] = { mnID = 624, name = L["The Dark Portal"] .. " (" .. L["Portal"] .. " - " .. L["Ashran"] ..")", type = "HPortal", showInZone = false, hideOnContinent = true, hideOnMinimap = false } -- Portal from Blasted Lands to Warspear              
             end
 
             if self.faction == "Alliance" then
-              minimap[17][55005418] = { mnID = 622, name = L["The Dark Portal"] .. " (" .. L["Portal"] .. " - " .. L["Ashran"] ..")", type = "APortal", showInZone = false, hideOnContinent = true, hideOnMinimap = false,} -- Portal from Blasted Lands to Stormshield
+              minimap[17][55005418] = { mnID = 622, name = L["The Dark Portal"] .. " (" .. L["Portal"] .. " - " .. L["Ashran"] ..")", type = "APortal", showInZone = false, hideOnContinent = true, hideOnMinimap = false } -- Portal from Blasted Lands to Stormshield
             end
 
             if self.faction == "Horde" or db.show.EnemyFaction then
@@ -156,7 +158,7 @@ if not db.show.HideMapNote then
               minimap[110][49491509] = { mnID = 18, name = "", type = "HPortal", showInZone = false, hideOnContinent = true, hideOnMinimap = false, TransportName = L["Portal"] .. " => " .. L["Ruins of Lordaeron"] } -- Portal to Undercity from Silvermoon 
               minimap[14][27442938] = { mnID = 862, name = "", type = "HPortal", showInZone = false, hideOnContinent = true, hideOnMinimap = false, TransportName = L["Portal"] .. " => " .. L["Zandalar"] .. "\n" .. " " .. "(" .. L["This Arathi Highlands portal is only active if your faction is currently occupying Ar'gorok"] .. ")" }
               minimap[245][56397967] = { mnID = 85, name = "", type = "HPortal", showInZone = false, hideOnContinent = true, hideOnMinimap = false, TransportName = L["Portal"] .. " => " .. ORGRIMMAR } -- Portal Tol Bard to Orgimmar  
-              minimap[90][85181711] = { mnID = 100, name = "", type = "HPortal", showInZone = false, hideOnContinent = true, hideOnMinimap = false,} -- Portal from Old Undercity to Hellfire
+              minimap[90][85181711] = { mnID = 100, name = "", type = "HPortal", showInZone = false, hideOnContinent = true, hideOnMinimap = false } -- Portal from Old Undercity to Hellfire
               minimap[241][73595355] = { mnID = 85, name = "", type = "HPortal", showInZone = false, hideOnContinent = true, hideOnMinimap = false, TransportName = L["Portal"] .. " => " .. ORGRIMMAR } -- Portal Tol Orgrimmar from Twilight Highlands  
             end
     
@@ -256,7 +258,7 @@ if not db.show.HideMapNote then
 
         -- Outland Portals
           if self.db.profile.showMiniMapPortals then
-              minimap[111][48614203] = { mnID = 122, name = "", type = "Portal", showInZone = false, hideOnContinent = true, hideOnMinimap = false,} -- Portal from Shattrath to Quel'Danas 
+              minimap[111][48614203] = { mnID = 122, name = "", type = "Portal", showInZone = false, hideOnContinent = true, hideOnMinimap = false } -- Portal from Shattrath to Quel'Danas 
               minimap[108][31332481] = { mnID = 111, name = "", type = "Portal", showInZone = false, hideOnContinent = true, hideOnMinimap = false, TransportName = L["Shattrath City"] .. " " .. L["Portals"] .. "\n" ..  "\n" .. " => " .. ORGRIMMAR .. "\n" .. " => " .. STORMWIND .. "\n" .. " => " .. L["Isle of Quel'Danas"] } -- Portal from Shattrath to Orgrimmar
 
             if self.faction == "Horde" or db.show.EnemyFaction then
@@ -365,21 +367,21 @@ if not db.show.HideMapNote then
           if self.db.profile.showMiniMapTransport then
     
             if self.faction == "Horde" then
-              minimap[543][58033444] = { mnID = 590, name = L["Ogre Waygate to Garrison"], type = "OgreWaygate", showInZone = false, hideOnContinent = true, hideOnMinimap = false,} -- Ogre Waygate Gorgrond
-              minimap[525][59544752] = { mnID = 590, name = L["Ogre Waygate to Garrison"], type = "OgreWaygate", showInZone = false, hideOnContinent = true, hideOnMinimap = false,} -- Ogre Waygate FrostfireRidge
-              minimap[550][32164623] = { mnID = 590, name = L["Ogre Waygate to Garrison"], type = "OgreWaygate", showInZone = false, hideOnContinent = true, hideOnMinimap = false,} -- Ogre Waygate Nagrand
-              minimap[535][55084813] = { mnID = 590, name = L["Ogre Waygate to Garrison"], type = "OgreWaygate", showInZone = false, hideOnContinent = true, hideOnMinimap = false,} -- Ogre Waygate Talador
-              minimap[542][54625163] = { mnID = 590, name = L["Ogre Waygate to Garrison"], type = "OgreWaygate", showInZone = false, hideOnContinent = true, hideOnMinimap = false,} -- Ogre Waygate SpiresOfArak
-              minimap[539][50463566] = { mnID = 590, name = L["Ogre Waygate to Garrison"], type = "OgreWaygate", showInZone = false, hideOnContinent = true, hideOnMinimap = false,} -- Ogre Waygate Shadowmoon Valley
+              minimap[543][58033444] = { mnID = 590, name = L["Ogre Waygate to Garrison"], type = "OgreWaygate", showInZone = false, hideOnContinent = true, hideOnMinimap = false } -- Ogre Waygate Gorgrond
+              minimap[525][59544752] = { mnID = 590, name = L["Ogre Waygate to Garrison"], type = "OgreWaygate", showInZone = false, hideOnContinent = true, hideOnMinimap = false } -- Ogre Waygate FrostfireRidge
+              minimap[550][32164623] = { mnID = 590, name = L["Ogre Waygate to Garrison"], type = "OgreWaygate", showInZone = false, hideOnContinent = true, hideOnMinimap = false } -- Ogre Waygate Nagrand
+              minimap[535][55084813] = { mnID = 590, name = L["Ogre Waygate to Garrison"], type = "OgreWaygate", showInZone = false, hideOnContinent = true, hideOnMinimap = false } -- Ogre Waygate Talador
+              minimap[542][54625163] = { mnID = 590, name = L["Ogre Waygate to Garrison"], type = "OgreWaygate", showInZone = false, hideOnContinent = true, hideOnMinimap = false } -- Ogre Waygate SpiresOfArak
+              minimap[539][50463566] = { mnID = 590, name = L["Ogre Waygate to Garrison"], type = "OgreWaygate", showInZone = false, hideOnContinent = true, hideOnMinimap = false } -- Ogre Waygate Shadowmoon Valley
             end
     
             if self.faction == "Alliance" then
-              minimap[543][58033444] = { mnID = 582, name = L["Ogre Waygate to Garrison"], type = "OgreWaygate", showInZone = false, hideOnContinent = true, hideOnMinimap = false,} -- Ogre Waygate Gorgrond
-              minimap[525][59544752] = { mnID = 582, name = L["Ogre Waygate to Garrison"], type = "OgreWaygate", showInZone = false, hideOnContinent = true, hideOnMinimap = false,} -- Ogre Waygate FrostfireRidge
-              minimap[550][32164623] = { mnID = 582, name = L["Ogre Waygate to Garrison"], type = "OgreWaygate", showInZone = false, hideOnContinent = true, hideOnMinimap = false,} -- Ogre Waygate Nagrand
-              minimap[535][55084813] = { mnID = 582, name = L["Ogre Waygate to Garrison"], type = "OgreWaygate", showInZone = false, hideOnContinent = true, hideOnMinimap = false,} -- Ogre Waygate Talador
-              minimap[542][54625163] = { mnID = 582, name = L["Ogre Waygate to Garrison"], type = "OgreWaygate", showInZone = false, hideOnContinent = true, hideOnMinimap = false,} -- Ogre Waygate SpiresOfArak
-              minimap[539][50463566] = { mnID = 582, name = L["Ogre Waygate to Garrison"], type = "OgreWaygate", showInZone = false, hideOnContinent = true, hideOnMinimap = false,} -- Ogre Waygate Shadowmoon Valley
+              minimap[543][58033444] = { mnID = 582, name = L["Ogre Waygate to Garrison"], type = "OgreWaygate", showInZone = false, hideOnContinent = true, hideOnMinimap = false } -- Ogre Waygate Gorgrond
+              minimap[525][59544752] = { mnID = 582, name = L["Ogre Waygate to Garrison"], type = "OgreWaygate", showInZone = false, hideOnContinent = true, hideOnMinimap = false } -- Ogre Waygate FrostfireRidge
+              minimap[550][32164623] = { mnID = 582, name = L["Ogre Waygate to Garrison"], type = "OgreWaygate", showInZone = false, hideOnContinent = true, hideOnMinimap = false } -- Ogre Waygate Nagrand
+              minimap[535][55084813] = { mnID = 582, name = L["Ogre Waygate to Garrison"], type = "OgreWaygate", showInZone = false, hideOnContinent = true, hideOnMinimap = false } -- Ogre Waygate Talador
+              minimap[542][54625163] = { mnID = 582, name = L["Ogre Waygate to Garrison"], type = "OgreWaygate", showInZone = false, hideOnContinent = true, hideOnMinimap = false } -- Ogre Waygate SpiresOfArak
+              minimap[539][50463566] = { mnID = 582, name = L["Ogre Waygate to Garrison"], type = "OgreWaygate", showInZone = false, hideOnContinent = true, hideOnMinimap = false } -- Ogre Waygate Shadowmoon Valley
               end
           end
     
@@ -388,25 +390,26 @@ if not db.show.HideMapNote then
           if self.db.profile.showMiniMapPortals then
     
             if self.faction == "Horde" or db.show.EnemyFaction then
-              minimap[590][75184879] = { mnID = 624, name = L["Ashran"], type = "HPortal", showInZone = false, hideOnContinent = true, hideOnMinimap = false,} -- Portal from Garrison to Ashran
-              minimap[534][61024735] = { mnID = 624, name = L["Ashran"], type = "HPortal", showInZone = false, hideOnContinent = true, hideOnMinimap = false,} -- Portal from Vol'mar to Ashran
-              minimap[525][51416484] = { mnID = 624, name = L["Ashran"], type = "HPortal", showInZone = false, hideOnContinent = true, hideOnMinimap = false,} -- Portal from Garrison to Ashran
+              minimap[590][75184879] = { mnID = 624, name = L["Ashran"], type = "HPortal", showInZone = false, hideOnContinent = true, hideOnMinimap = false } -- Portal from Garrison to Ashran
+              minimap[534][61024735] = { mnID = 624, name = L["Ashran"], type = "HPortal", showInZone = false, hideOnContinent = true, hideOnMinimap = false } -- Portal from Vol'mar to Ashran
+              minimap[525][51416484] = { mnID = 624, name = L["Ashran"], type = "HPortal", showInZone = false, hideOnContinent = true, hideOnMinimap = false } -- Portal from Garrison to Ashran
               minimap[624][60825159] = { mnID = 85, name = "", type = "HPortal", showInZone = false, hideOnContinent = true, hideOnMinimap = false, TransportName = L["Portal"] .. " => " .. ORGRIMMAR } -- Portal from Garrison to Ashran
               minimap[588][45001476] = { mnID = 85, name = "", type = "HPortal", showInZone = false, hideOnContinent = true, hideOnMinimap = false, TransportName = L["Portal"] .. " => " .. ORGRIMMAR } -- Portal from Garrison to Ashran (Ashran Zone)
-              minimap[624][53184384] = { mnID = 534, name = L["Vol'mar"], type = "HPortal", showInZone = false, hideOnContinent = true, hideOnMinimap = false,} -- Portal from Ashran to Vol'mar Captive
-              minimap[588][42911275] = { mnID = 534, name = L["Vol'mar"], type = "HPortal", showInZone = false, hideOnContinent = true, hideOnMinimap = false,} -- Portal from Ashran to Vol'mar Captive (Ashran Zone)
+              minimap[624][53184384] = { mnID = 534, name = L["Vol'mar"], type = "HPortal", showInZone = false, hideOnContinent = true, hideOnMinimap = false } -- Portal from Ashran to Vol'mar Captive
+              minimap[588][42911275] = { mnID = 534, name = L["Vol'mar"], type = "HPortal", showInZone = false, hideOnContinent = true, hideOnMinimap = false } -- Portal from Ashran to Vol'mar Captive (Ashran Zone)
             end
     
             if self.faction == "Alliance" or db.show.EnemyFaction then
               minimap[622][60813785] = { mnID = 84,  name = "" , type = "APortal", showInZone = false, hideOnContinent = true, hideOnMinimap = false, TransportName = L["Portal"] .. " => " .. STORMWIND } -- Portal from Ashran to Stormwind
               minimap[588][43848830] = { mnID = 84,  name = "" , type = "APortal", showInZone = false, hideOnContinent = true, hideOnMinimap = false, TransportName = L["Portal"] .. " => " .. STORMWIND } -- Portal from Ashran to Stormwind
-              minimap[582][69692706] = { mnID = 622, name = L["Ashran"], type = "APortal", showInZone = false, hideOnContinent = true, hideOnMinimap = false,} -- Portal from Garison to Ashran
-              minimap[539][32471561] = { mnID = 622, name = L["Ashran"], type = "APortal", showInZone = false, hideOnContinent = true, hideOnMinimap = false,} -- Portal from Garison to Ashran
+              minimap[582][69692706] = { mnID = 622, name = L["Ashran"], type = "APortal", showInZone = false, hideOnContinent = true, hideOnMinimap = false } -- Portal from Garison to Ashran
+              minimap[539][32471561] = { mnID = 622, name = L["Ashran"], type = "APortal", showInZone = false, hideOnContinent = true, hideOnMinimap = false } -- Portal from Garison to Ashran
               minimap[588][38328897] = { mnID = 534, name = "", type = "APortal", showInZone = false, hideOnContinent = true, hideOnMinimap = false, TransportName = L["Portal"] .. " => " .. SPLASH_NEW_6_2_FEATURE1_TITLE } -- Portal from Ashran to Lion's Watch
               minimap[622][36234113] = { mnID = 534, name = "", type = "APortal", showInZone = false, hideOnContinent = true, hideOnMinimap = false, TransportName = L["Portal"] .. " => " .. SPLASH_NEW_6_2_FEATURE1_TITLE } -- Portal from Ashran to Lion's Watch
               minimap[534][57426032] = { mnID = 622, name = "", type = "APortal", showInZone = false, hideOnContinent = true, hideOnMinimap = false, TransportName = L["Portal"] .. " => " .. L["Ashran"] } -- Portal from Lion's Watch to (Ashran Zone)
             end
           end
+          
         end
     
     
@@ -419,8 +422,6 @@ if not db.show.HideMapNote then
         --Broken Isles Portals
           if self.db.profile.showMiniMapPortals then
     
-            minimap[107][39845806] = { dnID = "www.google.de", name = "", type = "Portal", showInZone = false, hideOnContinent = true, hideOnMinimap = false, TransportName = "test" } -- Nagrand website test
-
             if self.faction == "Horde" or db.show.EnemyFaction then
               minimap[627][55242392] = { mnID = 85, name = "", type = "HPortal", showInZone = false, hideOnContinent = true, hideOnMinimap = false, TransportName = L["Portal"] .. " => " .. ORGRIMMAR } -- Dalaran to Orgrimmar Portal
               minimap[630][46654129] = { mnID = 85, name = "", type = "HPortal", showInZone = false, hideOnContinent = true, hideOnMinimap = false, TransportName = L["Portal"] .. " => " .. ORGRIMMAR} -- Portal to Orgrimmar from Azsuna
@@ -447,15 +448,15 @@ if not db.show.HideMapNote then
             if self.faction == "Horde" or db.show.EnemyFaction then
               minimap[862][58474432] = { mnID = 1163, name = "", type = "HPortal", showInZone = false, hideOnContinent = true, hideOnMinimap = false, TransportName = L["Dazar'alor"] .. " " .. L["Portalroom"] .. L["(inside building)"] .. "\n" .. " => " .. L["Silvermoon City"] .. "\n" .. " => " .. ORGRIMMAR .. "\n" .. " => " .. L["Thunder Bluff"] .. "\n" .. " => " .. L["Silithus"] .. "\n" .. " => " .. L["Nazjatar"] } -- Portalroom from Dazar'alor
               minimap[1165][51424583] = { mnID = 1163, name = "", type = "HPortal", showInZone = false, hideOnContinent = true, hideOnMinimap = false, TransportName = L["Dazar'alor"] .. " " .. L["Portalroom"] .. L["(inside building)"] .. "\n" .. " => " .. L["Silvermoon City"] .. "\n" .. " => " .. ORGRIMMAR .. "\n" .. " => " .. L["Thunder Bluff"] .. "\n" .. " => " .. L["Silithus"] .. "\n" .. " => " .. L["Nazjatar"] } -- Portalroom from Dazar'alor
-              minimap[1163][73726194] = { mnID = 110, name = "", type = "HPortal", showInZone = false, hideOnContinent = true, hideOnMinimap = false,} -- Portalroom from Dazar'alor
+              minimap[1163][73726194] = { mnID = 110, name = "", type = "HPortal", showInZone = false, hideOnContinent = true, hideOnMinimap = false } -- Portalroom from Dazar'alor
               minimap[1163][74006974] = { mnID = 85, name = "", type = "HPortal", showInZone = false, hideOnContinent = true, hideOnMinimap = false, TransportName = L["Portal"] .. " => " .. ORGRIMMAR } -- Portalroom from Dazar'alor
-              minimap[1163][74027739] = { mnID = 88, name = "", type = "HPortal", showInZone = false, hideOnContinent = true, hideOnMinimap = false,} -- Portalroom from Dazar'alor
-              minimap[1163][73808541] = { mnID = 81, name = "", type = "HPortal", showInZone = false, hideOnContinent = true, hideOnMinimap = false,} -- Portalroom from Dazar'alor
-              minimap[1163][63008553] = { mnID = 1355,  name = "", type = "HPortal", showInZone = false, hideOnContinent = true, hideOnMinimap = false,} -- Portalroom from Dazar'alor
-              minimap[1355][47276279] = { mnID = 1163, name = "", type = "HPortal", showInZone = false, hideOnContinent = true, hideOnMinimap = false,} -- Portalroom from Dazar'alor
-              minimap[1165][52079454] = { mnID = 62, name = L["This Darkshore portal is only active if your faction is currently occupying Bashal'Aran"], type = "HPortal", showInZone = false, hideOnContinent = true, hideOnMinimap = false,} -- Portal from Dazar'alor to Arathi or Darkshore
-              minimap[1165][51719454] = { mnID = 14, name = L["This Arathi Highlands portal is only active if your faction is currently occupying Ar'gorok"], type = "HPortal", showInZone = false, hideOnContinent = true, hideOnMinimap = false,} -- Portal from Dazar'alor to Arathi or Darkshore         
-              minimap[1355][52349627] = { mnID = 1165, name = "", type = "HPortal", showInZone = false, hideOnContinent = true, hideOnMinimap = false,} -- Portal from Newhome to Dazar'alor
+              minimap[1163][74027739] = { mnID = 88, name = "", type = "HPortal", showInZone = false, hideOnContinent = true, hideOnMinimap = false } -- Portalroom from Dazar'alor
+              minimap[1163][73808541] = { mnID = 81, name = "", type = "HPortal", showInZone = false, hideOnContinent = true, hideOnMinimap = false } -- Portalroom from Dazar'alor
+              minimap[1163][63008553] = { mnID = 1355,  name = "", type = "HPortal", showInZone = false, hideOnContinent = true, hideOnMinimap = false } -- Portalroom from Dazar'alor
+              minimap[1355][47276279] = { mnID = 1163, name = "", type = "HPortal", showInZone = false, hideOnContinent = true, hideOnMinimap = false } -- Portalroom from Dazar'alor
+              minimap[1165][52079454] = { mnID = 62, name = L["This Darkshore portal is only active if your faction is currently occupying Bashal'Aran"], type = "HPortal", showInZone = false, hideOnContinent = true, hideOnMinimap = false } -- Portal from Dazar'alor to Arathi or Darkshore
+              minimap[1165][51719454] = { mnID = 14, name = L["This Arathi Highlands portal is only active if your faction is currently occupying Ar'gorok"], type = "HPortal", showInZone = false, hideOnContinent = true, hideOnMinimap = false } -- Portal from Dazar'alor to Arathi or Darkshore         
+              minimap[1355][52349627] = { mnID = 1165, name = "", type = "HPortal", showInZone = false, hideOnContinent = true, hideOnMinimap = false } -- Portal from Newhome to Dazar'alor
               minimap[862][59265920] = { mnID = 1165, name = "", type = "HPortal", showInZone = false, hideOnContinent = true, hideOnMinimap = false, TransportName = L["Zandalar"] .. " " .. L["Portals"] .. "\n" ..  "\n" .. " => " .. L["This Darkshore portal is only active if your faction is currently occupying Bashal'Aran"] .. "\n" .. " => " .. L["This Arathi Highlands portal is only active if your faction is currently occupying Ar'gorok"] } -- Portal to Arathi and Darkshore
             end
           end
@@ -478,14 +479,14 @@ if not db.show.HideMapNote then
           if self.db.profile.showMiniMapTransport then
 
             if self.faction == "Horde" or db.show.EnemyFaction then
-              minimap[862][58466298] = { mnID = 876, name = L["(Dread-Admiral Tattersail) will take you to Drustvar, Tiragarde Sound or Stormsong Valley"], type = "UndeadF", showInZone = false, hideOnContinent = true, hideOnMinimap = false,} -- Ship from Dazar'alor to Drustvar, Tiragarde Sound or Stormsong Valley
-              minimap[862][55325808] = { mnID = 1462, name = L["Captain Krooz"] .. " " .. L["Travel"], type = "GoblinF", showInZone = false, hideOnContinent = true, hideOnMinimap = false,} -- Transport from Dazar'alor to Mechagon 
-              minimap[1462][75522266] = { mnID = 862, name = L["Captain Krooz"] .. " " .. L["Travel"], type = "GoblinF", showInZone = false, hideOnContinent = true, hideOnMinimap = false,} -- Transport from Mechagon to Zuldazar
-              minimap[1165][41838761] = { mnID = 1462, name = L["Captain Krooz"] .. " " .. L["Travel"], type = "GoblinF", showInZone = false, hideOnContinent = true, hideOnMinimap = false,} -- Transport from Dazar'alor to Mechagon
+              minimap[862][58466298] = { mnID = 876, name = L["(Dread-Admiral Tattersail) will take you to Drustvar, Tiragarde Sound or Stormsong Valley"], type = "UndeadF", showInZone = false, hideOnContinent = true, hideOnMinimap = false } -- Ship from Dazar'alor to Drustvar, Tiragarde Sound or Stormsong Valley
+              minimap[862][55325808] = { mnID = 1462, name = L["Captain Krooz"] .. " " .. L["Travel"], type = "GoblinF", showInZone = false, hideOnContinent = true, hideOnMinimap = false } -- Transport from Dazar'alor to Mechagon 
+              minimap[1462][75522266] = { mnID = 862, name = L["Captain Krooz"] .. " " .. L["Travel"], type = "GoblinF", showInZone = false, hideOnContinent = true, hideOnMinimap = false } -- Transport from Mechagon to Zuldazar
+              minimap[1165][41838761] = { mnID = 1462, name = L["Captain Krooz"] .. " " .. L["Travel"], type = "GoblinF", showInZone = false, hideOnContinent = true, hideOnMinimap = false } -- Transport from Dazar'alor to Mechagon
             end
 
             if self.faction == "Alliance" or db.show.EnemyFaction then
-              minimap[1161][67952670] = { mnID = 875, name = L["(Grand Admiral Jes-Tereth) will take you to Vol'Dun, Nazmir or Zuldazar"], type = "GilneanF", showInZone = false, hideOnContinent = true, hideOnMinimap = false,} -- Portal from Dazar'alor to Mechagon
+              minimap[1161][67952670] = { mnID = 875, name = L["(Grand Admiral Jes-Tereth) will take you to Vol'Dun, Nazmir or Zuldazar"], type = "GilneanF", showInZone = false, hideOnContinent = true, hideOnMinimap = false } -- Portal from Dazar'alor to Mechagon
               minimap[864][36693428] = { mnID = 1161, name = "", type = "KulM", showInZone = false, hideOnContinent = true, hideOnMinimap = false, TransportName = L["Barnard 'The Smasher' Bayswort"] .. " " .. L["Travel"] .. "\n" .. " => " .. L["Boralus, Tiragarde Sound"] } -- Transport from Vol'dun to Boralus
               minimap[863][62064008] = { mnID = 1161, name = "", type = "DwarfF", showInZone = false, hideOnContinent = true, hideOnMinimap = false, TransportName = L["Desha Stormwallow"] .. " " .. L["Travel"] .. "\n" .. " => " .. L["Boralus, Tiragarde Sound"] } -- Transport from Nazmir to Boralus
               minimap[862][40457103] = { mnID = 1161, name = "", type = "GilneanF", showInZone = false, hideOnContinent = true, hideOnMinimap = false, TransportName = L["Daria Smithson"] .. " " .. L["Travel"] .. "\n" .. " => " .. L["Boralus, Tiragarde Sound"] } -- Transport from Zuldazar to Boralus 
@@ -510,7 +511,7 @@ if not db.show.HideMapNote then
             end
 
             if self.faction == "Alliance" or db.show.EnemyFaction then
-              minimap[1161][67952670] = { mnID = 875, name = L["(Grand Admiral Jes-Tereth) will take you to Vol'Dun, Nazmir or Zuldazar"], type = "GilneanF", showInZone = false, hideOnContinent = true, hideOnMinimap = false,} -- Portal from Dazar'alor to Mechagon
+              minimap[1161][67952670] = { mnID = 875, name = L["(Grand Admiral Jes-Tereth) will take you to Vol'Dun, Nazmir or Zuldazar"], type = "GilneanF", showInZone = false, hideOnContinent = true, hideOnMinimap = false } -- Portal from Dazar'alor to Mechagon
               minimap[895][71533261] = { mnID = 1161, name = "", type = "TravelA", showInZone = false, hideOnContinent = true, hideOnMinimap = false, TransportName = L["Boralus"] .. " " .. "\n" .. "\n" .. L["Portalroom"] .. "\n" .. " => " .. STORMWIND .. "\n" .. " => " .. L["Silithus"] .. "\n" .. " => " .. L["Exodar"] .. "\n" .. " => " .. L["Ironforge"] .. "\n" .. "\n" .. L["Grand Admiral Jes-Tereth"] .. L["Travel"] .. "\n" .. " => " .. L["Nazmir"] .. "\n" .. " => " .. L["Zuldazar"] .. "\n" .. " => " .. L["Vol'dun"] .. "\n" .. "\n" .. L["Portals"] .. "\n" ..  "\n" .. " => " .. L["Arathi Highlands"] .. "\n" .. " => " .. L["Darkshore"] .. "\n" .. "\n" .. L["Ship"] .. "\n" .. " => " .. STORMWIND } -- Boralus Transports
             end
           end
@@ -522,12 +523,12 @@ if not db.show.HideMapNote then
             if self.faction == "Alliance" or db.show.EnemyFaction then
               minimap[895][74072427] = { mnID = 1161, name ="", type = "APortal", showInZone = false, hideOnContinent = true, hideOnMinimap = false, TransportName = L["Boralus"] .. " " .. L["Portalroom"] .. "\n" .. " " .. L["(inside building)"] .. "\n" .. " => " .. STORMWIND .. "\n" .. " => " .. L["Silithus"] .. "\n" .. " => " .. L["Exodar"] .. "\n" .. " => " .. L["Ironforge"] } -- Portalroom from Boralus } -- Portalroom from Boralus
               minimap[1161][70351605] = { name = "", type = "APortal", showInZone = false, hideOnContinent = true, hideOnMinimap = false, TransportName = L["Boralus"] .. " " .. L["Portalroom"] .. "\n" .. " " .. L["(inside building)"] .. "\n" .. " => " .. STORMWIND .. "\n" .. " => " .. L["Silithus"] .. "\n" .. " => " .. L["Exodar"] .. "\n" .. " => " .. L["Ironforge"] } -- Portalroom from Boralus
-              minimap[1161][69641590] = { mnID = 81, name = "", type = "APortal", showInZone = false, hideOnContinent = true, hideOnMinimap = false,} -- Portalroom from Boralus
+              minimap[1161][69641590] = { mnID = 81, name = "", type = "APortal", showInZone = false, hideOnContinent = true, hideOnMinimap = false } -- Portalroom from Boralus
               minimap[1161][70131684] = { mnID = 84, name = "" , type = "APortal", showInZone = false, hideOnContinent = true, hideOnMinimap = false, TransportName = L["Portal"] .. " => " .. STORMWIND } -- Portalroom from Boralus
-              minimap[1161][70381499] = { mnID = 103, name = "", type = "APortal", showInZone = false, hideOnContinent = true, hideOnMinimap = false,} -- Portalroom from Boralus
+              minimap[1161][70381499] = { mnID = 103, name = "", type = "APortal", showInZone = false, hideOnContinent = true, hideOnMinimap = false } -- Portalroom from Boralus
               minimap[1161][70891536] = { mnID = 87, name = "", type = "APortal", showInZone = false, hideOnContinent = true }  -- Portalroom from Boralu
-              minimap[1161][66182474] = { mnID = 14, name = L["This Arathi Highlands portal is only active if your faction is currently occupying Ar'gorok"], type = "APortal", showInZone = false, hideOnContinent = true, hideOnMinimap = false,} -- Portalroom from Boralus
-              minimap[1161][66212442] = { mnID = 62, name = L["This Darkshore portal is only active if your faction is currently occupying Bashal'Aran"], type = "APortal", showInZone = false, hideOnContinent = true, hideOnMinimap = false,} -- Portalroom from Boralus
+              minimap[1161][66182474] = { mnID = 14, name = L["This Arathi Highlands portal is only active if your faction is currently occupying Ar'gorok"], type = "APortal", showInZone = false, hideOnContinent = true, hideOnMinimap = false } -- Portalroom from Boralus
+              minimap[1161][66212442] = { mnID = 62, name = L["This Darkshore portal is only active if your faction is currently occupying Bashal'Aran"], type = "APortal", showInZone = false, hideOnContinent = true, hideOnMinimap = false } -- Portalroom from Boralus
             end
           end
     

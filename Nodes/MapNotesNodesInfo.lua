@@ -8,6 +8,7 @@ local nodes = ns.nodes
 --############################
 
 -- Azeroth/Continent map nodes
+nodes[946] = { } -- Worldmap
 nodes[947] = { } -- Azeroth
 
 --############################
@@ -528,6 +529,7 @@ nodes[896] = { } -- Drustvar
 nodes[942] = { } -- Stormsong Valley
 nodes[1161] = { } --  Boralus City
 nodes[1163] = { } -- Inside Dazar'alor
+nodes[1164] = { } -- Inside Dazar'alor second Floor
 nodes[1165] = { } -- Dazar'alor
 nodes[1169] = { } -- Tol Dagor
 nodes[1355] = {} -- Nazjatar

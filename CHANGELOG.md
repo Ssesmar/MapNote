@@ -1,9 +1,9 @@
 # MapNote
-## [1.8.1](https://github.com/Ssesmar/MapNote) (2024-03-26)
+## [1.8.2](https://github.com/Ssesmar/MapNote) (2024-04-08)
 - Note:
 
--- add worldmapbutton for MapNotes
--- add 4th option for the minimap button to open the worldmap with the middle mouse button
+-- added symbols on the cosmic map with full functions
+-- added Looking-For-Raid NPC icons for old Raids
 
 
 - Description:

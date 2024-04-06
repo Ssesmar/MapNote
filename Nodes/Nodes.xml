@@ -10,4 +10,5 @@
     <Script file="ZoneNodesLocation.lua"/>
     <Script file="ZoneDungeonNodesLocation.lua"/>
     <Script file="InsideDungeonNodesLocation.lua"/>
+    <Script file="WorldNodesLocation.lua"/>
 </Ui>

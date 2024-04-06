@@ -165,6 +165,7 @@ L["are hidden"] = true
 L["Left-click => Open/Close"] = true
 L["Right-click => Open/Close"] = true
 L["Shift + Right-click => hide"] = true
+L["Middle-Mouse-Button => Open/Close"] = true
 --9 transport
 L["icons"] = true
 L["Exit"] = true
@@ -259,6 +260,19 @@ L["Grok Seahandler"] = true
 L["Erul Dawnbrook"] = true
 L["Dread-Admiral Tattersail"] = true
 L["Grand Admiral Jes-Tereth"] = true
+L["Naxxramas"] = true
+L["Scholomance"] = true
+L["Lorewalker Han"] = true
+L["Archmage Timear"] = true
+L["Kiku"] = true
+L["Eppu"] = true
+L["Ta'elfar"] = true
+L["Seer Kazal"] = true
+L["Auridormi"] = true
+L["Registrant"] = true
+L["Scarlet Instances"] = true
+L["hide Cosmos map symbols"] = true
+L["Shows the locations of Raidbrowser applicants for old Raids"] = true
 --11 Specific
 L["This instance entrance is in a different timeline. Other timeline can be activated at Zidormi"] = true
 L["Shows locations of raids, dungeons, portals ,ship and zeppelins icons on different maps"] = true

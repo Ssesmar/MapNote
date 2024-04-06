@@ -9,6 +9,7 @@ local minimap = ns.minimap
 --############################
 
 -- Azeroth/Continent map minimap
+minimap[946] = { } -- WorldMap
 minimap[947] = { } -- Azeroth
 
 --############################
@@ -529,6 +530,7 @@ minimap[896] = { } -- Drustvar
 minimap[942] = { } -- Stormsong Valley
 minimap[1161] = { } --  Boralus City
 minimap[1163] = { } -- Inside Dazar'alor
+minimap[1164] = { } -- Inside Dazar'alor second Floor
 minimap[1165] = { } -- Dazar'alor
 minimap[1169] = { } -- Tol Dagor
 minimap[1355] = {} -- Nazjatar
