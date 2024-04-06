@@ -39,6 +39,10 @@ local pluginHandler = { }
 function pluginHandler:OnEnter(uiMapId, coord)
   local nodeData = nil
 
+  if (minimap[uiMapId] and minimap[uiMapId][coord]) then
+    nodeData = minimap[uiMapId][coord]
+   end
+
 	if (nodes[uiMapId] and nodes[uiMapId][coord]) then
 	  nodeData = nodes[uiMapId][coord]
 	end
@@ -138,7 +142,7 @@ do
 			return _copy(object)
 	end
 
-	local function iter(t, prestate)
+	local function iter(t, prestate) -- Azeroth / Zone / Minimap / Inside Dungeon settings
 
 		if not t then return end
 
@@ -162,9 +166,13 @@ do
 					anyLocked = true
 				end
 			end
-      
-        if (anyLocked and db.graymultipleID) or ((allLocked and not db.graymultipleID) and db.assignedgray) then  
-        icon = ns.icons["GrayL"]
+
+      if (anyLocked and db.graymultipleID) or ((allLocked and not db.graymultipleID) and db.assignedgray) then
+        icon = ns.icons["Gray"]
+      end
+
+      if (value.type == "LFR") then
+        icon = ns.icons["LFR"]
       end
 
       if (anyLocked and db.invertlockout) or ((allLocked and not db.invertlockout) and db.uselockoutalpha) then
@@ -172,7 +180,6 @@ do
       else
 				alpha = db.mapnoteAlpha
 			end
-
 
       scale = db.zoneScale
       alpha = db.zoneAlpha
@@ -182,27 +189,57 @@ do
       end
 
       mapInfo = C_Map.GetMapInfo(t.uiMapId)
-      if mapInfo and mapInfo.mapType == 4 then -- Dungeon or Raid
+      if mapInfo and mapInfo.mapType == 4 then -- inside Dungeon scale
           scale = db.dungeonScale
           alpha = db.dungeonAlpha
       end
+
+      if (value.type == "Dungeon" -- Instance icons scale
+        or value.type == "Raid"
+        or  value.type == "PassageDungeon"
+        or  value.type == "PassageDungeonRaidMulti"
+        or  value.type == "PassageRaid"
+        or  value.type == "VInstance"
+        or  value.type == "PassageDungeon"
+        or  value.type == "Multiple"
+        --or  value.type == "LFR"
+      )
+        and (not value.hideOnMinimap == false) then
+        scale = db.instanceScale
+        alpha = db.instanceAlpha
+      end
+
+      if t.uiMapId == 1670 then -- Oribos scale
+          scale = db.zoneScale
+          alpha = db.zoneAlpha
+          
+          if t.uiMapId == 1670 and t.minimapUpdate then -- Oribos Minimap scale
+            scale = db.minimapScale
+            alpha = db.minimapAlpha
+          end
+      end      
 
       if t.uiMapId == 947 then-- Azeroth World Map
         scale = db.azerothScale
         alpha = db.azerothAlpha
       end
 
-      if (value.showInZone or t.minimapUpdate ) then -- Zone scale
+      if t.uiMapId == 946 then-- Azeroth World Map
+        scale = 2.0
+        alpha = 1.0
+      end
+
+      if (value.showInZone or t.minimapUpdate) then -- Zone scale
           return state, nil, icon, scale, alpha
       end
-      
+
 			state, value = next(data, state)
 		end
 		wipe(t)
 		tablepool[t] = true
 	end
 
-	local function iterCont(t, prestate)
+	local function iterCont(t, prestate) -- continent settings
 		if not t then return end
     --if not db.show.Continent then return end
 
@@ -232,8 +269,12 @@ do
 					end
 
           if (anyLocked and db.graymultipleID) or ((allLocked and not db.graymultipleID) and db.assignedgray) then   
-						icon = ns.icons["Locked"]
+						icon = ns.icons["Gray"]
 					end
+
+          if (value.type == "LFR") then
+            icon = ns.icons["LFR"]
+          end
 
           if (anyLocked and db.invertlockout) or ((allLocked and not db.invertlockout) and db.uselockoutalpha) then
 						alpha = db.continentAlpha
@@ -481,11 +522,15 @@ function Addon:PopulateTable()
 
   ns.LoadMiniMapNodesLocationinfo(self) -- load nodes\MiniMapNodes.lua
   ns.LoadMiniMapDungeonNodesLocationinfo(self) -- load nodes\MiniMapDungeonNodes.lua
+  
   ns.LoadAzerothNodesLocationInfo(self) -- load nodes\AzerothNodeslocation.lua
   ns.LoadContinentNodesLocationinfo(self) -- load nodes\ContinentNodesLocation.lua
+
   ns.LoadZoneMapNodesLocationinfo(self) -- load nodes\ZoneNodesLocation.lua
   ns.LoadZoneDungeonMapNodesLocationinfo(self) -- load OnlyZoneDungeonNodesLocation.lua  
   ns.LoadInsideDungeonNodesLocationInfo(self) -- load nodes\InsideDungeonNodesLocation.lua
+
+  ns.LoadWorldNodesLocationInfo(self) -- load nodes\WorldNodesLocation.lua
 
 end
 
@@ -538,6 +583,14 @@ function Addon:ProcessTable()
   for i,v in pairs(nodes) do
     for j,u in pairs(v) do
       self:UpdateInstanceNames(u)
+    end
+  end
+
+  for i,v in pairs(minimap) do
+    for j,u in pairs(v) do
+      if (not u.name) then
+	      self:UpdateInstanceNames(u)
+      end
     end
   end
 end

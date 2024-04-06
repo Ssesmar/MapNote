@@ -7,6 +7,7 @@
     <Script file="main.lua"/>
     <Script file="ccmmb.lua"/>
     <Script file="mmb.lua"/>
+    <Script file="lfgInfo.lua"/>
     <Script file="wmb.lua"/>
     <Include file="wmb-template.xml"/>
 </Ui>

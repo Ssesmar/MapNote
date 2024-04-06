@@ -6,20 +6,27 @@ if not HandyNotes then return end
 local iconLink = "Interface\\Addons\\" .. ADDON_NAME .. "\\Images\\"
 
 ns.icons = { 
+--Addon Logo
+["MNL"] = iconLink .. "MNL4",
+--expansion 
+["LKalimdor"] = "interface/characterframe/temporaryportrait-male-orc.blp",
+["LEK"] = "Interface/CharacterFrame/TemporaryPortrait-Female-Human",
+["LBC"] = "Interface/Icons/Achievement_Boss_Illidan",
+["LDF"] = "Interface/CharacterFrame/TemporaryPortrait-Male-Dracthyr",
+["LBFA"] = "Interface/CharacterFrame/TemporaryPortrait-Male-KulTiran",
+["LLG"] = "Interface/Icons/artifactability_HavocDemonHunter_AnguishoftheDeceiver",
+["LMOP"] = "Interface/CharacterFrame/TEMPORARYPORTRAIT-FEMALE-PANDAREN",
+["LWotlk"] = "interface/lfgframe/ui-lfr-portrait",
 --instance
-["Dungeon"] = iconLink .. "DungeonSymbol",
-["DungeonL"] = iconLink .. "DungeonSymbolL", -- zone icons
-["DungeonXL"] = iconLink .. "DungeonSymbolXL",
-["Raid"] = iconLink .. "RaidSymbol",
-["RaidL"] = iconLink .. "RaidSymbolL", -- zone icons
+["LFR"] = iconLink .. "LFR",
+["Dungeon"] = iconLink .. "Dungeon", -- zone icons
+["Raid"] = iconLink .. "Raid", -- zone icons
 ["VInstance"] = iconLink .. "vanillaInstance",
-["VInstanceL"] = iconLink .. "vanillaInstanceL",
 ["VKey1"] = iconLink .. "vkey1",
 ["MultipleM"] = iconLink .. "multipleM",
 ["MultipleD"] = iconLink .. "multipleD",
 ["MultipleR"] = iconLink .. "multipleR",
-["Locked"] = iconLink .. "gray",
-["GrayL"] = iconLink .. "grayL",
+["Gray"] = iconLink .. "gray",
 --zeppelin
 ["Zeppelin"] = iconLink .. "zeppelin",
 ["HZeppelin"] = iconLink .. "zeppelinH",
@@ -34,15 +41,12 @@ ns.icons = {
 ["HShip"] = iconLink .. "shipH",
 ["AShip"] = iconLink .. "shipA",
 --world passage
-["PassageDungeonRaidM"] = iconLink .. "PassageDungeonM",
-["PassageDungeonM"] = iconLink .. "PassageDungeonM",
-["PassageDungeonL"] = iconLink .. "PassageDungeonL", -- zone icons
-["PassageRaidM"] = iconLink .. "passageRaidM",
-["PassageRaidL"] = iconLink .. "passageRaidL", -- zone icons
-["PassageDungeonRaidMultiM"] = iconLink .. "PassageDungeonRaidMultiM",
-["PassageDungeonRaidMultiL"] = iconLink .. "PassageDungeonRaidMultiL", -- zone icons
-["PassageDungeonMultiM"] = iconLink .. "PassageDungeonMultiM",
-["PassageRaidMultiM"] = iconLink .. "passageRaidMultiM",
+["PassageDungeonRaid"] = iconLink .. "PassageDungeon",
+["PassageDungeon"] = iconLink .. "PassageDungeon", -- zone icons
+["PassageRaid"] = iconLink .. "passageRaid", -- zone icons
+["PassageDungeonRaidMulti"] = iconLink .. "PassageDungeonRaidMulti", -- zone icons
+["PassageRaidMulti"] = iconLink .. "passageRaidMulti",
+["PassageDungeonMulti"] = iconLink .. "PassageDungeonMulti",
 --inside dungeon icons
 ["Exit"] = "interface/TARGETINGFRAME/UI-RaidTargetingIcon_7",
 ["PassageUpL"] = iconLink .. "passageupL",
@@ -90,8 +94,10 @@ TextIconAPortal = TextIcon(iconLink .. "aportal", 64, 64, 1, 50, 1, 50)
 TextIconWayGateGolden = TextIcon(iconLink .. "WayGateGolden", 50, 50, 1, 50, 1, 50)
 TextIconWayGateGreen = TextIcon(iconLink .. "WayGateGreen", 50, 50, 1, 50, 1, 50)
 --instance
-TextIconDungeon = TextIcon(iconLink .. "DungeonSymbol", 64, 64, 1, 50, 1, 50)
-TextIconRaid = TextIcon(iconLink .. "RaidSymbol", 64, 64, 1, 50, 1, 50)
+
+TextIconLFR = TextIcon(iconLink .. "LFR", 64, 64, 1, 50, 1, 50)
+TextIconDungeon = TextIcon(iconLink .. "Dungeon", 64, 64, 1, 50, 1, 50)
+TextIconRaid = TextIcon(iconLink .. "Raid", 64, 64, 1, 50, 1, 50)
 TextIconVInstance = TextIcon(iconLink .. "vanillaInstance", 64, 64, 1, 50, 1, 50)
 TextIconVKey1 = TextIcon(iconLink .. "vkey1", 64, 64, 1, 50, 1, 50)
 TextIconMultipleM = TextIcon(iconLink .. "multipleM", 64, 64, 1, 50, 1, 50)
@@ -100,12 +106,12 @@ TextIconMultipleR = TextIcon(iconLink .. "multipleR", 64, 64, 1, 50, 1, 50)
 TextIconMultipleMgray = TextIcon(iconLink .. "multipleMgray", 64, 64, 1, 50, 1, 50)
 TextIconMultipleDgray = TextIcon(iconLink .. "multipleDgray", 64, 64, 1, 50, 1, 50)
 TextIconMultipleRgray = TextIcon(iconLink .. "multipleRgray", 64, 64, 1, 50, 1, 50)
-TextIconPassageDungeonRaidM = TextIcon(iconLink .. "PassageDungeonRaidM", 64, 64, 1, 50, 1, 50)
-TextIconPassageDungeonM = TextIcon(iconLink .. "PassageDungeonM", 64, 64, 1, 50, 1, 50)
-TextIconPassageRaidM = TextIcon(iconLink .. "PassageRaidM", 64, 64, 1, 50, 1, 50)
-TextIconPassageDungeonRaidMultiM = TextIcon(iconLink .. "PassageDungeonRaidMultiM", 64, 64, 1, 50, 1, 50)
-TextIconPassageDungeonMultiM = TextIcon(iconLink .. "PassageDungeonMultiM", 64, 64, 1, 50, 1, 50)
-TextIconPassageRaidMultiM = TextIcon(iconLink .. "PassageRaidMultiM", 64, 64, 1, 50, 1, 50)
+TextIconPassageDungeonRaidM = TextIcon(iconLink .. "PassageDungeonRaid", 64, 64, 1, 50, 1, 50)
+TextIconPassageDungeonM = TextIcon(iconLink .. "PassageDungeon", 64, 64, 1, 50, 1, 50)
+TextIconPassageRaidM = TextIcon(iconLink .. "PassageRaid", 64, 64, 1, 50, 1, 50)
+TextIconPassageDungeonRaidMultiM = TextIcon(iconLink .. "PassageDungeonRaidMulti", 64, 64, 1, 50, 1, 50)
+TextIconPassageDungeonMultiM = TextIcon(iconLink .. "PassageDungeonMulti", 64, 64, 1, 50, 1, 50)
+TextIconPassageRaidMultiM = TextIcon(iconLink .. "PassageRaidMulti", 64, 64, 1, 50, 1, 50)
 TextIconLocked = TextIcon(iconLink .. "gray", 64, 64, 1, 50, 1, 50)
 --zeppelin
 TextIconZeppelin = TextIcon(iconLink .. "zeppelin", 64, 64, 1, 50, 1, 50)

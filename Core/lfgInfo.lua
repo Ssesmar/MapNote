@@ -1,0 +1,21 @@
+local ADDON_NAME, ns = ...
+local L = LibStub("AceLocale-3.0"):GetLocale(ADDON_NAME)
+
+
+--local f = CreateFrame("Frame", nil, UIParent, "BackdropTemplate")
+--f:SetPoint("CENTER")
+--f:SetSize(300, 100)
+--f:SetBackdrop(BACKDROP_TUTORIAL_16_16)
+--f:SetMovable(true)
+--f:EnableMouse(true)
+--f:RegisterForDrag("LeftButton")
+--f:SetScript("OnDragStart", function(self)
+--	self:StartMoving()
+--end)
+--f:SetScript("OnDragStop", function(self)
+--	self:StopMovingOrSizing()
+--end)
+--f.text = f:CreateFontString(nil,"ARTWORK")
+--f.text:SetFont("Fonts\\RIALN.ttf", 13, "OUTLINE")
+--f.text:SetPoint("CENTER",0,0)
+--f.text:SetText("message")
