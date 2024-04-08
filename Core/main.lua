@@ -491,7 +491,7 @@ function Addon:PLAYER_LOGIN()
     MNMMBIcon:Hide("MNMiniMapButton")
   end
 
-  ns.WorldMapButton = LibStub('Krowi_WorldMapButtons-1.4'):Add(ADDON_NAME .. "WorldMapOptionsButtonTemplate","DROPDOWNTOGGLEBUTTON")
+  ns.WorldMapButton = LibStub('Krowi_WorldMapButtons-1.4'):Add(ADDON_NAME .. "WorldMapOptionsButtonTemplate","BUTTON")
   if ns.Addon.db.profile.show.HideWMB
     then ns.WorldMapButton:Hide()
     else ns.WorldMapButton:Show()
