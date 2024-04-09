@@ -2,7 +2,7 @@ local ADDON_NAME, ns = ...
 
 local COLORED_ADDON_NAME = "|cffff0000Map|r|cff00ccffNotes|r"
 local L = LibStub("AceLocale-3.0"):GetLocale(ADDON_NAME)
-local HideAllNodes = LibStub("LibDBIcon-1.0", true)
+local HideAllNodes = LibStub("LibDBIcon-1.0", true) -- test
 
 
 local WorldMapOptionsButtonMixin = {}
@@ -22,21 +22,13 @@ function WorldMapOptionsButtonMixin:OnClick(button)
     end
 
     if button == "RightButton" then 
-        HideAllNodes:Hide("HideMapNotes") --test
+        HideAllNodes:Hide("HideMapNotes") -- test
         if not ns.Addon.db.profile.show.HideMapNote then
             ns.Addon.db.profile.show.HideMapNote = true
         else
             ns.Addon.db.profile.show.HideMapNote = false
         end
     end
-
-    --if button == "RightButton" then
-    --    if not ns.Addon.db.profile.show.HideMapNote then --function menü
-    --        ns.Addon.db.profile.show.HideMapNote = true
-    --    else
-    --        ns.Addon.db.profile.show.HideMapNote = false
-    --    end
-    --end
 
 end
 

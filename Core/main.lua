@@ -7,7 +7,7 @@ local ADDON_NAME = "HandyNotes_MapNotes"
 local L = LibStub("AceLocale-3.0"):GetLocale(ADDON_NAME)
 local MapNotesMiniButton = LibStub("AceAddon-3.0"):NewAddon("MNMiniMapButton", "AceConsole-3.0")
 local MNMMBIcon = LibStub("LibDBIcon-1.0", true)
-local HideAllNodes = LibStub("LibDBIcon-1.0", true) --test
+local HideAllNodes = LibStub("LibDBIcon-1.0", true) -- test
 
 
 local db = { }
