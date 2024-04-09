@@ -28,7 +28,7 @@ OnClick = function(self, button)
 
     if IsShiftKeyDown() and button == "RightButton" then
       MNMMBIcon:Hide("MNMiniMapButton")
-      ns.Addon.db.profile.show.HideMMB = true  
+      ns.Addon.db.profile.show.HideMMB = true
       LibStub("AceConfigDialog-3.0"):Close("HandyNotes") 
       print(COLORED_ADDON_NAME .. "|cffffff00 " .. L["-> MiniMapButton <-"], "|cffff0000" .. L["is deactivated"]) 
       print(COLORED_ADDON_NAME .. "|cffffff00 " .. L["to show minimap button: /mnb or /MNB"])

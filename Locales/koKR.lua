@@ -271,6 +271,7 @@ L["Registrant"] = "등록"
 L["Scarlet Instances"] = "스칼렛 레드 인스턴스"
 L["hide Cosmos map symbols"] = "코스모스 기호를 숨 깁니다"
 L["Shows the locations of Raidbrowser applicants for old Raids"] = "도축장 브라우저가 오래된 도축장에 기인 한 위치를 보여줍니다."
+L["Deactivates the display of all possible icons on this map"] = "이 카드의 가능한 모든 아이콘 표시를 비활성화합니다."
 --11 Specific
 L["This instance entrance is in a different timeline. Other timeline can be activated at Zidormi"] = "이 인스턴스 입구는 다른 타임 라인에 있습니다. 다른 타임 라인은 Zidormi에서 활성화 될 수 있습니다"
 L["Shows locations of raids, dungeons, portals ,ship and zeppelins icons on different maps"] = "다양한 지도에서 공격대, 던전, 포털, 선박 및 비행선 아이콘의 위치를 ​​표시합니다."

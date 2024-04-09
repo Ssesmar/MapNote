@@ -271,6 +271,7 @@ L["Registrant"] = "Inscription"
 L["Scarlet Instances"] = "Instances rouges écarlates"
 L["hide Cosmos map symbols"] = "Masquer les symboles du cosmos"
 L["Shows the locations of Raidbrowser applicants for old Raids"] = "Montre la position du registre du navigateur formé à l'abattage pour l'ancien abattoir"
+L["Deactivates the display of all possible icons on this map"] = "Désactive l'affichage de toutes les icônes possibles sur cette carte"
 --11 Specific
 L["This instance entrance is in a different timeline. Other timeline can be activated at Zidormi"] = "Cette entrée d'instance est dans une chronologie différente. Une autre chronologie peut être activée à Zidormi"
 L["Shows locations of raids, dungeons, portals ,ship and zeppelins icons on different maps"] = "Affiche les emplacements des raids, des donjons, des portails, des navires et des icônes de zeppelins sur différentes cartes"

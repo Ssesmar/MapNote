@@ -271,6 +271,7 @@ L["Registrant"] = "登記"
 L["Scarlet Instances"] = "猩紅紅色實例"
 L["hide Cosmos map symbols"] = "隱藏宇宙符號"
 L["Shows the locations of Raidbrowser applicants for old Raids"] = "顯示屠宰場瀏覽器的位置歸因於舊的屠宰場"
+L["Deactivates the display of all possible icons on this map"] = "停用此卡上所有可能的圖標的顯示"
 --11 Specific
 L["This instance entrance is in a different timeline. Other timeline can be activated at Zidormi"] = "此實例入口處於不同的時間表。 可以在Zidormi上激活其他時間表"
 L["Shows locations of raids, dungeons, portals ,ship and zeppelins icons on different maps"] = "在不同的地圖上顯示突襲、地下城、傳送門、船隻和飛艇圖示的位置"

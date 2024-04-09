@@ -273,6 +273,7 @@ L["Registrant"] = true
 L["Scarlet Instances"] = true
 L["hide Cosmos map symbols"] = true
 L["Shows the locations of Raidbrowser applicants for old Raids"] = true
+L["Deactivates the display of all possible icons on this map"] = true
 --11 Specific
 L["This instance entrance is in a different timeline. Other timeline can be activated at Zidormi"] = true
 L["Shows locations of raids, dungeons, portals ,ship and zeppelins icons on different maps"] = true

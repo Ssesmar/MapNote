@@ -5,10 +5,9 @@ if not HandyNotes then return end
 
 local ADDON_NAME = "HandyNotes_MapNotes"
 local L = LibStub("AceLocale-3.0"):GetLocale(ADDON_NAME)
+
 local MapNotesMiniButton = LibStub("AceAddon-3.0"):NewAddon("MNMiniMapButton", "AceConsole-3.0")
 local MNMMBIcon = LibStub("LibDBIcon-1.0", true)
-local HideAllNodes = LibStub("LibDBIcon-1.0", true) -- test
-
 
 local db = { }
 local nodes = { }
@@ -21,6 +20,7 @@ function MapNotesMiniButton:OnInitialize() --mmb.lua
   self.db = LibStub("AceDB-3.0"):New("MNMiniMapButtonDB", { profile = { minimap = { hide = false, }, }, }) 
   MNMMBIcon:Register("MNMiniMapButton", ns.miniButton, self.db.profile.minimap)
 end
+
 
 local function updateextraInformation()
     table.wipe(extraInformations)
@@ -481,22 +481,14 @@ function Addon:PLAYER_LOGIN()
   ns.LoadOptions(self)
   ns.Addon = Addon
  
-  
   HandyNotes:RegisterPluginDB("MapNotes", pluginHandler, ns.options)
   self.db = LibStub("AceDB-3.0"):New(ADDON_NAME .. "DB", ns.defaults, true)
   db = self.db.profile
-
   Addon:RegisterEvent("PLAYER_ENTERING_WORLD") -- Check for any lockout changes when we zone
   LibStub("AceConfigRegistry-3.0"):RegisterOptionsTable("MNMiniMapButton", ns.options)
-  LibStub("AceConfigRegistry-3.0"):RegisterOptionsTable("HideMapNotes", ns.options) -- test
- 
 
-  if db.show.HideMMB then 
+  if db.show.HideMMB then -- minimap button
     MNMMBIcon:Hide("MNMiniMapButton")
-  end
-
-  if db.show.HideMapNote then --test
-    HideAllNodes:Hide("HideMapNotes")
   end
 
   ns.WorldMapButton = LibStub('Krowi_WorldMapButtons-1.4'):Add(ADDON_NAME .. "WorldMapOptionsButtonTemplate","BUTTON")

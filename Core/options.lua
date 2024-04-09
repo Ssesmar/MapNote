@@ -49,10 +49,10 @@ ns.options = {
                 if ns.Addon.db.profile.show.HideMapNote then print(TextIconMNL4:GetIconString() .. " " .. COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffff0000", L["All MapNotes icons have been hidden"]) else
                 if not ns.Addon.db.profile.show.HideMapNote then print(TextIconMNL4:GetIconString() .. " " .. COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cff00ff00", L["All set icons have been restored"]) end end end,
           },  
-        hideWorld = {
+        hideCosmos = {
           type = "toggle",
           name = "|cffff0000" .. L["hide Cosmos map symbols"],
-          desc = L["Activates the display of all possible icons on this map"],
+          desc = L["Deactivates the display of all possible icons on this map"],
           order = 0.6,
           width = 1.30,
           get = function() return ns.Addon.db.profile.show.HideWorld end,
@@ -82,7 +82,7 @@ ns.options = {
             if not ns.Addon.db.profile.show.HideWMB then ns.WorldMapButton:Show() LibStub("Krowi_WorldMapButtons-1.4").SetPoints(); print(COLORED_ADDON_NAME .. "|cffffff00", L["-> WorldMapButton <-"], "|cff00ff00" .. L["is activated"]) else
             if ns.Addon.db.profile.show.HideWMB then ns.WorldMapButton:Hide() LibStub("Krowi_WorldMapButtons-1.4").SetPoints(); print(COLORED_ADDON_NAME .. "|cffffff00", L["-> WorldMapButton <-"], "|cffff0000" .. L["is deactivated"]) end end end,
           },
-        DescriptionHeader = {
+        DescriptionHeader2 = {
           type = "header",
           name = "",
           order = 1.6,

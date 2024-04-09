@@ -271,6 +271,7 @@ L["Registrant"] = "Постановка на учет"
 L["Scarlet Instances"] = "Алые красные экземпляры"
 L["hide Cosmos map symbols"] = "Скрыть символы космоса"
 L["Shows the locations of Raidbrowser applicants for old Raids"] = "Показывает позицию браузера бойни, чтобы быть приписанным старой бойни"
+L["Deactivates the display of all possible icons on this map"] = "Деактивирует отображение всех возможных значков на этой карте"
 --11 Specific
 L["This instance entrance is in a different timeline. Other timeline can be activated at Zidormi"] = "Этот вход экземпляра находится в другой временной шкале. Другие временные шкалы могут быть активированы в Zidormi"
 L["Shows locations of raids, dungeons, portals ,ship and zeppelins icons on different maps"] = "Показывает расположение рейдов, подземелий, порталов, значков кораблей и дирижаблей на разных картах"
