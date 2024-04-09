@@ -1,5 +1,5 @@
 <Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/ ..\FrameXML\UI.xsd">
-  <DropDownToggleButton name="HandyNotes_MapNotesWorldMapOptionsButtonTemplate" frameStrata="HIGH" mixin="HandyNotes_MapNotesWorldMapOptionsButtonMixin" registerForClicks="LeftButtonUp, RightButtonUp" virtual="true">
+  <Button name="HandyNotes_MapNotesWorldMapOptionsButtonTemplate" frameStrata="HIGH" mixin="HandyNotes_MapNotesWorldMapOptionsButtonMixin" registerForClicks="LeftButtonUp, RightButtonUp" virtual="true">
     <Size x="32" y="32"/>
     <Layers>
       <Layer level="BACKGROUND">
@@ -45,5 +45,5 @@
 			<OnClick method="OnClick"/>
 			<OnEnter method="OnEnter"/>
     </Scripts>
-  </DropDownToggleButton>
+  </Button>
 </Ui>

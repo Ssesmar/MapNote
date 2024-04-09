@@ -3,7 +3,6 @@ local ADDON_NAME, ns = ...
 ns.defaults = {
     profile = {
       --0
-        hideAddon = false,
         hideWorld = false,
         hideMMB = false,
         RemoveBlizzPOIs = true,
@@ -131,6 +130,7 @@ ns.defaults = {
 
       --0 show.show commands
         show = {
+          HideMapNote = true,
           Azeroth = true,
           Continent = true,
           ZoneMap = true,

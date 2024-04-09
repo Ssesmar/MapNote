@@ -7,6 +7,7 @@ local ADDON_NAME = "HandyNotes_MapNotes"
 local L = LibStub("AceLocale-3.0"):GetLocale(ADDON_NAME)
 local MapNotesMiniButton = LibStub("AceAddon-3.0"):NewAddon("MNMiniMapButton", "AceConsole-3.0")
 local MNMMBIcon = LibStub("LibDBIcon-1.0", true)
+local HideAllNodes = LibStub("LibDBIcon-1.0", true) --test
 
 
 local db = { }
@@ -455,7 +456,6 @@ function pluginHandler:OnClick(button, pressed, uiMapId, coord)
 end
 
 local Addon = CreateFrame("Frame")
---ns.Addon = Addon
 Addon:RegisterEvent("PLAYER_LOGIN")
 Addon:SetScript("OnEvent", function(self, event, ...) return self[event](self, ...)end)
 
@@ -480,18 +480,26 @@ function Addon:PLAYER_LOGIN()
 
   ns.LoadOptions(self)
   ns.Addon = Addon
-
+ 
+  
   HandyNotes:RegisterPluginDB("MapNotes", pluginHandler, ns.options)
   self.db = LibStub("AceDB-3.0"):New(ADDON_NAME .. "DB", ns.defaults, true)
   db = self.db.profile
+
   Addon:RegisterEvent("PLAYER_ENTERING_WORLD") -- Check for any lockout changes when we zone
   LibStub("AceConfigRegistry-3.0"):RegisterOptionsTable("MNMiniMapButton", ns.options)
-  
+  LibStub("AceConfigRegistry-3.0"):RegisterOptionsTable("HideMapNotes", ns.options) -- test
+ 
+
   if db.show.HideMMB then 
     MNMMBIcon:Hide("MNMiniMapButton")
   end
 
-  ns.WorldMapButton = LibStub('Krowi_WorldMapButtons-1.4'):Add(ADDON_NAME .. "WorldMapOptionsButtonTemplate","DROPDOWNTOGGLEBUTTON")
+  if db.show.HideMapNote then --test
+    HideAllNodes:Hide("HideMapNotes")
+  end
+
+  ns.WorldMapButton = LibStub('Krowi_WorldMapButtons-1.4'):Add(ADDON_NAME .. "WorldMapOptionsButtonTemplate","BUTTON")
   if ns.Addon.db.profile.show.HideWMB
     then ns.WorldMapButton:Hide()
     else ns.WorldMapButton:Show()
