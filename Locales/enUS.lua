@@ -70,7 +70,7 @@ L["Colors EVERYONE! Assigned dungeons and raids also have multiple points in gra
 L["enemy faction"] = true
 L["Shows enemy faction (horde/alliance) icons"] = true
 L["chat message"] = true
-L["Deactivate MapNotes chat messages except 'Hide MapNotes!' and 'MapNotes VS. blizzard'"] = true
+L["Disables MapNotes status chat messages excluding core information"] = true
 L["Shows special transport icons like"] = true
 L["Combines several different grouped symbols that lie on one point, thus showing all possible transport/instance symbols that are located here instead of just one of several possible ones"] = true
 L["Left-clicking on one of these symbols on the map opens the corresponding map, which contains all of the points listed by the symbol on the map"] = true

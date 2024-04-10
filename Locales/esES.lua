@@ -70,7 +70,7 @@ L["Colors EVERYONE! Assigned dungeons and raids also have multiple points in gra
 L["enemy faction"] = "facción enemiga"
 L["Shows enemy faction (horde/alliance) icons"] = "Muestra iconos de facciones enemigas (horda/alianza)"
 L["chat message"] = "Mensajes de chat" 
-L["Deactivate MapNotes chat messages except 'Hide MapNotes!' and 'MapNotes VS. blizzard'"] = "Desactivar los mensajes de chat de Mapnotes, excepto '¡Hide Mapnotes!' y 'Mapnotes vs. Tormenta de nieve '" 
+L["Disables MapNotes status chat messages excluding core information"] = "Noticias de chat de estado de Mapnotes desactivadas excepto información central"
 L["Shows special transport icons like"] = "Muestra íconos especiales de transporte como"
 L["Combines several different grouped symbols that lie on one point, thus showing all possible transport/instance symbols that are located here instead of just one of several possible ones"] = "Combina varios símbolos agrupados diferentes que se encuentran en un punto, mostrando así todos los símbolos de transporte/instancia posibles que se encuentran aquí en lugar de solo uno de varios posibles."
 L["Left-clicking on one of these symbols on the map opens the corresponding map, which contains all of the points listed by the symbol on the map"] = "Al hacer clic con el botón izquierdo en uno de estos símbolos en el mapa, se abre el mapa correspondiente, que contiene todos los puntos enumerados por el símbolo en el mapa"

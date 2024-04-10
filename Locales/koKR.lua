@@ -70,7 +70,7 @@ L["Colors EVERYONE! Assigned dungeons and raids also have multiple points in gra
 L["enemy faction"] = "적 세력"
 L["Shows enemy faction (horde/alliance) icons"] = "적 진영(호드/얼라이언스) 아이콘을 표시합니다"
 L["chat message"] = "채팅 메시지" 
-L["Deactivate MapNotes chat messages except 'Hide MapNotes!' and 'MapNotes VS. blizzard'"] = "'Mapnotes를 숨기십시오!'를 제외한 Mapnotes 채팅 메시지를 비활성화하십시오. 그리고 'Mapnotes vs. 블리자드 '" 
+L["Disables MapNotes status chat messages excluding core information"] = "핵심 정보를 제외한 Mapnotes 상태 채팅 뉴스 비활성화"
 L["Shows special transport icons like"] = "특별한 교통 아이콘을 보여줍니다"
 L["Combines several different grouped symbols that lie on one point, thus showing all possible transport/instance symbols that are located here instead of just one of several possible ones"] = "한 지점에 놓인 여러 다른 그룹화 된 기호를 결합하여 가능한 여러 전송/인스턴스 기호를 보여줍니다."
 L["Left-clicking on one of these symbols on the map opens the corresponding map, which contains all of the points listed by the symbol on the map"] = "지도에서 이러한 기호 중 하나를 마우스 왼쪽 버튼으로 클릭하면 지도에서 기호로 나열된 모든 지점이 포함된 해당 지도가 열립니다"

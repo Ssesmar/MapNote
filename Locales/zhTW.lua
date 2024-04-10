@@ -70,7 +70,7 @@ L["Colors EVERYONE! Assigned dungeons and raids also have multiple points in gra
 L["enemy faction"] = "敵對派系"
 L["Shows enemy faction (horde/alliance) icons"] = "顯示敵方派系（部落/聯盟）圖示"
 L["chat message"] = "聊天消息" 
-L["Deactivate MapNotes chat messages except 'Hide MapNotes!' and 'MapNotes VS. blizzard'"] = "停用mapnotes聊天消息，除了“隱藏mapnotes！” 和'mapnotes vs。 暴風雪" 
+L["Disables MapNotes status chat messages excluding core information"] = "停用MAPNOTES狀態聊天新聞除了核心信息"
 L["Shows special transport icons like"] = "顯示特殊的運輸圖標"
 L["Combines several different grouped symbols that lie on one point, thus showing all possible transport/instance symbols that are located here instead of just one of several possible ones"] = "結合幾個位於一個點的幾個不同的分組符號，從而顯示了所有可能位於此處的運輸/實例符號，而不僅僅是幾個可能的傳輸符號"
 L["Left-clicking on one of these symbols on the map opens the corresponding map, which contains all of the points listed by the symbol on the map"] = "左鍵點擊地圖上的這些符號之一會開啟對應的地圖，其中包含地圖上該符號列出的所有點"
