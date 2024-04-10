@@ -42,6 +42,22 @@ ns.defaults = {
         showMiniMapShadowlands = true,
         showMiniMapDragonIsles = true,
       
+      --1 Cosmos map
+        showCosmos = true,
+        comosScale = 1.5,
+        cosmosAlpha = 1,
+        showCosmosKalimdor = true,
+        showCosmosEasternKingdom = true,
+        showCosmosOutland = true,
+        showCosmosNorthrend = true,
+        showCosmosPandaria = true,
+        showCosmosDraenor = true,
+        showCosmosBrokenIsles = true,
+        showCosmosZandalar = true,
+        showCosmosKulTiras = true,
+        showCosmosShadowlands = true,
+        showCosmosDragonIsles = true,
+
       --2 Azeroth map
         showAzeroth = true,
         azerothScale = 1.5,
@@ -130,6 +146,7 @@ ns.defaults = {
 
       --0 show.show commands
         show = {
+          CosmosMap = true,
           Azeroth = true,
           Continent = true,
           ZoneMap = true,

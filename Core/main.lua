@@ -225,9 +225,9 @@ do
         alpha = db.azerothAlpha
       end
 
-      if t.uiMapId == 946 then-- Azeroth World Map
-        scale = 2.0
-        alpha = 1.0
+      if t.uiMapId == 946 then-- Cosmos World Map
+        scale = db.cosmosScale
+        alpha = db.cosmosAlpha
       end
 
       if (value.showInZone or t.minimapUpdate) then -- Zone scale
@@ -361,7 +361,7 @@ function pluginHandler:OnClick(button, pressed, uiMapId, coord)
 
       local mnID = nodes[uiMapId][coord].mnID
       if mnID then
-         WorldMapFrame:SetMapID(mnID)
+        WorldMapFrame:SetMapID(mnID)
       if (not EncounterJournal_OpenJournal) then 
         UIParentLoadAddOn('Blizzard_EncounterJournal')
       end
