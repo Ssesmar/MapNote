@@ -1,9 +1,18 @@
 # MapNote
-## [1.8.2](https://github.com/Ssesmar/MapNote) (2024-04-08)
+## [1.8.2](https://github.com/Ssesmar/MapNote) (2024-04-10)
 - Note:
 
--- added symbols on the cosmic map with full functions
--- added Looking-For-Raid NPC icons for old Raids
+-- added new category called Worldmap
+-- added fully functional icons on the world map
+-- added Dungeonbrowser Looking-For-Raid NPC icons for old Raids on every map type
+-- Of course, these can also be activated or deactivated individually in every category tab
+-- added right-click functionality on the World Map button to hide or show all set MapNotes icons of that map type (Worldmap/Azeroth/Continent/Zone/Dungeon).
+-- For example, the Worldmap button on a zone map only shows or hides the symbols of the zone map when you right click
+-- Added middlere mouse button functionality on the world map button to hide or show all set MapNotes icons on each map.
+-- moved the Info Tab into the General Tab
+-- added in the Zone Tab Category a Dungeon/Raid/LFR iconsize regulator so that these symbols can be set independently of all other symbols in this category
+-- added right-click functionality on minimap button to hide or show all set minimap icons
+-- removed the right-click functionality on the minimap button to open HandyNotes
 
 
 - Description:

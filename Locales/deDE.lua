@@ -95,7 +95,7 @@ L["Dungeon map"] = "Dungeon-Karte"
 --6 Map Tabs together
 L["Instance Entrance"] = "Instanzeingang"
 L["switches weekly between"] = "wechselt wöchentlich zwischen"
-L["Activate icons"] = "Icons aktivieren"
+L["Activate icons"] = "Symbole aktivieren"
 L["Show individual icons"] = "Einzelne Symbole anzeigen"
 L["Exits"] = "Ausgänge"
 L["Raids"] = "Schlachtzüge"
