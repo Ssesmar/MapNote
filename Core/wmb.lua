@@ -27,8 +27,10 @@ local info = C_Map.GetMapInfo(WorldMapFrame:GetMapID())
 
         if not ns.Addon.db.profile.show.HideMapNote then
             ns.Addon.db.profile.show.HideMapNote = true
+            print(TextIconMNL4:GetIconString() .. " " .. COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffff0000", L["All MapNotes icons have been hidden"])
         else
             ns.Addon.db.profile.show.HideMapNote = false
+            print(TextIconMNL4:GetIconString() .. " " .. COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cff00ff00", L["All set icons have been restored"])
         end
 
     end
@@ -39,8 +41,10 @@ local info = C_Map.GetMapInfo(WorldMapFrame:GetMapID())
         
             if not ns.Addon.db.profile.show.CosmosMap then
                 ns.Addon.db.profile.show.CosmosMap = true
+                print(TextIconMNL4:GetIconString() .. " " .. COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00", WORLDMAP_BUTTON, "|cff00ff00" .. L["is activated"])
             else
                 ns.Addon.db.profile.show.CosmosMap = false
+                print(TextIconMNL4:GetIconString() .. " " .. COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00", WORLDMAP_BUTTON, "|cffff0000" .. L["is deactivated"])
             end
 
         end
@@ -49,8 +53,10 @@ local info = C_Map.GetMapInfo(WorldMapFrame:GetMapID())
 
             if not ns.Addon.db.profile.show.Azeroth then
                 ns.Addon.db.profile.show.Azeroth = true
+                print(TextIconMNL4:GetIconString() .. " " .. COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00 ".. L["Azeroth map"], "|cff00ff00" .. L["is activated"])
             else
                 ns.Addon.db.profile.show.Azeroth = false
+                print(TextIconMNL4:GetIconString() .. " " .. COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00 ".. L["Azeroth map"], "|cffff0000" .. L["is deactivated"])
             end
 
         end
@@ -59,8 +65,10 @@ local info = C_Map.GetMapInfo(WorldMapFrame:GetMapID())
         
             if not ns.Addon.db.profile.show.Continent then
                 ns.Addon.db.profile.show.Continent = true
+                print(TextIconMNL4:GetIconString() .. " " .. COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00 ".. L["Continent map"], "|cff00ff00" .. L["is activated"])
             else
                 ns.Addon.db.profile.show.Continent = false
+                print(TextIconMNL4:GetIconString() .. " " .. COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00 ".. L["Continent map"], "|cffff0000" .. L["is deactivated"])
             end
 
         end
@@ -69,8 +77,10 @@ local info = C_Map.GetMapInfo(WorldMapFrame:GetMapID())
         
             if not ns.Addon.db.profile.show.DungeonMap then
                 ns.Addon.db.profile.show.DungeonMap = true
+                print(TextIconMNL4:GetIconString() .. " " .. COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00 ".. L["Dungeon map"], "|cff00ff00" .. L["is activated"])
             else
                 ns.Addon.db.profile.show.DungeonMap = false
+                print(TextIconMNL4:GetIconString() .. " " .. COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00 ".. L["Dungeon map"], "|cffff0000" .. L["is deactivated"])
             end
 
         end
@@ -79,13 +89,13 @@ local info = C_Map.GetMapInfo(WorldMapFrame:GetMapID())
         
             if not ns.Addon.db.profile.show.ZoneMap then
                 ns.Addon.db.profile.show.ZoneMap = true
+                print(TextIconMNL4:GetIconString() .. " " .. COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00 ".. L["Zone map"], "|cff00ff00" .. L["is activated"])
             else
                 ns.Addon.db.profile.show.ZoneMap = false
+                print(TextIconMNL4:GetIconString() .. " " .. COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00 ".. L["Zone map"], "|cffff0000" .. L["is deactivated"])
             end
 
         end
-
-
 
     end
     ns.Addon:FullUpdate()
@@ -115,7 +125,7 @@ local info = C_Map.GetMapInfo(WorldMapFrame:GetMapID())
     GameTooltip:AddLine(" ",1,1,1)
 
     if WorldMapFrame:GetMapID() == 946 then -- World Map
-        GameTooltip:AddLine(HELPFRAME_REPORT_PLAYER_RIGHT_CLICK .. " => " .. "|cffff0000" .. WORLD_MAP .. "|cffffcc00" .. " " .. L["icons"] .. " " .. SHOW .. " / " .. HIDE,1,1,1)
+        GameTooltip:AddLine(HELPFRAME_REPORT_PLAYER_RIGHT_CLICK .. " => " .. "|cffff0000" .. WORLDMAP_BUTTON .. "|cffffcc00" .. " " .. L["icons"] .. " " .. SHOW .. " / " .. HIDE,1,1,1)
         GameTooltip:Show()
     end
 

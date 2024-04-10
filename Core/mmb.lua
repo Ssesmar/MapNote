@@ -23,8 +23,10 @@ OnClick = function(self, button)
     if button == "RightButton" and not IsShiftKeyDown() then
       if not ns.Addon.db.profile.show.MiniMap then
         ns.Addon.db.profile.show.MiniMap = true
+        print(TextIconMNL4:GetIconString() .. " " .. COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00 ".. MINIMAP_LABEL, "|cff00ff00" .. L["is activated"])
       else
         ns.Addon.db.profile.show.MiniMap = false
+        print(TextIconMNL4:GetIconString() .. " " .. COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00 ".. MINIMAP_LABEL, "|cffff0000" .. L["is deactivated"])
       end
     end
 
