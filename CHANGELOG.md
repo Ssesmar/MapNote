@@ -1,19 +1,20 @@
 # MapNote
-## [1.8.2](https://github.com/Ssesmar/MapNote) (2024-04-10)
+## [1.9.3](https://github.com/Ssesmar/MapNote) (2024-05-12)
 - Note:
 
--- added new category called Worldmap
--- added fully functional icons on the world map
--- added Dungeonbrowser Looking-For-Raid NPC icons for old Raids on every map type
--- Of course, these can also be activated or deactivated individually in every category tab
--- added right-click functionality on the World Map button to hide or show all set MapNotes icons of that map type (Worldmap/Azeroth/Continent/Zone/Dungeon).
--- For example, the Worldmap button on a zone map only shows or hides the symbols of the zone map when you right click
--- Added middlere mouse button functionality on the world map button to hide or show all set MapNotes icons on each map.
--- moved the Info Tab into the General Tab
--- added in the Zone Tab Category a Dungeon/Raid/LFR iconsize regulator so that these symbols can be set independently of all other symbols in this category
--- added right-click functionality on minimap button to hide or show all set minimap icons
--- removed the right-click functionality on the minimap button to open HandyNotes
+-- MapNotes now works on every version of World of Warcraft. Classic Era / Cataclysm and Retail
 
+Retail:
+-- Added an option to allow uncovering of undiscovered areas called Unexplored Areas
+-- Added the "Fog of the Unexplored" option, which will display a slight fog on Unexplored Areas so you can still see what area you haven't discovered yet. To do this, the “Unexplored Areas” option must be activated
+
+Classi Era:
+-- Added an option to allow uncovering of undiscovered areas called Unexplored Areas
+-- Added the "Fog of the Unexplored" option, which will display a slight fog on Unexplored Areas so you can still see what area you haven't discovered yet. To do this, the “Unexplored Areas” option must be activated
+
+Cataclysm Classic:
+-- Added an option to allow uncovering of undiscovered areas called Unexplored Areas
+-- Added the "Fog of the Unexplored" option, which will display a slight fog on Unexplored Areas so you can still see what area you haven't discovered yet. To do this, the “Unexplored Areas” option must be activated
 
 - Description:
 
