@@ -2,7 +2,45 @@ local ADDON_NAME = ...
 local L = LibStub("AceLocale-3.0"):NewLocale(ADDON_NAME, "ruRU")
 if not L then return end
 
---Unexplored Areas function
+--0 Sync function
+L["synchronizes"] = "синхронизирует"
+L["Synchronizes the Zones tab with the Minimap tab"] = "Синхронизирует вкладку «Зоны» с вкладкой «Миникарта»"
+L["Which deactivates the functions from the Minimap tab and is now controlled together by the Zones tab"] = "Это отключает функции на вкладке «Мини-карта», и теперь управление ими осуществляется коллективно через вкладку «Зоны»"
+L["This will delete all Minimap settings and replace them with those from Zones tab"] = "Это удалит все настройки мини-карты и заменит их настройками на вкладке «Зоны»"
+L["Synchronizes the Capitals tab with the Capitals - Minimap tab"] = "Синхронизирует вкладку «Капитал» с вкладкой «Столицы - Миникарте»"
+L["Which deactivates the functions from the Capitals - Minimap tab and is now controlled together by the Capitals tab"] = "Это деактивирует функции вкладки «Столицы - Миникарте» и теперь контролируется вместе с помощью вкладки «Столицы»"
+L["This will delete all Capitals - Minimap settings and replace them with those from Capitals tab"] = "Это удалило все настройки для «Капиталов - мини -карта» и заменено настройками на вкладке «Столичные города»"
+--1 Capitals
+L["Leather Armor"] = "Кожаная броня"
+L["Heavy Armor"] = "Тяжелая броня"
+L["Plate Armor"] = "Латный доспех"
+L["Cloth Armor"] = "Тканевая броня"
+L["Quartermaster"] = "Интендант"
+L["The Scryers"] = "Провидцы"
+L["The Aldor"] = "Алдоры"
+L["Paths"] = "Пути"
+L["Capitals"] = "столицы"
+L["Alchemy"] = "Алхимия"
+L["Engineer"] = "инженер"
+L["Jewelcrafting"] = "Ювелирное дело"
+L["Leatherworking"] = "Кожевничество"
+L["Blacksmithing"] = "Кузнечное дело"
+L["Tailoring"] = "Портняжное дело"
+L["Skinning"] = "Снятие шкур"
+L["Mining"] = "Горное дело"
+L["Herbalism"] = "Травничество"
+L["Enchanting"] = "Наложение чар"
+L["Warspear"] = "Копье Войны"
+L["Stormshield"] = "Преграда Ветров"
+L["Shrine2Moons"] = "Святилище2Лун"
+L["Shrine7Stars"] = "Святилище7Звезд"
+L["Starting on the first Sunday of each month for one week"] = "Начинается на неделю в первое воскресенье месяца"
+L["Enables the display of icons for a specific capital city"] = "Активирует отображение символов для определенного капитала"
+L["This MapNotes icons shows various icons that are too close to each other together"] = "Этот символ MapNotes показывает разные символы, которые слишком близки друг к другу."
+L["Only affects instance passage icons, not path icons such as exit icons or icons on an instance map or the Capitals category / Minimap Capitals"] = "Влияет только на экземпляр только через символы, а не символы пути, такие как начальные символы или символы на карте экземпляров или столицы / мини -карты"
+L["Zones"] = "зоны"
+L["Continents"] = "континенты"
+--2 Unexplored Areas function
 L["Unexplored Areas"] = "Неизведанные территории"
 L["Unexplored Areas visibility"] = "Видимость Неизведанные территории"
 L["Changes the visibility of unexplored Areas"] = "Меняет видимость неисследованных областей"
@@ -10,7 +48,7 @@ L["Fog"] = "Туман"
 L["Mist of the Unexplored"] = "Тумана неизведанного"
 L["Leaves the unexplored areas revealed but adds a slight fog so you can still see which ones you haven't explored yet"] = "Оставляет неисследованные области раскрыты"
 L["Reveals unexplored areas and shows the individual areas of each zone that are actually still unexplored"] = "Отображает неисследованные области и показывает отдельные области каждой зоны, которые на самом деле еще не исследованы"
---0 Info tab
+--3 Info tab
 L["Info"] = "Информация"
 L["A description of what this addon does and what functions it offers"] = "Описание того, что делает этот аддон и какие функции он предлагает"
 L["A collection of various icons on various maps from previous expansions up to Dragonflight"] = "Коллекция разных символов на разных картах от всех расширений"
@@ -33,7 +71,7 @@ L["Left-click opens or close the MapNote setting menu"] = "Левый -Клик 
 L["Right-click opens or close the HandyNote setting menu"] = "Право -клик открывает или закрывает меню настройки синоте сотового телефона"
 L["Shift+Right-click hide the minimap button"] = "Shift+Right -Click, скрыть кнопку Mini Garden"
 L["Chat commands"] = "Команды чата"
---1 General tab
+--4 General tab
 L["Description"] = "Описание"
 L["Position of the real Instance Entrance"] = "Положение ввода реального экземпляра"
 L["Way to the Instance Entrance"] = "Путь к вводу экземпляра"
@@ -47,7 +85,8 @@ L["Left-clicking on a multiple icon will open the map where the dungeons are loc
 L["At the same time, all icons representing additional instance inputs are removed"] = "В то же время все значки, обозначающие дополнительные входные данные экземпляра, удалены"
 L["Changes all passage symbols on all maps to dungeon, raid or multiple symbols. In addition, the passage option will be disabled everywhere and the symbols will be added to the respective raids, dungeons or multiple options (The dungeon map remains unchanged from all this)"] = "Измените все символы на всех картах на подземелье, рейд или несколько символов. Кроме того, опция прохода деактивируется повсюду, и символы соответствующих рейдов, подземелья или несколько вариантов добавляются (карта Dungeon остается неизменной из всего этого)"
 L["Show different icons on different maps. All icons are clickable (except on the minimap) and have a function Map icons work with or without the shift key. Simply change the Shift function!"] = "Показывать разные значки на разных картах. Все значки кликабельны (кроме мини-карты) и имеют функцию. Значки на карте работают как с клавишей Shift, так и без нее. Просто измените функцию Shift!"
-L["General"] =  "Общий" 
+L["Generally"] = "В целом"
+L["General"] = "Общий"
 L["General settings that apply to Azeroth / Continent / Dungeon map at the same time"] = "Общие настройки, применимые одновременно к карте Азерота/Континента/Подземелья"
 L["General settings / Additional functions"] = "Общие настройки/Дополнительные функции"
 L["Shift function!"] = "Функция переключения!"
@@ -90,16 +129,13 @@ L["to open MapNotes menu: /mno, /MNO"] = "чтобы открыть меню Map
 L["to close MapNotes menu: /mnc, /MNC"] = "чтобы закрыть меню MapNotes: /mnc, /MNC"
 L["to show minimap button: /mnb or /MNB"] = "чтобы отобразить кнопку мини-карты: /mnb или /MNB"
 L["to hide minimap button: /mnbh or /MNBH"] = "чтобы скрыть кнопку мини-карты: /mnbh или /MNBH"
---2a MiniMap Tab specific
-L["Some instance icons cannot be hidden because they were created by Blizzard itself and not by MapNotes"] = "Some instance icons cannot be hidden because they were created by Blizzard itself and not by MapNotes"
---2 Azeroth tab specific
+--5 Tab specific
+L["Left-clicking on a symbol on this map type opens the corresponding map in which the symbol is located"] = "Нажмите на щелчок на символ на этом типе карты открывает соответствующую карту, в которой находится символ"
+L["Some instance icons cannot be hidden because they were created by Blizzard itself and not by MapNotes"] = "Иконки некоторых экземпляров не могут быть скрыты, потому что они были созданы самими Blizzard, а не Mapnotes"
 L["Azeroth map"] = "Карта Азерота"
---3 Continent tab specific
 L["Continent map"] = "Карта континента"
---4 Zone tab specific
 L["Icon size 2.0 would be the default size of Blizzard's own instance icons on the zone map"] = "Размер значков 2.0 будет размером с собственных значков экземпляра Blizzard на карте зоны"
 L["Zone map"] = "Карта зоны "
---5 DungeonMap Tab specific
 L["Dungeon map"] =  "Карта подземелья" 
 --6 Map Tabs together
 L["Instance Entrance"] = "Вход экземпляра"
@@ -143,6 +179,7 @@ L["Show all Zandalar MapNotes dungeon, raid, portal, zeppelin and ship icons on 
 L["Show all Kul Tiras MapNotes dungeon, raid, portal, zeppelin and ship icons on this map"] = "Показать все значки подземелий, рейдов, порталов, дирижаблей и кораблей Кул-Тираса на этой карте"
 L["Show all Broken Isles MapNotes dungeon, raid, portal, zeppelin and ship icons on this map"] = "Показать все значки подземелий, рейдов, порталов, дирижаблей и кораблей на этой карте"
 L["Show all Dragon Isles MapNotes dungeon, raid, portal, zeppelin and ship icons on this map"] = "Показать все значки подземелий, рейдов, порталов, дирижаблей и кораблей на этой карте"
+L["Show all Khaz Algar MapNotes dungeon, raid, portal, zeppelin and ship icons on this map"] = "Показать все значки подземелий, рейдов, порталов, дирижаблей и кораблей Khaz Algar MapNotes на этой карте"
 L["Certain icons can be displayed or not displayed. If the option (Activate icons) has been activated in this category"] = "Определенные значки могут отображаться или не отображаться. Если в этой категории активирована опция (Активировать значки)"
 L["Show vanilla versions of dungeons and raids such as Naxxramas, Scholomance or Scarlet Monastery, which require achievements or other things"] = "Показать ванильные версии подземелий и рейдов, таких как Наксрамас, Некроситет или Монастырь Алого ордена, для которых требуются достижения или другие вещи"
 L["Individual icons that are too close to other icons on this map are not 100% accurately placed on this map! For more precise coordinates, please use the points on the zone map"] = "Отдельные символы, которые слишком близки к другим символам на этой карте, не размещены на 100 % точно на эту карту! Для более подробных координат, используйте точки на карте зоны"
@@ -318,4 +355,13 @@ L["The Ruby Sanctum"] = "Рубиновое святилище"
 L["Black Temple"] = "Черный храм"
 L["Auchenai Crypts"] = "Аукенайские гробницы"
 L["Sethekk Halls"] = "Сетеккские залы"
-L["The Arcatraz"] = "The Arcatraz"
+L["The Arcatraz"] = "Аркатрас"
+L["Reforge"] = "Перековка"
+--13 The War Within
+L["Khaz Algar"] = "Khaz Algar"
+L["Dornogal"] = "Dornogal"
+L["Catalyst"] = "Catalyst"
+L["Merchant for Renown items"] = "Merchant for Renown items"
+L["Council of Dornogal"] = "Council of Dornogal"
+L["The Assembly of the Deeps"] = "The Assembly of the Deeps"
+L["Hallowfall Arathi"] = "Hallowfall Arathi"

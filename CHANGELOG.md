@@ -1,20 +1,28 @@
 # MapNote
-## [1.9.3](https://github.com/Ssesmar/MapNote) (2024-05-12)
+## [2.0.2](https://github.com/Ssesmar/MapNote) (2024-06-09)
 - Note:
 
 -- MapNotes now works on every version of World of Warcraft. Classic Era / Cataclysm and Retail
 
-Retail:
--- Added an option to allow uncovering of undiscovered areas called Unexplored Areas
--- Added the "Fog of the Unexplored" option, which will display a slight fog on Unexplored Areas so you can still see what area you haven't discovered yet. To do this, the “Unexplored Areas” option must be activated
 
-Classi Era:
--- Added an option to allow uncovering of undiscovered areas called Unexplored Areas
--- Added the "Fog of the Unexplored" option, which will display a slight fog on Unexplored Areas so you can still see what area you haven't discovered yet. To do this, the “Unexplored Areas” option must be activated
+Retail & PTR:
+added a new function called "Synchronizes Zones & Minimap icons" into the Minimap and Zone tab
+    (Synchronizes the Zones tab with the Minimap tab)
+    (Which deactivates the functions from the Minimap tab and is now controlled together by the Zone tab)
+    (This will delete all Minimap settings and replace them with those from Zone tab)
+added a new function called "Synchronizes Capitals & Capitals Minimap icons" into the Capital and Capital - Minimap tab
+    (Synchronizes the Capitals tab with the Capitals - Minimap tab)
+    (Which deactivates the functions from the Capitals - Minimap tab and is now controlled together by the Capitals tab)
+    (This will delete all Capitals - Minimap settings and replace them with those from Capitals tab)
 
-Cataclysm Classic:
--- Added an option to allow uncovering of undiscovered areas called Unexplored Areas
--- Added the "Fog of the Unexplored" option, which will display a slight fog on Unexplored Areas so you can still see what area you haven't discovered yet. To do this, the “Unexplored Areas” option must be activated
+Cataclysm:
+
+added Transmogger/Reforge icon in Stormwind and Orgrimmar to the Capital tab into the General function
+added Transmogger/Reforge icon in Stormwind and Orgrimmar to the Capita Minimapl tab into the General function
+
+
+Classic Era & Hardcore:
+
 
 - Description:
 

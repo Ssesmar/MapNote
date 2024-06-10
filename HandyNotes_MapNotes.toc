@@ -1,5 +1,5 @@
-## Interface: 100207
-## Version: 1.9.3
+## Interface: 100207, 110000
+## Version: 2.0.2
 ## Title: HandyNotes: |cffff0000Map|r|cff00ccffNotes|r
 ## Notes: Displays instance entrances/exits and passageways, portals, ships, and zeppelin icons from previous expansions to the current one
 ## Notes-esES: Muestra entradas/salidas y pasadizos de instancias, portales, barcos y símbolos de zepelines desde expansiones anteriores a la actual
@@ -18,7 +18,7 @@
 ## X-Curse-Project-ID: 912524
 ## X-Localizations: enUS, enGB, deDE, esES, esMX, frFR, ruRU, itIT, ptBR, koKR, zhCN, zhTW
 ## IconTexture: Interface\AddOns\HandyNotes_MapNotes\Images\MNL4
-## SavedVariables: HandyNotes_MapNotesDB, MNMiniMapButtonDB
+## SavedVariables: HandyNotes_MapNotesRetailDB, MNMiniMapButtonRetailDB
 
 
 ExternalLibs\ExternalLibs.xml

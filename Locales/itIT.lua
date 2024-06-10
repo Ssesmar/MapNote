@@ -2,7 +2,45 @@
 local L = LibStub("AceLocale-3.0"):NewLocale(ADDON_NAME, "itIT")
 if not L then return end
 
---Unexplored Areas function
+--0 Sync function
+L["synchronizes"] = "sincronizza"
+L["Synchronizes the Zones tab with the Minimap tab"] = "Sincronizza la scheda Zone con la scheda Minimappa"
+L["Which deactivates the functions from the Minimap tab and is now controlled together by the Zones tab"] = "Ciò disabilita le funzionalità nella scheda Minimappa e ora è controllata collettivamente tramite la scheda Zone"
+L["This will delete all Minimap settings and replace them with those from Zones tab"] = "Ciò eliminerà tutte le impostazioni della minimappa e le sostituirà con le impostazioni nella scheda Zone"
+L["Synchronizes the Capitals tab with the Capitals - Minimap tab"] = "Sincronizza la scheda Capitale con la scheda Capital Cities - Minikarte"
+L["Which deactivates the functions from the Capitals - Minimap tab and is now controlled together by the Capitals tab"] = "Ciò disattiva le funzioni della scheda Capital Cities - Minikarte e ora vengono controllati insieme tramite la scheda Capital Cities"
+L["This will delete all Capitals - Minimap settings and replace them with those from Capitals tab"] = "Ciò ha eliminato tutte le impostazioni per Capitals - Mini Card e sostituite dalle impostazioni nella scheda Capital Cities"
+--1 Capitals
+L["Leather Armor"] = "Armatura di cuoio"
+L["Heavy Armor"] = "Armatura pesante"
+L["Plate Armor"] = "Armatura a piastre"
+L["Cloth Armor"] = "Armatura di stoffa"
+L["Quartermaster"] = "Quartiermastro"
+L["The Scryers"] = "The Scryers"
+L["The Aldor"] = "Aldor"
+L["Paths"] = "Modi"
+L["Capitals"] = "Capitali"
+L["Alchemy"] = "Alchimia"
+L["Engineer"] = "Ingegnere"
+L["Jewelcrafting"] = "Oreficeria"
+L["Leatherworking"] = "Conciatura"
+L["Blacksmithing"] = "Forgiatura"
+L["Tailoring"] = "Sartoria"
+L["Skinning"] = "Scuoiatura"
+L["Mining"] = "Estrazione"
+L["Herbalism"] = "Erbalismo"
+L["Enchanting"] = "Incantamento"
+L["Warspear"] = "Lancia da Guerra"
+L["Stormshield"] = "Scudo del Vento"
+L["Shrine2Moons"] = "SantuarioDueLune"
+L["Shrine7Stars"] = "Santuario7Stelle"
+L["Starting on the first Sunday of each month for one week"] = "Inizia per una settimana la prima domenica del mese"
+L["Enables the display of icons for a specific capital city"] = "Attiva la visualizzazione di simboli per un capitale specifico"
+L["This MapNotes icons shows various icons that are too close to each other together"] = "Questo simbolo di mapnotes mostra diversi simboli che sono troppo vicini."
+L["Only affects instance passage icons, not path icons such as exit icons or icons on an instance map or the Capitals category / Minimap Capitals"] = "Colpisce solo l'istanza attraverso simboli, non simboli del percorso come i simboli o i simboli iniziali su una mappa dell'istanza o le capitali delle capitali / mini -carte"
+L["Zones"] = "Zone"
+L["Continents"] = "Continenti"
+--2 Unexplored Areas function
 L["Unexplored Areas"] = "Unerforschte Gebiete"
 L["Unexplored Areas visibility"] = "Visibilità Aree inesplorate"
 L["Changes the visibility of unexplored Areas"] = "Cambia la visibilità delle aree inesplorate"
@@ -10,7 +48,7 @@ L["Fog"] = "Nebbia"
 L["Mist of the Unexplored"] = "Nebbia del inesplorato"
 L["Leaves the unexplored areas revealed but adds a slight fog so you can still see which ones you haven't explored yet"] = "Lascia le aree inesplorate rivelate ma aggiunge una leggera nebbia in modo da poter ancora vedere quali non hai ancora esplorato"
 L["Reveals unexplored areas and shows the individual areas of each zone that are actually still unexplored"] = "Rivela le aree inesplorate e mostra le singole aree di ciascuna zona che in realtà sono ancora inesplorate"
---0 Info tab
+--3 Info tab
 L["Info"] = "Info"
 L["A description of what this addon does and what functions it offers"] = "Una descrizione di ciò che fa questo componente aggiuntivo e di ciò che offre funzioni"
 L["A collection of various icons on various maps from previous expansions up to Dragonflight"] = "Una raccolta di simboli diversi su carte diverse da tutte le estensioni"
@@ -33,7 +71,7 @@ L["Left-click opens or close the MapNote setting menu"] = "Sinistra -clic apre o
 L["Right-click opens or close the HandyNote setting menu"] = "Il tasto destro si apre o chiude il menu di impostazione del sinote del telefono cellulare"
 L["Shift+Right-click hide the minimap button"] = "Maiusc+Right -click, nascondi il Mini Garden Button"
 L["Chat commands"] = "Comandi di chat"
---1 General tab
+--4 General tab
 L["Description"] = "Descrizione"
 L["Position of the real Instance Entrance"] = "Posizione dell'input di istanza reale"
 L["Way to the Instance Entrance"] = "Modo per l'input di istanza"
@@ -47,7 +85,8 @@ L["Left-clicking on a multiple icon will open the map where the dungeons are loc
 L["At the same time, all icons representing additional instance inputs are removed"] = "Allo stesso tempo, tutte le icone che rappresentano gli input di istanze aggiuntive vengono rimosse"
 L["Changes all passage symbols on all maps to dungeon, raid or multiple symbols. In addition, the passage option will be disabled everywhere and the symbols will be added to the respective raids, dungeons or multiple options (The dungeon map remains unchanged from all this)"] = "Cambia tutti attraverso i simboli su tutte le carte in sotterraneo, raid o più simboli. Inoltre, l'opzione di passaggio è disattivata ovunque e vengono aggiunti i simboli dei rispettivi raid, sotterranei o più opzioni (la scheda Dungeon rimane invariata da tutto questo)"
 L["Show different icons on different maps. All icons are clickable (except on the minimap) and have a function Map icons work with or without the shift key. Simply change the Shift function!"] = "Mostra icone diverse su mappe diverse. Tutte le icone sono cliccabili (tranne sulla minimappa) e hanno una funzione. Le icone della mappa funzionano con o senza il tasto Maiusc. Cambia semplicemente la funzione Maiusc!"
-L["General"] =  "Generale" 
+L["Generally"] = "Generalmente"
+L["General"] = "Generale"
 L["General settings that apply to Azeroth / Continent / Dungeon map at the same time"] = "Impostazioni generali che si applicano contemporaneamente alla mappa Azeroth / Continente / Dungeon"
 L["General settings / Additional functions"] = "Impostazioni generali/Funzioni aggiuntive"
 L["Shift function!"] = "Funzione di cambio!"
@@ -90,17 +129,14 @@ L["to open MapNotes menu: /mno, /MNO"] = "per aprire il menu MapNotes: /mno, /MN
 L["to close MapNotes menu: /mnc, /MNC"] = "per chiudere il menu MapNotes: /mnc, /MNC"
 L["to show minimap button: /mnb or /MNB"] = "per mostrare il pulsante della minimappa: /mnb o /MNB"
 L["to hide minimap button: /mnbh or /MNBH"] = "per nascondere il pulsante della minimappa: /mnbh o /MNBH"
---2a MiniMap Tab specific
+--5 Tab specific
+L["Left-clicking on a symbol on this map type opens the corresponding map in which the symbol is located"] = "Fare clic con il sinistra su un simbolo su questo tipo di scheda apre la scheda corrispondente in cui si trova il simbolo"
 L["Some instance icons cannot be hidden because they were created by Blizzard itself and not by MapNotes"] = "Alcune icone di istanza non possono essere nascoste perché sono state create da Blizzard stesso e non da Mapnotes"
---2 Azeroth tab specific
 L["Azeroth map"] = "Mappa di Azeroth"
---3 Continent tab specific
 L["Continent map"] = "Mappa del continente"
---4 Zone tab specific
 L["Icon size 2.0 would be the default size of Blizzard's own instance icons on the zone map"] = "La dimensione dell'icona 2.0 sarebbe la dimensione predefinita delle icone di istanza di Blizzard sulla mappa della zona"
 L["Zone map"] = "Mappa della zona"
---5 DungeonMap Tab specific 
-L["Dungeon map"] =  "Mappa del dungeon" 
+L["Dungeon map"] =  "Mappa del dungeon"
 --6 Map Tabs together 
 L["Instance Entrance"] = "Ingresso dell'istanza"
 L["switches weekly between"] = "cambia settimanalmente tra"
@@ -143,6 +179,7 @@ L["Show all Zandalar MapNotes dungeon, raid, portal, zeppelin and ship icons on 
 L["Show all Kul Tiras MapNotes dungeon, raid, portal, zeppelin and ship icons on this map"] = "Mostra tutte le icone di dungeon, raid, portali, zeppelin e navi di Kul Tiras MapNotes su questa mappa"
 L["Show all Broken Isles MapNotes dungeon, raid, portal, zeppelin and ship icons on this map"] = "Mostra tutte le icone di dungeon, raid, portali, zeppelin e navi delle Note della mappa delle Isole Disperse su questa mappa"
 L["Show all Dragon Isles MapNotes dungeon, raid, portal, zeppelin and ship icons on this map"] = "Mostra tutte le icone di dungeon, raid, portali, zeppelin e navi di Dragon Isles MapNotes su questa mappa"
+L["Show all Khaz Algar MapNotes dungeon, raid, portal, zeppelin and ship icons on this map"] = "Mostra tutte le icone dei sotterranei, dei raid, dei portali, degli zeppelin e delle navi di Khaz Algar su questa mappa"
 L["Certain icons can be displayed or not displayed. If the option (Activate icons) has been activated in this category"] = "Alcune icone possono essere visualizzate o meno. Se in questa categoria è stata attivata l'opzione (Attiva icone)"
 L["Show vanilla versions of dungeons and raids such as Naxxramas, Scholomance or Scarlet Monastery, which require achievements or other things"] = "Mostra versioni vanilla di dungeon e incursioni come Naxxramas, Scholomance o Scarlet Monastero, che richiedono risultati o altre cose"
 L["Individual icons that are too close to other icons on this map are not 100% accurately placed on this map! For more precise coordinates, please use the points on the zone map"] = "I singoli simboli che sono troppo vicini ad altri simboli su questa mappa non sono posizionati al 100 % proprio su questa carta! Per coordinate più dettagliate, utilizzare i punti sulla scheda Zona"
@@ -319,3 +356,12 @@ L["Black Temple"] = "Black Temple"
 L["Auchenai Crypts"] = "Auchenai Crypts"
 L["Sethekk Halls"] = "Sethekk Halls"
 L["The Arcatraz"] = "The Arcatraz"
+L["Reforge"] = "Riforgiare"
+--13 The War Within
+L["Khaz Algar"] = "Khaz Algar"
+L["Dornogal"] = "Dornogal"
+L["Catalyst"] = "Catalyst"
+L["Merchant for Renown items"] = "Merchant for Renown items"
+L["Council of Dornogal"] = "Council of Dornogal"
+L["The Assembly of the Deeps"] = "The Assembly of the Deeps"
+L["Hallowfall Arathi"] = "Hallowfall Arathi"

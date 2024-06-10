@@ -1,7 +1,46 @@
 local ADDON_NAME = ...
 local L = LibStub("AceLocale-3.0"):NewLocale(ADDON_NAME, "enUS", true)
 
---Unexplored Areas function
+
+--0 Sync function
+L["synchronizes"] = true
+L["Synchronizes the Zones tab with the Minimap tab"] = true
+L["Which deactivates the functions from the Minimap tab and is now controlled together by the Zones tab"] = true
+L["This will delete all Minimap settings and replace them with those from Zones tab"] = true
+L["Synchronizes the Capitals tab with the Capitals - Minimap tab"] = true
+L["Which deactivates the functions from the Capitals - Minimap tab and is now controlled together by the Capitals tab"] = true
+L["This will delete all Capitals - Minimap settings and replace them with those from Capitals tab"] = true
+--1 Capitals
+L["Leather Armor"] = true
+L["Heavy Armor"] = true
+L["Plate Armor"] = true
+L["Cloth Armor"] = true
+L["Quartermaster"] = true
+L["The Scryers"] = true
+L["The Aldor"] = true
+L["Paths"] = true
+L["Capitals"] = true
+L["Alchemy"] = true
+L["Engineer"] = true
+L["Jewelcrafting"] = true
+L["Leatherworking"] = true
+L["Blacksmithing"] = true
+L["Tailoring"] = true
+L["Skinning"] = true
+L["Mining"] = true
+L["Herbalism"] = true
+L["Enchanting"] = true
+L["Warspear"] = true
+L["Stormshield"] = true
+L["Shrine2Moons"] = true
+L["Shrine7Stars"] = true
+L["Starting on the first Sunday of each month for one week"] = true
+L["Enables the display of icons for a specific capital city"] = true
+L["This MapNotes icons shows various icons that are too close to each other together"] = true
+L["Only affects instance passage icons, not path icons such as exit icons or icons on an instance map or the Capitals category / Minimap Capitals"] = true
+L["Zones"] = true
+L["Continents"] = true
+--2 Unexplored Areas function
 L["Unexplored Areas"] = true
 L["Unexplored Areas visibility"] = true
 L["Changes the visibility of unexplored Areas"] = true
@@ -9,7 +48,7 @@ L["Fog"] = true
 L["Mist of the Unexplored"] = true
 L["Leaves the unexplored areas revealed but adds a slight fog so you can still see which ones you haven't explored yet"] = true
 L["Reveals unexplored areas and shows the individual areas of each zone that are actually still unexplored"] = true
---0 Info tab
+--3 Info tab
 L["Info"] = true
 L["A description of what this addon does and what functions it offers"] = true
 L["A collection of various icons on various maps from previous expansions up to Dragonflight"] = true
@@ -32,7 +71,7 @@ L["Left-click opens or close the MapNote setting menu"] = true
 L["Right-click opens or close the HandyNote setting menu"] = true
 L["Shift+Right-click hide the minimap button"] = true
 L["Chat commands"] = true
---1 General tab
+--4 General tab
 L["Description"] = true
 L["Position of the real Instance Entrance"] = true
 L["Way to the Instance Entrance"] = true
@@ -46,6 +85,7 @@ L["Left-clicking on a multiple icon will open the map where the dungeons are loc
 L["At the same time, all icons representing additional instance inputs are removed"] = true
 L["Changes all passage symbols on all maps to dungeon, raid or multiple symbols. In addition, the passage option will be disabled everywhere and the symbols will be added to the respective raids, dungeons or multiple options (The dungeon map remains unchanged from all this)"] = true
 L["Show different icons on different maps. All icons are clickable (except on the minimap) and have a function Map icons work with or without the shift key. Simply change the Shift function!"] = true
+L["Generally"] = true
 L["General"] = true
 L["General settings that apply to Azeroth / Continent / Dungeon map at the same time"] = true
 L["General settings / Additional functions"] = true
@@ -89,16 +129,13 @@ L["to open MapNotes menu: /mno, /MNO"] = true
 L["to close MapNotes menu: /mnc, /MNC"] = true
 L["to show minimap button: /mnb or /MNB"] = true
 L["to hide minimap button: /mnbh or /MNBH"] = true
---2a MiniMap Tab specific
+--5 Tab specific
+L["Left-clicking on a symbol on this map type opens the corresponding map in which the symbol is located"] = true
 L["Some instance icons cannot be hidden because they were created by Blizzard itself and not by MapNotes"] = true
---2 Azeroth tab specific
 L["Azeroth map"] = true
---3 Continent tab specific
 L["Continent map"] = true
---4 Zone tab specific
 L["Icon size 2.0 would be the default size of Blizzard's own instance icons on the zone map"] = true
 L["Zone map"] = true
---5 DungeonMap Tab specific
 L["Dungeon map"] = true 
 --6 Map Tabs together
 L["Instance Entrance"] = true
@@ -144,6 +181,7 @@ L["Show all Zandalar MapNotes dungeon, raid, portal, zeppelin and ship icons on 
 L["Show all Kul Tiras MapNotes dungeon, raid, portal, zeppelin and ship icons on this map"] = true
 L["Show all Broken Isles MapNotes dungeon, raid, portal, zeppelin and ship icons on this map"] = true
 L["Show all Dragon Isles MapNotes dungeon, raid, portal, zeppelin and ship icons on this map"] = true
+L["Show all Khaz Algar MapNotes dungeon, raid, portal, zeppelin and ship icons on this map"] = true
 L["Certain icons can be displayed or not displayed. If the option (Activate icons) has been activated in this category"] = true
 L["Show vanilla versions of dungeons and raids such as Naxxramas, Scholomance or Scarlet Monastery, which require achievements or other things"] = true
 L["Individual icons that are too close to other icons on this map are not 100% accurately placed on this map! For more precise coordinates, please use the points on the zone map"] = true
@@ -320,3 +358,12 @@ L["Black Temple"] = true
 L["Auchenai Crypts"] = true
 L["Sethekk Halls"] = true
 L["The Arcatraz"] = true
+L["Reforge"] = true
+--13 The War Within
+L["Khaz Algar"] = true
+L["Dornogal"] = true
+L["Catalyst"] = true
+L["Merchant for Renown items"] = true
+L["Council of Dornogal"] = true
+L["The Assembly of the Deeps"] = true
+L["Hallowfall Arathi"] = true

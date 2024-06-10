@@ -2,7 +2,45 @@ local ADDON_NAME = ...
 local L = LibStub("AceLocale-3.0"):NewLocale(ADDON_NAME, "zhTW")
 if not L then return end
 
---Unexplored Areas function
+--0 Sync function
+L["synchronizes"] = "同步"
+L["Synchronizes the Zones tab with the Minimap tab"] = "將“區域”選項卡與“小地圖”選項卡同步“"
+L["Which deactivates the functions from the Minimap tab and is now controlled together by the Zones tab"] = "這會停用「小地圖」標籤上的功能，現在透過「區域」標籤集中控制"
+L["This will delete all Minimap settings and replace them with those from Zones tab"] = "這將刪除所有小地圖設置並將其替換為“區域”選項卡中的設置"
+L["Synchronizes the Capitals tab with the Capitals - Minimap tab"] = "將“首都”標籤與“首都迷你卡”標籤同步"
+L["Which deactivates the functions from the Capitals - Minimap tab and is now controlled together by the Capitals tab"] = "這停用了“首都迷你卡”標籤的功能，現在正在通過“省會城市”選項卡一起控制"
+L["This will delete all Capitals - Minimap settings and replace them with those from Capitals tab"] = "這刪除了“首都 - 迷你卡”的所有設置，並由“省會城市”選項卡上的設置取代"
+--1 Capitals
+L["Leather Armor"] = "皮甲"
+L["Heavy Armor"] = "重甲"
+L["Plate Armor"] = "板甲"
+L["Cloth Armor"] = "布甲"
+L["Quartermaster"] = "军需官"
+L["The Scryers"] = "占星者"
+L["The Aldor"] = "奥尔多"
+L["Paths"] = "方法"
+L["Capitals"] = "省會城市"
+L["Alchemy"] = "煉金術"
+L["Engineer"] = "工程師"
+L["Jewelcrafting"] = "珠宝加工"
+L["Leatherworking"] = "制皮"
+L["Blacksmithing"] = "锻造"
+L["Tailoring"] = "裁縫"
+L["Skinning"] = "剥皮"
+L["Mining"] = "采矿"
+L["Herbalism"] = "草药学"
+L["Enchanting"] = "附魔"
+L["Warspear"] = "战争之矛"
+L["Stormshield"] = "暴风之盾"
+L["Shrine2Moons"] = "双月殿"
+L["Shrine7Stars"] = "七星殿"
+L["Starting on the first Sunday of each month for one week"] = "在本月的第一個星期日開始一個星期"
+L["Enables the display of icons for a specific capital city"] = "激活特定資本的符號的顯示"
+L["This MapNotes icons shows various icons that are too close to each other together"] = "此MAPNOTES符號顯示了不同的符號，這些符號太近了。"
+L["Only affects instance passage icons, not path icons such as exit icons or icons on an instance map or the Capitals category / Minimap Capitals"] = "僅通過符號來影響實例，而不是路徑符號，例如實例地圖上的啟動符號或符號"
+L["Zones"] = "區域"
+L["Continents"] = "各大洲"
+--2 Unexplored Areas function
 L["Unexplored Areas"] = "未開發領域"
 L["Unexplored Areas visibility"] = "未探索領域的可見性"
 L["Changes the visibility of unexplored Areas"] = "改變未探索區域的可見性"
@@ -10,7 +48,7 @@ L["Fog"] = "多霧路段"
 L["Mist of the Unexplored"] = "未探索的霧"
 L["Leaves the unexplored areas revealed but adds a slight fog so you can still see which ones you haven't explored yet"] = "留下未探索的區域，但增加了淡淡的霧，因此您仍然可以看到尚未探索的區域"
 L["Reveals unexplored areas and shows the individual areas of each zone that are actually still unexplored"] = "揭示未探索的區域並顯示每個區域中實際上尚未探索的各個區域"
---0 Info tab
+--3 Info tab
 L["Info"] = "資訊"
 L["A description of what this addon does and what functions it offers"] = "描述此插件的功能以及它提供的功能"
 L["A collection of various icons on various maps from previous expansions up to Dragonflight"] = "來自所有擴展名的不同卡片上不同符號的集合"
@@ -33,7 +71,7 @@ L["Left-click opens or close the MapNote setting menu"] = "左鍵單擊打開或
 L["Right-click opens or close the HandyNote setting menu"] = "右鍵單擊打開或關閉手機styote設置菜單"
 L["Shift+Right-click hide the minimap button"] = "Shift+正確 - 單擊，隱藏迷你花園按鈕"
 L["Chat commands"] = "聊天命令"
---1 General tab
+--4 General tab
 L["Description"] = "描述"
 L["Position of the real Instance Entrance"] = "真實實例輸入的位置"
 L["Way to the Instance Entrance"] = "實例輸入的方法"
@@ -47,7 +85,8 @@ L["Left-clicking on a multiple icon will open the map where the dungeons are loc
 L["At the same time, all icons representing additional instance inputs are removed"] = "同時，所有代表附加實例輸入的圖示都被刪除"
 L["Changes all passage symbols on all maps to dungeon, raid or multiple symbols. In addition, the passage option will be disabled everywhere and the symbols will be added to the respective raids, dungeons or multiple options (The dungeon map remains unchanged from all this)"] = "通過所有卡上的符號更改所有符號，以將其變為地牢，RAID或多個符號。 此外，段落選項無處不在，並添加了各個突襲，地牢或多個選項的符號（地下城卡與所有這些都保持不變）"
 L["Show different icons on different maps. All icons are clickable (except on the minimap) and have a function Map icons work with or without the shift key. Simply change the Shift function!"] = "「在不同的地圖上顯示不同的圖示。所有圖示都是可點擊的（小地圖上除外），並且具有地圖圖示使用或不使用 Shift 鍵的功能。只需更改 Shift 功能即可！"
-L["General"] =  "一般的" 
+L["Generally"] = "一般來說"
+L["General"] = "一般的"
 L["General settings that apply to Azeroth / Continent / Dungeon map at the same time"] = "同時適用於艾澤拉斯/大陸/地下城地圖的常規設定"
 L["General settings / Additional functions"] = "常規設定/附加功能"
 L["Shift function!"] = "移位功能！"
@@ -90,17 +129,14 @@ L["to open MapNotes menu: /mno, /MNO"] = "開啟 MapNotes 選單：/mno、/MNO"
 L["to close MapNotes menu: /mnc, /MNC"] = "關閉 MapNotes 選單：/mnc、/MNC"
 L["to show minimap button: /mnb or /MNB"] = "顯示小地圖按鈕：/mnb 或 /MNB"
 L["to hide minimap button: /mnbh or /MNBH"] = "隱藏小地圖按鈕：/mnbh 或 /MNBH"
---2a MiniMap Tab specific
+--5 Tab specific
+L["Left-clicking on a symbol on this map type opens the corresponding map in which the symbol is located"] = "左鍵單擊此卡類型上的符號打開符號所在的相應卡"
 L["Some instance icons cannot be hidden because they were created by Blizzard itself and not by MapNotes"] = "某些實例圖標不能隱藏，因為它們是由暴風雪本身創建的，而不是由mapnotes創建的"
---2 Azeroth tab specific
 L["Azeroth map"] = "艾澤拉斯地圖"
---3 Continent tab specific
 L["Continent map"] = "大陸地圖"
---4 Zone tab specific
 L["Icon size 2.0 would be the default size of Blizzard's own instance icons on the zone map"] = "圖標尺寸2.0將是區域地圖上暴雪自己實例圖標的默認尺寸"
 L["Zone map"] = "區域圖"
---5 DungeonMap Tab specific
-L["Dungeon map"] =  "地下城地圖" 
+L["Dungeon map"] =  "地下城地圖"
 --6 Map Tabs together
 L["Instance Entrance"] = "實例入口"
 L["switches weekly between"] = "每週切換之間"
@@ -143,6 +179,7 @@ L["Show all Zandalar MapNotes dungeon, raid, portal, zeppelin and ship icons on 
 L["Show all Kul Tiras MapNotes dungeon, raid, portal, zeppelin and ship icons on this map"] = "在這張地圖上顯示所有庫爾提拉斯 MapNotes 地下城、團隊、傳送門、飛艇和船舶圖標"
 L["Show all Broken Isles MapNotes dungeon, raid, portal, zeppelin and ship icons on this map"] = "在這張地圖上顯示所有破碎群島 MapNotes 地下城、團隊、傳送門、飛艇和船舶圖示"
 L["Show all Dragon Isles MapNotes dungeon, raid, portal, zeppelin and ship icons on this map"] = "在這張地圖上顯示所有 Dragon Isles MapNotes 地下城、團隊、傳送門、飛艇和船舶圖標"
+L["Show all Khaz Algar MapNotes dungeon, raid, portal, zeppelin and ship icons on this map"] = "顯示此地圖上的所有 Khaz Algar MapNotes 地下城、突襲、傳送門、飛艇和船舶圖標"
 L["Certain icons can be displayed or not displayed. If the option (Activate icons) has been activated in this category"] = "某些圖示可以顯示或不顯示。如果該類別中的選項（啟動圖示）已啟動"
 L["Show vanilla versions of dungeons and raids such as Naxxramas, Scholomance or Scarlet Monastery, which require achievements or other things"] = "顯示普通版本的地下城和突襲，例如納克薩瑪斯、通靈學院或血色修道院，這需要成就或其他東西"
 L["Individual icons that are too close to other icons on this map are not 100% accurately placed on this map! For more precise coordinates, please use the points on the zone map"] = "與此地圖上其他符號太近的個體符號並未將100％精確放在此卡上！ 有關更詳細的坐標，請使用區域卡上的點"
@@ -319,3 +356,12 @@ L["Black Temple"] = "黑暗神殿"
 L["Auchenai Crypts"] = "奧金尼地穴"
 L["Sethekk Halls"] = "塞泰克大廳"
 L["The Arcatraz"] = "禁魔監獄"
+L["Reforge"] = "重鑄"
+--13 The War Within
+L["Khaz Algar"] = "Khaz Algar"
+L["Dornogal"] = "Dornogal"
+L["Catalyst"] = "催化劑"
+L["Merchant for Renown items"] = "Merchant for Renown items"
+L["Council of Dornogal"] = "Council of Dornogal"
+L["The Assembly of the Deeps"] = "The Assembly of the Deeps"
+L["Hallowfall Arathi"] = "Hallowfall Arathi"
