@@ -58,8 +58,8 @@ OnClick = function(self, button)
     end
 
   if button == "LeftButton" then
-    if not LibStub("AceConfigDialog-3.0"):Close("MNMiniMapButton") then
-      LibStub("AceConfigDialog-3.0"):Open("MNMiniMapButton")
+    if not LibStub("AceConfigDialog-3.0"):Close("MapNotes") then
+      LibStub("AceConfigDialog-3.0"):Open("MapNotes")
       LibStub("AceConfigDialog-3.0"):Close("HandyNotes")
     end
   end

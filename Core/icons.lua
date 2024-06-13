@@ -20,6 +20,8 @@ ns.icons = {
 ["ItemUpgrade"] = "interface/minimap/tracking/upgradeitem-32x32.blp",
 ["DragonFlyTransmog"] = iconLink .. "DragonFlyTransmog",
 ["Catalyst"] = iconLink .. "Catalyst",
+["BlackMarket"] = iconLink .. "BlackMarket",
+["Mailbox"] = "interface/minimap/tracking/mailbox.blp",
 --Professions
 ["ProfessionOrders"] = "interface/minimap/tracking/profession.blp",
 ["Engineer"] = iconLink .. "Engineering",
@@ -46,6 +48,15 @@ ns.icons = {
 ["LLG"] = "Interface/Icons/artifactability_HavocDemonHunter_AnguishoftheDeceiver",
 ["LMOP"] = "Interface/CharacterFrame/TEMPORARYPORTRAIT-FEMALE-PANDAREN",
 ["LWotlk"] = "interface/lfgframe/ui-lfr-portrait",
+--paths
+["PathO"] = iconLink .. "PathO",
+["PathRO"] = iconLink .. "PathRO",
+["PathR"] = iconLink .. "PathR",
+["PathRU"] = iconLink .. "PathRU",
+["PathU"] = iconLink .. "PathU",
+["PathLU"] = iconLink .. "PathLU",
+["PathL"] = iconLink .. "PathL",
+["PathLO"] = iconLink .. "PathLO",
 --instance
 ["LFR"] = iconLink .. "LFR",
 ["Dungeon"] = iconLink .. "Dungeon", 
@@ -120,6 +131,7 @@ TextIconMNL4 = TextIcon(iconLink .. "MNL4", 50, 50, 1, 50, 1, 50)
 --General
 TextIconHearthstone = TextIcon("interface/minimap/tracking/innkeeper.blpp", 50, 50, 1, 50, 1, 50)
 TextIconAuctioneer = TextIcon("interface/minimap/tracking/auctioneer.blp", 50, 50, 1, 50, 1, 50)
+TextIconBlackMarket = TextIcon(iconLink .. "BlackMarket", 50, 50, 1, 50, 1, 50)
 TextIconBank = TextIcon("interface/minimap/tracking/banker.blp", 50, 50, 1, 50, 1, 50)
 TextIconBarber = TextIcon("interface/minimap/tracking/barbershop.blp", 50, 50, 1, 50, 1, 50)
 TextIconTransmogger = TextIcon("interface/minimap/tracking/transmogrifier.blp", 50, 50, 1 ,50, 1, 50)
@@ -128,6 +140,7 @@ TextIconPvEVendor = TextIcon(iconLink .. "PvEVendor", 50, 50, 1 ,50, 1, 50)
 TextIconItemUpgrade = TextIcon("interface/minimap/tracking/upgradeitem-32x32.blp", 50, 50, 1 ,50, 1, 50)
 TextIconDragonFlyTransmog = TextIcon(iconLink .. "DragonFlyTransmog", 50, 50, 1 ,50, 1, 50)
 TextIconCatalyst = TextIcon(iconLink .. "Catalyst", 50, 50, 1 ,50, 1, 50)
+TextIconMailbox = TextIcon("interface/minimap/tracking/mailbox.blp", 50, 50, 1 ,50, 1, 50)
 --Cities
 TextIconOrgrimmar = TextIcon("interface/icons/spell_arcane_teleportorgrimmar.blp", 50, 50, 1, 50, 1, 50)
 TextIconThunderBluff = TextIcon("interface/icons/spell_arcane_teleportthunderbluff.blp", 50, 50, 1, 50, 1, 50)
@@ -172,6 +185,11 @@ TextIconHPortal = TextIcon(iconLink .. "hportal", 50, 50, 1, 50, 1, 50)
 TextIconAPortal = TextIcon(iconLink .. "aportal", 50, 50, 1, 50, 1, 50)
 TextIconWayGateGolden = TextIcon(iconLink .. "WayGateGolden", 50, 50, 1, 50, 1, 50)
 TextIconWayGateGreen = TextIcon(iconLink .. "WayGateGreen", 50, 50, 1, 50, 1, 50)
+--paths
+TextIconPathO = TextIcon(iconLink .. "PathO", 50, 50, 1, 50, 1, 50)
+TextIconPathR = TextIcon(iconLink .. "PathR", 50, 50, 1, 50, 1, 50)
+TextIconPathU = TextIcon(iconLink .. "PathU", 50, 50, 1, 50, 1, 50)
+TextIconPathL = TextIcon(iconLink .. "PathL", 50, 50, 1, 50, 1, 50)
 --instance
 TextIconLFR = TextIcon(iconLink .. "LFR", 50, 50, 1, 50, 1, 50)
 TextIconDungeon = TextIcon(iconLink .. "Dungeon", 50, 50, 1, 50, 1, 50)

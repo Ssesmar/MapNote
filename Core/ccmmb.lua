@@ -19,13 +19,13 @@ end
 
 SLASH_OPEN1, SLASH_OPEN2 = "/mno", "/MNO";
 function SlashCmdList.OPEN(msg, editbox)
-  LibStub("AceConfigDialog-3.0"):Open("MNMiniMapButton") 
+  LibStub("AceConfigDialog-3.0"):Open("MapNotes")
   print(COLORED_ADDON_NAME.."|cffffff00 ".. L["MapNotes menu window"], "|cff00ff00" .. L["is activated"])
 end
 
 SLASH_CLOSE1, SLASH_CLOSE2 = "/mnc", "/MNC";
 function SlashCmdList.CLOSE(msg, editbox)
-  LibStub("AceConfigDialog-3.0"):Close("MNMiniMapButton") 
+  LibStub("AceConfigDialog-3.0"):Close("MapNotes")
   print(COLORED_ADDON_NAME.."|cffffff00 ".. L["MapNotes menu window"], "|cffff0000" .. L["is deactivated"])
 end
 

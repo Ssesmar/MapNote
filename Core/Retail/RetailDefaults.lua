@@ -240,6 +240,7 @@ ns.defaults = {
         showCapitalsItemUpgrade = true,
         showCapitalsDragonFlyTransmog = true,
         showCapitalsCatalyst = true,
+        showCapitalsMailbox = true,
 
       --7 Capitals Minimap
         showMinimapCapitals = true,
@@ -318,6 +319,7 @@ ns.defaults = {
         showMinimapCapitalsItemUpgrade = true,
         showMinimapCapitalsDragonFlyTransmog = true,
         showMinimapCapitalsCatalyst = true,
+        showMinimapCapitalsMailbox = true,
 
       --10 ns.Addon.db.profile.activate.
         activate = {

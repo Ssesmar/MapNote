@@ -71,12 +71,18 @@ function pluginHandler:OnEnter(uiMapId, coord)
 	      for a,b in pairs(extraInformations[v]) do
           --tooltip:AddLine(v .. ": " .. a .. " " .. b, nil, nil, nil, false)
 	        tooltip:AddDoubleLine(v, a .. " " .. b, 1, 1, 1, 1, 1, 1)
+          if ns.DeveloperMode == true then
+            tooltip:AddDoubleLine("MapID: " .. uiMapId, "Coords: " .. coord, nil, nil, false)
+          end
  	      end
 	    end
       if (lfgIDs[v] and extraInformations[lfgIDs[v]]) then
         for a,b in pairs(extraInformations[lfgIDs[v]]) do
           --tooltip:AddLine(v .. ": " .. a .. " " .. b, nil, nil, nil, false)
           tooltip:AddDoubleLine(v, a .. " " .. b, 1, 1, 1, 1, 1, 1)
+          if ns.DeveloperMode == true then
+            tooltip:AddDoubleLine("MapID: " .. uiMapId, "Coords: " .. coord, nil, nil, false)
+          end
         end
       end
 	  else
@@ -85,34 +91,59 @@ function pluginHandler:OnEnter(uiMapId, coord)
 
     if nodeData.dnID then -- outputs the names we set and displays it in the tooltip
       tooltip:AddDoubleLine(nodeData.dnID, nil, nil, false)
+      if ns.DeveloperMode == true then
+        tooltip:AddDoubleLine("MapID: " .. uiMapId, "Coords: " .. coord, nil, nil, false)
+      end
     end
     
     if nodeData.dnID and nodeData.mnID then -- outputs the Zone or Dungeonmap name and displays it in the tooltip
       local mnIDname = C_Map.GetMapInfo(nodeData.mnID).name
       if mnIDname then
         tooltip:AddDoubleLine(mnIDname, nil, nil, false)
-        --tooltip:AddDoubleLine("|T4578752:8:20|t" .. mnIDname, nil, nil, false)
       end 
+      if ns.DeveloperMode == true then
+        tooltip:AddDoubleLine("MapID: " .. uiMapId, "Coords: " .. coord, nil, nil, false)
+      end
     end
 
     if nodeData.www and nodeData.showWWW == true then
       tooltip:AddDoubleLine(nodeData.www, nil, nil, false)
+      if ns.DeveloperModeOn == true then
+        tooltip:AddDoubleLine("MapID: " .. uiMapId, "Coords: " .. coord, nil, nil, false)
+      end
     end
 
     if nodeData.TransportName then -- outputs transport name for TomTom to the tooltip
       tooltip:AddDoubleLine(nodeData.TransportName, nil, nil, false)
+      if ns.DeveloperMode == true then
+        tooltip:AddDoubleLine("MapID: " .. uiMapId, "Coords: " .. coord, nil, nil, false)
+      end
     end
 
     if not nodeData.dnID and nodeData.mnID and not nodeData.id and not nodeData.TransportName then -- outputs the Zone or Dungeonmap name and displays it in the tooltip
       local mnIDname = C_Map.GetMapInfo(nodeData.mnID).name
       if mnIDname then
         tooltip:AddDoubleLine("=> " .. mnIDname, nil, nil, false)
-        --tooltip:AddDoubleLine("|T4578752:8:20|t" .. mnIDname, nil, nil, false)
+        if ns.DeveloperMode == true then
+          tooltip:AddDoubleLine("MapID: " .. uiMapId, "Coords: " .. coord, nil, nil, false)
+        end
       end 
     end
      	tooltip:Show()
   end
 end
+
+SLASH_DeveloperMode1 = "/mndeveloper";
+function SlashCmdList.DeveloperMode(msg, editbox)
+  if not ns.DeveloperMode then
+      ns.DeveloperMode = true 
+      print("MapNotes DeveloperMode = true")
+    else
+      ns.DeveloperModeOn = false
+      print("MapNotes DeveloperMode = false")
+  end
+end
+
 
 function pluginHandler:OnLeave(uiMapID, coord)
     if self:GetParent() == WorldMapButton then
@@ -167,7 +198,7 @@ do
 
       ns.transports = value.type == "Portal" or value.type == "HPortal" or value.type == "APortal" or value.type == "HPortalS" or value.type == "APortalS" or value.type == "PassageHPortal" or value.type == "PassageAPortal" or value.type == "PassagePortal" or value.type == "Zeppelin" or value.type == "HZeppelin" or value.type == "AZeppelin" or value.type == "Ship" or value.type == "AShip" or value.type == "HShip" or value.type == "Carriage" or value.type == "TravelL" or value.type == "TravelH" or value.type == "TravelA" or value.type == "GPortal" or value.type == "Tport2" or value.type == "TransportHelper" or value.type == "OgreWaygate" or value.type == "WayGateGreen" or value.type == "Ghost" or value.type == "DarkMoon"
 
-      ns.capitalgenerals = value.type == "Exit" or value.type == "PassageUpL" or value.type == "PassageDownL" or value.type == "PassageRightL" or value.type == "PassageLeftL" or value.type == "Hearthstone" or value.type == "Auctioneer" or value.type == "Bank" or value.type == "MNL" or value.type == "Barber" or value.type == "Transmogger" or value.type == "ItemUpgrade" or value.type == "PvPVendor" or value.type == "PvEVendor" or value.type == "MNL" or value.type == "DragonFlyTransmog" or value.type == "Catalyst"
+      ns.capitalgenerals = value.type == "Exit" or value.type == "PassageUpL" or value.type == "PassageDownL" or value.type == "PassageRightL" or value.type == "PassageLeftL" or value.type == "Hearthstone" or value.type == "Auctioneer" or value.type == "Bank" or value.type == "MNL" or value.type == "Barber" or value.type == "Transmogger" or value.type == "ItemUpgrade" or value.type == "PvPVendor" or value.type == "PvEVendor" or value.type == "MNL" or value.type == "DragonFlyTransmog" or value.type == "Catalyst" or value.type == "PathN" or value.type == "PathNO" or value.type == "PathO" or value.type == "PathSO" or value.type == "PathS" or value.type == "PathSW" or value.type == "PathW" or value.type == "PathNW" or value.type == "BlackMarket"
 
       ns.CapitalIDs =
         --Retail
@@ -465,6 +496,14 @@ function pluginHandler:OnClick(button, pressed, uiMapId, coord)
         return
     end
 
+    HideIcons = ns.HideIcons
+    if (button == "MiddleButton") and IsAltKeyDown() then
+      local HideIcons = nodes[uiMapId][coord].showInZone
+      if HideIcons then
+        nodes[uiMapId][coord].showInZone = false
+      end
+    end
+
     if (button == "MiddleButton") then
       local www = nodes[uiMapId][coord].www
       if www then
@@ -523,6 +562,14 @@ function pluginHandler:OnClick(button, pressed, uiMapId, coord)
     if IsShiftKeyDown() and (button == "RightButton" and db.tomtom and TomTom) then
         setWaypoint(uiMapId, coord)
     return end
+
+    HideIcons = ns.HideIcons
+    if (button == "MiddleButton") and IsAltKeyDown() then
+      local HideIcons = nodes[uiMapId][coord].showInZone
+      if HideIcons then
+        nodes[uiMapId][coord].showInZone = false
+      end
+    end
 
     if IsShiftKeyDown() and (button == "MiddleButton") then
       local www = nodes[uiMapId][coord].www
@@ -607,9 +654,11 @@ function Addon:PLAYER_LOGIN()
   self.db = LibStub("AceDB-3.0"):New("HandyNotes_MapNotesRetailDB", ns.defaults)
   db = self.db.profile
 
+  ns.HideIcons = self.db.char.HideIcons
+
   -- Register options 
   HandyNotes:RegisterPluginDB("MapNotes", pluginHandler, ns.options)
-  LibStub("AceConfigRegistry-3.0"):RegisterOptionsTable("MNMiniMapButton", ns.options) -- MiniMapButton
+  LibStub("AceConfigRegistry-3.0"):RegisterOptionsTable("MapNotes", ns.options) -- MiniMapButton
 
   -- Check for any lockout changes when we zone
   Addon:RegisterEvent("PLAYER_ENTERING_WORLD") 

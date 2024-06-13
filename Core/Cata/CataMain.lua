@@ -72,12 +72,18 @@ function pluginHandler:OnEnter(uiMapId, coord)
 	      for a,b in pairs(extraInformations[v]) do
           --tooltip:AddLine(v .. ": " .. a .. " " .. b, nil, nil, nil, false)
 	        tooltip:AddDoubleLine(v, a .. " " .. b, 1, 1, 1, 1, 1, 1)
+          if ns.DeveloperMode == true then
+            tooltip:AddDoubleLine("MapID: " .. uiMapId, "Coords: " .. coord, nil, nil, false)
+          end
  	      end
 	    end
       if (lfgIDs[v] and extraInformations[lfgIDs[v]]) then
         for a,b in pairs(extraInformations[lfgIDs[v]]) do
           --tooltip:AddLine(v .. ": " .. a .. " " .. b, nil, nil, nil, false)
           tooltip:AddDoubleLine(v, a .. " " .. b, 1, 1, 1, 1, 1, 1)
+          if ns.DeveloperMode == true then
+            tooltip:AddDoubleLine("MapID: " .. uiMapId, "Coords: " .. coord, nil, nil, false)
+          end
         end
       end
 	  else
@@ -86,32 +92,56 @@ function pluginHandler:OnEnter(uiMapId, coord)
 
     if nodeData.dnID then -- outputs the names we set and displays it in the tooltip
       tooltip:AddDoubleLine(nodeData.dnID, nil, nil, false)
-    end
-
-    if nodeData.www and nodeData.showWWW == true then
-      tooltip:AddDoubleLine(nodeData.www, nil, nil, false)
+      if ns.DeveloperMode == true then
+        tooltip:AddDoubleLine("MapID: " .. uiMapId, "Coords: " .. coord, nil, nil, false)
+      end
     end
     
     if nodeData.dnID and nodeData.mnID then -- outputs the Zone or Dungeonmap name and displays it in the tooltip
       local mnIDname = C_Map.GetMapInfo(nodeData.mnID).name
       if mnIDname then
-        tooltip:AddDoubleLine("=> " .. mnIDname, nil, nil, false)
-        --tooltip:AddDoubleLine("|T4578752:8:20|t" .. mnIDname, nil, nil, false)
+        tooltip:AddDoubleLine(mnIDname, nil, nil, false)
       end 
+      if ns.DeveloperMode == true then
+        tooltip:AddDoubleLine("MapID: " .. uiMapId, "Coords: " .. coord, nil, nil, false)
+      end
+    end
+
+    if nodeData.www and nodeData.showWWW == true then
+      tooltip:AddDoubleLine(nodeData.www, nil, nil, false)
+      if ns.DeveloperModeOn == true then
+        tooltip:AddDoubleLine("MapID: " .. uiMapId, "Coords: " .. coord, nil, nil, false)
+      end
     end
 
     if nodeData.TransportName then -- outputs transport name for TomTom to the tooltip
       tooltip:AddDoubleLine(nodeData.TransportName, nil, nil, false)
+      if ns.DeveloperMode == true then
+        tooltip:AddDoubleLine("MapID: " .. uiMapId, "Coords: " .. coord, nil, nil, false)
+      end
     end
 
     if not nodeData.dnID and nodeData.mnID and not nodeData.id and not nodeData.TransportName then -- outputs the Zone or Dungeonmap name and displays it in the tooltip
       local mnIDname = C_Map.GetMapInfo(nodeData.mnID).name
       if mnIDname then
         tooltip:AddDoubleLine("=> " .. mnIDname, nil, nil, false)
-        --tooltip:AddDoubleLine("|T4578752:8:20|t" .. mnIDname, nil, nil, false)
+        if ns.DeveloperMode == true then
+          tooltip:AddDoubleLine("MapID: " .. uiMapId, "Coords: " .. coord, nil, nil, false)
+        end
       end 
     end
      	tooltip:Show()
+  end
+end
+
+SLASH_DeveloperMode1 = "/mndeveloper";
+function SlashCmdList.DeveloperMode(msg, editbox)
+  if not ns.DeveloperMode then
+      ns.DeveloperMode = true 
+      print("MapNotes DeveloperMode = true")
+    else
+      ns.DeveloperModeOn = false
+      print("MapNotes DeveloperMode = false")
   end
 end
 
@@ -583,7 +613,7 @@ function Addon:PLAYER_LOGIN()
 
   -- Register options 
   HandyNotes:RegisterPluginDB("MapNotes", pluginHandler, ns.options)
-  LibStub("AceConfigRegistry-3.0"):RegisterOptionsTable("MNMiniMapButton", ns.options) -- Minimap
+  LibStub("AceConfigRegistry-3.0"):RegisterOptionsTable("MapNotes", ns.options) -- Minimap
 
   -- Check for any lockout changes when we zone
   Addon:RegisterEvent("PLAYER_ENTERING_WORLD") 
