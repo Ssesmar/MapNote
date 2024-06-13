@@ -18,8 +18,7 @@
 ## X-Curse-Project-ID: 912524
 ## X-Localizations: enUS, enGB, deDE, esES, esMX, frFR, ruRU, itIT, ptBR, koKR, zhCN, zhTW
 ## IconTexture: Interface\AddOns\HandyNotes_MapNotes\Images\MNL4
-## SavedVariables: HandyNotes_MapNotesRetailDB, MNMiniMapButtonRetailDB, HideIconsDB
-
+## SavedVariables: HandyNotes_MapNotesRetailDB, MNMiniMapButtonRetailDB
 
 ExternalLibs\ExternalLibs.xml
 Locales\Locales.xml

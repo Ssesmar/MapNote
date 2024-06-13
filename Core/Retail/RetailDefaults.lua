@@ -1,6 +1,11 @@
 local ADDON_NAME, ns = ...
 
 ns.defaults = {
+  char = {
+    HiddenIcons = {
+        ['*'] = {},
+    },
+  },
     profile = {
       
       --FogOfWar
@@ -357,5 +362,6 @@ ns.defaults = {
           MinimapCapitalsGeneral = true,
 
         },
+
     },
 }
