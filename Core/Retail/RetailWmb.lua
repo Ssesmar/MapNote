@@ -1,6 +1,5 @@
 local ADDON_NAME, ns = ...
 
-local COLORED_ADDON_NAME = "|cffff0000Map|r|cff00ccffNotes|r"
 local L = LibStub("AceLocale-3.0"):GetLocale(ADDON_NAME)
 
 local WorldMapOptionsButtonMixin = {}
@@ -26,10 +25,10 @@ local info = C_Map.GetMapInfo(WorldMapFrame:GetMapID())
 
         if not ns.Addon.db.profile.activate.HideMapNote then
             ns.Addon.db.profile.activate.HideMapNote = true
-            print(TextIconMNL4:GetIconString() .. " " .. COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffff0000", L["All MapNotes icons have been hidden"])
+            print(TextIconMNL4:GetIconString() .. " " .. ns.COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffff0000", L["All MapNotes icons have been hidden"])
         else
             ns.Addon.db.profile.activate.HideMapNote = false
-            print(TextIconMNL4:GetIconString() .. " " .. COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cff00ff00", L["All set icons have been restored"])
+            print(TextIconMNL4:GetIconString() .. " " .. ns.COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cff00ff00", L["All set icons have been restored"])
         end
 
     end
@@ -40,10 +39,10 @@ local info = C_Map.GetMapInfo(WorldMapFrame:GetMapID())
         
             if not ns.Addon.db.profile.activate.CosmosMap then
                 ns.Addon.db.profile.activate.CosmosMap = true
-                print(TextIconMNL4:GetIconString() .. " " .. COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00", WORLDMAP_BUTTON, L["icons"], "|cff00ff00" .. L["are shown"])
+                print(TextIconMNL4:GetIconString() .. " " .. ns.COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00", WORLDMAP_BUTTON, L["icons"], "|cff00ff00" .. L["are shown"])
             else
                 ns.Addon.db.profile.activate.CosmosMap = false
-                print(TextIconMNL4:GetIconString() .. " " .. COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00", WORLDMAP_BUTTON, L["icons"], "|cffff0000" .. L["are hidden"])
+                print(TextIconMNL4:GetIconString() .. " " .. ns.COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00", WORLDMAP_BUTTON, L["icons"], "|cffff0000" .. L["are hidden"])
             end
 
         end
@@ -52,10 +51,10 @@ local info = C_Map.GetMapInfo(WorldMapFrame:GetMapID())
 
             if not ns.Addon.db.profile.activate.Azeroth then
                 ns.Addon.db.profile.activate.Azeroth = true
-                print(TextIconMNL4:GetIconString() .. " " .. COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00 ".. AZEROTH, L["icons"], "|cff00ff00" .. L["are shown"])
+                print(TextIconMNL4:GetIconString() .. " " .. ns.COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00 ".. AZEROTH, L["icons"], "|cff00ff00" .. L["are shown"])
             else
                 ns.Addon.db.profile.activate.Azeroth = false
-                print(TextIconMNL4:GetIconString() .. " " .. COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00 ".. AZEROTH, L["icons"], "|cffff0000" .. L["are hidden"])
+                print(TextIconMNL4:GetIconString() .. " " .. ns.COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00 ".. AZEROTH, L["icons"], "|cffff0000" .. L["are hidden"])
             end
 
         end
@@ -64,10 +63,10 @@ local info = C_Map.GetMapInfo(WorldMapFrame:GetMapID())
         
             if not ns.Addon.db.profile.activate.Continent then
                 ns.Addon.db.profile.activate.Continent = true
-                print(TextIconMNL4:GetIconString() .. " " .. COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00 ".. L["Continent map"], L["icons"], "|cff00ff00" .. L["are shown"])
+                print(TextIconMNL4:GetIconString() .. " " .. ns.COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00 ".. L["Continent map"], L["icons"], "|cff00ff00" .. L["are shown"])
             else
                 ns.Addon.db.profile.activate.Continent = false
-                print(TextIconMNL4:GetIconString() .. " " .. COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00 ".. L["Continent map"], L["icons"], "|cffff0000" .. L["are hidden"])
+                print(TextIconMNL4:GetIconString() .. " " .. ns.COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00 ".. L["Continent map"], L["icons"], "|cffff0000" .. L["are hidden"])
             end
 
         end
@@ -86,10 +85,10 @@ local info = C_Map.GetMapInfo(WorldMapFrame:GetMapID())
         
             if not ns.Addon.db.profile.activate.DungeonMap then
                 ns.Addon.db.profile.activate.DungeonMap = true
-                print(TextIconMNL4:GetIconString() .. " " .. COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00 ".. L["Dungeon map"], L["icons"], "|cff00ff00" .. L["are shown"])
+                print(TextIconMNL4:GetIconString() .. " " .. ns.COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00 ".. L["Dungeon map"], L["icons"], "|cff00ff00" .. L["are shown"])
             else
                 ns.Addon.db.profile.activate.DungeonMap = false
-                print(TextIconMNL4:GetIconString() .. " " .. COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00 ".. L["Dungeon map"], L["icons"], "|cffff0000" .. L["are hidden"])
+                print(TextIconMNL4:GetIconString() .. " " .. ns.COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00 ".. L["Dungeon map"], L["icons"], "|cffff0000" .. L["are hidden"])
             end
 
         end
@@ -107,10 +106,10 @@ local info = C_Map.GetMapInfo(WorldMapFrame:GetMapID())
         
             if not ns.Addon.db.profile.activate.ZoneMap then
                 ns.Addon.db.profile.activate.ZoneMap = true
-                print(TextIconMNL4:GetIconString() .. " " .. COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00 ".. L["Zone map"], L["icons"], "|cff00ff00" .. L["are shown"])
+                print(TextIconMNL4:GetIconString() .. " " .. ns.COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00 ".. L["Zone map"], L["icons"], "|cff00ff00" .. L["are shown"])
             else
                 ns.Addon.db.profile.activate.ZoneMap = false
-                print(TextIconMNL4:GetIconString() .. " " .. COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00 ".. L["Zone map"], L["icons"], "|cffff0000" .. L["are hidden"])
+                print(TextIconMNL4:GetIconString() .. " " .. ns.COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00 ".. L["Zone map"], L["icons"], "|cffff0000" .. L["are hidden"])
             end
 
         end
@@ -128,10 +127,10 @@ local info = C_Map.GetMapInfo(WorldMapFrame:GetMapID())
         
             if not ns.Addon.db.profile.activate.ZoneMap then
                 ns.Addon.db.profile.activate.ZoneMap = true
-                print(TextIconMNL4:GetIconString() .. " " .. COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00 ".. L["synchronizes"] .. " " .. L["Zones"] .. " & " .. MINIMAP_LABEL .. " " .. L["icons"], "|cff00ff00" .. L["are shown"])
+                print(TextIconMNL4:GetIconString() .. " " .. ns.COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00 ".. L["synchronizes"] .. " " .. L["Zones"] .. " & " .. MINIMAP_LABEL .. " " .. L["icons"], "|cff00ff00" .. L["are shown"])
             else
                 ns.Addon.db.profile.activate.ZoneMap = false
-                print(TextIconMNL4:GetIconString() .. " " .. COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00 ".. L["synchronizes"] .. " " .. L["Zones"] .. " & " .. MINIMAP_LABEL .. " " .. L["icons"], "|cffff0000" .. L["are hidden"])
+                print(TextIconMNL4:GetIconString() .. " " .. ns.COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00 ".. L["synchronizes"] .. " " .. L["Zones"] .. " & " .. MINIMAP_LABEL .. " " .. L["icons"], "|cffff0000" .. L["are hidden"])
             end
 
         end
@@ -148,10 +147,10 @@ local info = C_Map.GetMapInfo(WorldMapFrame:GetMapID())
         
             if not ns.Addon.db.profile.activate.Capitals then
                 ns.Addon.db.profile.activate.Capitals = true
-                print(TextIconMNL4:GetIconString() .. " " .. COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00 ".. L["Capitals"], L["icons"], "|cff00ff00" .. L["are shown"])
+                print(TextIconMNL4:GetIconString() .. " " .. ns.COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00 ".. L["Capitals"], L["icons"], "|cff00ff00" .. L["are shown"])
             else
                 ns.Addon.db.profile.activate.Capitals = false
-                print(TextIconMNL4:GetIconString() .. " " .. COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00 ".. L["Capitals"], L["icons"], "|cffff0000" .. L["are hidden"])
+                print(TextIconMNL4:GetIconString() .. " " .. ns.COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00 ".. L["Capitals"], L["icons"], "|cffff0000" .. L["are hidden"])
             end
 
         end
@@ -168,10 +167,10 @@ local info = C_Map.GetMapInfo(WorldMapFrame:GetMapID())
         
             if not ns.Addon.db.profile.activate.Capitals then
                 ns.Addon.db.profile.activate.Capitals = true
-                print(TextIconMNL4:GetIconString() .. " " .. COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00 ".. L["synchronizes"] .. " " .. L["Capitals"] .. " & " ..  L["Capitals"] .. " - " .. MINIMAP_LABEL .. " " .. L["icons"], "|cff00ff00" .. L["are shown"])
+                print(TextIconMNL4:GetIconString() .. " " .. ns.COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00 ".. L["synchronizes"] .. " " .. L["Capitals"] .. " & " ..  L["Capitals"] .. " - " .. MINIMAP_LABEL .. " " .. L["icons"], "|cff00ff00" .. L["are shown"])
             else
                 ns.Addon.db.profile.activate.Capitals = false
-                print(TextIconMNL4:GetIconString() .. " " .. COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00 ".. L["synchronizes"] .. " " .. L["Capitals"] .. " & " ..  L["Capitals"] .. " - " .. MINIMAP_LABEL .. " " .. L["icons"], "|cffff0000" .. L["are hidden"])
+                print(TextIconMNL4:GetIconString() .. " " .. ns.COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00 ".. L["synchronizes"] .. " " .. L["Capitals"] .. " & " ..  L["Capitals"] .. " - " .. MINIMAP_LABEL .. " " .. L["icons"], "|cffff0000" .. L["are hidden"])
             end
             
         end
@@ -185,8 +184,8 @@ function WorldMapOptionsButtonMixin:OnEnter()
 local info = C_Map.GetMapInfo(WorldMapFrame:GetMapID())
 
     GameTooltip:SetOwner(self, 'ANCHOR_RIGHT')
-    GameTooltip_SetTitle(GameTooltip, COLORED_ADDON_NAME)
-    GameTooltip:AddLine(L["Left-click => Open/Close"] .. "|cffffcc00" .. " " .. COLORED_ADDON_NAME,1,1,1)
+    GameTooltip_SetTitle(GameTooltip, ns.COLORED_ADDON_NAME)
+    GameTooltip:AddLine(L["Left-click => Open/Close"] .. "|cffffcc00" .. " " .. ns.COLORED_ADDON_NAME,1,1,1)
     GameTooltip:AddLine(" ",1,1,1)
     GameTooltip:AddLine(L["Middle-Mouse-Button => Open/Close"] .. " => " .. "|cffffcc00" .. L["Disable MapNotes, all icons will be hidden on each map and all categories will be disabled"] .. " " .. SHOW .. " / " .. HIDE,1,1,1,1)
     GameTooltip:AddLine(" ",1,1,1)

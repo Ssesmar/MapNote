@@ -2,7 +2,14 @@ local ADDON_NAME = ...
 local L = LibStub("AceLocale-3.0"):NewLocale(ADDON_NAME, "enUS", true)
 
 
---0 Sync function
+--0 Restore
+L["Delete this icon"] = true
+L["A icon has been deleted"] = true
+L["Restore all deleted icons for different types of maps"] = true
+L["Restore all deleted icons"] = true
+L["which you removed with the function"] = true
+L["All deleted icons have been restored"] = true
+--0.1 Sync function
 L["synchronizes"] = true
 L["Synchronizes the Zones tab with the Minimap tab"] = true
 L["Which deactivates the functions from the Minimap tab and is now controlled together by the Zones tab"] = true

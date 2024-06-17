@@ -5,6 +5,7 @@ if not HandyNotes then return end
 
 local ADDON_NAME = "HandyNotes_MapNotes"
 local L = LibStub("AceLocale-3.0"):GetLocale(ADDON_NAME)
+ns.COLORED_ADDON_NAME = "|cffff0000Map|r|cff00ccffNotes|r"
 
 local MapNotesMiniButton = LibStub("AceAddon-3.0"):NewAddon("MNMiniMapButton", "AceConsole-3.0")
 local MNMMBIcon = LibStub("LibDBIcon-1.0", true)
@@ -72,29 +73,33 @@ function pluginHandler:OnEnter(uiMapId, coord)
 	      for a,b in pairs(extraInformations[v]) do
           --tooltip:AddLine(v .. ": " .. a .. " " .. b, nil, nil, nil, false)
 	        tooltip:AddDoubleLine(v, a .. " " .. b, 1, 1, 1, 1, 1, 1)
-          if ns.DeveloperMode == true then
-            tooltip:AddDoubleLine("MapID: " .. uiMapId, "Coords: " .. coord, nil, nil, false)
-          end
  	      end
 	    end
       if (lfgIDs[v] and extraInformations[lfgIDs[v]]) then
         for a,b in pairs(extraInformations[lfgIDs[v]]) do
           --tooltip:AddLine(v .. ": " .. a .. " " .. b, nil, nil, nil, false)
           tooltip:AddDoubleLine(v, a .. " " .. b, 1, 1, 1, 1, 1, 1)
-          if ns.DeveloperMode == true then
-            tooltip:AddDoubleLine("MapID: " .. uiMapId, "Coords: " .. coord, nil, nil, false)
-          end
         end
       end
 	  else
 	    tooltip:AddLine(v, nil, nil, nil, false)
+      if ns.DeveloperMode == true then
+        tooltip:AddLine("uiMapID: " .. uiMapId, nil, nil, false)
+        tooltip:AddLine("Coordinates: " .. coord, nil, nil, false)
+        if nodeData.mnID then
+          tooltip:AddLine("mnID: " .. nodeData.mnID, nil, nil, false)
+        elseif nodeData.id then
+          tooltip:AddLine("Instance-ID: " .. nodeData.id, nil, nil, false)
+        elseif nodeData.dnID then
+          tooltip:AddLine("Type: " .. nodeData.dnID, nil, nil, false)
+        elseif nodeData.type then
+          tooltip:AddLine("Type: " .. nodeData.type, nil, nil, false)
+        end
+      end
 	  end
 
     if nodeData.dnID then -- outputs the names we set and displays it in the tooltip
       tooltip:AddDoubleLine(nodeData.dnID, nil, nil, false)
-      if ns.DeveloperMode == true then
-        tooltip:AddDoubleLine("MapID: " .. uiMapId, "Coords: " .. coord, nil, nil, false)
-      end
     end
     
     if nodeData.dnID and nodeData.mnID then -- outputs the Zone or Dungeonmap name and displays it in the tooltip
@@ -102,46 +107,34 @@ function pluginHandler:OnEnter(uiMapId, coord)
       if mnIDname then
         tooltip:AddDoubleLine(mnIDname, nil, nil, false)
       end 
-      if ns.DeveloperMode == true then
-        tooltip:AddDoubleLine("MapID: " .. uiMapId, "Coords: " .. coord, nil, nil, false)
-      end
     end
 
     if nodeData.www and nodeData.showWWW == true then
       tooltip:AddDoubleLine(nodeData.www, nil, nil, false)
-      if ns.DeveloperModeOn == true then
-        tooltip:AddDoubleLine("MapID: " .. uiMapId, "Coords: " .. coord, nil, nil, false)
-      end
     end
 
     if nodeData.TransportName then -- outputs transport name for TomTom to the tooltip
       tooltip:AddDoubleLine(nodeData.TransportName, nil, nil, false)
-      if ns.DeveloperMode == true then
-        tooltip:AddDoubleLine("MapID: " .. uiMapId, "Coords: " .. coord, nil, nil, false)
-      end
     end
 
     if not nodeData.dnID and nodeData.mnID and not nodeData.id and not nodeData.TransportName then -- outputs the Zone or Dungeonmap name and displays it in the tooltip
       local mnIDname = C_Map.GetMapInfo(nodeData.mnID).name
       if mnIDname then
         tooltip:AddDoubleLine("=> " .. mnIDname, nil, nil, false)
-        if ns.DeveloperMode == true then
-          tooltip:AddDoubleLine("MapID: " .. uiMapId, "Coords: " .. coord, nil, nil, false)
-        end
       end 
     end
      	tooltip:Show()
   end
 end
 
-SLASH_DeveloperMode1 = "/mndeveloper";
+SLASH_DeveloperMode1 = "/mndev";
 function SlashCmdList.DeveloperMode(msg, editbox)
-  if not ns.DeveloperMode then
-      ns.DeveloperMode = true 
-      print("MapNotes DeveloperMode = true")
-    else
-      ns.DeveloperModeOn = false
-      print("MapNotes DeveloperMode = false")
+  if ns.DeveloperMode == true then
+    ns.DeveloperMode = false
+    print("MapNotes DeveloperMode = Off")
+  else
+    ns.DeveloperMode = true 
+    print("MapNotes DeveloperMode = On")
   end
 end
 
@@ -198,7 +191,7 @@ do
 
       ns.transports = value.type == "Portal" or value.type == "HPortal" or value.type == "APortal" or value.type == "HPortalS" or value.type == "APortalS" or value.type == "PassageHPortal" or value.type == "PassageAPortal" or value.type == "PassagePortal" or value.type == "Zeppelin" or value.type == "HZeppelin" or value.type == "AZeppelin" or value.type == "Ship" or value.type == "AShip" or value.type == "HShip" or value.type == "Carriage" or value.type == "TravelH" or value.type == "TravelA" or value.type == "GPortal" or value.type == "Tport2" or value.type == "TransportHelper" or value.type == "OgreWaygate" or value.type == "WayGateGreen" or value.type == "Ghost"
 
-      ns.capitalgenerals = value.type == "Exit" or value.type == "PassageUpL" or value.type == "PassageDownL" or value.type == "PassageRightL" or value.type == "PassageLeftL" or value.type == "Hearthstone" or value.type == "Auctioneer" or value.type == "Bank" or value.type == "MNL" or value.type == "Barber" or value.type == "Transmogger" or value.type == "ItemUpgrade" or value.type == "PvPVendor" or value.type == "PvEVendor" or value.type == "MNL" or value.type == "DragonFlyTransmog"
+      ns.capitalgenerals = value.type == "Exit" or value.type == "PassageUpL" or value.type == "PassageDownL" or value.type == "PassageRightL" or value.type == "PassageLeftL" or value.type == "Innkeeper" or value.type == "Auctioneer" or value.type == "Bank" or value.type == "MNL" or value.type == "Barber" or value.type == "Transmogger" or value.type == "ItemUpgrade" or value.type == "PvPVendor" or value.type == "PvEVendor" or value.type == "MNL" or value.type == "DragonFlyTransmog"
 
       ns.CapitalIDs =
         --Cataclysm
@@ -258,13 +251,13 @@ do
       end
 
       -- Profession icons in Capitals
-      if ns.professions and ns.CapitalIDs and (value.hideOnMinimap == true) then
+      if ns.professions and ns.CapitalIDs and (value.showOnMinimap == false) then
         scale = db.CapitalsProfessionsScale
         alpha = db.CapitalsProfessionsAlpha
       end
 
       -- Profession Minimap icons in Capitals
-      if ns.CapitalIDs and (value.hideOnMinimap == false) then
+      if ns.CapitalIDs and (value.showOnMinimap == true) then
         scale = db.MinimapCapitalsScale
         alpha = db.MinimapCapitalsAlpha
       end
@@ -277,49 +270,49 @@ do
       end
 
       -- Instance icons World
-      if ns.instances and (not value.hideOnMinimap == false) then
+      if ns.instances and (not value.showOnMinimap == true) then
         scale = db.instanceScale
         alpha = db.instanceAlpha
       end
 
       -- Profession Minimap icons in Capitals
-      if ns.professions and ns.CapitalIDs and (value.hideOnMinimap == false) then
+      if ns.professions and ns.CapitalIDs and (value.showOnMinimap == true) then
         scale = db.MinimapCapitalsProfessionsScale
         alpha = db.MinimapCapitalsProfessionsAlpha
       end
 
       -- Capitals Minimap Transport (Zeppeline/Ship/Carriage) icons
-      if ns.CapitalIDs and ns.transports and (value.hideOnMinimap == false) then
+      if ns.CapitalIDs and ns.transports and (value.showOnMinimap == true) then
         scale = db.MinimapCapitalsTransportScale
         alpha = db.MinimapCapitalsTransportAlpha
       end
 
       -- Capitals Minimap Instance (Dungeon/Raid/Passage/Multi) icons
-      if ns.CapitalIDs and ns.instances and (value.hideOnMinimap == false) then
+      if ns.CapitalIDs and ns.instances and (value.showOnMinimap == true) then
         scale = db.MinimapCapitalsInstanceScale
         alpha = db.MinimapCapitalsInstanceAlpha
       end
 
-      -- Capitals Minimap General (Hearthstone/Exit/Passage) icons
-      if ns.CapitalIDs and ns.capitalgenerals and (value.hideOnMinimap == false) then
+      -- Capitals Minimap General (Innkeeper/Exit/Passage) icons
+      if ns.CapitalIDs and ns.capitalgenerals and (value.showOnMinimap == true) then
         scale = db.MinimapCapitalsGeneralScale
         alpha = db.MinimapCapitalsGeneralAlpha
       end
 
-      -- Capitals General (Hearthstone/Exit/Passage) icons
-      if ns.CapitalIDs and ns.capitalgenerals and (value.hideOnMinimap == true) then
+      -- Capitals General (Innkeeper/Exit/Passage) icons
+      if ns.CapitalIDs and ns.capitalgenerals and (value.showOnMinimap == false) then
         scale = db.CapitalsGeneralScale
         alpha = db.CapitalsGeneralAlpha
       end
 
       -- Capitals Transport (Zeppeline/Ship/Carriage) icons
-      if ns.CapitalIDs and ns.transports and (value.hideOnMinimap == true) then
+      if ns.CapitalIDs and ns.transports and (value.showOnMinimap == false) then
         scale = db.CapitalsTransportScale
         alpha = db.CapitalsTransportAlpha
       end
 
       -- Capitals Instance (Dungeon/Raid/Passage/Multi) icons
-      if ns.CapitalIDs and ns.instances and (value.hideOnMinimap == true) then
+      if ns.CapitalIDs and ns.instances and (value.showOnMinimap == false) then
         scale = db.CapitalsInstanceScale
         alpha = db.CapitalsInstanceAlpha
       end   
@@ -349,15 +342,15 @@ do
     --if not db.activate.Continent then return end
 
     local state, value
-  	local zone = t.C[t.Z]
-    local data = nodes[zone]
+  	local continent = t.C[t.Z]
+    local data = nodes[continent]
 
-		while zone do
+		while continent do
 
-			if data then -- Only if there is data for this zone
+			if data then -- Only if there is data for this continent
 				state, value = next(data, prestate)
 
-				while state do -- Have we reached the end of this zone?
+				while state do -- Have we reached the end of this continent?
           local alpha
           local icon = ns.icons[value.type]
           
@@ -395,17 +388,17 @@ do
             alpha = db.continentAlpha
           end
 
-					if not value.hideOnContinent then -- Continent scale
-						return state, zone, icon, db.continentScale, alpha
+					if value.showOnContinent then -- Continent scale
+						return state, continent, icon, db.continentScale, alpha
           end
 
 					state, value = next(data, state)  -- Get next data
 				end
 			end
-      -- Get next zone
+      -- Get next continent
 			t.Z = next(t.C, t.Z)
-			zone = t.C[t.Z]
-			data = nodes[zone]
+			continent = t.C[t.Z]
+			data = nodes[continent]
 			prestate = nil
 		end
 		wipe(t)
@@ -476,7 +469,7 @@ function pluginHandler:OnClick(button, pressed, uiMapId, coord)
       end
     end
 
-    if (button == "LeftButton" and db.journal) then
+    if (button == "LeftButton" and db.journal and not IsAltKeyDown()) then
 
       local mnID = nodes[uiMapId][coord].mnID
       if mnID then
@@ -657,7 +650,7 @@ function Addon:PopulateMinimap()
   for uiMapId,uiMapIdDetails in pairs(nodes) do
       if (minimap[uiMapId]) then
           for coords,icondetails in pairs(uiMapIdDetails) do 
-              if (not icondetails.hideOnMinimap) then
+              if (icondetails.showOnMinimap) then
                   minimap[uiMapId][coords] = icondetails
               end
           end

@@ -2,7 +2,14 @@ local ADDON_NAME = ...
 local L = LibStub("AceLocale-3.0"):NewLocale(ADDON_NAME, "ruRU")
 if not L then return end
 
---0 Sync function
+--0 Restore
+L["Delete this icon"] = "Удалить этот значок"
+L["A icon has been deleted"] = "Символ был удален"
+L["Restore all deleted icons for different types of maps"] = "Восстановить все удаленные значки для разных типов карт"
+L["Restore all deleted icons"] = "Восстановить все удаленные значки"
+L["which you removed with the function"] = "что вы удалили с функцией"
+L["All deleted icons have been restored"] = "Все удаленные значки восстановлены"
+--0.1 Sync function
 L["synchronizes"] = "синхронизирует"
 L["Synchronizes the Zones tab with the Minimap tab"] = "Синхронизирует вкладку «Зоны» с вкладкой «Миникарта»"
 L["Which deactivates the functions from the Minimap tab and is now controlled together by the Zones tab"] = "Это отключает функции на вкладке «Мини-карта», и теперь управление ими осуществляется коллективно через вкладку «Зоны»"

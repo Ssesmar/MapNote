@@ -2,7 +2,14 @@
 local L = LibStub("AceLocale-3.0"):NewLocale(ADDON_NAME, "koKR")
 if not L then return end
 
---0 Sync function
+--0 Restore
+L["Delete this icon"] = "이 아이콘을 삭제하십시오"
+L["A icon has been deleted"] = "기호가 삭제되었습니다"
+L["Restore all deleted icons for different types of maps"] = "다양한 유형의 지도에 대해 삭제된 모든 아이콘을 복원합니다"
+L["Restore all deleted icons"] = "삭제된 아이콘 모두 복원"
+L["which you removed with the function"] = "기능으로 제거했습니다"
+L["All deleted icons have been restored"] = "삭제된 아이콘은 모두 복원되었습니다"
+--0.1 Sync function
 L["synchronizes"] = "동기화하다"
 L["Synchronizes the Zones tab with the Minimap tab"] = "구역 탭을 미니맵 탭과 동기화합니다"
 L["Which deactivates the functions from the Minimap tab and is now controlled together by the Zones tab"] = "이렇게 하면 미니맵 탭의 기능이 비활성화되고 이제 구역 탭을 통해 전체적으로 제어됩니다"

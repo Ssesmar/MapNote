@@ -10,7 +10,7 @@ ns.icons = {
 ["MNL"] = iconLink .. "MNL4",
 ["DarkMoon"] = iconLink .. "DarkMoon",
 --General
-["Hearthstone"] = "interface/minimap/tracking/innkeeper.blp",
+["Innkeeper"] = "interface/minimap/tracking/innkeeper.blp",
 ["Auctioneer"] = "interface/minimap/tracking/auctioneer.blp",
 ["Bank"] = "interface/minimap/tracking/banker.blp",
 ["Barber"] = "interface/minimap/tracking/barbershop.blp",
@@ -129,7 +129,7 @@ ns.icons = {
 TextIcon = IconClass
 TextIconMNL4 = TextIcon(iconLink .. "MNL4", 50, 50, 1, 50, 1, 50)
 --General
-TextIconHearthstone = TextIcon("interface/minimap/tracking/innkeeper.blpp", 50, 50, 1, 50, 1, 50)
+TextIconInnkeeper = TextIcon("interface/minimap/tracking/innkeeper.blpp", 50, 50, 1, 50, 1, 50)
 TextIconAuctioneer = TextIcon("interface/minimap/tracking/auctioneer.blp", 50, 50, 1, 50, 1, 50)
 TextIconBlackMarket = TextIcon(iconLink .. "BlackMarket", 50, 50, 1, 50, 1, 50)
 TextIconBank = TextIcon("interface/minimap/tracking/banker.blp", 50, 50, 1, 50, 1, 50)

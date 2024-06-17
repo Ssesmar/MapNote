@@ -2,7 +2,14 @@
 local L = LibStub("AceLocale-3.0"):NewLocale(ADDON_NAME, "esES")
 if not L then return end
 
---0 Sync function
+--0 Restore
+L["Delete this icon"] = "Eliminar este icono"
+L["A icon has been deleted"] = "Se eliminó un símbolo"
+L["Restore all deleted icons for different types of maps"] = "Restaura todos los íconos eliminados para diferentes tipos de mapas"
+L["Restore all deleted icons"] = "Restaurar todos los iconos eliminados"
+L["which you removed with the function"] = "que has eliminado con la función"
+L["All deleted icons have been restored"] = "Todos los iconos eliminados han sido restaurados"
+--0.1 Sync function
 L["synchronizes"] = "sincroniza"
 L["Synchronizes the Zones tab with the Minimap tab"] = "Sincroniza la pestaña Zonas con la pestaña Minimapa"
 L["Which deactivates the functions from the Minimap tab and is now controlled together by the Zones tab"] = "Esto desactiva las funciones en la pestaña Minimapa y ahora se controla colectivamente a través de la pestaña Zonas"

@@ -2,6 +2,7 @@
     <Script file="IconClass.lua"/>
     <Script file="icons.lua"/>
     <Script file="ccmmb.lua"/>
+    <Script file="StaticPopUps.lua"/>
     <Script file="syncWithMinimap.lua"/>
     <Include file="wmb-template.xml"/>
     <Include file="Retail\RetailCore.xml"/>

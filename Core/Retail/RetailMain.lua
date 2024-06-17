@@ -5,6 +5,7 @@ if not HandyNotes then return end
 
 local ADDON_NAME = "HandyNotes_MapNotes"
 local L = LibStub("AceLocale-3.0"):GetLocale(ADDON_NAME)
+ns.COLORED_ADDON_NAME = "|cffff0000Map|r|cff00ccffNotes|r"
 
 local MapNotesMiniButton = LibStub("AceAddon-3.0"):NewAddon("MNMiniMapButton", "AceConsole-3.0")
 local MNMMBIcon = LibStub("LibDBIcon-1.0", true)
@@ -15,6 +16,7 @@ local minimap = { }
 local lfgIDs = { }
 local extraInformations = { }
 
+ns.RestoreStaticPopUps()
 
 function MapNotesMiniButton:OnInitialize() --mmb.lua
   self.db = LibStub("AceDB-3.0"):New("MNMiniMapButtonRetailDB", { profile = { minimap = { hide = false, }, }, }) 
@@ -41,12 +43,12 @@ function pluginHandler:OnEnter(uiMapId, coord)
 
   if (minimap[uiMapId] and minimap[uiMapId][coord]) then
     nodeData = minimap[uiMapId][coord]
-   end
+  end
 
 	if (nodes[uiMapId] and nodes[uiMapId][coord]) then
 	  nodeData = nodes[uiMapId][coord]
 	end
-	
+
 	if (not nodeData) then return end
 	
 	local tooltip = self:GetParent() == WorldMapButton and WorldMapTooltip or GameTooltip
@@ -71,76 +73,68 @@ function pluginHandler:OnEnter(uiMapId, coord)
 	      for a,b in pairs(extraInformations[v]) do
           --tooltip:AddLine(v .. ": " .. a .. " " .. b, nil, nil, nil, false)
 	        tooltip:AddDoubleLine(v, a .. " " .. b, 1, 1, 1, 1, 1, 1)
-          if ns.DeveloperMode == true then
-            tooltip:AddDoubleLine("MapID: " .. uiMapId, "Coords: " .. coord, nil, nil, false)
-          end
  	      end
 	    end
       if (lfgIDs[v] and extraInformations[lfgIDs[v]]) then
         for a,b in pairs(extraInformations[lfgIDs[v]]) do
           --tooltip:AddLine(v .. ": " .. a .. " " .. b, nil, nil, nil, false)
           tooltip:AddDoubleLine(v, a .. " " .. b, 1, 1, 1, 1, 1, 1)
-          if ns.DeveloperMode == true then
-            tooltip:AddDoubleLine("MapID: " .. uiMapId, "Coords: " .. coord, nil, nil, false)
-          end
         end
       end
 	  else
 	    tooltip:AddLine(v, nil, nil, nil, false)
+      if ns.DeveloperMode == true then
+        tooltip:AddLine("uiMapID: " .. uiMapId, nil, nil, false)
+        tooltip:AddLine("Coordinates: " .. coord, nil, nil, false)
+        if nodeData.mnID then
+          tooltip:AddLine("mnID: " .. nodeData.mnID, nil, nil, false)
+        elseif nodeData.id then
+          tooltip:AddLine("Instance-ID: " .. nodeData.id, nil, nil, false)
+        elseif nodeData.dnID then
+          tooltip:AddLine("Type: " .. nodeData.dnID, nil, nil, false)
+        elseif nodeData.type then
+          tooltip:AddLine("Type: " .. nodeData.type, nil, nil, false)
+        end
+      end
 	  end
 
     if nodeData.dnID then -- outputs the names we set and displays it in the tooltip
       tooltip:AddDoubleLine(nodeData.dnID, nil, nil, false)
-      if ns.DeveloperMode == true then
-        tooltip:AddDoubleLine("MapID: " .. uiMapId, "Coords: " .. coord, nil, nil, false)
-      end
     end
     
     if nodeData.dnID and nodeData.mnID then -- outputs the Zone or Dungeonmap name and displays it in the tooltip
       local mnIDname = C_Map.GetMapInfo(nodeData.mnID).name
       if mnIDname then
-        tooltip:AddDoubleLine(mnIDname, nil, nil, false)
+        tooltip:AddDoubleLine(" => " .. mnIDname, nil, nil, false)
       end 
-      if ns.DeveloperMode == true then
-        tooltip:AddDoubleLine("MapID: " .. uiMapId, "Coords: " .. coord, nil, nil, false)
-      end
     end
 
     if nodeData.www and nodeData.showWWW == true then
       tooltip:AddDoubleLine(nodeData.www, nil, nil, false)
-      if ns.DeveloperModeOn == true then
-        tooltip:AddDoubleLine("MapID: " .. uiMapId, "Coords: " .. coord, nil, nil, false)
-      end
     end
 
     if nodeData.TransportName then -- outputs transport name for TomTom to the tooltip
       tooltip:AddDoubleLine(nodeData.TransportName, nil, nil, false)
-      if ns.DeveloperMode == true then
-        tooltip:AddDoubleLine("MapID: " .. uiMapId, "Coords: " .. coord, nil, nil, false)
-      end
     end
 
     if not nodeData.dnID and nodeData.mnID and not nodeData.id and not nodeData.TransportName then -- outputs the Zone or Dungeonmap name and displays it in the tooltip
       local mnIDname = C_Map.GetMapInfo(nodeData.mnID).name
       if mnIDname then
         tooltip:AddDoubleLine("=> " .. mnIDname, nil, nil, false)
-        if ns.DeveloperMode == true then
-          tooltip:AddDoubleLine("MapID: " .. uiMapId, "Coords: " .. coord, nil, nil, false)
-        end
       end 
     end
      	tooltip:Show()
   end
 end
 
-SLASH_DeveloperMode1 = "/mndeveloper";
+SLASH_DeveloperMode1 = "/mndev";
 function SlashCmdList.DeveloperMode(msg, editbox)
-  if not ns.DeveloperMode then
-      ns.DeveloperMode = true 
-      print("MapNotes DeveloperMode = true")
-    else
-      ns.DeveloperModeOn = false
-      print("MapNotes DeveloperMode = false")
+  if ns.DeveloperMode == true then
+    ns.DeveloperMode = false
+    print("MapNotes DeveloperMode = Off")
+  else
+    ns.DeveloperMode = true 
+    print("MapNotes DeveloperMode = On")
   end
 end
 
@@ -188,6 +182,7 @@ do
 			local alpha
 			local icon = ns.icons[value.type]
       local scale
+      local mapInfo = C_Map.GetMapInfo(t.uiMapId)
 
 			local allLocked = true
 			local anyLocked = false
@@ -198,45 +193,45 @@ do
 
       ns.transports = value.type == "Portal" or value.type == "HPortal" or value.type == "APortal" or value.type == "HPortalS" or value.type == "APortalS" or value.type == "PassageHPortal" or value.type == "PassageAPortal" or value.type == "PassagePortal" or value.type == "Zeppelin" or value.type == "HZeppelin" or value.type == "AZeppelin" or value.type == "Ship" or value.type == "AShip" or value.type == "HShip" or value.type == "Carriage" or value.type == "TravelL" or value.type == "TravelH" or value.type == "TravelA" or value.type == "GPortal" or value.type == "Tport2" or value.type == "TransportHelper" or value.type == "OgreWaygate" or value.type == "WayGateGreen" or value.type == "Ghost" or value.type == "DarkMoon"
 
-      ns.capitalgenerals = value.type == "Exit" or value.type == "PassageUpL" or value.type == "PassageDownL" or value.type == "PassageRightL" or value.type == "PassageLeftL" or value.type == "Hearthstone" or value.type == "Auctioneer" or value.type == "Bank" or value.type == "MNL" or value.type == "Barber" or value.type == "Transmogger" or value.type == "ItemUpgrade" or value.type == "PvPVendor" or value.type == "PvEVendor" or value.type == "MNL" or value.type == "DragonFlyTransmog" or value.type == "Catalyst" or value.type == "PathN" or value.type == "PathNO" or value.type == "PathO" or value.type == "PathSO" or value.type == "PathS" or value.type == "PathSW" or value.type == "PathW" or value.type == "PathNW" or value.type == "BlackMarket"
+      ns.capitalgenerals = value.type == "Exit" or value.type == "PassageUpL" or value.type == "PassageDownL" or value.type == "PassageRightL" or value.type == "PassageLeftL" or value.type == "Innkeeper" or value.type == "Auctioneer" or value.type == "Bank" or value.type == "MNL" or value.type == "Barber" or value.type == "Transmogger" or value.type == "ItemUpgrade" or value.type == "PvPVendor" or value.type == "PvEVendor" or value.type == "MNL" or value.type == "DragonFlyTransmog" or value.type == "Catalyst" or value.type == "PathN" or value.type == "PathNO" or value.type == "PathO" or value.type == "PathSO" or value.type == "PathS" or value.type == "PathSW" or value.type == "PathW" or value.type == "PathNW" or value.type == "BlackMarket" or value.type == "Mailbox"
 
       ns.CapitalIDs =
         --Retail
-        WorldMapFrame:GetMapID() == 84 or -- Stormwind
-        WorldMapFrame:GetMapID() == 87 or -- Ironforge
-        WorldMapFrame:GetMapID() == 89 or -- Darnassus
-        WorldMapFrame:GetMapID() == 103 or -- Exodar
-        WorldMapFrame:GetMapID() == 85 or -- Orgrimmar
-        WorldMapFrame:GetMapID() == 90 or -- Undercity
-        WorldMapFrame:GetMapID() == 86 or -- Ragefire Chasmn
-        WorldMapFrame:GetMapID() == 88 or -- Thunder Bluff
-        WorldMapFrame:GetMapID() == 110 or -- Silvermoon
-        WorldMapFrame:GetMapID() == 111 or -- Shattrath
-        WorldMapFrame:GetMapID() == 125 or  -- Dalaran Northrend
-        WorldMapFrame:GetMapID() == 126 or  -- Dalaran Northrend Basement
-        WorldMapFrame:GetMapID() == 391 or  -- Pandaria Shrine of the two Moons first floor
-        WorldMapFrame:GetMapID() == 392 or  -- Pandaria Shrine of the two Moons second floor
-        WorldMapFrame:GetMapID() == 393 or  -- Pandaria Shrine of the seven Stars first floor
-        WorldMapFrame:GetMapID() == 394 or  -- Pandaria Shrine of the seven Stars second floor
-        WorldMapFrame:GetMapID() == 407 or  -- Darkmoon
-        WorldMapFrame:GetMapID() == 582 or  -- Draenor Alliance Garrision
-        WorldMapFrame:GetMapID() == 590 or  -- Draenor Horde Garrision
-        WorldMapFrame:GetMapID() == 622 or  -- Draenor Stormshield
-        WorldMapFrame:GetMapID() == 624 or  -- Draenor Warspear
-        WorldMapFrame:GetMapID() == 626 or  -- Dalaran Legion Basement
-        WorldMapFrame:GetMapID() == 627 or  -- Dalaran Legion
-        WorldMapFrame:GetMapID() == 628 or  -- Dalaran Legion Shadowside
-        WorldMapFrame:GetMapID() == 629 or  -- Dalaran Legion Aeqwynns Galarie
-        WorldMapFrame:GetMapID() == 1161 or -- Boralus
-        WorldMapFrame:GetMapID() == 1163 or -- Dazar'alor first floor
-        WorldMapFrame:GetMapID() == 1164 or -- Dazar'alor second floor
-        WorldMapFrame:GetMapID() == 1165 or -- Dazar'alor Area
-        WorldMapFrame:GetMapID() == 1670 or -- Oribos
-        WorldMapFrame:GetMapID() == 1671 or -- Oribos second floor
-        WorldMapFrame:GetMapID() == 1672 or -- Oribos Basement
-        WorldMapFrame:GetMapID() == 1673 or -- Oribos melting pot
-        WorldMapFrame:GetMapID() == 2112 or -- Valdrakken
-        WorldMapFrame:GetMapID() == 2339 -- Dornogal
+        WorldMapFrame:GetMapID() == 84 -- Stormwind
+        or WorldMapFrame:GetMapID() == 87  -- Ironforge
+        or WorldMapFrame:GetMapID() == 89  -- Darnassus
+        or WorldMapFrame:GetMapID() == 103 -- Exodar
+        or WorldMapFrame:GetMapID() == 85 -- Orgrimmar
+        or WorldMapFrame:GetMapID() == 90 -- Undercity
+        or WorldMapFrame:GetMapID() == 86 -- Ragefire Chasmn
+        or WorldMapFrame:GetMapID() == 88 -- Thunder Bluff
+        or WorldMapFrame:GetMapID() == 110 -- Silvermoon
+        or WorldMapFrame:GetMapID() == 111 -- Shattrath
+        or WorldMapFrame:GetMapID() == 125  -- Dalaran Northrend
+        or WorldMapFrame:GetMapID() == 126  -- Dalaran Northrend Basement
+        or WorldMapFrame:GetMapID() == 391  -- Pandaria Shrine of the two Moons first floor
+        or WorldMapFrame:GetMapID() == 392  -- Pandaria Shrine of the two Moons second floor
+        or WorldMapFrame:GetMapID() == 393  -- Pandaria Shrine of the seven Stars first floor
+        or WorldMapFrame:GetMapID() == 394  -- Pandaria Shrine of the seven Stars second floor
+        or WorldMapFrame:GetMapID() == 407  -- Darkmoon
+        or WorldMapFrame:GetMapID() == 582  -- Draenor Alliance Garrision
+        or WorldMapFrame:GetMapID() == 590  -- Draenor Horde Garrision
+        or WorldMapFrame:GetMapID() == 622  -- Draenor Stormshield
+        or WorldMapFrame:GetMapID() == 624  -- Draenor Warspear
+        or WorldMapFrame:GetMapID() == 626  -- Dalaran Legion Basement
+        or WorldMapFrame:GetMapID() == 627  -- Dalaran Legion
+        or WorldMapFrame:GetMapID() == 628  -- Dalaran Legion Shadowside
+        or WorldMapFrame:GetMapID() == 629  -- Dalaran Legion Aeqwynns Galarie
+        or WorldMapFrame:GetMapID() == 1161 -- Boralus
+        or WorldMapFrame:GetMapID() == 1163 -- Dazar'alor first floor
+        or WorldMapFrame:GetMapID() == 1164 -- Dazar'alor second floor
+        or WorldMapFrame:GetMapID() == 1165 -- Dazar'alor Area
+        or WorldMapFrame:GetMapID() == 1670 -- Oribos
+        or WorldMapFrame:GetMapID() == 1671 -- Oribos second floor
+        or WorldMapFrame:GetMapID() == 1672 -- Oribos Basement
+        or WorldMapFrame:GetMapID() == 1673 -- Oribos melting pot
+        or WorldMapFrame:GetMapID() == 2112 -- Valdrakken
+        or WorldMapFrame:GetMapID() == 2339 -- Dornogal
       
 			if value.name == nil then value.name = value.id or value.mnID end
       
@@ -279,70 +274,69 @@ do
       end
 
       -- Instance Minimap icons
-      if ns.instances and (value.hideOnMinimap == false) then
+      if ns.instances and (value.showOnMinimap == true) then
         scale = db.instanceMiniMapScale
         alpha = db.instanceMiniMapAlpha
       end
 
       -- Profession icons in Capitals
-      if ns.professions and ns.CapitalIDs and (value.hideOnMinimap == true) then
+      if ns.professions and ns.CapitalIDs and (value.showOnMinimap == false) then
         scale = db.CapitalsProfessionsScale
         alpha = db.CapitalsProfessionsAlpha
       end
 
       -- inside Dungeon
-      mapInfo = C_Map.GetMapInfo(t.uiMapId)
       if mapInfo and mapInfo.mapType == 4 and not ns.CapitalIDs then 
           scale = db.dungeonScale
           alpha = db.dungeonAlpha
       end
 
       -- Instance icons World
-      if ns.instances and (not value.hideOnMinimap == false) then
+      if ns.instances and (not value.showOnMinimap == true) then
         scale = db.instanceScale
         alpha = db.instanceAlpha
       end
 
       -- Profession Minimap icons in Capitals
-      if ns.professions and ns.CapitalIDs and (value.hideOnMinimap == false) then
+      if ns.professions and ns.CapitalIDs and (value.showOnMinimap == true) then
         scale = db.MinimapCapitalsProfessionsScale
         alpha = db.MinimapCapitalsProfessionsAlpha
       end
 
       -- Capitals Minimap Transport (Zeppeline/Ship/Carriage) icons
-      if ns.CapitalIDs and ns.transports and (value.hideOnMinimap == false) then
+      if ns.CapitalIDs and ns.transports and (value.showOnMinimap == true) then
         scale = db.MinimapCapitalsTransportScale
         alpha = db.MinimapCapitalsTransportAlpha
       end
 
       -- Capitals Minimap Instance (Dungeon/Raid/Passage/Multi) icons
-      if ns.CapitalIDs and ns.instances and (value.hideOnMinimap == false) then
+      if ns.CapitalIDs and ns.instances and (value.showOnMinimap == true) then
         scale = db.MinimapCapitalsInstanceScale
         alpha = db.MinimapCapitalsInstanceAlpha
       end
 
-      -- Capitals Minimap General (Hearthstone/Exit/Passage) icons
-      if ns.CapitalIDs and ns.capitalgenerals and (value.hideOnMinimap == false) then
+      -- Capitals Minimap General (Innkeeper/Exit/Passage) icons
+      if ns.CapitalIDs and ns.capitalgenerals and (value.showOnMinimap == true) then
         scale = db.MinimapCapitalsGeneralScale
         alpha = db.MinimapCapitalsGeneralAlpha
       end
 
       ns.SyncWithMinimapScaleAlpha() -- sync Capitals with Capitals - Minimap and/or Zones with Minimap Alpha/Scale
 
-      -- Capitals General (Hearthstone/Exit/Passage) icons
-      if ns.CapitalIDs and ns.capitalgenerals and (value.hideOnMinimap == true) then
+      -- Capitals General (Innkeeper/Exit/Passage) icons
+      if ns.CapitalIDs and ns.capitalgenerals and (value.showOnMinimap == false) then
         scale = db.CapitalsGeneralScale
         alpha = db.CapitalsGeneralAlpha
       end
 
       -- Capitals Transport (Zeppeline/Ship/Carriage) icons
-      if ns.CapitalIDs and ns.transports and (value.hideOnMinimap == true) then
+      if ns.CapitalIDs and ns.transports and (value.showOnMinimap == false) then
         scale = db.CapitalsTransportScale
         alpha = db.CapitalsTransportAlpha
       end
 
       -- Capitals Instance (Dungeon/Raid/Passage/Multi) icons
-      if ns.CapitalIDs and ns.instances and (value.hideOnMinimap == true) then
+      if ns.CapitalIDs and ns.instances and (value.showOnMinimap == false) then
         scale = db.CapitalsInstanceScale
         alpha = db.CapitalsInstanceAlpha
       end   
@@ -362,8 +356,16 @@ do
         alpha = db.cosmosAlpha
       end
 
-      if (value.showInZone or t.minimapUpdate) then -- Zone scale
-          return state, nil, icon, scale, alpha
+      if t.uiMapId == 948 -- Mahlstrom Continent
+        or (mapInfo.mapType == 0 and (ns.dbChar.AzerothDeletedIcons[t.uiMapId] and not ns.dbChar.AzerothDeletedIcons[t.uiMapId][state] and value.showInZone)) -- Cosmos
+        or (mapInfo.mapType == 1 and (ns.dbChar.AzerothDeletedIcons[t.uiMapId] and not ns.dbChar.AzerothDeletedIcons[t.uiMapId][state] and value.showInZone)) -- Azeroth
+        or (not ns.CapitalIDs and mapInfo.mapType == 3 and (ns.dbChar.ZoneDeletedIcons[t.uiMapId] and not ns.dbChar.ZoneDeletedIcons[t.uiMapId][state] and value.showInZone)) -- Zone without Capitals
+        or (mapInfo.mapType == 4 and (ns.dbChar.DungeonDeletedIcons[t.uiMapId] and not ns.dbChar.DungeonDeletedIcons[t.uiMapId][state] and value.showInZone)) -- Dungeon
+        or (ns.CapitalIDs and (ns.dbChar.CapitalsDeletedIcons[t.uiMapId] and not ns.dbChar.CapitalsDeletedIcons[t.uiMapId][state] and value.showInZone)) -- Capitals
+        or (ns.CapitalIDs and ns.dbChar.MinimapCapitalsDeletedIcons[t.minimapId] and not ns.dbChar.MinimapCapitalsDeletedIcons[t.minimapId][state] and value.showOnMinimap) -- Minimap Capitals
+        or (not ns.CapitalIDs and mapInfo.mapType == 3 and ns.dbChar.MinimapZoneDeletedIcons[t.minimapId] and not ns.dbChar.MinimapZoneDeletedIcons[t.minimapId][state] and value.showOnMinimap) -- Minimap Zones
+      then
+        return state, nil, icon, scale, alpha
       end
 
 			state, value = next(data, state)
@@ -381,10 +383,10 @@ do
 
 		while zone do
 
-			if data then -- Only if there is data for this zone
+			if data then -- Only if there is data for this continent
 				state, value = next(data, prestate)
 
-				while state do -- Have we reached the end of this zone?
+				while state do -- Have we reached the end of this continent?
           local alpha
           local icon = ns.icons[value.type]
           
@@ -421,15 +423,15 @@ do
           else
             alpha = db.continentAlpha
           end
-
-					if not value.hideOnContinent then -- Continent scale
-						return state, zone, icon, db.continentScale, alpha
+              
+          if ((ns.dbChar.ContinentDeletedIcons[t.contId] and not ns.dbChar.ContinentDeletedIcons[t.contId][state]) and value.showOnContinent) then -- Continent
+            return state, zone, icon, db.continentScale, alpha
           end
 
 					state, value = next(data, state)  -- Get next data
 				end
 			end
-      -- Get next zone
+      -- Get next continent
 			t.Z = next(t.C, t.Z)
 			zone = t.C[t.Z]
 			data = nodes[zone]
@@ -456,6 +458,7 @@ function pluginHandler:GetNodes2(uiMapId, isMinimapUpdate)
           tablepool[tbl] = nil
           tbl.minimapUpdate = isMinimapUpdate
           tbl.uiMapId = uiMapId
+          tbl.minimapId = uiMapId
           if (isMinimapUpdate and minimap[uiMapId]) then
               tbl.data = minimap[uiMapId]
           else
@@ -485,7 +488,58 @@ local function setWaypoint(uiMapID, coord)
     })  
 end
 
-function pluginHandler:OnClick(button, pressed, uiMapId, coord)
+function pluginHandler:OnClick(button, pressed, uiMapId, coord, value)
+local mapInfo = C_Map.GetMapInfo(uiMapId)
+local CapitalIDs = WorldMapFrame:GetMapID() == 84 or WorldMapFrame:GetMapID() == 87  or WorldMapFrame:GetMapID() == 89 or WorldMapFrame:GetMapID() == 103 or WorldMapFrame:GetMapID() == 85
+                or WorldMapFrame:GetMapID() == 90 or WorldMapFrame:GetMapID() == 86 or WorldMapFrame:GetMapID() == 88 or WorldMapFrame:GetMapID() == 110  or WorldMapFrame:GetMapID() == 111
+                or WorldMapFrame:GetMapID() == 125  or WorldMapFrame:GetMapID() == 126  or WorldMapFrame:GetMapID() == 391  or WorldMapFrame:GetMapID() == 392  or WorldMapFrame:GetMapID() == 393
+                or WorldMapFrame:GetMapID() == 394  or WorldMapFrame:GetMapID() == 407  or WorldMapFrame:GetMapID() == 582  or WorldMapFrame:GetMapID() == 590  or WorldMapFrame:GetMapID() == 622
+                or WorldMapFrame:GetMapID() == 624  or WorldMapFrame:GetMapID() == 626  or WorldMapFrame:GetMapID() == 627  or WorldMapFrame:GetMapID() == 628  or WorldMapFrame:GetMapID() == 629
+                or WorldMapFrame:GetMapID() == 1161 or WorldMapFrame:GetMapID() == 1163 or WorldMapFrame:GetMapID() == 1164 or WorldMapFrame:GetMapID() == 1165 or WorldMapFrame:GetMapID() == 1670
+                or WorldMapFrame:GetMapID() == 1671 or WorldMapFrame:GetMapID() == 1672 or WorldMapFrame:GetMapID() == 1673 or WorldMapFrame:GetMapID() == 2112 or WorldMapFrame:GetMapID() == 2339
+
+  StaticPopupDialogs["Delete_Icon?"] = {
+    text = TextIconMNL4:GetIconString() .. " " .. ns.COLORED_ADDON_NAME .. ": " .. L["Delete this icon"] .. " ? " .. TextIconMNL4:GetIconString(),
+    button1 = YES,
+    button2 = NO,
+    showAlert = true,
+    exclusive  = true,
+    OnAccept = function()
+      if CapitalIDs then
+        ns.dbChar.CapitalsDeletedIcons[uiMapId][coord] = true
+        ns.dbChar.MinimapCapitalsDeletedIcons[uiMapId][coord] = true
+        print(TextIconMNL4:GetIconString() .. " " .. ns.COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00", L["Capitals"] .. " & " .. L["Capitals"] .. " - " .. MINIMAP_LABEL .. " - " .. "|cff00ff00" .. L["A icon has been deleted"])
+      end
+    
+      if mapInfo.mapType == 1 then -- Azeroth
+        ns.dbChar.AzerothDeletedIcons[uiMapId][coord] = true
+        print(TextIconMNL4:GetIconString() .. " " .. ns.COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00", AZEROTH .. " - " .. "|cff00ff00" .. L["A icon has been deleted"])
+      end
+    
+      if mapInfo.mapType == 2 then -- Continent
+        ns.dbChar.ContinentDeletedIcons[uiMapId][coord] = true
+        print(TextIconMNL4:GetIconString() .. " " .. ns.COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00", L["Continents"] .. " - " .. "|cff00ff00" .. L["A icon has been deleted"])
+      end
+    
+      if not CapitalIDs and mapInfo.mapType == 3 then -- Zone
+        ns.dbChar.ZoneDeletedIcons[uiMapId][coord] = true
+        ns.dbChar.MinimapZoneDeletedIcons[uiMapId][coord] = true
+        print(TextIconMNL4:GetIconString() .. " " .. ns.COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00", L["Zones"] .. " & " .. MINIMAP_LABEL .. " - " .. "|cff00ff00" .. L["A icon has been deleted"])
+      end
+    
+      if mapInfo.mapType == 4 then -- Dungeon
+        ns.dbChar.DungeonDeletedIcons[uiMapId][coord] = true
+        print(TextIconMNL4:GetIconString() .. " " .. ns.COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00", DUNGEONS .. " - " .. "|cff00ff00" .. L["A icon has been deleted"])
+      end
+      HandyNotes:SendMessage("HandyNotes_NotifyUpdate", "MapNotes")
+    end,
+    OnCancel = function()
+      print(TextIconMNL4:GetIconString() .. " " .. ns.COLORED_ADDON_NAME .. " " .. "|cffffff00 ".. CALENDAR_DELETE_EVENT .. " " .. "|cffff0000" .. CLUB_FINDER_CANCELED)
+    end,
+    timeout = 5,
+    whileDead = true,
+    hideOnEscape = true,
+  }
 
   if not ns.Addon.db.profile.activate.ShiftWorld then
 
@@ -496,9 +550,8 @@ function pluginHandler:OnClick(button, pressed, uiMapId, coord)
         return
     end
 
-    nodes[uiMapId][coord].showInZone = ns.HiddenIcons
-    if (button == "MiddleButton") and IsAltKeyDown() then
-      ns.HiddenIcons = false
+    if (button == "LeftButton") and IsAltKeyDown() then
+      StaticPopup_Show ("Delete_Icon?")
     end
 
     if (button == "MiddleButton") then
@@ -508,7 +561,7 @@ function pluginHandler:OnClick(button, pressed, uiMapId, coord)
       end
     end
 
-    if (button == "LeftButton" and db.journal) then
+    if (button == "LeftButton" and db.journal and not IsAltKeyDown()) then
 
       local mnID = nodes[uiMapId][coord].mnID
       if mnID then
@@ -560,12 +613,9 @@ function pluginHandler:OnClick(button, pressed, uiMapId, coord)
         setWaypoint(uiMapId, coord)
     return end
 
-    --if (button == "MiddleButton") and IsAltKeyDown() then
-    --  ns.HiddenIcons = nodes[uiMapId][coord].showInZone
-    --  if ns.HiddenIcons then
-    --    nodes[uiMapId][coord].showInZone = false
-    --  end
-    --end
+    if (button == "LeftButton") and IsAltKeyDown() then
+      StaticPopup_Show ("Delete_Icon?")
+    end
 
     if IsShiftKeyDown() and (button == "MiddleButton") then
       local www = nodes[uiMapId][coord].www
@@ -624,7 +674,6 @@ local Addon = CreateFrame("Frame")
 Addon:RegisterEvent("PLAYER_LOGIN")
 Addon:SetScript("OnEvent", function(self, event, ...) return self[event](self, ...)end)
 
-
 local function updateStuff()
   updateextraInformation()
   HandyNotes:SendMessage("HandyNotes_NotifyUpdate", "MapNotes")
@@ -649,8 +698,7 @@ function Addon:PLAYER_LOGIN()
   -- Register Database Profile
   self.db = LibStub("AceDB-3.0"):New("HandyNotes_MapNotesRetailDB", ns.defaults)
   db = self.db.profile
-
-  ns.HiddenIcons = self.db.char.HiddenIcons
+  ns.dbChar = self.db.char
 
   -- Register options 
   HandyNotes:RegisterPluginDB("MapNotes", pluginHandler, ns.options)
@@ -698,7 +746,7 @@ function Addon:PopulateMinimap()
   for uiMapId,uiMapIdDetails in pairs(nodes) do
       if (minimap[uiMapId]) then
           for coords,icondetails in pairs(uiMapIdDetails) do 
-              if (not icondetails.hideOnMinimap) then
+              if (icondetails.showOnMinimap) then
                   minimap[uiMapId][coords] = icondetails
               end
           end

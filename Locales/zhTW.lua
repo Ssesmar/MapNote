@@ -2,7 +2,14 @@ local ADDON_NAME = ...
 local L = LibStub("AceLocale-3.0"):NewLocale(ADDON_NAME, "zhTW")
 if not L then return end
 
---0 Sync function
+--0 Restore
+L["Delete this icon"] = "刪除此圖標"
+L["A icon has been deleted"] = "符號被刪除"
+L["Restore all deleted icons for different types of maps"] = "恢復不同類型地圖的所有已刪除圖標"
+L["Restore all deleted icons"] = "恢復所有已刪除的圖標"
+L["which you removed with the function"] = "您已經使用該功能刪除了"
+L["All deleted icons have been restored"] = "所有刪除的圖示均已恢復"
+--0.1 Sync function
 L["synchronizes"] = "同步"
 L["Synchronizes the Zones tab with the Minimap tab"] = "將“區域”選項卡與“小地圖”選項卡同步“"
 L["Which deactivates the functions from the Minimap tab and is now controlled together by the Zones tab"] = "這會停用「小地圖」標籤上的功能，現在透過「區域」標籤集中控制"

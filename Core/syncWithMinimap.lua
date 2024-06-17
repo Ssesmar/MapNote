@@ -96,7 +96,7 @@ local db = ns.Addon.db.profile
         self.db.profile.showMinimapCapitalsEnchanting = self.db.profile.showCapitalsEnchanting
         -- Capital General
         self.db.profile.showMinimapCapitalsMapNotes = self.db.profile.showCapitalsMapNotes
-        self.db.profile.showMinimapCapitalsHearthstone = self.db.profile.showCapitalsHearthstone
+        self.db.profile.showMinimapCapitalsInnkeeper = self.db.profile.showCapitalsInnkeeper
         self.db.profile.showMinimapCapitalsAuctioneer = self.db.profile.showCapitalsAuctioneer
         self.db.profile.showMinimapCapitalsPaths = self.db.profile.showCapitalsPaths
         self.db.profile.showMinimapCapitalsBank = self.db.profile.showCapitalsBank

@@ -1,28 +1,22 @@
 # MapNote
-## [2.0.3](https://github.com/Ssesmar/MapNote) (2024-06-09)
+## [2.0.3](https://github.com/Ssesmar/MapNote) (2024-06-17)
 - Note:
 
 -- MapNotes now works on every version of World of Warcraft. Classic Era / Cataclysm and Retail
 
 
 Retail & PTR:
-added a new function called "Synchronizes Zones & Minimap icons" into the Minimap and Zone tab
-    (Synchronizes the Zones tab with the Minimap tab)
-    (Which deactivates the functions from the Minimap tab and is now controlled together by the Zone tab)
-    (This will delete all Minimap settings and replace them with those from Zone tab)
-added a new function called "Synchronizes Capitals & Capitals Minimap icons" into the Capital and Capital - Minimap tab
-    (Synchronizes the Capitals tab with the Capitals - Minimap tab)
-    (Which deactivates the functions from the Capitals - Minimap tab and is now controlled together by the Capitals tab)
-    (This will delete all Capitals - Minimap settings and replace them with those from Capitals tab)
+added a new function for delete icons
+    Now it is possible to delete this specific icon with ALT + left click on an icon so that it is no longer displayed on this map type.
+    These deleted icons are saved individually for each character.
+    In the MapNotes menu in the gernal tab, these deleted icons can be shown again using the corresponding button (Zones/Continent/Azeroth/Dungeon/Capitals)
+    If you delete a symbol in a capital, it will also be deleted on the capital minimap. The same applies to the zone map and the minimap
+added Mailboxes in Capitals
+changed the Iconsytle from Paths
 
 Cataclysm:
 
-added Transmogger/Reforge icon in Stormwind and Orgrimmar to the Capital tab into the General function
-added Transmogger/Reforge icon in Stormwind and Orgrimmar to the Capita Minimapl tab into the General function
-
-
 Classic Era & Hardcore:
-
 
 - Description:
 
