@@ -583,6 +583,7 @@ minimap[670] = { } -- Hellfire Citadel - Inside Dungeon Map
 -- Azeroth/Continent map minimap
 minimap[619] = { } -- Broken Isles
 minimap[627] = { } -- Dalaran
+minimap[628] = { } -- Dalaran Shadowside
 minimap[629] = { } -- Dalaran inner Circle
 minimap[630] = { } -- Aszuna
 minimap[634] = { } -- Stormheim

@@ -35,6 +35,7 @@ ns.BlizzAreaPoisInfo = {
     5883, -- Grom'gol Zeppelin Icon in Starnglethorn
     5884, -- Zeppelin Grom'gol in OG
     5885, -- Zeppelin Borean Tundra in OG
+    5888, -- Ship Dazar'Alor / Zuldazar
     7341, -- Zeppelin Durotar
 
 }

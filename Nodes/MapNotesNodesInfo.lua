@@ -582,6 +582,7 @@ nodes[670] = { } -- Hellfire Citadel - Inside Dungeon Map
 -- Azeroth/Continent map nodes
 nodes[619] = { } -- Broken Isles
 nodes[627] = { } -- Dalaran
+nodes[628] = { } -- Dalaran Shadowside
 nodes[629] = { } -- Dalaran inner Circle
 nodes[630] = { } -- Aszuna
 nodes[634] = { } -- Stormheim
