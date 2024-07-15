@@ -59,14 +59,25 @@ local info = C_Map.GetMapInfo(WorldMapFrame:GetMapID())
 
         end
 
-        if info.mapType == 2 then -- Continent Maps
-        
-            if not ns.Addon.db.profile.activate.Continent then
-                ns.Addon.db.profile.activate.Continent = true
-                print(TextIconMNL4:GetIconString() .. " " .. ns.COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00 ".. L["Continent map"], "|cff00ff00" .. L["is activated"])
-            else
-                ns.Addon.db.profile.activate.Continent = false
-                print(TextIconMNL4:GetIconString() .. " " .. ns.COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00 ".. L["Continent map"], "|cffff0000" .. L["is deactivated"])
+        -- Continent Maps
+        if info.mapType == 2 then 
+
+            if WorldMapFrame:GetMapID() == 1414 then
+                if ns.Addon.db.profile.showContinentKalimdor then
+                    ns.Addon.db.profile.showContinentKalimdor = false
+                    print(TextIconMNL4:GetIconString() .. " " .. ns.COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00 ".. L["Continent map"], L["Kalimdor"], L["icons"], "|cffff0000" .. L["are hidden"])
+                else
+                    ns.Addon.db.profile.showContinentKalimdor = true
+                    print(TextIconMNL4:GetIconString() .. " " .. ns.COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00 ".. L["Continent map"], L["Kalimdor"], L["icons"], "|cff00ff00" .. L["are shown"])
+                end
+            elseif WorldMapFrame:GetMapID() == 1415 then
+                if ns.Addon.db.profile.showContinentEasternKingdom then
+                    ns.Addon.db.profile.showContinentEasternKingdom = false
+                    print(TextIconMNL4:GetIconString() .. " " .. ns.COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00 ".. L["Continent map"], L["Eastern Kingdom"], L["icons"], "|cffff0000" .. L["are hidden"])
+                else
+                    ns.Addon.db.profile.showContinentEasternKingdom = true
+                    print(TextIconMNL4:GetIconString() .. " " .. ns.COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00 ".. L["Continent map"], L["Eastern Kingdom"], L["icons"], "|cff00ff00" .. L["are shown"])
+                end
             end
 
         end
@@ -88,37 +99,68 @@ local info = C_Map.GetMapInfo(WorldMapFrame:GetMapID())
 
         end
 
-        --Zones without Capitals
-        if (info.mapType == 3 or WorldMapFrame:GetMapID() == 327) and not 
+        --Zones without Sync function
+        if not ns.Addon.db.profile.activate.SyncZoneAndMinimap and (info.mapType == 3 or info.mapType == 5 or info.mapType == 6) and not 
             (WorldMapFrame:GetMapID() == 1454 or WorldMapFrame:GetMapID() == 1456 or WorldMapFrame:GetMapID() == 1458 or WorldMapFrame:GetMapID() == 1954
             or WorldMapFrame:GetMapID() == 1947 or WorldMapFrame:GetMapID() == 1457 or WorldMapFrame:GetMapID() == 1453 or WorldMapFrame:GetMapID() == 1455
-            or WorldMapFrame:GetMapID() == 1955 or WorldMapFrame:GetMapID() == 86 or WorldMapFrame:GetMapID() == 125 or WorldMapFrame:GetMapID() == 126 ) 
-        then
+            or WorldMapFrame:GetMapID() == 1955 or WorldMapFrame:GetMapID() == 86 or WorldMapFrame:GetMapID() == 125 or WorldMapFrame:GetMapID() == 126)  then
         
             if not ns.Addon.db.profile.activate.ZoneMap then
                 ns.Addon.db.profile.activate.ZoneMap = true
-                print(TextIconMNL4:GetIconString() .. " " .. ns.COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00 ".. L["Zone map"], "|cff00ff00" .. L["is activated"])
+                print(TextIconMNL4:GetIconString() .. " " .. ns.COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00 ".. L["Zone map"], L["icons"], "|cff00ff00" .. L["are shown"])
             else
                 ns.Addon.db.profile.activate.ZoneMap = false
-                print(TextIconMNL4:GetIconString() .. " " .. ns.COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00 ".. L["Zone map"], "|cffff0000" .. L["is deactivated"])
+                print(TextIconMNL4:GetIconString() .. " " .. ns.COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00 ".. L["Zone map"], L["icons"], "|cffff0000" .. L["are hidden"])
             end
 
         end
 
-        --Capitals
-        if (WorldMapFrame:GetMapID() == 1454 or WorldMapFrame:GetMapID() == 1456 or WorldMapFrame:GetMapID() == 1458 or WorldMapFrame:GetMapID() == 1954
+        --Zones Sync function
+        if ns.Addon.db.profile.activate.SyncZoneAndMinimap and (info.mapType == 3 or info.mapType == 5 or info.mapType == 6 ) and not 
+            (WorldMapFrame:GetMapID() == 1454 or WorldMapFrame:GetMapID() == 1456 or WorldMapFrame:GetMapID() == 1458 or WorldMapFrame:GetMapID() == 1954
             or WorldMapFrame:GetMapID() == 1947 or WorldMapFrame:GetMapID() == 1457 or WorldMapFrame:GetMapID() == 1453 or WorldMapFrame:GetMapID() == 1455
-            or WorldMapFrame:GetMapID() == 1955 or WorldMapFrame:GetMapID() == 86 or WorldMapFrame:GetMapID() == 125 or WorldMapFrame:GetMapID() == 126 ) 
-        then
+            or WorldMapFrame:GetMapID() == 1955 or WorldMapFrame:GetMapID() == 86 or WorldMapFrame:GetMapID() == 125 or WorldMapFrame:GetMapID() == 126) then
+        
+            if not ns.Addon.db.profile.activate.ZoneMap then
+                ns.Addon.db.profile.activate.ZoneMap = true
+                print(TextIconMNL4:GetIconString() .. " " .. ns.COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00 ".. L["synchronizes"] .. " " .. L["Zones"] .. " & " .. MINIMAP_LABEL .. " " .. L["icons"], "|cff00ff00" .. L["are shown"])
+            else
+                ns.Addon.db.profile.activate.ZoneMap = false
+                print(TextIconMNL4:GetIconString() .. " " .. ns.COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00 ".. L["synchronizes"] .. " " .. L["Zones"] .. " & " .. MINIMAP_LABEL .. " " .. L["icons"], "|cffff0000" .. L["are hidden"])
+            end
+
+        end
+
+        --Capitals without Sync function
+        if not ns.Addon.db.profile.activate.SyncCapitalsAndMinimap and 
+        (WorldMapFrame:GetMapID() == 1454 or WorldMapFrame:GetMapID() == 1456 or WorldMapFrame:GetMapID() == 1458 or WorldMapFrame:GetMapID() == 1954
+        or WorldMapFrame:GetMapID() == 1947 or WorldMapFrame:GetMapID() == 1457 or WorldMapFrame:GetMapID() == 1453 or WorldMapFrame:GetMapID() == 1455
+        or WorldMapFrame:GetMapID() == 1955 or WorldMapFrame:GetMapID() == 86 or WorldMapFrame:GetMapID() == 125 or WorldMapFrame:GetMapID() == 126) then
         
             if not ns.Addon.db.profile.activate.Capitals then
                 ns.Addon.db.profile.activate.Capitals = true
-                print(TextIconMNL4:GetIconString() .. " " .. ns.COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00 ".. L["Capitals"], "|cff00ff00" .. L["is activated"])
+                print(TextIconMNL4:GetIconString() .. " " .. ns.COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00 ".. L["Capitals"], L["icons"], "|cff00ff00" .. L["are shown"])
             else
                 ns.Addon.db.profile.activate.Capitals = false
-                print(TextIconMNL4:GetIconString() .. " " .. ns.COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00 ".. L["Capitals"], "|cffff0000" .. L["is deactivated"])
+                print(TextIconMNL4:GetIconString() .. " " .. ns.COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00 ".. L["Capitals"], L["icons"], "|cffff0000" .. L["are hidden"])
             end
 
+        end
+
+        --Capitals Sync function
+        if ns.Addon.db.profile.activate.SyncCapitalsAndMinimap and 
+            (WorldMapFrame:GetMapID() == 1454 or WorldMapFrame:GetMapID() == 1456 or WorldMapFrame:GetMapID() == 1458 or WorldMapFrame:GetMapID() == 1954
+            or WorldMapFrame:GetMapID() == 1947 or WorldMapFrame:GetMapID() == 1457 or WorldMapFrame:GetMapID() == 1453 or WorldMapFrame:GetMapID() == 1455
+            or WorldMapFrame:GetMapID() == 1955 or WorldMapFrame:GetMapID() == 86 or WorldMapFrame:GetMapID() == 125 or WorldMapFrame:GetMapID() == 126)  then
+        
+            if not ns.Addon.db.profile.activate.Capitals then
+                ns.Addon.db.profile.activate.Capitals = true
+                print(TextIconMNL4:GetIconString() .. " " .. ns.COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00 ".. L["synchronizes"] .. " " .. L["Capitals"] .. " & " ..  L["Capitals"] .. " - " .. MINIMAP_LABEL .. " " .. L["icons"], "|cff00ff00" .. L["are shown"])
+            else
+                ns.Addon.db.profile.activate.Capitals = false
+                print(TextIconMNL4:GetIconString() .. " " .. ns.COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00 ".. L["synchronizes"] .. " " .. L["Capitals"] .. " & " ..  L["Capitals"] .. " - " .. MINIMAP_LABEL .. " " .. L["icons"], "|cffff0000" .. L["are hidden"])
+            end
+            
         end
 
     end
@@ -158,22 +200,39 @@ local info = C_Map.GetMapInfo(WorldMapFrame:GetMapID())
         GameTooltip:Show()
     end    
 
-    if info.mapType == 2 then -- Continent Maps
-        GameTooltip:AddLine(HELPFRAME_REPORT_PLAYER_RIGHT_CLICK .. " => " .. "|cffff0000" .. L["Continent map"] .. "|cffffcc00" .. " " .. L["icons"] .. " " .. SHOW .. " / " .. HIDE,1,1,1)
-        GameTooltip:Show()
+    -- Continent Maps
+    if info.mapType == 2 then 
+
+        if WorldMapFrame:GetMapID() == 1414 then
+            GameTooltip:AddLine(HELPFRAME_REPORT_PLAYER_RIGHT_CLICK .. " => " .. "|cffff0000" .. L["Continent map"] .. " " .. L["Kalimdor"] .. "|cffffcc00" .. " " .. L["icons"] .. " " .. SHOW .. " / " .. HIDE,1,1,1)
+            GameTooltip:Show()
+        elseif WorldMapFrame:GetMapID() == 1415 then
+            GameTooltip:AddLine(HELPFRAME_REPORT_PLAYER_RIGHT_CLICK .. " => " .. "|cffff0000" .. L["Continent map"] .. " " .. L["Eastern Kingdom"] .. "|cffffcc00" .. " " .. L["icons"] .. " " .. SHOW .. " / " .. HIDE,1,1,1)
+            GameTooltip:Show()
+        end
+
     end
 
-    --Zones without Capitals
-    if (info.mapType == 3 or WorldMapFrame:GetMapID() == 327) and not 
+    --Zones without Sync function
+    if not ns.Addon.db.profile.activate.SyncZoneAndMinimap and (info.mapType == 3 or info.mapType == 5 or info.mapType == 6 or WorldMapFrame:GetMapID() == 327 or WorldMapFrame:GetMapID() == 2266) and not 
         (WorldMapFrame:GetMapID() == 1454 or WorldMapFrame:GetMapID() == 1456 or WorldMapFrame:GetMapID() == 1458 or WorldMapFrame:GetMapID() == 1954
         or WorldMapFrame:GetMapID() == 1947 or WorldMapFrame:GetMapID() == 1457 or WorldMapFrame:GetMapID() == 1453 or WorldMapFrame:GetMapID() == 1455
-        or WorldMapFrame:GetMapID() == 1955 or WorldMapFrame:GetMapID() == 86 or WorldMapFrame:GetMapID() == 125 or WorldMapFrame:GetMapID() == 126 ) 
-    then
+        or WorldMapFrame:GetMapID() == 1955 or WorldMapFrame:GetMapID() == 86 or WorldMapFrame:GetMapID() == 125 or WorldMapFrame:GetMapID() == 126) then
         GameTooltip:AddLine(HELPFRAME_REPORT_PLAYER_RIGHT_CLICK .. " => " .. "|cffff0000".. L["Zone map"] .. "|cffffcc00" .. " " .. L["icons"] .. " " .. SHOW .. " / " .. HIDE,1,1,1)
         GameTooltip:Show()
     end
 
-    if info.mapType == 4 and not --Dungeon Maps
+    --Zones Sync function
+    if ns.Addon.db.profile.activate.SyncZoneAndMinimap and (info.mapType == 3 or info.mapType == 5 or info.mapType == 6 or WorldMapFrame:GetMapID() == 327) and not 
+        (WorldMapFrame:GetMapID() == 1454 or WorldMapFrame:GetMapID() == 1456 or WorldMapFrame:GetMapID() == 1458 or WorldMapFrame:GetMapID() == 1954
+        or WorldMapFrame:GetMapID() == 1947 or WorldMapFrame:GetMapID() == 1457 or WorldMapFrame:GetMapID() == 1453 or WorldMapFrame:GetMapID() == 1455
+        or WorldMapFrame:GetMapID() == 1955 or WorldMapFrame:GetMapID() == 86 or WorldMapFrame:GetMapID() == 125 or WorldMapFrame:GetMapID() == 126) then
+        GameTooltip:AddLine(HELPFRAME_REPORT_PLAYER_RIGHT_CLICK .. " => " .. "|cffff0000".. L["Zones"] .. " & " .. MINIMAP_LABEL .. "|cffffcc00" .. " " .. L["icons"] .. " " .. SHOW .. " / " .. HIDE,1,1,1)
+        GameTooltip:Show()
+    end
+
+    --Dungeon Maps
+    if info.mapType == 4 and not 
         (WorldMapFrame:GetMapID() == 1454 or WorldMapFrame:GetMapID() == 1456 or WorldMapFrame:GetMapID() == 1458 or WorldMapFrame:GetMapID() == 1954
         or WorldMapFrame:GetMapID() == 1947 or WorldMapFrame:GetMapID() == 1457 or WorldMapFrame:GetMapID() == 1453 or WorldMapFrame:GetMapID() == 1455
         or WorldMapFrame:GetMapID() == 1955 or WorldMapFrame:GetMapID() == 86 or WorldMapFrame:GetMapID() == 125 or WorldMapFrame:GetMapID() == 126 )
@@ -182,12 +241,21 @@ local info = C_Map.GetMapInfo(WorldMapFrame:GetMapID())
         GameTooltip:Show()
     end
 
-    -- Capitals
-    if (WorldMapFrame:GetMapID() == 1454 or WorldMapFrame:GetMapID() == 1456 or WorldMapFrame:GetMapID() == 1458 or WorldMapFrame:GetMapID() == 1954
+    -- Capitals without Sync function
+    if not ns.Addon.db.profile.activate.SyncCapitalsAndMinimap and 
+        (WorldMapFrame:GetMapID() == 1454 or WorldMapFrame:GetMapID() == 1456 or WorldMapFrame:GetMapID() == 1458 or WorldMapFrame:GetMapID() == 1954
         or WorldMapFrame:GetMapID() == 1947 or WorldMapFrame:GetMapID() == 1457 or WorldMapFrame:GetMapID() == 1453 or WorldMapFrame:GetMapID() == 1455
-        or WorldMapFrame:GetMapID() == 1955 or WorldMapFrame:GetMapID() == 86 or WorldMapFrame:GetMapID() == 125 or WorldMapFrame:GetMapID() == 126 )
-    then
+        or WorldMapFrame:GetMapID() == 1955 or WorldMapFrame:GetMapID() == 86 or WorldMapFrame:GetMapID() == 125 or WorldMapFrame:GetMapID() == 126) then
         GameTooltip:AddLine(HELPFRAME_REPORT_PLAYER_RIGHT_CLICK .. " => " .. "|cffff0000".. L["Capitals"] .. "|cffffcc00" .. " " .. L["icons"] .. " " .. SHOW .. " / " .. HIDE,1,1,1)
+        GameTooltip:Show()
+    end
+
+    -- Capitals Sync function
+    if ns.Addon.db.profile.activate.SyncCapitalsAndMinimap and 
+        (WorldMapFrame:GetMapID() == 1454 or WorldMapFrame:GetMapID() == 1456 or WorldMapFrame:GetMapID() == 1458 or WorldMapFrame:GetMapID() == 1954
+        or WorldMapFrame:GetMapID() == 1947 or WorldMapFrame:GetMapID() == 1457 or WorldMapFrame:GetMapID() == 1453 or WorldMapFrame:GetMapID() == 1455
+        or WorldMapFrame:GetMapID() == 1955 or WorldMapFrame:GetMapID() == 86 or WorldMapFrame:GetMapID() == 125 or WorldMapFrame:GetMapID() == 126) then
+        GameTooltip:AddLine(HELPFRAME_REPORT_PLAYER_RIGHT_CLICK .. " => " .. "|cffff0000".. L["Capitals"] .. " & " ..  L["Capitals"] .. " - " .. MINIMAP_LABEL .. "|cffffcc00" .. " " .. L["icons"] .. " " .. SHOW .. " / " .. HIDE,1,1,1)
         GameTooltip:Show()
     end
 end

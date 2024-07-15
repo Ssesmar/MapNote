@@ -20,11 +20,23 @@ local db = ns.Addon.db.profile
 
     if db.activate.SyncZoneAndMinimap then
         -- General Scale/Alpha
-        db.minimapScale = db.zoneScale
-        db.minimapAlpha = db.zoneAlpha
+        db.minimapScale = db.zoneScale  -- old sync, but atm needed for Classic+
+        db.minimapAlpha = db.zoneAlpha  -- old sync, but atm needed for Classic+
         -- Instance Scale/Alpha
-        db.instanceMiniMapScale = db.instanceScale
-        db.instanceMiniMapAlpha = db.instanceAlpha
+        db.instanceMiniMapScale = db.instanceScale  -- old sync, but atm needed for Classic+
+        db.instanceMiniMapAlpha = db.instanceAlpha  -- old sync, but atm needed for Classic+
+        -- Instance Scale/Alpha
+        db.MiniMapInstanceScale = db.ZoneInstanceScale
+        db.MiniMapInstanceAlpha = db.ZoneInstanceAlpha
+        -- Transport Scale/Alpha
+        db.MiniMapTransportScale = db.ZoneTransportScale
+        db.MiniMapTransportAlpha = db.ZoneTransportAlpha
+        -- General Scale/Alpha
+        db.MiniMapGeneralScale = db.ZonesGeneralScale
+        db.MiniMapGeneralAlpha = db.ZonesGeneralAlpha
+        -- General Scale/Alpha
+        db.MiniMapPathsScale = db.ZonesPathsScale
+        db.MiniMapPathsAlpha = db.ZonesPathsAlpha
     end
 
 end
@@ -107,11 +119,18 @@ local db = ns.Addon.db.profile
         self.db.profile.showMinimapCapitalsItemUpgrade = self.db.profile.showCapitalsItemUpgrade
         self.db.profile.showMinimapCapitalsDragonFlyTransmog = self.db.profile.showCapitalsDragonFlyTransmog
         self.db.profile.showMinimapCapitalsCatalyst = self.db.profile.showCapitalsCatalyst
+        self.db.profile.showMinimapCapitalsStablemaster = self.db.profile.showCapitalsStablemaster
     end
 
     if db.activate.SyncZoneAndMinimap then
+        -- Zone EnemyFaction
+        db.activate.MiniMapEnemyFaction = db.activate.ZoneEnemyFaction
         -- Tabs
         db.activate.MiniMap = db.activate.ZoneMap
+        db.activate.MiniMapInstances = db.activate.ZoneInstances
+        db.activate.MiniMapTransporting = db.activate.ZoneTransporting
+        db.activate.MiniMapGeneral = db.activate.ZoneGeneral
+        db.activate.MiniMapPaths = db.activate.ZonePaths
         -- Icons
         self.db.profile.showMiniMapRaids = self.db.profile.showZoneRaids
         self.db.profile.showMiniMapDungeons = self.db.profile.showZoneDungeons
@@ -121,10 +140,26 @@ local db = ns.Addon.db.profile
         self.db.profile.showMiniMapZeppelins = self.db.profile.showZoneZeppelins
         self.db.profile.showMiniMapShips = self.db.profile.showZoneShips
         self.db.profile.showMiniMapTransport = self.db.profile.showZoneTransport
+        self.db.profile.showMiniMapOgreWaygate = self.db.profile.showZoneOgreWaygate
+        self.db.profile.showMiniMapTeleporter = self.db.profile.showZoneTeleporter
+        self.db.profile.showMiniMapToyTransport = self.db.profile.showZoneToyTransport
+        self.db.profile.showMiniMapTravel = self.db.profile.showZoneTravel
         self.db.profile.showMiniMapOldVanilla = self.db.profile.showZoneOldVanilla
         self.db.profile.showMiniMapLFR = self.db.profile.showZoneLFR
         self.db.profile.showMiniMapFP = self.db.profile.showZoneFP
         self.db.profile.showMiniMapGhost = self.db.profile.showZoneGhost
+        self.db.profile.showMiniMapPaths = self.db.profile.showZonePaths
+        self.db.profile.showMiniMapStablemaster = self.db.profile.showZoneStablemaster
+        self.db.profile.showMiniMapInnkeeper = self.db.profile.showZoneInnkeeper
+        self.db.profile.showMiniMapAuctioneer = self.db.profile.showZoneAuctioneer
+        self.db.profile.showMiniMapBank = self.db.profile.showZoneBank
+        self.db.profile.showMiniMapBarber = self.db.profile.showZoneBarber
+        self.db.profile.showMiniMapMailbox = self.db.profile.showZoneMailbox
+        self.db.profile.showMiniMapPvPVendor = self.db.profile.showZonePvPVendor
+        self.db.profile.showMiniMapPvEVendor = self.db.profile.showZonePvEVendor
+        self.db.profile.showMiniMapTransmogger = self.db.profile.showZoneTransmogger
+        self.db.profile.showMiniMapStablemaster = self.db.profile.showZoneStablemaster
+
         -- Zones
         self.db.profile.showMiniMapKalimdor = self.db.profile.showZoneKalimdor
         self.db.profile.showMiniMapEasternKingdom = self.db.profile.showZoneEasternKingdom

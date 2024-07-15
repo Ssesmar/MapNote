@@ -4,6 +4,7 @@
     <Script file="ccmmb.lua"/>
     <Script file="StaticPopUps.lua"/>
     <Script file="syncWithMinimap.lua"/>
+    <Script file="ClassicImages.lua"/>
     <Include file="wmb-template.xml"/>
     <Include file="Retail\RetailCore.xml"/>
 </Ui>
