@@ -7,6 +7,7 @@ ns.BlizzAreaPoisInfo = {
     40, -- Booty Bay
     1961, -- Shattrath
     2317, -- Dalaran City
+    2606, -- Hyjal Nordrassil
 
     -- City Alliance
     8, -- Ironforge Icon

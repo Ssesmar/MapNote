@@ -107,7 +107,12 @@ local minimap = ns.minimap
                     minimap[1438][54888788] = { mnID = 1457, name = "", type = "Portal", showInZone = false, showOnContinent = false, showOnMinimap = true, TransportName = L["Portal"] .. " => " .. L["Darnassus"] }
                     minimap[1438][27725076] = { mnID = 1457, name = "", type = "Portal", showInZone = false, showOnContinent = false, showOnMinimap = true, TransportName = L["Portal"] .. " => " .. L["Darnassus"] }
 
+                    if self.faction == "Horde" or db.activate.EnemyFaction then
+                        minimap[198][63472444] = { mnID = 1454, name = "", type = "HPortalS", showInZone = false, showOnContinent = false, showOnMinimap = true, TransportName = L["Portal"] .. " => " .. DUNGEON_FLOOR_ORGRIMMAR0 }
+                    end
+
                     if self.faction == "Alliance" or db.activate.EnemyFaction then
+                        minimap[198][62592313] = { mnID = 1453, name = "", type = "APortalS", showInZone = false, showOnContinent = false, showOnMinimap = true, TransportName = L["Portal"] .. " => " .. L["Stormwind"] }
                         minimap[1438][30935458] = { mnID = 1457, name = "", type = "APortal", showInZone = false, showOnContinent = false, showOnMinimap = true, TransportName = L["Portal"] .. " => " .. L["Blasted Lands"] }         
                     end
 

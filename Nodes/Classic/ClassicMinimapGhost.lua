@@ -18,7 +18,7 @@ local minimap = ns.minimap
             
             
             --###################
-            --##### Kalimdor ####
+            --##### Kalimdor ####s
             --###################
             
 			if self.db.profile.showMiniMapKalimdor then

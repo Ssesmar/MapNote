@@ -104,6 +104,11 @@ local nodes = ns.nodes
 
                 end
 
+            -- Portal
+                if self.db.profile.showAzerothPortals then
+                  nodes[947][25494002] = { mnID = 198, name = "", type = "Portal", showInZone = true, TransportName = POSTMASTER_LETTER_HYJAL .. " " .. L["Portals"] .. "\n" .. " => " .. DUNGEON_FLOOR_ORGRIMMAR0 .. "\n" .. " => " .. L["Stormwind"] }
+                end
+
             end -- if self.db.profile.showAzerothKalimdor then
 
 

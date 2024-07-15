@@ -1,7 +1,7 @@
 local ADDON_NAME, ns = ...
 local L = LibStub("AceLocale-3.0"):GetLocale(ADDON_NAME)
 
-function ns.LoadMiniMapDungeonNodesLocationinfo(self)
+function ns.LoadMiniMapDungeonLocationinfo(self)
 local db = ns.Addon.db.profile
 local minimap = ns.minimap
 
@@ -30,6 +30,7 @@ if not db.activate.HideMapNote then
             minimap[948][51102882] = { id = 67, type = "Dungeon", showInZone = false, showOnContinent = false, showOnMinimap = true } -- The Stonecore
 
             -- Dungeon minimap above Blizzards Icons to make it Clickable for maximized Maps
+            minimap[1][03067458] = { id = 240, type = "Dungeon", showInZone = false, showOnContinent = false, showOnMinimap = true } -- Wailing Caverns
             minimap[1][46200001] = { id = 226, type = "Dungeon", showInZone = false, showOnContinent = false, showOnMinimap = true } -- Ragefire
             minimap[10][80190006] = { id = 226, type = "Dungeon", showInZone = false, showOnContinent = false, showOnMinimap = true } -- Ragefire
             minimap[76][18729718] = { id = 226, type = "Dungeon", showInZone = false, showOnContinent = false, showOnMinimap = true } -- Ragefire
@@ -38,7 +39,6 @@ if not db.activate.HideMapNote then
             minimap[10][40496868] = { id = 240, type = "Dungeon", showInZone = false, showOnContinent = false, showOnMinimap = true } -- Wailing Caverns
             minimap[7][79421794] = { id = 240, type = "Dungeon", showInZone = false, showOnContinent = false, showOnMinimap = true } -- Wailing Caverns
             minimap[199][46952074] = { id = 240, type = "Dungeon", showInZone = false, showOnContinent = false, showOnMinimap = true } -- Wailing Caverns
-            minimap[69][59514032] = { id = 230, type = "Dungeon", showInZone = false, showOnContinent = false, showOnMinimap = true } -- Dire Maul
             minimap[199][40779446] = { id = 234, type = "Dungeon", showInZone = false, showOnContinent = false, showOnMinimap = true } -- Razorfen Kraul
             minimap[199][51899825] = { id = 233, type = "Dungeon", showInZone = false, showOnContinent = false, showOnMinimap = true } -- Razorfen Downs
             minimap[70][13176945] = { id = 234, type = "Dungeon", showInZone = false, showOnContinent = false, showOnMinimap = true } -- Razorfen Kraul
@@ -62,6 +62,9 @@ if not db.activate.HideMapNote then
             minimap[1527][69095283] = { id = 70, type = "Dungeon", showInZone = false, showOnContinent = false, showOnMinimap = true } -- Halls of Origination
             minimap[71][24619233] = { id = 70, type = "Dungeon", showInZone = false, showOnContinent = false, showOnMinimap = true } -- Halls of Origination
             minimap[1527][76708435] = { id = 68, type = "Dungeon", showInZone = false, showOnContinent = false, showOnMinimap = true } -- The Vortex Pinnacle
+            minimap[69][76453593] = { id = 230, lfgid = 34, type = "Dungeon", showInZone = false, showOnContinent = false, showOnMinimap = true } -- Dire Maul - Warpwood Quarter - East above Camp Mojache -- only Minimap
+            minimap[69][66773483] = { id = 230, lfgid = 34, type = "Dungeon", showInZone = false, showOnContinent = false, showOnMinimap = true } -- Dire Maul - Warpwood Quarter - East above Camp Mojache -- only Minimap
+
           end
 
         -- Kalimdor Dungeons without ClassicIcons is activ
@@ -194,6 +197,7 @@ if not db.activate.HideMapNote then
             minimap[35][39281819] = { id = 228, type = "Dungeon", showInZone = false, showOnContinent = false, showOnMinimap = true } -- Blackrock Depths
             minimap[30][29507480] = { id = 231, type = "Dungeon", showInZone = false, showOnContinent = false, showOnMinimap = true } -- Gnomeregan
             minimap[30][42311288] = { id = 231, type = "Dungeon", showInZone = false, showOnContinent = false, showOnMinimap = true } -- Gnomeregan
+            minimap[30][71245337] = { id = 66, type = "Dungeon", showInZone = false, showOnContinent = false, showOnMinimap = true } -- Blackrock Caverns
           end
 
 
@@ -221,7 +225,7 @@ if not db.activate.HideMapNote then
             minimap[469][32793702] = { mnID = 30, dnID = L["Way to the Instance Entrance"], id = 231, type = "PassageDungeon", showInZone = false, showOnContinent = false, showOnMinimap = true } -- Gnomeregan
             minimap[27][31393804] = { mnID = 30, dnID = L["Way to the Instance Entrance"], id = 231, type = "PassageDungeon", showInZone = false, showOnContinent = false, showOnMinimap = true } -- Gnomeregan     
             minimap[51][69675353] = { dnID = L["Way to the Instance Entrance"], id = 237, type = "PassageDungeon", showInZone = false, showOnContinent = false, showOnMinimap = true } -- The Temple of Atal'hakkar 
-            minimap[36][21063760] = { mnID = 33, id = { 741, 742, 66, 228, 229, 559 }, name = L["Way to the Instance Entrance"], type = "PassageDungeonRaidMulti", showInZone = false, showOnContinent = false, showOnMinimap = true } -- Molten Core, Blackwing Lair, Blackrock Caverns, Blackrock Depths, Lower Blackrock Spire, Upper Blackrock Spire 
+            minimap[36][20643322] = { mnID = 33, id = { 741, 742, 66, 228, 229, 559 }, name = L["Way to the Instance Entrance"], type = "PassageDungeonRaidMulti", showInZone = false, showOnContinent = false, showOnMinimap = true } -- Molten Core, Blackwing Lair, Blackrock Caverns, Blackrock Depths, Lower Blackrock Spire, Upper Blackrock Spire 
             minimap[32][35268404] = { mnID = 33, name = "", type = "PassageDungeon", showInZone = false, showOnContinent = false, showOnMinimap = true } -- Molten Core, Blackwing Lair, Blackrock Caverns, Blackrock Depths, Lower Blackrock Spire, Upper Blackrock Spire 
             minimap[15][58543698] = { dnID = L["Way to the Instance Entrance"], id = 239, name = "", type = "PassageDungeon", showInZone = false, showOnContinent = false, showOnMinimap = true } -- Uldaman (Secondary Entrance) 
             minimap[23][43251854] = { dnID = L["Way to the Instance Entrance"], id = 236, lfgid = 274, type = "PassageDungeon", showInZone = false, showOnContinent = false, showOnMinimap = true }-- Stratholme Service Entrance 
@@ -240,8 +244,8 @@ if not db.activate.HideMapNote then
           if db.activate.ClassicIcons then
 
             if self.db.profile.showMiniMapMultiple then
-              minimap[36][21063760] = { mnID = 33, id = { 741, 742, 66, 228, 229, 559 }, name = L["Way to the Instance Entrance"], type = "MultipleM", showInZone = false, showOnContinent = false, showOnMinimap = true } -- Molten Core, Blackwing Lair, Blackrock Caverns, Blackrock Depths, Lower Blackrock Spire, Upper Blackrock Spire 
-              --minimap[36][21063760] = { mnID = 33, name = "", type = "MultipleM", showInZone = false, showOnContinent = false, showOnMinimap = true } -- Molten Core, Blackwing Lair, Blackrock Caverns, Blackrock Depths, Lower Blackrock Spire, Upper Blackrock Spire 
+              minimap[36][20643322] = { mnID = 33, id = { 741, 742, 66, 228, 229, 559 }, name = L["Way to the Instance Entrance"], type = "MultipleM", showInZone = false, showOnContinent = false, showOnMinimap = true } -- Molten Core, Blackwing Lair, Blackrock Caverns, Blackrock Depths, Lower Blackrock Spire, Upper Blackrock Spire 
+              --minimap[36][20643322] = { mnID = 33, name = "", type = "MultipleM", showInZone = false, showOnContinent = false, showOnMinimap = true } -- Molten Core, Blackwing Lair, Blackrock Caverns, Blackrock Depths, Lower Blackrock Spire, Upper Blackrock Spire 
             end
 
             if self.db.profile.showMiniMapDungeons then
@@ -269,8 +273,8 @@ if not db.activate.HideMapNote then
             minimap[23][35722308] = { mnID = 166, name = L["Secret Entrance"] .. " " .. L["(Wards of the Dread Citadel - Achievement)"] .. " - " .. L["Old Version"], type = "VInstance", showInZone = false, showOnContinent = false, showOnMinimap = true }-- Old Naxxramas version - Secret Entrance - Wards of the Dread Citadel 
             minimap[19][48275496] = { name = L["Old Keyring \n You get the Scarlet Key in the \n [Loot-Filled Pumpkin] from [Hallow's End Event] or from the [Auction House] \n now you can activate the [Old Keyring] here \n to activate old dungeonversions from the Scarlet Monastery"], type = "VKey1", showInZone = false, showOnContinent = false, showOnMinimap = true } -- Scarlet Monastery Key for Old dungeons 
             minimap[2070][83723082] = { name = L["Old Keyring \n You get the Scarlet Key in the \n [Loot-Filled Pumpkin] from [Hallow's End Event] or from the [Auction House] \n now you can activate the [Old Keyring] here \n to activate old dungeonversions from the Scarlet Monastery"], type = "VKey1", showInZone = false, showOnContinent = false, showOnMinimap = true  } -- Scarlet Monastery Key for Old dungeons 
-            minimap[18][82333243] = { mnID = 19, name = L["Graveyard"] .. " - " .. L["Cathedral"] .. " - " .. L["Library"] .. " - " .. L["Armory"] .. " - " .. L["Old Version"] .. " - " .. L["Use the Old Keyring"], type = "VInstance", showInZone = false, showOnContinent = false, showOnMinimap = true } -- Scarlet Monastery Key for Old dungeons
-            minimap[2070][82333243] = { mnID = 19, name = L["Graveyard"] .. " - " .. L["Cathedral"] .. " - " .. L["Library"] .. " - " .. L["Armory"] .. " - " .. L["Old Version"] .. " - " .. L["Use the Old Keyring"], type = "VInstance", showInZone = false, showOnContinent = false, showOnMinimap = true } -- Scarlet Monastery Key for Old dungeons
+            minimap[18][82333243] = { mnID = 19, name = L["Use the Old Keyring"], dnID = L["Graveyard"] .. " - " .. L["Old Version"] .. "\n" .. L["Cathedral"] .. " - " .. L["Old Version"] .. "\n" .. L["Library"] .. " - " .. L["Old Version"] .. "\n" .. L["Armory"] .. " - " .. L["Old Version"], type = "MultiVInstance", showInZone = false, showOnContinent = false, showOnMinimap = true } -- Scarlet Monastery Key for Old dungeons
+            minimap[2070][82333243] = { mnID = 19, name = L["Use the Old Keyring"], dnID = L["Graveyard"] .. " - " .. L["Old Version"] .. "\n" .. L["Cathedral"] .. " - " .. L["Old Version"] .. "\n" .. L["Library"] .. " - " .. L["Old Version"] .. "\n" .. L["Armory"] .. " - " .. L["Old Version"], type = "MultiVInstance", showInZone = false, showOnContinent = false, showOnMinimap = true } -- Scarlet Monastery Key for Old dungeons
             minimap[2070][83812772] = { id = 316, name ="", type = "Dungeon", showInZone = false, showOnContinent = false, showOnMinimap = true } -- Scarlet Monastery
             minimap[2070][85483158] = { id = 311, name ="", type = "Dungeon", showInZone = false, showOnContinent = false, showOnMinimap = true } -- Scarlet Halls 
             minimap[18][85353028] = { mnID = 304, name = L["Cathedral"] .. " - " .. L["Old Version"] .. " - " .. L["Use the Old Keyring"], type = "VInstance", showInZone = false, showOnContinent = false, showOnMinimap = true } -- Scarlet Monastery - Cathedral 
@@ -416,7 +420,7 @@ if not db.activate.HideMapNote then
           -- Raid minimap above Blizzards Icons to make it Clickable for maximized Maps
             minimap[371][21595793] = { id = 320, type = "Raid", showInZone = false, showOnContinent = false, showOnMinimap = true } -- Terrace of Endless Spring
             minimap[376][69680536] = { id = 320, type = "Raid", showInZone = false, showOnContinent = false, showOnMinimap = true } -- Terrace of Endless Spring
-            minimap[433][48536352] = { id = 320, type = "Raid", showInZone = false, showOnContinent = false, showOnMinimap = true } -- Terrace of Endless Spring
+            minimap[433][48456145] = { id = 320, type = "Raid", showInZone = false, showOnContinent = false, showOnMinimap = true } -- Terrace of Endless Spring
             minimap[371][12005202] = { id = 369, type = "Raid", showInZone = false, showOnContinent = false, showOnMinimap = true } -- Siege of Orgrimmar
             minimap[422][38923499] = { id = 330, type = "Raid", showInZone = false, showOnContinent = false, showOnMinimap = true } -- Heart of Fear
             minimap[379][59603917] = { id = 317, type = "Raid", showInZone = false, showOnContinent = false, showOnMinimap = true } -- Mogu'Shan Vaults
@@ -536,7 +540,7 @@ if not db.activate.HideMapNote then
         --Zandalar Dungeons
           if self.db.profile.showMiniMapDungeons then
 
-            if self.faction == "Alliance" or db.activate.EnemyFaction then
+            if self.faction == "Alliance" or db.activate.MiniMapEnemyFaction then
               minimap[862][39307154] = { id = 1012, type = "Dungeon", showInZone = false, showOnContinent = false, showOnMinimap = true } -- The MOTHERLODe
             end
 
@@ -591,11 +595,11 @@ if not db.activate.HideMapNote then
             minimap[896][33671253] = { id = 1021, type = "Dungeon", showInZone = false, showOnContinent = false, showOnMinimap = true } -- Waycrest Manor 
             minimap[1169][38926976] = { id = 1002, type = "Dungeon", showInZone = false, showOnContinent = false, showOnMinimap = true } -- Tol Dagor
 
-            if self.faction == "Alliance" or db.activate.EnemyFaction then
+            if self.faction == "Alliance" or db.activate.MiniMapEnemyFaction then
               minimap[895][75632450] = { id = 1023, type = "Dungeon", showInZone = false, showOnContinent = false, showOnMinimap = true } -- Siege of Boralus
             end
 
-            if self.faction == "Horde" or db.activate.EnemyFaction then
+            if self.faction == "Horde" or db.activate.MiniMapEnemyFaction then
               minimap[895][88285102] = { id = 1023, type = "Dungeon", showInZone = false, showOnContinent = false, showOnMinimap = true  } -- Siege of Boralus
             end
           end
@@ -606,7 +610,7 @@ if not db.activate.HideMapNote then
           -- Raid minimap above Blizzards Icons to make it Clickable for maximized Maps
             minimap[942][83894693] = { id = 1036, type = "Raid",  showInZone = false, showOnContinent = false, showOnMinimap = true } -- Crucible of Storms
 
-            if self.faction == "Alliance" or db.activate.EnemyFaction then
+            if self.faction == "Alliance" or db.activate.MiniMapEnemyFaction then
               minimap[895][74382837] = { id = 1176, type = "Raid", showInZone = false, showOnContinent = false, showOnMinimap = true } -- Battle of Dazar'alor
             end
           end
@@ -615,7 +619,7 @@ if not db.activate.HideMapNote then
         -- Kul Tiras LFR
           if self.db.profile.showMiniMapLFR then
 
-            if self.faction == "Horde" or db.activate.EnemyFaction then
+            if self.faction == "Horde" or db.activate.MiniMapEnemyFaction then
               minimap[895][75112192] = { mnID = 1161, name = L["Kiku"] .. "\n" .. L["Registrant"] .. " - " .. RAID_FINDER .. "\n" .. " ", id = { 1176, 1031, 1179, 1036 }, type = "LFR", showInZone = false, showOnContinent = false, showOnMinimap = true }
             end
           end
@@ -715,14 +719,17 @@ if not db.activate.HideMapNote then
           -- Khaz Algar Dungeons
             if self.db.profile.showMiniMapDungeons then
   
-            -- Dungeon minimap above Blizzards Icons to make it Clickable for maximized Maps
-            minimap[2215][41324933] = { id = 1267, type = "Dungeon", showInZone = false, showOnContinent = false, showOnMinimap = true } -- Priory of the Sacred Flame
-            minimap[2215][54906313] = { id = 1270, type = "Dungeon", showInZone = false, showOnContinent = false, showOnMinimap = true } -- The Dawnbreaker
-            minimap[2214][46860856] = { id = 1269, type = "Dungeon", showInZone = false, showOnContinent = false, showOnMinimap = true } -- The Stonevault
-            minimap[2248][45234108] = { id = 1268, type = "Dungeon", showInZone = false, showOnContinent = false, showOnMinimap = true } -- The Rookery
-            minimap[2248][76584378] = { id = 1272, type = "Dungeon", showInZone = false, showOnContinent = false, showOnMinimap = true } -- Cinderbrew Meadery
-            minimap[2255][48027144] = { id = 1274, type = "Dungeon", showInZone = false, showOnContinent = false, showOnMinimap = true } -- City of Threads
-            minimap[2255][50588229] = { id = 1271, type = "Dungeon", showInZone = false, showOnContinent = false, showOnMinimap = true } -- Ara-Kara, City of Echoes
+              -- Dungeon minimap above Blizzards Icons to make it Clickable for maximized Maps
+              minimap[2214][59662149] = { id = 1210, type = "Dungeon", showInZone = false, showOnContinent = false, showOnMinimap = true } -- Darkflame Cleft
+              minimap[2215][41324933] = { id = 1267, type = "Dungeon", showInZone = false, showOnContinent = false, showOnMinimap = true } -- Priory of the Sacred Flame
+              minimap[2215][54906313] = { id = 1270, type = "Dungeon", showInZone = false, showOnContinent = false, showOnMinimap = true } -- The Dawnbreaker
+              minimap[2214][46860856] = { id = 1269, type = "Dungeon", showInZone = false, showOnContinent = false, showOnMinimap = true } -- The Stonevault
+              minimap[2248][45234108] = { id = 1268, type = "Dungeon", showInZone = false, showOnContinent = false, showOnMinimap = true } -- The Rookery
+              minimap[2248][76584378] = { id = 1272, type = "Dungeon", showInZone = false, showOnContinent = false, showOnMinimap = true } -- Cinderbrew Meadery
+              minimap[2255][46746917] = { id = 1274, type = "Dungeon", showInZone = false, showOnContinent = false, showOnMinimap = true } -- City of Threads
+              minimap[2255][49538100] = { id = 1271, type = "Dungeon", showInZone = false, showOnContinent = false, showOnMinimap = true } -- Ara-Kara, City of Echoes
+              minimap[2216][49538100] = { id = 1271, type = "Dungeon", showInZone = false, showOnContinent = false, showOnMinimap = true } -- Ara-Kara, City of Echoes
+              minimap[2213][49538100] = { id = 1271, type = "Dungeon", dnID = DUNGEON_FLOOR_GILNEAS2, showInZone = false, showOnContinent = false, showOnMinimap = true } -- Ara-Kara, City of Echoes
             end
   
   
@@ -730,8 +737,9 @@ if not db.activate.HideMapNote then
             if self.db.profile.showMiniMapRaids then
   
             -- Raid minimap above Blizzards Icons to make it Clickable for maximized Maps
-              minimap[2255][45109080] = { id = 1207, type = "Raid", showInZone = false, showOnContinent = false, showOnMinimap = true } -- Nerub-ar Palace
-              minimap[2213][35047242] = { id = 1200, type = "Raid", showInZone = false, showOnContinent = false, showOnMinimap = true } -- Nerub-ar Palace           
+              minimap[2255][43559029] = { id = 1273, type = "Raid", showInZone = false, showOnContinent = false, showOnMinimap = true } -- Nerub-ar Palace
+              minimap[2213][35047242] = { id = 1273, type = "Raid", showInZone = false, showOnContinent = false, showOnMinimap = true } -- Nerub-ar Palace              
+              minimap[2216][35047242] = { id = 1273, type = "Raid", dnID = DUNGEON_FLOOR_GILNEAS3, showInZone = false, showOnContinent = false, showOnMinimap = true } -- Nerub-ar Palace              
             end
   
   

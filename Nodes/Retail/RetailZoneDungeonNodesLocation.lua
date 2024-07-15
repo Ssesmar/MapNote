@@ -15,8 +15,9 @@ if not db.activate.HideMapNote then
     --################################         Continent / Zone Map        ################################
     --#####################################################################################################
 
-      if db.activate.ZoneMap then
+    if db.activate.ZoneMap then
 
+      if db.activate.ZoneInstances then
 
         --#############################
         --##### Continent Kalimdor ####
@@ -29,6 +30,7 @@ if not db.activate.HideMapNote then
             nodes[11][54916646] = { id = 240, type = "Dungeon", showInZone = true, showOnContinent = false, showOnMinimap = false } -- Wailing Caverns 
 
             -- Dungeon Nodes above Blizzards Icons to make it Clickable for maximized Maps
+            nodes[1][03067458] = { id = 240, type = "Dungeon", showInZone = true, showOnContinent = false, showOnMinimap = false } -- Wailing Caverns
             nodes[1][46200001] = { id = 226, type = "Dungeon", showInZone = true, showOnContinent = false, showOnMinimap = false } -- Ragefire
             nodes[10][80190006] = { id = 226, type = "Dungeon", showInZone = true, showOnContinent = false, showOnMinimap = false } -- Ragefire
             nodes[76][18729718] = { id = 226, type = "Dungeon", showInZone = true, showOnContinent = false, showOnMinimap = false } -- Ragefire
@@ -37,7 +39,6 @@ if not db.activate.HideMapNote then
             nodes[10][40496868] = { id = 240, type = "Dungeon", showInZone = true, showOnContinent = false, showOnMinimap = false } -- Wailing Caverns
             nodes[7][79421794] = { id = 240, type = "Dungeon", showInZone = true, showOnContinent = false, showOnMinimap = false } -- Wailing Caverns
             nodes[199][46952074] = { id = 240, type = "Dungeon", showInZone = true, showOnContinent = false, showOnMinimap = false } -- Wailing Caverns
-            nodes[69][59514032] = { id = 230, type = "Dungeon", showInZone = true, showOnContinent = false, showOnMinimap = false } -- Dire Maul
             nodes[199][40779446] = { id = 234, type = "Dungeon", showInZone = true, showOnContinent = false, showOnMinimap = false } -- Razorfen Kraul
             nodes[199][51899825] = { id = 233, type = "Dungeon", showInZone = true, showOnContinent = false, showOnMinimap = false } -- Razorfen Downs
             nodes[70][13176945] = { id = 234, type = "Dungeon", showInZone = true, showOnContinent = false, showOnMinimap = false } -- Razorfen Kraul
@@ -95,7 +96,6 @@ if not db.activate.HideMapNote then
           nodes[71][12668471] = { dnID = L["Instance Entrance"] .. " " .. L["switches weekly between"] .. " " .. L["Uldum"] .. " (" .. L["Kalimdor"] ..")" .. " & " .. L["Vale of Eternal Blossoms"] .. " (" .. L["Pandaria"] .. ")", id = 1180, type = "Raid", showInZone = true, showOnContinent = false, showOnMinimap = false } -- Ny'alotha the Waking City
           nodes[75][39601704] = { id = 750, type = "Raid", showInZone = true, showOnContinent = false, showOnMinimap = false } -- The Battle of Mount Hyjal
           nodes[75][60872115] = { id = 187, type = "Raid", showInZone = true, showOnContinent = false, showOnMinimap = false } -- Dragon Soul
-
           end
 
         --Kalimdor Passage without ClassicIcons
@@ -194,6 +194,7 @@ if not db.activate.HideMapNote then
             nodes[35][39281819] = { id = 228, type = "Dungeon", showInZone = true, showOnContinent = false, showOnMinimap = false } -- Blackrock Depths
             nodes[30][29507480] = { id = 231, type = "Dungeon", showInZone = true, showOnContinent = false, showOnMinimap = false } -- Gnomeregan
             nodes[30][42311288] = { id = 231, type = "Dungeon", showInZone = true, showOnContinent = false, showOnMinimap = false } -- Gnomeregan
+            nodes[34][71245337] = { id = 66, type = "Dungeon", showInZone = true, showOnContinent = false, showOnMinimap = false } -- Blackrock Caverns
           end
 
 
@@ -221,7 +222,7 @@ if not db.activate.HideMapNote then
             nodes[469][32793702] = { mnID = 30, dnID = L["Way to the Instance Entrance"], id = 231, type = "PassageDungeon", showInZone = true, showOnContinent = false, showOnMinimap = false } -- Gnomeregan
             nodes[27][31393804] = { mnID = 30, dnID = L["Way to the Instance Entrance"], id = 231, type = "PassageDungeon", showInZone = true, showOnContinent = false, showOnMinimap = false } -- Gnomeregan     
             nodes[51][69675353] = { dnID = L["Way to the Instance Entrance"], id = 237, type = "PassageDungeon", showInZone = true, showOnContinent = false, showOnMinimap = false } -- The Temple of Atal'hakkar 
-            nodes[36][21063760] = { mnID = 33, id = { 741, 742, 66, 228, 229, 559 }, name = L["Way to the Instance Entrance"], type = "PassageDungeonRaidMulti", showInZone = true, showOnContinent = false, showOnMinimap = false } -- Molten Core, Blackwing Lair, Blackrock Caverns, Blackrock Depths, Lower Blackrock Spire, Upper Blackrock Spire 
+            nodes[36][20643322] = { mnID = 33, id = { 741, 742, 66, 228, 229, 559 }, name = L["Way to the Instance Entrance"], type = "PassageDungeonRaidMulti", showInZone = true, showOnContinent = false, showOnMinimap = false } -- Molten Core, Blackwing Lair, Blackrock Caverns, Blackrock Depths, Lower Blackrock Spire, Upper Blackrock Spire 
             nodes[32][35268404] = { mnID = 33, name = "", type = "PassageDungeon", showInZone = true, showOnContinent = false, showOnMinimap = false } -- Molten Core, Blackwing Lair, Blackrock Caverns, Blackrock Depths, Lower Blackrock Spire, Upper Blackrock Spire 
             nodes[15][58543698] = { dnID = L["Way to the Instance Entrance"], id = 239, name = "", type = "PassageDungeon", showInZone = true, showOnContinent = false, showOnMinimap = false } -- Uldaman (Secondary Entrance) 
             nodes[23][43251854] = { dnID = L["Way to the Instance Entrance"], id = 236, lfgid = 274, type = "PassageDungeon", showInZone = true, showOnContinent = false, showOnMinimap = false }-- Stratholme Service Entrance 
@@ -240,8 +241,8 @@ if not db.activate.HideMapNote then
           if db.activate.ClassicIcons then
 
             if self.db.profile.showZoneMultiple then
-              nodes[36][21063760] = { mnID = 33, id = { 741, 742, 66, 228, 229, 559 }, name = L["Way to the Instance Entrance"], type = "MultipleM", showInZone = true, showOnContinent = false, showOnMinimap = false } -- Molten Core, Blackwing Lair, Blackrock Caverns, Blackrock Depths, Lower Blackrock Spire, Upper Blackrock Spire 
-              --nodes[36][21063760] = { mnID = 33, name = "", type = "MultipleM", showInZone = true, showOnContinent = false, showOnMinimap = false } -- Molten Core, Blackwing Lair, Blackrock Caverns, Blackrock Depths, Lower Blackrock Spire, Upper Blackrock Spire 
+              nodes[36][20643322] = { mnID = 33, id = { 741, 742, 66, 228, 229, 559 }, name = L["Way to the Instance Entrance"], type = "MultipleM", showInZone = true, showOnContinent = false, showOnMinimap = false } -- Molten Core, Blackwing Lair, Blackrock Caverns, Blackrock Depths, Lower Blackrock Spire, Upper Blackrock Spire 
+              --nodes[36][20643322] = { mnID = 33, name = "", type = "MultipleM", showInZone = true, showOnContinent = false, showOnMinimap = false } -- Molten Core, Blackwing Lair, Blackrock Caverns, Blackrock Depths, Lower Blackrock Spire, Upper Blackrock Spire 
             end
 
             if self.db.profile.showZoneDungeons then
@@ -269,8 +270,8 @@ if not db.activate.HideMapNote then
             nodes[23][35722308] = { mnID = 166, name = L["Secret Entrance"] .. " " .. L["(Wards of the Dread Citadel - Achievement)"] .. " - " .. L["Old Version"], type = "VInstance", showInZone = true, showOnContinent = false, showOnMinimap = false }-- Old Naxxramas version - Secret Entrance - Wards of the Dread Citadel 
             nodes[19][48275496] = { name = L["Old Keyring \n You get the Scarlet Key in the \n [Loot-Filled Pumpkin] from [Hallow's End Event] or from the [Auction House] \n now you can activate the [Old Keyring] here \n to activate old dungeonversions from the Scarlet Monastery"], type = "VKey1", showInZone = true, showOnContinent = false, showOnMinimap = false } -- Scarlet Monastery Key for Old dungeons 
             nodes[2070][83723082] = { name = L["Old Keyring \n You get the Scarlet Key in the \n [Loot-Filled Pumpkin] from [Hallow's End Event] or from the [Auction House] \n now you can activate the [Old Keyring] here \n to activate old dungeonversions from the Scarlet Monastery"], type = "VKey1", showInZone = true, showOnContinent = false, showOnMinimap = false } -- Scarlet Monastery Key for Old dungeons 
-            nodes[18][82333243] = { mnID = 19, name = L["Graveyard"] .. " - " .. L["Cathedral"] .. " - " .. L["Library"] .. " - " .. L["Armory"] .. " - " .. L["Old Version"] .. " - " .. L["Use the Old Keyring"], type = "VInstance", showInZone = true, showOnContinent = false, showOnMinimap = false } -- Scarlet Monastery Key for Old dungeons
-            nodes[2070][82333243] = { mnID = 19, name = L["Graveyard"] .. " - " .. L["Cathedral"] .. " - " .. L["Library"] .. " - " .. L["Armory"] .. " - " .. L["Old Version"] .. " - " .. L["Use the Old Keyring"], type = "VInstance", showInZone = true, showOnContinent = false, showOnMinimap = false } -- Scarlet Monastery Key for Old dungeons
+            nodes[18][82333243] = { mnID = 19, name = L["Use the Old Keyring"], dnID = L["Graveyard"] .. " - " .. L["Old Version"] .. "\n" .. L["Cathedral"] .. " - " .. L["Old Version"] .. "\n" .. L["Library"] .. " - " .. L["Old Version"] .. "\n" .. L["Armory"] .. " - " .. L["Old Version"], type = "MultiVInstance", showInZone = true, showOnContinent = false, showOnMinimap = false } -- Scarlet Monastery Key for Old dungeons
+            nodes[2070][82333243] = { mnID = 19, name = L["Use the Old Keyring"], dnID = L["Graveyard"] .. " - " .. L["Old Version"] .. "\n" .. L["Cathedral"] .. " - " .. L["Old Version"] .. "\n" .. L["Library"] .. " - " .. L["Old Version"] .. "\n" .. L["Armory"] .. " - " .. L["Old Version"], type = "MultiVInstance", showInZone = true, showOnContinent = false, showOnMinimap = false } -- Scarlet Monastery Key for Old dungeons
             nodes[2070][83812772] = { id = 316, name ="", type = "Dungeon", showInZone = true, showOnContinent = false, showOnMinimap = false } -- Scarlet Monastery
             nodes[2070][85483158] = { id = 311, name ="", type = "Dungeon", showInZone = true, showOnContinent = false, showOnMinimap = false } -- Scarlet Halls 
             nodes[18][85353028] = { mnID = 304, name = L["Cathedral"] .. " - " .. L["Old Version"] .. " - " .. L["Use the Old Keyring"], type = "VInstance", showInZone = false, showOnContinent = false, showOnMinimap = false } -- Scarlet Monastery - Cathedral 
@@ -416,7 +417,7 @@ if not db.activate.HideMapNote then
           -- Raid Nodes above Blizzards Icons to make it Clickable for maximized Maps
             nodes[371][21595793] = { id = 320, type = "Raid", showInZone = true, showOnContinent = false, showOnMinimap = false } -- Terrace of Endless Spring
             nodes[376][69680536] = { id = 320, type = "Raid", showInZone = true, showOnContinent = false, showOnMinimap = false } -- Terrace of Endless Spring
-            nodes[433][48536352] = { id = 320, type = "Raid", showInZone = true, showOnContinent = false, showOnMinimap = false } -- Terrace of Endless Spring
+            nodes[433][48456145] = { id = 320, type = "Raid", showInZone = true, showOnContinent = false, showOnMinimap = false } -- Terrace of Endless Spring
             nodes[371][12005202] = { id = 369, type = "Raid", showInZone = true, showOnContinent = false, showOnMinimap = false } -- Siege of Orgrimmar
             nodes[422][38923499] = { id = 330, type = "Raid", showInZone = true, showOnContinent = false, showOnMinimap = false } -- Heart of Fear
             nodes[379][59603917] = { id = 317, type = "Raid", showInZone = true, showOnContinent = false, showOnMinimap = false } -- Mogu'Shan Vaults
@@ -473,11 +474,11 @@ if not db.activate.HideMapNote then
         --Draenor LFR
           if self.db.profile.showZoneLFR then
             
-            if self.faction == "Horde" or db.activate.EnemyFaction then
+            if self.faction == "Horde" or db.activate.ZoneEnemyFaction then
               nodes[525][47746482] = { mnID = 590, name = L["Seer Kazal"] .. " - " .. REQUIRES_LABEL .. " " .. GARRISON_LOCATION_TOOLTIP .. " " .. LEVEL .. " " .. ACTION_SPELL_CAST_START_MASTER .. "\n" .. L["Registrant"] .. " - " .. RAID_FINDER .. "\n" .. " ", id = { 477, 457, 669 }, type = "LFR", showInZone = true, showOnContinent = false, showOnMinimap = false }
             end
             
-            if self.faction == "Alliance" or db.activate.EnemyFaction then
+            if self.faction == "Alliance" or db.activate.ZoneEnemyFaction then
               nodes[539][29001638] = { mnID = 582, name = L["Seer Kazal"] .. " - " .. REQUIRES_LABEL .. " " .. GARRISON_LOCATION_TOOLTIP .. " " .. LEVEL .. " " .. ACTION_SPELL_CAST_START_MASTER .. "\n" .. L["Registrant"] .. " - " .. RAID_FINDER .. "\n" .. " ", id = { 477, 457, 669 }, type = "LFR", showInZone = true, showOnContinent = false, showOnMinimap = false }
             end
           end
@@ -549,11 +550,11 @@ if not db.activate.HideMapNote then
         --Zandalar Dungeons
           if self.db.profile.showZoneDungeons then
 
-            if self.faction == "Horde" or db.activate.EnemyFaction then
+            if self.faction == "Horde" or db.activate.ZoneEnemyFaction then
               nodes[862][56105984] = { id = 1012, type = "Dungeon", showInZone = true, showOnContinent = false, showOnMinimap = false } -- The Motherlode
             end
 
-            if self.faction == "Alliance" or db.activate.EnemyFaction then
+            if self.faction == "Alliance" or db.activate.ZoneEnemyFaction then
               nodes[862][39307154] = { id = 1012, type = "Dungeon", showInZone = true, showOnContinent = false, showOnMinimap = false } -- The MOTHERLODe
             end
 
@@ -593,7 +594,7 @@ if not db.activate.HideMapNote then
         -- Zandalar LFR
           if self.db.profile.showZoneLFR then
 
-            if self.faction == "Horde" or db.activate.EnemyFaction then
+            if self.faction == "Horde" or db.activate.ZoneEnemyFaction then
               nodes[862][57304305] = { mnID = 1164, name = L["Eppu"] .. "\n" .. L["Registrant"] .. " - " .. RAID_FINDER .. "\n" .. " ", id = { 1176, 1031, 1179, 1036 }, type = "LFR", showInZone = true, showOnContinent = false, showOnMinimap = false }
             end
           end
@@ -617,11 +618,11 @@ if not db.activate.HideMapNote then
             nodes[896][33671253] = { id = 1021, type = "Dungeon", showInZone = true, showOnContinent = false, showOnMinimap = false } -- Waycrest Manor 
             nodes[1169][38926976] = { id = 1002, type = "Dungeon", showInZone = true, showOnContinent = false, showOnMinimap = false } -- Tol Dagor
 
-            if self.faction == "Alliance" or db.activate.EnemyFaction then
+            if self.faction == "Alliance" or db.activate.ZoneEnemyFaction then
               nodes[895][75632450] = { id = 1023, type = "Dungeon", showInZone = true, showOnContinent = false, showOnMinimap = false } -- Siege of Boralus
             end
 
-            if self.faction == "Horde" or db.activate.EnemyFaction then
+            if self.faction == "Horde" or db.activate.ZoneEnemyFaction then
               nodes[895][88285102] = { id = 1023, type = "Dungeon", showInZone = true, showOnContinent = false, showOnMinimap = false } -- Siege of Boralus
             end
           end
@@ -632,7 +633,7 @@ if not db.activate.HideMapNote then
           -- Raid Nodes above Blizzards Icons to make it Clickable for maximized Maps
             nodes[942][83894693] = { id = 1036, type = "Raid",  showInZone = true, showOnContinent = false, showOnMinimap = false } -- Crucible of Storms
 
-            if self.faction == "Alliance" or db.activate.EnemyFaction then
+            if self.faction == "Alliance" or db.activate.ZoneEnemyFaction then
               nodes[895][74382837] = { id = 1176, type = "Raid", showInZone = true, showOnContinent = false, showOnMinimap = false } -- Battle of Dazar'alor
             end
           end
@@ -641,7 +642,7 @@ if not db.activate.HideMapNote then
          -- Kul Tiras LFR
           if self.db.profile.showZoneLFR then
 
-            if self.faction == "Alliance" or db.activate.EnemyFaction then
+            if self.faction == "Alliance" or db.activate.ZoneEnemyFaction then
               nodes[895][75112192] = { mnID = 1161, name = L["Kiku"] .. "\n" .. L["Registrant"] .. " - " .. RAID_FINDER .. "\n" .. " ", id = { 1176, 1031, 1179, 1036 }, type = "LFR", showInZone = true, showOnContinent = false, showOnMinimap = false }
             end
           end
@@ -741,13 +742,16 @@ if not db.activate.HideMapNote then
             if self.db.profile.showZoneDungeons then
   
             -- Dungeon Nodes above Blizzards Icons to make it Clickable for maximized Maps
+              nodes[2214][59662149] = { id = 1210, type = "Dungeon", showInZone = true, showOnContinent = false, showOnMinimap = false } -- Darkflame Cleft
               nodes[2215][41324933] = { id = 1267, type = "Dungeon", showInZone = true, showOnContinent = false, showOnMinimap = false } -- Priory of the Sacred Flame
               nodes[2215][54906313] = { id = 1270, type = "Dungeon", showInZone = true, showOnContinent = false, showOnMinimap = false } -- The Dawnbreaker
               nodes[2214][46860856] = { id = 1269, type = "Dungeon", showInZone = true, showOnContinent = false, showOnMinimap = false } -- The Stonevault
               nodes[2248][45234108] = { id = 1268, type = "Dungeon", showInZone = true, showOnContinent = false, showOnMinimap = false } -- The Rookery
               nodes[2248][76584378] = { id = 1272, type = "Dungeon", showInZone = true, showOnContinent = false, showOnMinimap = false } -- Cinderbrew Meadery
-              nodes[2255][48027144] = { id = 1274, type = "Dungeon", showInZone = true, showOnContinent = false, showOnMinimap = false } -- City of Threads
-              nodes[2255][50588229] = { id = 1271, type = "Dungeon", showInZone = true, showOnContinent = false, showOnMinimap = false } -- Ara-Kara, City of Echoes
+              nodes[2255][46746917] = { id = 1274, type = "Dungeon", showInZone = true, showOnContinent = false, showOnMinimap = false } -- City of Threads
+              nodes[2255][49538100] = { id = 1271, type = "Dungeon", showInZone = true, showOnContinent = false, showOnMinimap = false } -- Ara-Kara, City of Echoes
+              nodes[2216][52164580] = { id = 1271, type = "Dungeon", showInZone = true, showOnContinent = false, showOnMinimap = false } -- Ara-Kara, City of Echoes
+              nodes[2213][52164580] = { id = 1271, type = "Dungeon", dnID = DUNGEON_FLOOR_GILNEAS2, showInZone = true, showOnContinent = false, showOnMinimap = false } -- Ara-Kara, City of Echoes
             end
   
   
@@ -755,8 +759,9 @@ if not db.activate.HideMapNote then
             if self.db.profile.showZoneRaids then
   
             -- Raid Nodes above Blizzards Icons to make it Clickable for maximized Maps
-              nodes[2255][45109080] = { id = 1273, type = "Raid", showInZone = true, showOnContinent = false, showOnMinimap = false } -- Nerub-ar Palace
+              nodes[2255][43559029] = { id = 1273, type = "Raid", showInZone = true, showOnContinent = false, showOnMinimap = false } -- Nerub-ar Palace
               nodes[2213][35047242] = { id = 1273, type = "Raid", showInZone = true, showOnContinent = false, showOnMinimap = false } -- Nerub-ar Palace       
+              nodes[2216][35047242] = { id = 1273, type = "Raid", dnID = DUNGEON_FLOOR_GILNEAS3, showInZone = true, showOnContinent = false, showOnMinimap = false } -- Nerub-ar Palace       
             end
   
   
@@ -776,7 +781,8 @@ if not db.activate.HideMapNote then
   
         end
 
-        
       end
+
+    end
   end
 end

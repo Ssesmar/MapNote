@@ -1,20 +1,99 @@
 # MapNote
-## [2.0.3](https://github.com/Ssesmar/MapNote) (2024-06-17)
+## [2.0.8](https://github.com/Ssesmar/MapNote) (2024-07-14)
 - Note:
 
--- MapNotes now works on every version of World of Warcraft. Classic Era / Cataclysm and Retail
+-- MapNotes now works on every version of World of Warcraft. Classic Era / Cataclysm / Retail / PTR
 
+Version: 2.0.8
 
-Retail & PTR:
-added a new function for delete icons
-    Now it is possible to delete this specific icon with ALT + left click on an icon so that it is no longer displayed on this map type.
-    These deleted icons are saved individually for each character.
-    In the MapNotes menu in the gernal tab, these deleted icons can be shown again using the corresponding button (Zones/Continent/Azeroth/Dungeon/Capitals)
-    If you delete a symbol in a capital, it will also be deleted on the capital minimap. The same applies to the zone map and the minimap
-added Mailboxes in Capitals
-changed the Iconsytle from Paths
+high memory fix for all Versions!
+
+Retail:
+• move the Icons for Shlae'gararena from Capital Portal to Capital Path and changeded the icon to a Path icon
+• added function to change the color from Mist of Unexplored to Black, red, green or blue
+• By default the color black is activated. If you want to change this, simply deactivate Fog - Black and the selection option for the other colors will be released.
+• Enabling one color automatically disables the option for the other colors
+
+Version: 2.0.7
+
+Retail:
+• finished reworking profession icons
+• added profession to General tab to change icon background for old icon style
 
 Cataclysm:
+
+• added Old Icon Style function
+• now u can change the icon style for Portal, Ship, Zeppelin, Bank and Profession with old/new versions
+• changed the icon style for Capital Path icons
+
+Classic Era:
+
+• added Old Icon Style function
+• now u can change the icon style for Portal, Ship, Zeppelin, Bank and Profession with old/new versions
+• changed the icon style for Capital Path icons
+
+Version: 2.0.6
+
+PTR:
+
+Retail:
+• added a new option to Change Portal icon Style to the Old Version from MapNotes
+• added PvP & PvE Vendor icons on the Continent Tab
+• moved the Path icons from the General tab to the new tab called Oriantation
+
+added on Zone & Minimap Tab new icons for:
+• Paths
+• Innkeepers
+• Auctioneer
+• Bank
+• Barber
+• Mailboxes
+• Pvp Vendor
+• PvE Vendor
+• Stablemaster
+• Transmog
+
+In the Zone and Minimap tabs, the functions in the Transport sub tab for Transport have been divided into 5 separate units
+So you can hide or show these as you wish
+• Transport
+• Ogre Waygates
+• Teleporters
+• Toys (Travel) currently only: Ever-Shifting Mirror for Draenor to Outland and back portals
+• Travel
+
+the Capital and Capital - Minimap tabs have been moved together to the Capitals + tab
+The Capital area was divided into the following 5 sub-tabs
+• Capitals
+• Instance icons
+• Transportation icons
+• Profession icons
+• General icons
+Each of these submenus now has its own scaling and visibility slider
+The Capital Minimap area was divided into the following 5 sub-tabs
+• Capitals
+• Instance icons
+• Transportation icons
+• Profession icons
+• General icons
+Each of these submenus now has its own scaling and visibility slider
+
+the Zone and Minimap tabs have been moved together to the Zones+ tab
+The Zone area was divided into the following 5 sub-tabs
+• Continent maps
+• Instance icons
+• Transportation icons
+• General icons
+• Oriantation
+Each of these submenus now has its own scaling and visibility slider
+The Minimap area was divided into the following 5 sub-tabs
+• Continent maps
+• Instance icons
+• Transportation icons
+• General icons
+• Oriantation
+Each of these submenus now has its own scaling and visibility slider
+
+Cataclysm Classic:
 
 Classic Era & Hardcore:
 

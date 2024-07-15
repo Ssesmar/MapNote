@@ -101,6 +101,11 @@ local nodes = ns.nodes
             end
         end
 
+      -- Portal
+        if self.db.profile.showContinentPortals then
+          nodes[1414][55842967] = { mnID = 198, name = "", type = "Portal", showOnContinent = true, showInZone = false, showOnMinimap = false, TransportName = POSTMASTER_LETTER_HYJAL .. " " .. L["Portals"] .. "\n" .. " => " .. DUNGEON_FLOOR_ORGRIMMAR0 .. "\n" .. " => " .. L["Stormwind"] }
+        end
+
       end
 
 

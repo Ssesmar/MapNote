@@ -10,5 +10,7 @@
     <Script file="ClassicFogOfWarNodes.lua"/>
     <Script file="ClassicCapitals.lua"/>
     <Script file="ClassicCapitalsMinimap.lua"/>
+    <Script file="ClassicPathsZoneNodes.lua"/>
+    <Script file="ClassicPathsMiniMapNodes.lua"/>
     <Script file="ClassicBlizzAreaPoisNodesInfo.lua"/>
 </Ui>

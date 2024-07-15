@@ -258,6 +258,7 @@ if not db.activate.HideMapNote then
 
                     if self.db.profile.showMinimapCapitalsInscription then
                         minimap[1456][28722088] = { name = INSCRIPTION, type = "Inscription", showInZone = false, showOnContinent = false, showOnMinimap = true, TransportName = MINIMAP_TRACKING_TRAINER_PROFESSION }
+                        minimap[1456][30323012] = { name = L["Passage"] .. " " .. MINIMAP_TRACKING_TRAINER_PROFESSION, type = "PassageLeftL", showInZone = false, showOnContinent = false, showOnMinimap = true, TransportName =  INSCRIPTION }
                     end
 
                 end
@@ -275,9 +276,10 @@ if not db.activate.HideMapNote then
             if self.db.profile.activate.MinimapCapitalsGeneral then
     
                 if self.db.profile.showMinimapCapitalsPaths then
+                    minimap[1456][52232561] = { dnID = L["Exit"], name = "", mnID = 1412, type = "PathU", showInZone = false, showOnContinent = false, showOnMinimap = true }
+                    minimap[1456][54632715] = { dnID = L["Exit"], name = "", mnID = 1412, type = "PathU", showInZone = false, showOnContinent = false, showOnMinimap = true }
                     minimap[1456][31886595] = { dnID = L["Exit"], name = "", mnID = 1412, type = "PathU", showInZone = false, showOnContinent = false, showOnMinimap = true }
                     minimap[1456][31456256] = { dnID = L["Exit"], name = "", mnID = 1412, type = "PathU", showInZone = false, showOnContinent = false, showOnMinimap = true }
-                    minimap[1456][30132989] = { name = L["Passage"] .. " " .. MINIMAP_TRACKING_TRAINER_PROFESSION, type = "PathU", showInZone = false, showOnContinent = false, showOnMinimap = true, TransportName = INSCRIPTION }
                 end
 
                 if self.db.profile.showMinimapCapitalsInnkeeper then
@@ -507,8 +509,6 @@ if not db.activate.HideMapNote then
                         minimap[1458][65865202] = { dnID = DUNGEON_FLOOR_GILNEAS3 .. " => " .. DUNGEON_FLOOR_GILNEAS2 .. "\n" ..  DUNGEON_FLOOR_GILNEAS2 .. " => " .. DUNGEON_FLOOR_GILNEAS3, name = "", type = "PathO", showInZone = false, showOnContinent = false, showOnMinimap = true } -- Passage/Exit 
                         minimap[1458][60584399] = { dnID = DUNGEON_FLOOR_GILNEAS3 .. " => " .. DUNGEON_FLOOR_GILNEAS2 .. "\n" ..  DUNGEON_FLOOR_GILNEAS2 .. " => " .. DUNGEON_FLOOR_GILNEAS3, name = "", type = "PathO", showInZone = false, showOnContinent = false, showOnMinimap = true } -- Passage/Exit 
                         minimap[1458][71294410] = { dnID = DUNGEON_FLOOR_GILNEAS3 .. " => " .. DUNGEON_FLOOR_GILNEAS2 .. "\n" ..  DUNGEON_FLOOR_GILNEAS2 .. " => " .. DUNGEON_FLOOR_GILNEAS3, name = "", type = "PathO", showInZone = false, showOnContinent = false, showOnMinimap = true } -- Passage/Exit 
-                        minimap[1458][52947737] = { name = L["Passage"] .. " " .. MINIMAP_TRACKING_TRAINER_PROFESSION, type = "PathU", showInZone = false, showOnContinent = false, showOnMinimap = true, TransportName =  L["Alchemy"] }
-                        minimap[1458][44626639] = { name = L["Passage"] .. " " .. MINIMAP_TRACKING_TRAINER_PROFESSION, type = "PathU", showInZone = false, showOnContinent = false, showOnMinimap = true, TransportName =  L["Alchemy"] }
                     end
 
                     if self.db.profile.showMinimapCapitalsInnkeeper then

@@ -2,7 +2,12 @@ local ADDON_NAME = ...
 local L = LibStub("AceLocale-3.0"):NewLocale(ADDON_NAME, "enUS", true)
 
 
+L["Number"] = true
+L["Orientation"] = true
+L["Old icon style"] = true
+L["Changes the appearance of the icons. When activated, the listed icons will be changed with the previous style of these icons"] = true
 --0 Restore
+L["canceled"] = true
 L["Delete this icon"] = true
 L["A icon has been deleted"] = true
 L["Restore all deleted icons for different types of maps"] = true
@@ -26,6 +31,7 @@ L["Quartermaster"] = true
 L["The Scryers"] = true
 L["The Aldor"] = true
 L["Paths"] = true
+L["Path"] = true
 L["Capitals"] = true
 L["Alchemy"] = true
 L["Engineer"] = true
@@ -49,8 +55,6 @@ L["Zones"] = true
 L["Continents"] = true
 --2 Unexplored Areas function
 L["Unexplored Areas"] = true
-L["Unexplored Areas visibility"] = true
-L["Changes the visibility of unexplored Areas"] = true
 L["Fog"] = true
 L["Mist of the Unexplored"] = true
 L["Leaves the unexplored areas revealed but adds a slight fog so you can still see which ones you haven't explored yet"] = true
@@ -147,7 +151,6 @@ L["Dungeon map"] = true
 --6 Map Tabs together
 L["Instance Entrance"] = true
 L["switches weekly between"] = true
-L["Dungeon Entrance"] = true
 L["switches weekly between"] = true
 L["Activate icons"] = true
 L["Show individual icons"] = true
@@ -220,6 +223,7 @@ L["Right-click => Open/Close"] = true
 L["Shift + Right-click => hide"] = true
 L["Middle-Mouse-Button => Open/Close"] = true
 --9 transport
+L["Ever-Shifting Mirror"] = true
 L["icons"] = true
 L["Exit"] = true
 L["Entrance"] = true
@@ -230,6 +234,8 @@ L["Zeppelin"] = true
 L["Portalroom"] = true
 L["The Dark Portal"] = true
 L["Captain Krooz"] = true
+L["Thrallmar Mage"] = true
+L["Honor Hold Mage"] = true
 L["Use the Old Keyring"] = true
 L["Travel"] = true
 L["Teleporter"] = true
@@ -242,7 +248,10 @@ L["in the basement"] = true
 L["(on the tower)"] = true
 L["(inside portal chamber)"] = true
 L["(inside building)"] = true
+L["talk to"] = true
 --10 places
+L["Sholazar Basin"] = true
+L["Un'Goro Crater"] = true
 L["Auberdine"] = true
 L["Ratchet"] = true
 L["Theramore Isle"] = true
@@ -254,6 +263,7 @@ L["Undercity"] = true
 L["Rut'theran"] = true
 L["Azuremyst Isle"] = true
 L["Bel'ameth, Amirdrassil"] = true
+L["Ruins of Gilneas"] = true
 L["Darnassus"] = true
 L["Teldrassil"] = true
 L["Graveyard"] = true
@@ -291,6 +301,16 @@ L["Exodar"] = true
 L["Jade Forest"] = true
 L["Drustvar"] = true
 L["Gorgrond"] = true
+L["Talador"] = true
+L["Nagrand"] = true
+L["Frostfire Ridge"] = true
+L["Tanaan Jungle"] = true
+L["Shadowmoon Valley"] = true
+L["Spires of Arak"] = true
+L["Netherstorm"] = true
+L["Blade's Edge Mountains"] = true
+L["Zangarmarsh"] = true
+L["Terokkar Forest"] = true
 L["Ohn'ahran Plains"] = true
 L["Borean Tundra"] = true
 L["Tirisfal Glades"] = true
@@ -312,6 +332,11 @@ L["Hellfire Peninsula"] = true
 L["Korthia"] = true
 L["The Maw"] = true
 L["Zereth Mortis"] = true
+L["Icecrown"] = true
+L["Krasarang Wilds"] = true
+L["Townlong Steppes"] = true
+L["Kun-Lai Summit"] = true
+L["Valley of the Four Winds"] = true
 L["Barnard 'The Smasher' Bayswort"] = true
 L["Desha Stormwallow"] = true
 L["Daria Smithson"] = true
@@ -374,3 +399,8 @@ L["Merchant for Renown items"] = true
 L["Council of Dornogal"] = true
 L["The Assembly of the Deeps"] = true
 L["Hallowfall Arathi"] = true
+-- 14
+L["Displays zone icons on a specific continent"] = true
+L["If you don't see this icon, it's probably in a different phase. \nChange the phase on Zidormi"] = true
+L["The associated settings are regulated here. \nRegardless of whether it is the display of an icon, an entire icon group or the display of the complete icons for the corresponding Continent"] = true
+L["The associated settings are regulated here. \nRegardless of whether it is the display of an icon, an entire icon group or the display of the complete icons for the corresponding Capital"] = true

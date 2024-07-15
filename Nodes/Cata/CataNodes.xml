@@ -7,9 +7,11 @@
     <Script file="CataMinimapGhost.lua"/>
     <Script file="CataContinentInfo.lua"/>
     <Script file="CataWorldMapInfo.lua"/>
+    <Script file="CataInsideDungeonNodesLocation.lua"/>    
     <Script file="CataFogOfWarNodes.lua"/>
     <Script file="CataCapitals.lua"/>
     <Script file="CataCapitalsMinimap.lua"/>
-    <Script file="CataInsideDungeonNodesLocation.lua"/>
+    <Script file="CataPathsZoneNodes.lua"/>
+    <Script file="CataPathsMiniMapNodes.lua"/>
     <Script file="CataBlizzAreaPoisNodesInfo.lua"/>
 </Ui>
