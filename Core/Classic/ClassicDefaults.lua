@@ -388,6 +388,7 @@ ns.defaults = {
         FogOfWarAlphaReduce = true,
         SyncZoneAndMinimap = false,
         SyncCapitalsAndMinimap = false,
+        ZoneChanged = true,
       --MiniMap
         MiniMapEnemyFaction = true,
         MiniMapInstances = true,

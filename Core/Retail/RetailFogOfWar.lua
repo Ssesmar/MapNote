@@ -2,26 +2,21 @@ local ADDON_NAME, ns = ...
 
 local HandyNotes = LibStub("AceAddon-3.0"):GetAddon("HandyNotes")
 local FogOfWar = HandyNotes:NewModule("FogOfWarButton", "AceHook-3.0", "AceEvent-3.0")
+ns.FogOfWar = FogOfWar
 
 local mod, floor, ceil, tonumber = math.fmod, math.floor, math.ceil, tonumber
 local ipairs, pairs = ipairs, pairs
 local db
 
-function FogOfWar:OnInitialize()
+function ns.FogOfWar:OnInitialize()
 	self.db = HandyNotes.db:RegisterNamespace("FogOfWarButton", ns.defaults)
 	db = self.db.profile
+	self.db.global.errata = nil
 end
 
-local function TexturePool_ResetVertexColor(pool, texture)
-	texture:SetVertexColor(1, 1, 1)
-	texture:SetAlpha(1)
-	return TexturePool_HideAndClearAnchors(pool, texture)
-end
-
-function FogOfWar:OnEnable()
+function ns.FogOfWar:OnEnable()
 	for pin in WorldMapFrame:EnumeratePinsByTemplate("MapExplorationPinTemplate") do
 		self:SecureHook(pin, "RefreshOverlays", "MapExplorationPin_RefreshOverlays")
-		pin.overlayTexturePool.resetterFunc = TexturePool_ResetVertexColor
 	end
 end
 
@@ -29,7 +24,7 @@ function FogOfWar:OnDisable()
 	self:UnhookAll()
 end
 
-function FogOfWar:Refresh()
+function ns.FogOfWar:Refresh()
 	db = self.db.profile
 	if not self:IsEnabled() then return end
 
@@ -38,14 +33,28 @@ function FogOfWar:Refresh()
 	end
 end
 
-function FogOfWar:MapExplorationPin_RefreshOverlays(pin, fullUpdate)
-	local mapID = pin:GetMap():GetMapID()
-	if not mapID then return end
-	local mapData = ns.FogOfWarDataRetail
-	local artID = C_Map.GetMapArtID(mapID)
-	if not artID or not mapData[artID] then return end
-	local data = mapData[artID]
+local mapData = ns.FogOfWarDataRetail
+function ns.FogOfWar:MapExplorationPin_RefreshOverlays(pin, fullUpdate)
 
+	-- remove color tint from active overlays
+	for overlay in pin.overlayTexturePool:EnumerateActive() do
+		overlay:SetVertexColor(1,1,1)
+		overlay:SetAlpha(1)
+	end
+
+	local mapCanvas = pin:GetMap()
+
+	local mapID = mapCanvas:GetMapID()
+	if not mapID then
+		return
+	end
+
+	local artID = C_Map.GetMapArtID(mapID)
+	if not artID or not mapData[artID] then
+		return
+	end
+
+	local data = mapData[artID]
 	local exploredTilesKeyed = {}
 	local exploredMapTextures = C_MapExplorationInfo.GetExploredMapTextures(mapID)
 	if exploredMapTextures then
@@ -55,23 +64,25 @@ function FogOfWar:MapExplorationPin_RefreshOverlays(pin, fullUpdate)
 		end
 	end
 
-	pin.layerIndex = pin:GetMap():GetCanvasContainer():GetCurrentLayerIndex()
+	pin.layerIndex = mapCanvas:GetCanvasContainer():GetCurrentLayerIndex()
 	local layers = C_Map.GetMapArtLayers(mapID)
 	local layerInfo = layers and layers[pin.layerIndex]
-
-	if not layerInfo then return end
+	if not layerInfo then 
+		return 
+	end
 
 	local TILE_SIZE_WIDTH = layerInfo.tileWidth
 	local TILE_SIZE_HEIGHT = layerInfo.tileHeight
 	local r, g, b, a, r_Reduce, g_Reduce, b_Reduce, a_Reduce = self:GetOverlayColor()
-
+	local drawLayer, subLevel = pin.dataProvider:GetDrawLayer()
 	for key, files in pairs(data) do
 		if not exploredTilesKeyed[key] then
-			local width, height, offsetX, offsetY =	mod(floor(key / 2 ^ 39), 2 ^ 13), mod(floor(key / 2 ^ 26), 2 ^ 13),	mod(floor(key / 2 ^ 13), 2 ^ 13), mod(key, 2 ^ 13)
-			local fileDataIDs = {strsplit(",", files)}
-			local numTexturesWide = ceil(width / TILE_SIZE_WIDTH)
-			local numTexturesTall = ceil(height / TILE_SIZE_HEIGHT)
-			local texturePixelWidth, textureFileWidth, texturePixelHeight, textureFileHeight
+		local width, height, offsetX, offsetY =	mod(floor(key / 2 ^ 39), 2 ^ 13), mod(floor(key / 2 ^ 26), 2 ^ 13),	mod(floor(key / 2 ^ 13), 2 ^ 13), mod(key, 2 ^ 13)
+		local fileDataIDs = {strsplit(",", files)}
+		local numTexturesWide = ceil(width / TILE_SIZE_WIDTH)
+		local numTexturesTall = ceil(height / TILE_SIZE_HEIGHT)
+		local texturePixelWidth, textureFileWidth, texturePixelHeight, textureFileHeight
+		
 			for j = 1, numTexturesTall do
 				if (j < numTexturesTall) then
 					texturePixelHeight = TILE_SIZE_HEIGHT
@@ -86,6 +97,7 @@ function FogOfWar:MapExplorationPin_RefreshOverlays(pin, fullUpdate)
 						textureFileHeight = textureFileHeight * 2
 					end
 				end
+
 				for k = 1, numTexturesWide do
 					local texture = pin.overlayTexturePool:Acquire()
 					if (k < numTexturesWide) then
@@ -101,36 +113,33 @@ function FogOfWar:MapExplorationPin_RefreshOverlays(pin, fullUpdate)
 							textureFileWidth = textureFileWidth * 2
 						end
 					end
+
 					texture:SetWidth(texturePixelWidth)
 					texture:SetHeight(texturePixelHeight)
 					texture:SetTexCoord(0, texturePixelWidth / textureFileWidth, 0, texturePixelHeight / textureFileHeight)
 					texture:SetPoint("TOPLEFT", offsetX + (TILE_SIZE_WIDTH * (k - 1)), -(offsetY + (TILE_SIZE_HEIGHT * (j - 1))))
 					texture:SetTexture(tonumber(fileDataIDs[((j - 1) * numTexturesWide) + k]), nil, nil, "TRILINEAR")
+					texture:SetDrawLayer(drawLayer, subLevel - 1)
 
 					if ns.Addon.db.profile.activate.FogOfWar then
-						texture:SetVertexColor(a, r, g, b)
-					end
-
-					if ns.Addon.db.profile.activate.FogOfWarAlphaReduce then
-						texture:SetVertexColor(a_Reduce, r_Reduce, g_Reduce, b_Reduce)
-					elseif ns.Addon.db.profile.activate.FogOfWarBlack then
-						texture:SetVertexColor(0.35, 0.35, 0.35, 1)
-					elseif ns.Addon.db.profile.activate.FogOfWarRed then
-						texture:SetVertexColor(1, 0.35, 0.35, 0.35)
-					elseif ns.Addon.db.profile.activate.FogOfWarGreen then
-						texture:SetVertexColor(0.35, 1, 0.35, 0.35)
-					elseif ns.Addon.db.profile.activate.FogOfWarBlue then
-						texture:SetVertexColor(0.35, 0.35, 1, 0.35)
+						texture:SetVertexColor(r, g, b)
 					end
 
 					if ns.Addon.db.profile.activate.FogOfWar then
 						texture:SetAlpha(a)
 					end
 
+					if not ns.Addon.db.profile.activate.MistOfTheUnexplored then
+						texture:SetVertexColor(1, 1, 1)
+					end
+
+					if ns.Addon.db.profile.activate.FogOfWarAlphaReduce then
+						texture:SetVertexColor(a_Reduce, r_Reduce, g_Reduce, b_Reduce)
+					end
+
 					if ns.Addon.db.profile.activate.FogOfWarAlphaReduce then
 						texture:SetAlpha(a_Reduce)
 					end
-					texture:SetDrawLayer("ARTWORK", -1)
 
                     if ns.Addon.db.profile.activate.FogOfWar then
                         texture:Show()
@@ -149,11 +158,11 @@ function FogOfWar:MapExplorationPin_RefreshOverlays(pin, fullUpdate)
 end
 
 
-function FogOfWar:GetOverlayColor()
+function ns.FogOfWar:GetOverlayColor()
 	return db.colorR, db.colorG, db.colorB, db.colorA, db.colorR_Reduce, db.colorG_Reduce, db.colorB_Reduce, db.colorA_Reduce
 end
 
-function FogOfWar:SetOverlayColor(info, r, g, b, a, r_Reduce, g_Reduce, b_Reduce, a_Reduce)
+function ns.FogOfWar:SetOverlayColor(info, r, g, b, a, r_Reduce, g_Reduce, b_Reduce, a_Reduce)
 	db.colorR_Reduce, db.colorG_Reduce, db.colorB_Reduce, db.colorA_Reduce = r_Reduce, g_Reduce, b_Reduce, a_Reduce
 	db.colorR, db.colorG, db.colorB, db.colorA = r, g, b, a
 	if self:IsEnabled() then self:Refresh() end

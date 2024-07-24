@@ -227,7 +227,7 @@ do
 
       ns.paths = value.type == "PathO" or value.type == "PathRO" or value.type == "PathLO" or value.type == "PathU" or value.type == "PathLU" or value.type == "PathRU" or value.type == "PathL" or value.type == "PathR"
 
-      ns.professions = value.type == "Alchemy" or value.type == "Engineer" or value.type == "Cooking" or value.type == "Fishing" or value.type == "Archaeology" or value.type == "Mining" or value.type == "Jewelcrafting" or value.type == "Blacksmith" or value.type == "Leatherworking" or value.type == "Skinning" or value.type == "Tailoring" or value.type == "Herbalism" or value.type == "Inscription" or value.type == "Enchanting" or value.type == "FishingClassic" or value.type == "ProfessionOrders"
+      ns.professions = value.type == "Alchemy" or value.type == "Engineer" or value.type == "Cooking" or value.type == "Fishing" or value.type == "Archaeology" or value.type == "Mining" or value.type == "Jewelcrafting" or value.type == "Blacksmith" or value.type == "Leatherworking" or value.type == "Skinning" or value.type == "Tailoring" or value.type == "Herbalism" or value.type == "Inscription" or value.type == "Enchanting" or value.type == "FishingClassic" or value.type == "ProfessionOrders" or value.type == "FirstAid"
 
       ns.instances = value.type == "Dungeon" or value.type == "Raid" or value.type == "PassageDungeon" or value.type == "PassageDungeonRaidMulti" or value.type == "PassageRaid" or value.type == "VInstance" or value.type == "PassageDungeon" or value.type == "Multiple" or value.type == "LFR" or value.type == "Gray"
 
@@ -250,6 +250,22 @@ do
         WorldMapFrame:GetMapID() == 86 or -- Ragefire Chasmn
         WorldMapFrame:GetMapID() == 125 or  -- Dalaran Northrend
         WorldMapFrame:GetMapID() == 126   -- Dalaran Northrend Basement
+
+      ns.CapitalMiniMapIDs =
+        --Cataclysm
+        C_Map.GetBestMapForUnit("player") == 1454 or -- Orgrimmar
+        C_Map.GetBestMapForUnit("player") == 1456 or -- Thunder Bluff
+        C_Map.GetBestMapForUnit("player") == 1458 or -- Undercity
+        C_Map.GetBestMapForUnit("player") == 1954 or -- Silvermoon
+        C_Map.GetBestMapForUnit("player") == 1947 or -- Exodar
+        C_Map.GetBestMapForUnit("player") == 1457 or -- Darnassus
+        C_Map.GetBestMapForUnit("player") == 1453 or -- Stormwind
+        C_Map.GetBestMapForUnit("player") == 1455 or -- Ironforge
+        C_Map.GetBestMapForUnit("player") == 1955 or -- Shattrath
+        --Retail & Cataclysm
+        C_Map.GetBestMapForUnit("player") == 86 or -- Ragefire Chasmn
+        C_Map.GetBestMapForUnit("player") == 125 or  -- Dalaran Northrend
+        C_Map.GetBestMapForUnit("player") == 126   -- Dalaran Northrend Basement
 
 
 			if value.name == nil then value.name = value.id or value.mnID end
@@ -299,7 +315,7 @@ do
       end
 
       -- Profession Minimap icons in Capitals
-      if ns.CapitalIDs and (value.showOnMinimap == true) then
+      if ns.CapitalMiniMapIDs and (value.showOnMinimap == true) then
         scale = db.MinimapCapitalsScale
         alpha = db.MinimapCapitalsAlpha
       end
@@ -318,31 +334,31 @@ do
       end
 
       -- Profession Minimap icons in Capitals
-      if ns.professions and ns.CapitalIDs and (value.showOnMinimap == true) then
+      if ns.professions and ns.CapitalMiniMapIDs and (value.showOnMinimap == true) then
         scale = db.MinimapCapitalsProfessionsScale
         alpha = db.MinimapCapitalsProfessionsAlpha
       end
 
       -- Capitals Minimap Transport (Zeppeline/Ship/Carriage) icons
-      if ns.CapitalIDs and ns.transports and (value.showOnMinimap == true) then
+      if ns.CapitalMiniMapIDs and ns.transports and (value.showOnMinimap == true) then
         scale = db.MinimapCapitalsTransportScale
         alpha = db.MinimapCapitalsTransportAlpha
       end
 
       -- Capitals Minimap Instance (Dungeon/Raid/Passage/Multi) icons
-      if ns.CapitalIDs and ns.instances and (value.showOnMinimap == true) then
+      if ns.CapitalMiniMapIDs and ns.instances and (value.showOnMinimap == true) then
         scale = db.MinimapCapitalsInstanceScale
         alpha = db.MinimapCapitalsInstanceAlpha
       end
 
       -- Capitals Minimap General (Innkeeper/Exit/Passage) icons
-      if ns.CapitalIDs and ns.capitalgenerals and (value.showOnMinimap == true) then
+      if ns.CapitalMiniMapIDs and ns.capitalgenerals and (value.showOnMinimap == true) then
         scale = db.MinimapCapitalsGeneralScale
         alpha = db.MinimapCapitalsGeneralAlpha
       end
 
       -- Capitals General (Innkeeper/Exit/Passage) icons
-      if ns.CapitalIDs and ns.capitalgenerals and (value.showOnMinimap == false) then
+      if ns.CapitalMiniMapIDs and ns.capitalgenerals and (value.showOnMinimap == false) then
         scale = db.CapitalsGeneralScale
         alpha = db.CapitalsGeneralAlpha
       end
@@ -710,6 +726,31 @@ local function updateStuff()
   HandyNotes:SendMessage("HandyNotes_NotifyUpdate", "MapNotes")
 end
 
+function Addon:ZONE_CHANGED_NEW_AREA()
+  local mapID = C_Map.GetBestMapForUnit("player")
+  if mapID then
+    if ns.Addon.db.profile.activate.ZoneChanged then
+      print(TextIconMNL4:GetIconString() .. " " .. ns.COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00" .. " " .. L["Location"] .. ": ", "|cff00ff00" .. "==>  " .. C_Map.GetMapInfo(mapID).name .. "  <==")
+    end
+  end
+end
+
+local subzone = GetSubZoneText()
+function Addon:ZONE_CHANGED_INDOORS()
+    if ns.Addon.db.profile.activate.ZoneChanged then
+      print(TextIconMNL4:GetIconString() .. " " .. ns.COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00" .. " " .. L["Location"] .. ": ", "|cff00ff00" .. "==>  " .. "|cff00ff00" .. GetZoneText() .. " " .. "|cff00ccff" .. GetSubZoneText().. "|cff00ff00" .. "  <==")
+    end
+end
+
+function Addon:ZONE_CHANGED()
+  local mapID = C_Map.GetBestMapForUnit("player")
+  if mapID then
+    if ns.Addon.db.profile.activate.ZoneChanged then
+      print(TextIconMNL4:GetIconString() .. " " .. ns.COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00" .. " " .. L["Location"] .. ": ", "|cff00ff00" .. "==>  " .. GetZoneText() .. " " .. "|cff00ccff" .. GetSubZoneText() .. "|cff00ff00" .. "  <==")
+    end
+  end
+end
+
 function Addon:PLAYER_ENTERING_WORLD()
   if (not self.faction) then
       self.faction = UnitFactionGroup("player")
@@ -736,7 +777,12 @@ function Addon:PLAYER_LOGIN()
   LibStub("AceConfigRegistry-3.0"):RegisterOptionsTable("MapNotes", ns.options) -- Minimap
 
   -- Check for any lockout changes when we zone
-  Addon:RegisterEvent("PLAYER_ENTERING_WORLD") 
+  Addon:RegisterEvent("PLAYER_ENTERING_WORLD")
+
+  -- Check if we changed the Zone
+  Addon:RegisterEvent("ZONE_CHANGED_NEW_AREA")
+  Addon:RegisterEvent("ZONE_CHANGED")
+  Addon:RegisterEvent("ZONE_CHANGED_INDOORS")
 
   if ns.Addon.db.profile.activate.HideMMB then -- minimap button
     MNMMBIcon:Hide("MNMiniMapButton")
@@ -769,6 +815,7 @@ function Addon:PLAYER_LOGIN()
 
   WorldMapFrame:HookScript("OnShow", function()
     ns.RemoveBlizzPOIs()
+    HandyNotes:SendMessage("HandyNotes_NotifyUpdate", "MapNotes")
   end)
 
 end
@@ -805,6 +852,9 @@ function Addon:PopulateTable()
   ns.LoadCataMinimapFPInfo(self) -- load nodes\Cata\CataMinimapFPInfo.lua
   ns.LoadCataZoneGhostInfo(self) -- load nodes\Cata\CataZoneGhostInfo.lua
   ns.LoadCataMinimapGhostInfo(self) -- load nodes\CataCataMinimapGhostInfo.lua
+
+  ns.LoadGeneralZoneLocationinfo(self) -- load nodes\Cata\CataGeneralZoneNodes.lua
+  ns.LoadGeneralMiniMapLocationinfo(self) -- load nodes\Cata\CataGeneralMiniMapNodes.lua
 
   ns.LoadPathsZoneLocationinfo(self)
   ns.LoadPathsMiniMapLocationinfo(self)

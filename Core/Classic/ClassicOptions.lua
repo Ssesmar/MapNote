@@ -156,6 +156,17 @@ ns.options = {
             if ns.Addon.db.profile.ChatMassage and not ns.Addon.db.profile.activate.ShiftWorld then print(TextIconMNL4:GetIconString() .. " " .. ns.COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00", L["Shift function"], "|cff00ff00" .. L["is deactivated"] .. " " .. L["You can now interact with MapNotes icons without having to press Shift + Click at the same time"]) else
             if ns.Addon.db.profile.ChatMassage and ns.Addon.db.profile.activate.ShiftWorld then print(TextIconMNL4:GetIconString() .. " " .. ns.COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00", L["Shift function"], "|cffff0000" .. L["is activated"] .. " " .. L["You must now always press Shift + Click at the same time to interact with the MapNotes icons"]) end end end,
           },
+        ZoneChanged = {
+          type = "toggle",
+          name = L["Show Zone Names"],
+          desc = L["When entering a new zone, the name of the new zone will be displayed in the chat"],
+          order = 2.0,
+          width = 0.90,
+          get = function() return ns.Addon.db.profile.activate.ZoneChanged end,
+          set = function(info, v) ns.Addon.db.profile.activate.ZoneChanged = v self:FullUpdate() HandyNotes:SendMessage("HandyNotes_NotifyUpdate", "MapNotes")
+            if ns.Addon.db.profile.ChatMassage and not ns.Addon.db.profile.activate.ZoneChanged then print(TextIconMNL4:GetIconString() .. " " .. ns.COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00", L["Show Zone Names"], "|cffff0000" .. L["is deactivated"]) else
+            if ns.Addon.db.profile.ChatMassage and ns.Addon.db.profile.activate.ZoneChanged then print(TextIconMNL4:GetIconString() .. " " .. ns.COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00", L["Show Zone Names"], "|cff00ff00" .. L["is activated"]) end end end,
+          },
         FogOfWar = {
           --disabled = function() return ns.Addon.db.profile.activate.HideMapNote end,
           type = "toggle",
@@ -174,7 +185,7 @@ ns.options = {
           type = "toggle",
           name = L["Mist of the Unexplored"],
           desc = L["Leaves the unexplored areas revealed but adds a slight fog so you can still see which ones you haven't explored yet"],
-          width = 2,
+          width = 1.2,
           order = 2.2,
           get = function() return ns.Addon.db.profile.activate.FogOfWarAlphaReduce end,
           set = function(info, v) ns.Addon.db.profile.activate.FogOfWarAlphaReduce = v self:FullUpdate() HandyNotes:SendMessage("HandyNotes_NotifyUpdate", "MapNotes")

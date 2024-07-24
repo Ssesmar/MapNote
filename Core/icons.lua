@@ -53,6 +53,7 @@ ns.icons = {
 ["Archaeology"] = "interface/archeology/arch-icon-marker.blp",
 ["Fishing"] = iconLink .. "Fishing",
 ["Cooking"] = iconLink .. "Cooking",
+["FirstAid"] ="interface/icons/spell_holy_sealofsacrifice.blp",
 --Professions Original
 ["OriginalEngineer"] = "interface/icons/ui_profession_engineering.blp",
 ["OriginalAlchemy"] = "interface/icons/ui_profession_alchemy.blp",
@@ -287,6 +288,7 @@ TextIconFishing = TextIcon(iconLink .. "Fishing", 50, 50, 1, 50, 1, 50)
 TextIconCooking = TextIcon(iconLink .. "Cooking", 50, 50, 1, 50, 1, 50)
 TextIconInscription = TextIcon(iconLink .. "Inscription", 50, 50, 1, 50, 1, 50)
 TextIconEnchanting = TextIcon(iconLink .. "Enchanting", 50, 50, 1, 50, 1, 50)
+TextIconFirstAid = TextIcon("interface/icons/spell_holy_sealofsacrifice.blp", 50, 50, 1, 50, 1, 50)
 --profession Original
 TextIconOriginalEngineer = TextIcon("interface/icons/ui_profession_engineering.blp", 50, 50, 1, 50, 1, 50)
 TextIconOriginalAlchemy = TextIcon("interface/icons/ui_profession_alchemy.blp", 50, 50, 1, 50, 1, 50)

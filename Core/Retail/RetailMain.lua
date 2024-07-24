@@ -18,37 +18,6 @@ local extraInformations = { }
 
 ns.RestoreStaticPopUps()
 
---function ns.FogOfWarColor(color)
---
---  if color == 'black' then
---    ns.Addon.db.profile.activate.FogOfWarBlack = true
---    ns.Addon.db.profile.activate.FogOfWarRed = false
---    ns.Addon.db.profile.activate.FogOfWarBlue = false
---    ns.Addon.db.profile.activate.FogOfWarGreen = false
---  end
---
---  if color == 'red' then
---    ns.Addon.db.profile.activate.FogOfWarRed = true
---    ns.Addon.db.profile.activate.FogOfWarBlack = false
---    ns.Addon.db.profile.activate.FogOfWarBlue = false
---    ns.Addon.db.profile.activate.FogOfWarGreen = false
---  end
---
---  if color == 'green' then
---    ns.Addon.db.profile.activate.FogOfWarGreen = true
---    ns.Addon.db.profile.activate.FogOfWarRed = false
---    ns.Addon.db.profile.activate.FogOfWarBlue = false
---    ns.Addon.db.profile.activate.FogOfWarBlack = false
---  end
---  
---  if color == 'blue' then
---    ns.Addon.db.profile.activate.FogOfWarBlue = true
---    ns.Addon.db.profile.activate.FogOfWarRed = false
---    ns.Addon.db.profile.activate.FogOfWarBlack = false
---    ns.Addon.db.profile.activate.FogOfWarGreen = false
---  end
---end
-
 function MapNotesMiniButton:OnInitialize() --mmb.lua
   self.db = LibStub("AceDB-3.0"):New("MNMiniMapButtonRetailDB", { profile = { minimap = { hide = false, }, }, }) 
   MNMMBIcon:Register("MNMiniMapButton", ns.miniButton, self.db.profile.minimap)
@@ -298,6 +267,14 @@ do
                       or WorldMapFrame:GetMapID() == 1670 or WorldMapFrame:GetMapID() == 1671 or WorldMapFrame:GetMapID() == 1672 or WorldMapFrame:GetMapID() == 1673 or WorldMapFrame:GetMapID() == 2112 or WorldMapFrame:GetMapID() == 2339
                       or WorldMapFrame:GetMapID() == 499 or WorldMapFrame:GetMapID() == 500 or WorldMapFrame:GetMapID() == 2266
 
+      ns.CapitalMiniMapIDs = C_Map.GetBestMapForUnit("player") == 84 or C_Map.GetBestMapForUnit("player") == 87 or C_Map.GetBestMapForUnit("player") == 89 or C_Map.GetBestMapForUnit("player") == 103 or C_Map.GetBestMapForUnit("player") == 85 or C_Map.GetBestMapForUnit("player") == 90 
+                      or C_Map.GetBestMapForUnit("player") == 86 or C_Map.GetBestMapForUnit("player") == 88 or C_Map.GetBestMapForUnit("player") == 110 or C_Map.GetBestMapForUnit("player") == 111 or C_Map.GetBestMapForUnit("player") == 125 or C_Map.GetBestMapForUnit("player") == 126 
+                      or C_Map.GetBestMapForUnit("player") == 391 or C_Map.GetBestMapForUnit("player") == 392 or C_Map.GetBestMapForUnit("player") == 393 or C_Map.GetBestMapForUnit("player") == 394 or C_Map.GetBestMapForUnit("player") == 407 or C_Map.GetBestMapForUnit("player") == 503 
+                      or C_Map.GetBestMapForUnit("player") == 582 or C_Map.GetBestMapForUnit("player") == 590 or C_Map.GetBestMapForUnit("player") == 622 or C_Map.GetBestMapForUnit("player") == 624 or C_Map.GetBestMapForUnit("player") == 626 or C_Map.GetBestMapForUnit("player") == 627 
+                      or C_Map.GetBestMapForUnit("player") == 628 or C_Map.GetBestMapForUnit("player") == 629 or C_Map.GetBestMapForUnit("player") == 1161 or C_Map.GetBestMapForUnit("player") == 1163 or C_Map.GetBestMapForUnit("player") == 1164 or C_Map.GetBestMapForUnit("player") == 1165 
+                      or C_Map.GetBestMapForUnit("player") == 1670 or C_Map.GetBestMapForUnit("player") == 1671 or C_Map.GetBestMapForUnit("player") == 1672 or C_Map.GetBestMapForUnit("player") == 1673 or C_Map.GetBestMapForUnit("player") == 2112 or C_Map.GetBestMapForUnit("player") == 2339
+                      or C_Map.GetBestMapForUnit("player") == 499 or C_Map.GetBestMapForUnit("player") == 500 or C_Map.GetBestMapForUnit("player") == 2266
+
       ns.KalimdorIDs = WorldMapFrame:GetMapID() == 1 or WorldMapFrame:GetMapID() == 7 or WorldMapFrame:GetMapID() == 10 or WorldMapFrame:GetMapID() == 11 or WorldMapFrame:GetMapID() == 57 or WorldMapFrame:GetMapID() == 62 
                       or WorldMapFrame:GetMapID() == 63 or WorldMapFrame:GetMapID() == 64 or WorldMapFrame:GetMapID() == 65 or WorldMapFrame:GetMapID() == 66 or WorldMapFrame:GetMapID() == 67 or WorldMapFrame:GetMapID() == 68 
                       or WorldMapFrame:GetMapID() == 69 or WorldMapFrame:GetMapID() == 70 or WorldMapFrame:GetMapID() == 71 or WorldMapFrame:GetMapID() == 74 or WorldMapFrame:GetMapID() == 75 or WorldMapFrame:GetMapID() == 76 
@@ -386,25 +363,25 @@ do
       end
 
       -- MiniMap Transport (Zeppeline/Ship/Carriage) icons
-      if not ns.CapitalIDs and ns.transportIcons and (value.showOnMinimap == true) then
+      if not ns.CapitalMiniMapIDs and ns.transportIcons and (value.showOnMinimap == true) then
         scale = db.MiniMapTransportScale
         alpha = db.MiniMapTransportAlpha
       end
 
       -- MiniMap General (Innkeeper/Exit/Passage) icons
-      if not ns.CapitalIDs and ns.generalIcons and (value.showOnMinimap == true) or ns.ZoneIDs and not value.showInZone then
+      if not ns.CapitalMiniMapIDs and ns.generalIcons and (value.showOnMinimap == true) or ns.ZoneIDs and not value.showInZone then
         scale = db.MiniMapGeneralScale
         alpha = db.MiniMapGeneralAlpha
       end
 
       -- MiniMap Path icons
-      if not ns.CapitalIDs and ns.pathIcons and (value.showOnMinimap == true) or ns.ZoneIDs and not value.showInZone then
+      if not ns.CapitalMiniMapIDs and ns.pathIcons and (value.showOnMinimap == true) or ns.ZoneIDs and not value.showInZone then
         scale = db.MiniMapPathsScale
         alpha = db.MiniMapPathsAlpha
       end
 
       -- Profession icons in Capitals
-      if ns.professionIcons and ns.CapitalIDs and (value.showOnMinimap == false) then
+      if ns.professionIcons and ns.CapitalMiniMapIDs and (value.showOnMinimap == false) then
         scale = db.CapitalsProfessionsScale
         alpha = db.CapitalsProfessionsAlpha
       end
@@ -416,25 +393,25 @@ do
       end
 
       -- Profession Minimap icons in Capitals
-      if ns.professionIcons and ns.CapitalIDs and (value.showOnMinimap == true) then
+      if ns.professionIcons and ns.CapitalMiniMapIDs and (value.showOnMinimap == true) then
         scale = db.MinimapCapitalsProfessionsScale
         alpha = db.MinimapCapitalsProfessionsAlpha
       end
 
       -- Capitals Minimap Transport (Zeppeline/Ship/Carriage) icons
-      if ns.CapitalIDs and ns.transportIcons and (value.showOnMinimap == true) then
+      if ns.CapitalMiniMapIDs and ns.transportIcons and (value.showOnMinimap == true) then
         scale = db.MinimapCapitalsTransportScale
         alpha = db.MinimapCapitalsTransportAlpha
       end
 
       -- Capitals Minimap Instance (Dungeon/Raid/Passage/Multi) icons
-      if ns.CapitalIDs and ns.instanceIcons and (value.showOnMinimap == true) then
+      if ns.CapitalMiniMapIDs and ns.instanceIcons and (value.showOnMinimap == true) then
         scale = db.MinimapCapitalsInstanceScale
         alpha = db.MinimapCapitalsInstanceAlpha
       end
 
       -- Capitals Minimap General (Innkeeper/Exit/Passage) icons
-      if ns.CapitalIDs and ns.generalIcons and (value.showOnMinimap == true) then
+      if ns.CapitalMiniMapIDs and ns.generalIcons and (value.showOnMinimap == true) then
         scale = db.MinimapCapitalsGeneralScale
         alpha = db.MinimapCapitalsGeneralAlpha
       end
@@ -832,6 +809,7 @@ local CapitalIDs = WorldMapFrame:GetMapID() == 84 or WorldMapFrame:GetMapID() ==
   end
 end
 
+
 local Addon = CreateFrame("Frame")
 Addon:RegisterEvent("PLAYER_LOGIN")
 Addon:SetScript("OnEvent", function(self, event, ...) return self[event](self, ...)end)
@@ -839,6 +817,31 @@ Addon:SetScript("OnEvent", function(self, event, ...) return self[event](self, .
 local function updateStuff()
   updateextraInformation()
   HandyNotes:SendMessage("HandyNotes_NotifyUpdate", "MapNotes")
+end
+
+function Addon:ZONE_CHANGED_NEW_AREA()
+  local mapID = C_Map.GetBestMapForUnit("player")
+  if mapID then
+    if ns.Addon.db.profile.activate.ZoneChanged then
+      print(TextIconMNL4:GetIconString() .. " " .. ns.COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00" .. " " .. L["Location"] .. ": ", "|cff00ff00" .. "==>  " .. C_Map.GetMapInfo(mapID).name .. "  <==")
+    end
+  end
+end
+
+local subzone = GetSubZoneText()
+function Addon:ZONE_CHANGED_INDOORS()
+    if ns.Addon.db.profile.activate.ZoneChanged then
+      print(TextIconMNL4:GetIconString() .. " " .. ns.COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00" .. " " .. L["Location"] .. ": ", "|cff00ff00" .. "==>  " .. "|cff00ff00" .. GetZoneText() .. " " .. "|cff00ccff" .. GetSubZoneText().. "|cff00ff00" .. "  <==")
+    end
+end
+
+function Addon:ZONE_CHANGED()
+  local mapID = C_Map.GetBestMapForUnit("player")
+  if mapID then
+    if ns.Addon.db.profile.activate.ZoneChanged then
+      print(TextIconMNL4:GetIconString() .. " " .. ns.COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00" .. " " .. L["Location"] .. ": ", "|cff00ff00" .. "==>  " .. GetZoneText() .. " " .. "|cff00ccff" .. GetSubZoneText() .. "|cff00ff00" .. "  <==")
+    end
+  end
 end
 
 function Addon:PLAYER_ENTERING_WORLD()
@@ -866,7 +869,12 @@ function Addon:PLAYER_LOGIN()
   LibStub("AceConfigRegistry-3.0"):RegisterOptionsTable("MapNotes", ns.options) -- MiniMapButton
 
   -- Check for any lockout changes when we zone
-  Addon:RegisterEvent("PLAYER_ENTERING_WORLD") 
+  Addon:RegisterEvent("PLAYER_ENTERING_WORLD")
+
+  -- Check if we changed the Zone
+  Addon:RegisterEvent("ZONE_CHANGED_NEW_AREA")
+  Addon:RegisterEvent("ZONE_CHANGED")
+  Addon:RegisterEvent("ZONE_CHANGED_INDOORS")
 
   if ns.Addon.db.profile.activate.HideMMB then -- minimap button
     MNMMBIcon:Hide("MNMiniMapButton")
@@ -893,12 +901,13 @@ function Addon:PLAYER_LOGIN()
     end
   end
 
-  hooksecurefunc(WorldMapFrame, "OnMapChanged", function()
+  hooksecurefunc(WorldMapFrame,"OnMapChanged", function()
     ns.RemoveBlizzPOIs()
   end)
 
   WorldMapFrame:HookScript("OnShow", function()
     ns.RemoveBlizzPOIs()
+    HandyNotes:SendMessage("HandyNotes_NotifyUpdate", "MapNotes")
   end)
 
 end
