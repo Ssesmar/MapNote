@@ -2,11 +2,17 @@
 local L = LibStub("AceLocale-3.0"):NewLocale(ADDON_NAME, "itIT")
 if not L then return end
 
+--0.2 Change Zones
+L["Location"] = "Posizione"
+L["Show Zone Names"] = "Mostra nomi di zone"
+L["You are now in"] = "Adesso sei dentro"
+L["When entering a new zone, the name of the new zone will be displayed in the chat"] = "Quando entri in una nuova zona, il nome della nuova zona verrà visualizzato nella chat"
+--0.3 Classic function Change
 L["Number"] = "Numero"
 L["Orientation"] = "Orientamento"
 L["Old icon style"] = "vecchio stile simbolo"
 L["Changes the appearance of the icons. When activated, the listed icons will be changed with the previous style of these icons"] = "Cambia l'aspetto delle icone. Una volta attivate, le icone elencate verranno modificate con lo stile precedente di queste icone"
---0 Restore
+--0.4 Restore
 L["canceled"] = "annullata"
 L["Delete this icon"] = "Elimina questa icona"
 L["A icon has been deleted"] = "È stato eliminato un simbolo"
@@ -14,7 +20,7 @@ L["Restore all deleted icons for different types of maps"] = "Ripristina tutte l
 L["Restore all deleted icons"] = "Ripristina tutte le icone cancellate"
 L["which you removed with the function"] = "che hai rimosso con la funzione"
 L["All deleted icons have been restored"] = "Tutte le icone cancellate sono state ripristinate"
---0.1 Sync function
+--0.5 Sync function
 L["synchronizes"] = "sincronizza"
 L["Synchronizes the Zones tab with the Minimap tab"] = "Sincronizza la scheda Zone con la scheda Minimappa"
 L["Which deactivates the functions from the Minimap tab and is now controlled together by the Zones tab"] = "Ciò disabilita le funzionalità nella scheda Minimappa e ora è controllata collettivamente tramite la scheda Zone"

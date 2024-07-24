@@ -1,7 +1,7 @@
 local ADDON_NAME, ns = ...
 
-ns.FogOfWarDataRetail =
-{
+ns.FogOfWarDataRetail = {
+	
 	-- Classic 
 	[2] = { -- Durotar
 		[89070981210552] = "440583",

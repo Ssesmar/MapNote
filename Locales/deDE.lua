@@ -2,11 +2,17 @@ local ADDON_NAME = ...
 local L = LibStub("AceLocale-3.0"):NewLocale(ADDON_NAME, "deDE")
 if not L then return end
 
+--0.2 Change Zones
+L["Location"] = "Standort"
+L["Show Zone Names"] = "Zeige Zonen Namen"
+L["You are now in"] = "Du bist in/im"
+L["When entering a new zone, the name of the new zone will be displayed in the chat"] = "Beim betreten einer neuen Zone wird der Name der neuen Zone im Chat angezeigt"
+--0.3 Classic function Change
 L["Number"] = "Nummer"
 L["Orientation"] = "Orientierung"
 L["Old icon style"] = "Alter Symbol Stil"
 L["Changes the appearance of the icons. When activated, the listed icons will be changed with the previous style of these icons"] = "Ändert das Aussehen der Symbole. Bei aktivierung werden die aufgelisteten Icons mit dem vorherigen Style dieser Icons geändert"
---0 Restore
+--0.4 Restore
 L["canceled"] = "abgebrochen"
 L["Delete this icon"] = "Dieses Symbol löschen"
 L["A icon has been deleted"] = "Ein Symbol wurde gelöscht"
@@ -14,7 +20,7 @@ L["Restore all deleted icons for different types of maps"] = "Stellen Sie alle g
 L["Restore all deleted icons"] = "Stellen Sie alle gelöschten Symbole wieder her"
 L["which you removed with the function"] = "die Sie entfernt haben mit der Funktion"
 L["All deleted icons have been restored"] = "Alle gelöschten Symbole wurden wiederhergestellt"
---0.1 Sync function
+--0.5 Sync function
 L["synchronizes"] = "synchronisiert"
 L["Synchronizes the Zones tab with the Minimap tab"] = "Synchronisiert die Registerkarte „Zonen“ mit der Registerkarte „Minikarte“"
 L["Which deactivates the functions from the Minimap tab and is now controlled together by the Zones tab"] = "Dadurch werden die Funktionen auf der Registerkarte „Minikarte“ deaktiviert und jetzt gemeinsam über die Registerkarte „Zonen“ gesteuert"

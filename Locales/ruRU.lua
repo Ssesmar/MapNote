@@ -2,11 +2,17 @@ local ADDON_NAME = ...
 local L = LibStub("AceLocale-3.0"):NewLocale(ADDON_NAME, "ruRU")
 if not L then return end
 
+--0.2 Change Zones
+L["Location"] = "Расположение"
+L["Show Zone Names"] = "Показать имена зон"
+L["You are now in"] = "Вы сейчас находитесь в"
+L["When entering a new zone, the name of the new zone will be displayed in the chat"] = "При входе в новую зону в чате будет отображаться название новой зоны"
+--0.3 Classic function Change
 L["Number"] = "Число"
 L["Orientation"] = "Ориентация"
 L["Old icon style"] = "старый стиль символов"
 L["Changes the appearance of the icons. When activated, the listed icons will be changed with the previous style of these icons"] = "Изменяет внешний вид иконок. При активации перечисленные значки будут изменены на предыдущий стиль этих значков"
---0 Restore
+--0.4 Restore
 L["canceled"] = "отменен"
 L["Delete this icon"] = "Удалить этот значок"
 L["A icon has been deleted"] = "Символ был удален"
@@ -14,7 +20,7 @@ L["Restore all deleted icons for different types of maps"] = "Восстанов
 L["Restore all deleted icons"] = "Восстановить все удаленные значки"
 L["which you removed with the function"] = "что вы удалили с функцией"
 L["All deleted icons have been restored"] = "Все удаленные значки восстановлены"
---0.1 Sync function
+--0.5 Sync function
 L["synchronizes"] = "синхронизирует"
 L["Synchronizes the Zones tab with the Minimap tab"] = "Синхронизирует вкладку «Зоны» с вкладкой «Миникарта»"
 L["Which deactivates the functions from the Minimap tab and is now controlled together by the Zones tab"] = "Это отключает функции на вкладке «Мини-карта», и теперь управление ими осуществляется коллективно через вкладку «Зоны»"

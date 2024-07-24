@@ -34,6 +34,11 @@ if not db.activate.HideMapNote then
             --Professions Orgrimmar
                 if self.db.profile.activate.CapitalsProfessions then
 
+                    if self.db.profile.showCapitalsFirstAid then
+                        nodes[1454][37608720] = { name = PROFESSIONS_FIRST_AID, type = "FirstAid", showInZone = true, showOnContinent = false, showOnMinimap = false, TransportName = MINIMAP_TRACKING_TRAINER_PROFESSION }
+                        nodes[1454][34008440] = { name = PROFESSIONS_FIRST_AID, type = "FirstAid", showInZone = true, showOnContinent = false, showOnMinimap = false, TransportName = MINIMAP_TRACKING_TRAINER_PROFESSION }
+                    end
+
                     if self.db.profile.showCapitalsAlchemy then
                         nodes[1454][55684575] = { name = L["Alchemy"], type = "Alchemy", showInZone = true, showOnContinent = false, showOnMinimap = false, TransportName = MINIMAP_TRACKING_TRAINER_PROFESSION }
                     end
@@ -205,6 +210,10 @@ if not db.activate.HideMapNote then
             --Professions Thunder Bluff
                 if self.db.profile.activate.CapitalsProfessions then
 
+                    if self.db.profile.showCapitalsFirstAid then
+                        nodes[1456][29602160] = { name = PROFESSIONS_FIRST_AID, type = "FirstAid", showInZone = true, showOnContinent = false, showOnMinimap = false, TransportName = MINIMAP_TRACKING_TRAINER_PROFESSION }
+                    end
+
                     if self.db.profile.showCapitalsAlchemy then
                         nodes[1456][46643317] = { name = L["Alchemy"], type = "Alchemy", showInZone = true, showOnContinent = false, showOnMinimap = false, TransportName = MINIMAP_TRACKING_TRAINER_PROFESSION }
                     end
@@ -324,6 +333,10 @@ if not db.activate.HideMapNote then
             --Professions Silvermoon
                 if self.db.profile.activate.CapitalsProfessions then
 
+                    if self.db.profile.showCapitalsFirstAid then
+                        nodes[1954][78007040] = { name = PROFESSIONS_FIRST_AID, type = "FirstAid", showInZone = true, showOnContinent = false, showOnMinimap = false, TransportName = MINIMAP_TRACKING_TRAINER_PROFESSION }
+                    end
+
                     if self.db.profile.showCapitalsAlchemy then
                         nodes[1954][66701673] = { name = L["Alchemy"], type = "Alchemy", showInZone = true, showOnContinent = false, showOnMinimap = false, TransportName = MINIMAP_TRACKING_TRAINER_PROFESSION }
                     end
@@ -434,6 +447,10 @@ if not db.activate.HideMapNote then
 
             --Professions Undercity
                 if self.db.profile.activate.CapitalsProfessions then
+
+                    if self.db.profile.showCapitalsFirstAid then
+                        nodes[1458][73605560] = { name = PROFESSIONS_FIRST_AID, type = "FirstAid", showInZone = true, showOnContinent = false, showOnMinimap = false, TransportName = MINIMAP_TRACKING_TRAINER_PROFESSION }
+                    end
 
                     if self.db.profile.showCapitalsAlchemy then
                         nodes[1458][47757332] = { name = L["Alchemy"], type = "Alchemy", showInZone = true, showOnContinent = false, showOnMinimap = false, TransportName = MINIMAP_TRACKING_TRAINER_PROFESSION }
@@ -610,6 +627,11 @@ if not db.activate.HideMapNote then
             --Professions Stormwind
                 if self.db.profile.activate.CapitalsProfessions then
 
+                    if self.db.profile.showCapitalsFirstAid then
+                        nodes[1453][52204560] = { name = PROFESSIONS_FIRST_AID, type = "FirstAid", showInZone = true, showOnContinent = false, showOnMinimap = false, TransportName = MINIMAP_TRACKING_TRAINER_PROFESSION }
+                        nodes[1453][52804480] = { name = PROFESSIONS_FIRST_AID, type = "FirstAid", showInZone = true, showOnContinent = false, showOnMinimap = false, TransportName = MINIMAP_TRACKING_TRAINER_PROFESSION }
+                    end
+
                     if self.db.profile.showCapitalsAlchemy then
                         nodes[1453][55668610] = { name = L["Alchemy"], type = "Alchemy", showInZone = true, showOnContinent = false, showOnMinimap = false, TransportName = MINIMAP_TRACKING_TRAINER_PROFESSION }
                     end
@@ -734,6 +756,10 @@ if not db.activate.HideMapNote then
 
             --Professions ironforge
                 if self.db.profile.activate.CapitalsProfessions then
+
+                    if self.db.profile.showCapitalsFirstAid then
+                        nodes[1455][54805860] = { name = PROFESSIONS_FIRST_AID, type = "FirstAid", showInZone = true, showOnContinent = false, showOnMinimap = false, TransportName = MINIMAP_TRACKING_TRAINER_PROFESSION }
+                    end
 
                     if self.db.profile.showCapitalsAlchemy then
                         nodes[1455][66615566] = { name = L["Alchemy"], type = "Alchemy", showInZone = true, showOnContinent = false, showOnMinimap = false, TransportName = MINIMAP_TRACKING_TRAINER_PROFESSION }
@@ -884,6 +910,10 @@ if not db.activate.HideMapNote then
             --Professions Darnassus
                 if self.db.profile.activate.CapitalsProfessions then
 
+                    if self.db.profile.showCapitalsFirstAid then
+                        nodes[1457][51601360] = { name = PROFESSIONS_FIRST_AID, type = "FirstAid", showInZone = true, showOnContinent = false, showOnMinimap = false, TransportName = MINIMAP_TRACKING_TRAINER_PROFESSION }
+                    end
+
                     if self.db.profile.showCapitalsAlchemy then
                         nodes[1457][53913853] = { name = L["Alchemy"], type = "Alchemy", showInZone = true, showOnContinent = false, showOnMinimap = false, TransportName = MINIMAP_TRACKING_TRAINER_PROFESSION }
                     end
@@ -993,6 +1023,10 @@ if not db.activate.HideMapNote then
 
             --Professions Exodar
                 if self.db.profile.activate.CapitalsProfessions then
+
+                    if self.db.profile.showCapitalsFirstAid then
+                        nodes[1947][39602260] = { name = PROFESSIONS_FIRST_AID, type = "FirstAid", showInZone = true, showOnContinent = false, showOnMinimap = false, TransportName = MINIMAP_TRACKING_TRAINER_PROFESSION .. "\n" .. ERR_USE_OBJECT_MOVING }
+                    end
 
                     if self.db.profile.showCapitalsAlchemy then
                         nodes[1947][27766078] = { name = L["Alchemy"], type = "Alchemy", showInZone = true, showOnContinent = false, showOnMinimap = false, TransportName = MINIMAP_TRACKING_TRAINER_PROFESSION }
@@ -1126,6 +1160,11 @@ if not db.activate.HideMapNote then
 
         --Professions Shattrath
             if self.db.profile.activate.CapitalsProfessions then
+
+                if self.db.profile.showCapitalsFirstAid then
+                    nodes[1955][66601360] = { name = PROFESSIONS_FIRST_AID, type = "FirstAid", showInZone = true, showOnContinent = false, showOnMinimap = false, TransportName = MINIMAP_TRACKING_TRAINER_PROFESSION }
+                    nodes[1955][43809040] = { name = PROFESSIONS_FIRST_AID .. " - " .. L["The Scryers"], type = "FirstAid", showInZone = true, showOnContinent = false, showOnMinimap = false, TransportName = MINIMAP_TRACKING_TRAINER_PROFESSION }
+                end
 
                 if self.db.profile.showCapitalsAlchemy then
                     nodes[1955][37977048] = { name = L["Alchemy"] .. " - " .. L["The Scryers"], type = "Alchemy", showInZone = true, showOnContinent = false, showOnMinimap = false, TransportName = MINIMAP_TRACKING_TRAINER_PROFESSION }
@@ -1294,6 +1333,10 @@ if not db.activate.HideMapNote then
 
         --Professions Dalaran Northrend
             if self.db.profile.activate.CapitalsProfessions then
+
+                if self.db.profile.showCapitalsFirstAid then
+                    nodes[125][36803720] = { name = PROFESSIONS_FIRST_AID, type = "FirstAid", showInZone = true, showOnContinent = false, showOnMinimap = false, TransportName = MINIMAP_TRACKING_TRAINER_PROFESSION }
+                end
 
                 if self.db.profile.showCapitalsAlchemy then
                     nodes[125][42633205] = { name = L["Alchemy"], type = "Alchemy", showInZone = true, showOnContinent = false, showOnMinimap = false, TransportName = MINIMAP_TRACKING_TRAINER_PROFESSION }

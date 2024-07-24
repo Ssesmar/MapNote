@@ -1,8 +1,51 @@
 # MapNote
-## [2.0.8](https://github.com/Ssesmar/MapNote) (2024-07-14)
+## [2.1.1](https://github.com/Ssesmar/MapNote) (2024-07-24)
 - Note:
 
 -- MapNotes now works on every version of World of Warcraft. Classic Era / Cataclysm / Retail / PTR
+
+Version: 2.1.1
+
+PTR TWW:
+• fixed the Mist of the Unexplored function
+• The 4 color picker options (black, red, green and blue) for the fog have been removed and replaced with a new function (color picker)
+• A color picker has been added to the Mist of the Unexplored feature so you can choose any color and visibility to your liking
+• If you don't want a color, disable the Mist of the Unexplored feature and the color picker will automatically be disabled with it
+
+Retail:
+• fixed the Mist of the Unexplored function
+• The 4 color picker options (black, red, green and blue) for the fog have been removed and replaced with a new function (color picker)
+• A color picker has been added to the Mist of the Unexplored feature so you can choose any color and visibility to your liking
+• If you don't want a color, disable the Mist of the Unexplored feature and the color picker will automatically be disabled with it
+
+Version: 2.1.0
+
+PTR TWW:
+• Add a function to show Zone names in chat when i enter a new Zone
+• The minimap display scaling has been improved, so that the scaling is now applied correctly when changing from a zone to a capital or dungeon
+• The color selector for Mists of the Unexplored has been temporarily disabled due to a bug in Patch 11.0 until the issue is resolved. The Unexplored Areas feature itself remains unaffected
+
+Retail: 
+• Add a function to show Zone names in chat when i enter a new Zone
+• The minimap display scaling has been improved, so that the scaling is now applied correctly when changing from a zone to a capital or dungeon
+• The color selector for Mists of the Unexplored has been temporarily disabled due to a bug in Patch 11.0 until the issue is resolved. The Unexplored Areas feature itself remains unaffected
+
+Cataclysm:
+• Add a function to show Zone names in chat when i enter a new Zone
+• The minimap display scaling has been improved, so that the scaling is now applied correctly when changing from a zone to a capital or dungeon
+• added Innkeeper, Mailboxes and Stablemaster icon on every zone and minimap
+
+Classic:
+• Add a function to show Zone names in chat when i enter a new Zone
+• The minimap display scaling has been improved, so that the scaling is now applied correctly when changing from a zone to a capital or dungeon
+
+Version: 2.0.9
+
+Retail:
+• reworked zhCN translation file thx to 枫聖御雷
+
+Cataclysm:
+• add First Aid icons to Capitals and Minimap Capitals Tab
 
 Version: 2.0.8
 

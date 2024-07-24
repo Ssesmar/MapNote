@@ -12,6 +12,8 @@
     <Script file="CataCapitals.lua"/>
     <Script file="CataCapitalsMinimap.lua"/>
     <Script file="CataPathsZoneNodes.lua"/>
+    <Script file="CataGeneralMiniMapNodes.lua"/>
+    <Script file="CataGeneralZoneNodes.lua"/>
     <Script file="CataPathsMiniMapNodes.lua"/>
     <Script file="CataBlizzAreaPoisNodesInfo.lua"/>
 </Ui>

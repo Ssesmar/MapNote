@@ -2,11 +2,17 @@
 local L = LibStub("AceLocale-3.0"):NewLocale(ADDON_NAME, "koKR")
 if not L then return end
 
+--0.2 Change Zones
+L["Location"] = "위치"
+L["Show Zone Names"] = "영역 이름 표시"
+L["You are now in"] = "당신은 지금"
+L["When entering a new zone, the name of the new zone will be displayed in the chat"] = "새로운 구역에 입장하면 채팅창에 해당 구역의 이름이 표시됩니다"
+--0.3 Classic function Change
 L["Number"] = "숫자"
 L["Orientation"] = "정위"
 L["Old icon style"] = "오래된 기호 스타일"
 L["Changes the appearance of the icons. When activated, the listed icons will be changed with the previous style of these icons"] = "아이콘의 모양을 변경합니다. 활성화되면 나열된 아이콘이 해당 아이콘의 이전 스타일로 변경됩니다"
---0 Restore
+--0.4 Restore
 L["canceled"] = "취소 된"
 L["Delete this icon"] = "이 아이콘을 삭제하십시오"
 L["A icon has been deleted"] = "기호가 삭제되었습니다"
@@ -14,7 +20,7 @@ L["Restore all deleted icons for different types of maps"] = "다양한 유형�
 L["Restore all deleted icons"] = "삭제된 아이콘 모두 복원"
 L["which you removed with the function"] = "기능으로 제거했습니다"
 L["All deleted icons have been restored"] = "삭제된 아이콘은 모두 복원되었습니다"
---0.1 Sync function
+--0.5 Sync function
 L["synchronizes"] = "동기화하다"
 L["Synchronizes the Zones tab with the Minimap tab"] = "구역 탭을 미니맵 탭과 동기화합니다"
 L["Which deactivates the functions from the Minimap tab and is now controlled together by the Zones tab"] = "이렇게 하면 미니맵 탭의 기능이 비활성화되고 이제 구역 탭을 통해 전체적으로 제어됩니다"

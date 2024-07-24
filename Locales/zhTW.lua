@@ -2,11 +2,17 @@ local ADDON_NAME = ...
 local L = LibStub("AceLocale-3.0"):NewLocale(ADDON_NAME, "zhTW")
 if not L then return end
 
+--0.2 Change Zones
+L["Location"] = "地點"
+L["Show Zone Names"] = "顯示區域名稱"
+L["You are now in"] = "你現在在"
+L["When entering a new zone, the name of the new zone will be displayed in the chat"] = "進入新區域時，聊天中會顯示新區域的名稱"
+--0.3 Classic function Change
 L["Number"] = "數位"
 L["Orientation"] = "方向"
 L["Old icon style"] = "舊符號樣式"
 L["Changes the appearance of the icons. When activated, the listed icons will be changed with the previous style of these icons"] = "更改圖示的外觀。啟動後，列出的圖示將變更為這些圖示之前的樣式"
---0 Restore
+--0.4 Restore
 L["canceled"] = "取消"
 L["Delete this icon"] = "刪除此圖標"
 L["A icon has been deleted"] = "符號被刪除"
@@ -14,7 +20,7 @@ L["Restore all deleted icons for different types of maps"] = "恢復不同類型
 L["Restore all deleted icons"] = "恢復所有已刪除的圖標"
 L["which you removed with the function"] = "您已經使用該功能刪除了"
 L["All deleted icons have been restored"] = "所有刪除的圖示均已恢復"
---0.1 Sync function
+--0.5 Sync function
 L["synchronizes"] = "同步"
 L["Synchronizes the Zones tab with the Minimap tab"] = "將“區域”選項卡與“小地圖”選項卡同步“"
 L["Which deactivates the functions from the Minimap tab and is now controlled together by the Zones tab"] = "這會停用「小地圖」標籤上的功能，現在透過「區域」標籤集中控制"

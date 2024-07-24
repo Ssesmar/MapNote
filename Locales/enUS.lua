@@ -2,11 +2,17 @@ local ADDON_NAME = ...
 local L = LibStub("AceLocale-3.0"):NewLocale(ADDON_NAME, "enUS", true)
 
 
+--0.2 Change Zones
+L["Location"] = true
+L["Show Zone Names"] = true
+L["You are now in"] = true
+L["When entering a new zone, the name of the new zone will be displayed in the chat"] = true
+--0.3 Classic function Change
 L["Number"] = true
 L["Orientation"] = true
 L["Old icon style"] = true
 L["Changes the appearance of the icons. When activated, the listed icons will be changed with the previous style of these icons"] = true
---0 Restore
+--0.4 Restore
 L["canceled"] = true
 L["Delete this icon"] = true
 L["A icon has been deleted"] = true
@@ -14,7 +20,7 @@ L["Restore all deleted icons for different types of maps"] = true
 L["Restore all deleted icons"] = true
 L["which you removed with the function"] = true
 L["All deleted icons have been restored"] = true
---0.1 Sync function
+--0.5 Sync function
 L["synchronizes"] = true
 L["Synchronizes the Zones tab with the Minimap tab"] = true
 L["Which deactivates the functions from the Minimap tab and is now controlled together by the Zones tab"] = true
