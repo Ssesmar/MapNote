@@ -99,6 +99,7 @@ nodes[1955] = { } -- Shattrath
 nodes[407] = { } -- Darkmoon
 nodes[946] = { } -- Worldmap
 nodes[947] = { } -- Azeroth
+nodes[971] = { } -- Telogros Rift
 
 --############################
 --######### Kalimdor #########

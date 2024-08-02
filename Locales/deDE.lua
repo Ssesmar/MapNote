@@ -2,9 +2,17 @@ local ADDON_NAME = ...
 local L = LibStub("AceLocale-3.0"):NewLocale(ADDON_NAME, "deDE")
 if not L then return end
 
+--0.1 profiles
+L["Profile has been changed"] = "Profil wurde gewechselt"
+L["Profile has been reset to default"] = "Profil wurde auf die Standardeinstellungen zurückgesetzt"
+L["Profile has been adopted"] = "Profil wurde übernommen"
+L["Profile has been deleted"] = "Profil wurde gelöscht"
 --0.2 Change Zones
 L["Location"] = "Standort"
+L["Show joined zone names in chat"] = "Zeige beigetretenen Zonen namen im Chat"
+L["Capital cities are excluded from this because there would be too much chat spam"] = "Hauptstädte sind hiervon ausgenommen, da es zu viel Chat-Spam geben würde"
 L["Show Zone Names"] = "Zeige Zonen Namen"
+L["In addition to the zone names, it also displays the names of specific locations within a zone. Disabling the Show Zone Names feature will also disable this feature"] = "Zusätzlich zu den Zonennamen werden auch die Namen bestimmter Orte innerhalb einer Zone angezeigt. Durch Deaktivieren der Funktion „Zonennamen anzeigen“ wird auch diese Funktion deaktiviert"
 L["You are now in"] = "Du bist in/im"
 L["When entering a new zone, the name of the new zone will be displayed in the chat"] = "Beim betreten einer neuen Zone wird der Name der neuen Zone im Chat angezeigt"
 --0.3 Classic function Change
@@ -255,6 +263,7 @@ L["(inside portal chamber)"] = "(in der Portalkammer)"
 L["(inside building)"] = "(im Gebäude)"
 L["talk to"] = "rede mit"
 --10 places
+L["Telogrus Rift"] = "Der Telogrusriss"
 L["Sholazar Basin"] = "Sholazarbecken"
 L["Un'Goro Crater"] = "Un'Goro-Krater"
 L["Auberdine"] = "Auberdine"

@@ -19,6 +19,10 @@ ns.BlizzAreaPoisInfo = {
     7945, -- Ship Icon Gilneas to Bel Ameth
     7944, -- Ship Icon Bel Ameth to Gilneas
 
+    7959, -- Portal to Dalaran from Dustwallow - TWW Pre Event
+    7960, -- Portal to Dalaran from Dragonblight - TWW Pre Event
+    7961, -- Portal to Dalaran from Searing Gorge - TWW Pre Event
+
     -- City Alliance
     8, -- Ironforge Icon
     11, -- Menethil Harbor
@@ -36,6 +40,7 @@ ns.BlizzAreaPoisInfo = {
     5877, -- Borean Tundra Ship to Stormwind
     5878, -- Stormwind Ship to Vallianz
     5879, -- Stormwind Ship to Boralus
+    7335, -- Stormwind Ship to Dragon Isles
 
     -- City Horde
     18, -- Undercity

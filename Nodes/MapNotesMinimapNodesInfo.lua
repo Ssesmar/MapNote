@@ -100,6 +100,7 @@ minimap[1955] = { } -- Shattrath
 minimap[407] = { } -- Darkmoon
 minimap[946] = { } -- WorldMap
 minimap[947] = { } -- Azeroth
+minimap[971] = { } -- Telogros Rift
 
 --############################
 --######### Kalimdor #########

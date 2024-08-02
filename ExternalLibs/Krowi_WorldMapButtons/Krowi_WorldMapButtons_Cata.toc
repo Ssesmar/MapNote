@@ -16,7 +16,7 @@
 #		All rights not explicitly addressed in this license are reserved by
 #		the copyright holders.
 
-## Interface: 20403
+## Interface: 40400
 ## Title: Krowi's |cFF1D92C2World Map Buttons|r
 ## Version: 1.4.6
 ## Author: Krowi

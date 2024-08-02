@@ -2,9 +2,17 @@ local ADDON_NAME = ...
 local L = LibStub("AceLocale-3.0"):NewLocale(ADDON_NAME, "esMX")
 if not L then return end
 
+--0.1 profiles
+L["Profile has been changed"] = "El perfil fue cambiado"
+L["Profile has been reset to default"] = "El perfil se restableció a la configuración predeterminada"
+L["Profile has been adopted"] = "El perfil fue asumido"
+L["Profile has been deleted"] = "El perfil fue eliminado"
 --0.2 Change Zones
 L["Location"] = "Ubicación"
+L["Show joined zone names in chat"] = "Mostrar nombres de zonas unidas en el chat"
+L["Capital cities are excluded from this because there would be too much chat spam"] = "Las capitales están excluidas de esto porque habría demasiado spam en el chat"
 L["Show Zone Names"] = "Mostrar nombres de zonas"
+L["In addition to the zone names, it also displays the names of specific locations within a zone. Disabling the Show Zone Names feature will also disable this feature"] = "Además de los nombres de las zonas, también muestra los nombres de ubicaciones específicas dentro de una zona. Al deshabilitar la función Mostrar nombres de zonas también se deshabilitará esta función"
 L["You are now in"] = "Ahora estás en"
 L["When entering a new zone, the name of the new zone will be displayed in the chat"] = "Al ingresar a una nueva zona, el nombre de la nueva zona se mostrará en el chat"
 --0.3 Classic function Change
@@ -255,6 +263,7 @@ L["(inside portal chamber)"] = "(dentro de la cámara del portal)"
 L["(inside building)"] = "(dentro del edificio)"
 L["talk to"] = "hablar con"
 --10 places
+L["Telogrus Rift"] = "Falla de Telogrus"
 L["Sholazar Basin"] = "Cuenca de Sholazar"
 L["Un'Goro Crater"] = "Cráter de Un'Goro"
 L["Auberdine"] = "Auberdine"
@@ -400,10 +409,10 @@ L["Reforge"] = "Reforjar"
 L["Khaz Algar"] = "Khaz Algar"
 L["Dornogal"] = "Dornogal"
 L["Catalyst"] = "Catalyst"
-L["Merchant for Renown items"] = "Merchant for Renown items"
-L["Council of Dornogal"] = "Council of Dornogal"
-L["The Assembly of the Deeps"] = "The Assembly of the Deeps"
-L["Hallowfall Arathi"] = "Hallowfall Arathi"
+L["Merchant for Renown items"] = "Comerciante para artículos de renombre"
+L["Council of Dornogal"] = "Consejo de Dornogal"
+L["The Assembly of the Deeps"] = "La Asamblea de las Profundidades"
+L["Hallowfall Arathi"] = "Arathi de Santificación"
 -- 14
 L["Displays zone icons on a specific continent"] = "Muestra iconos de zona en un continente específico"
 L["If you don't see this icon, it's probably in a different phase. \nChange the phase on Zidormi"] = "Si no ve este ícono, probablemente esté en una fase diferente. \nCambiar la fase en Zidormi"

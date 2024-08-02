@@ -44,6 +44,10 @@ if not db.activate.HideMapNote then
           -- Kalimdor Portals
             if self.db.profile.showMiniMapPortals then
 
+            --TWW Pre Event Portal nodes
+            minimap[70][45745721] = { mnID = 629, name = "", type = "Portal", showInZone = false, showOnContinent = false, showOnMinimap = true } -- Portal To Dalaran
+            --------------------------------------------------------------------------------------------------------------------------------------------------------
+
               minimap[57][26305072] = { mnID = 89, name = "", type = "Portal", showInZone = false, showOnContinent = false, showOnMinimap = true, TransportName = L["Darnassus"] .. " " .. L["Portal"] .. "\n" .. " ==> " .. L["Rut'theran"] } -- Portal To Teldrassil from Darnassus
               minimap[57][54998820] = { mnID = 89, name = "", type = "Portal", showInZone = false, showOnContinent = false, showOnMinimap = true, TransportName = L["Portal"] .. " ==> " .. L["Darnassus"] } -- Portal To Darnassus from Teldrassil
               minimap[78][50560773] = { mnID = 119, name = "", type = "Portal", showInZone = false, showOnContinent = false, showOnMinimap = true, dnID = L["Portal"] } -- Portal Unguro to Sholazar
@@ -133,6 +137,10 @@ if not db.activate.HideMapNote then
 
           --Eastern Kingdom Portals
             if self.db.profile.showMiniMapPortals then
+
+              --TWW Pre Event Portal nodes
+              minimap[32][41736756] = { mnID = 629, name = "", type = "Portal", showInZone = false, showOnContinent = false, showOnMinimap = true } -- Portal To Dalaran
+              ------------------------------------------------------------------------------------------------------------------------------------------------------------
 
               minimap[244][47135189] = { mnID = 85, name = "", type = "Portal", showInZone = false, showOnContinent = false, showOnMinimap = true, TransportName = L["Portal"] .."\n" .. "\n" .. " ==> " .. ORGRIMMAR .. "\n" .. " " .. JUST_OR .. "\n" .. " ==> " .. STORMWIND } -- Portal Tol Orgrimmar or Stormwind from Baradinhold Tol Barad pvp Area
 
@@ -278,6 +286,11 @@ if not db.activate.HideMapNote then
 
           -- Northrend Portal
             if self.db.profile.showMiniMapPortals then
+
+              --TWW Pre Event Portal nodes
+              minimap[115][59835193] = { mnID = 629, name = "", type = "Portal", showInZone = false, showOnContinent = false, showOnMinimap = true } -- Portal To Dalaran
+              --------------------------------------------------------------------------------------------------------------------------------------------------------
+
               minimap[123][49111534] = { mnID = 125, name = "", type = "Portal", showInZone = false, showOnContinent = false, showOnMinimap = true, TransportName = L["Portal"] .. " ==> " .. DUNGEON_FLOOR_DALARANCITY1  } -- LakeWintergrasp to Dalaran Portal 
               minimap[127][15724250] = { mnID = 125, TransportName = BATTLE_PET_SOURCE_2 .. " " .. REQUIRES_LABEL .. " " .. "The Magical Kingdom of Dalaran", type = "Portal", showInZone = false, showOnContinent = false, showOnMinimap = true, name = L["Portal"] .. " ==> " .. DUNGEON_FLOOR_DALARANCITY1, showWWW = true, www = "https://www.wowhead.com/wotlk/quest=12791/the-magical-kingdom-of-dalaran"} -- LakeWintergrasp to Dalaran Portal 
               minimap[119][40328303] = { mnID = 78, name = "", type = "Portal", showInZone = false, showOnContinent = false, showOnMinimap = true, dnID = L["Portal"] } -- Portal Sholazar to Unguro
@@ -443,6 +456,7 @@ if not db.activate.HideMapNote then
           --Broken Isles Portals
             if self.db.profile.showMiniMapPortals then
               minimap[630][46674136] = { name = "", type = "Portal", showInZone = false, showOnContinent = false, showOnMinimap = true, TransportName = L["Portal"] .. "\n" .. " ==> " .. ORGRIMMAR .. "\n" .. " ==> " .. STORMWIND} -- Portal to Orgrimmar from Azsuna
+              minimap[971][24952789] = { name = "", type = "Portal", mnID = 629, showInZone = false, showOnContinent = false, showOnMinimap = true, TransportName = L["Portal"] .. " ==> " .. DUNGEON_FLOOR_DALARANCITY1 } -- Portal to Dalaran
     
               if self.faction == "Horde" or db.activate.MiniMapEnemyFaction then
                 minimap[652][46176383] = { mnID = 85, name = "" , type = "HPortal", showInZone = true, showOnMinimap = true, TransportName = L["Portal"] .. " ==> " .. ORGRIMMAR } -- Thundertotem to Ogrimmar
@@ -450,6 +464,7 @@ if not db.activate.HideMapNote then
               end
 
               if self.faction == "Alliance" or db.activate.MiniMapEnemyFaction then
+                minimap[971][27992149] = { name = "", type = "APortal", mnID = 629, showInZone = false, showOnContinent = false, showOnMinimap = true, TransportName = L["Portal"] .. " ==> " .. STORMWIND } -- Portal to Stormwind
                 minimap[941][43092506] = { mnID = 84, name = "" , type = "APortal", showInZone = false, showOnContinent = false, showOnMinimap = true, TransportName = L["Portal"] .. " ==> " .. STORMWIND } --  Portal from Krokuun - Vindikaar to Stormwind
                 minimap[680][58678764] = { mnID = 84, name = "" , type = "APortal", showInZone = false, showOnContinent = false, showOnMinimap = true, TransportName = L["Portal"] .. " ==> " .. STORMWIND } --  Portal from Krokuun - Vindikaar to Stormwind
               end

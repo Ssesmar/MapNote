@@ -145,7 +145,7 @@ if not db.activate.HideMapNote then
                 if self.db.profile.activate.CapitalsInstances then
     
                     if self.db.profile.showCapitalsDungeons then
-                        nodes[1454][56615109] = { mnID = 86, name = DUNGEON_FLOOR_RAGEFIRE1 .. " " .. "[" .. GARRISON_TIER .. ": " .. "13-18]", dnID = REQUIRES_LABEL .. " " .. MINIMUM .. " " .. GARRISON_TIER .. " " .. "8", type = "PassageDungeon", showInZone = true, showOnContinent = false, showOnMinimap = false }
+                        nodes[1454][56615109] = { mnID = 86, name = DUNGEON_FLOOR_RAGEFIRE1 .. " " .. "[" .. LEVEL .. ": " .. "13-18]", dnID = REQUIRES_LABEL .. " " .. MINIMUM .. " " .. LEVEL .. " " .. "8", type = "PassageDungeon", showInZone = true, showOnContinent = false, showOnMinimap = false }
                     end
 
                 end
@@ -587,7 +587,7 @@ if not db.activate.HideMapNote then
                 if self.db.profile.activate.CapitalsInstances then
     
                     if self.db.profile.showCapitalsDungeons then
-                        nodes[1453][50356644] = { mnID = 1453, name = DUNGEON_FLOOR_THESTOCKADE1 .. " " .. "[" .. GARRISON_TIER .. ": " .. "22-30]", dnID = REQUIRES_LABEL .. " " .. MINIMUM .. " " .. GARRISON_TIER .. " " .. "15", type = "Dungeon", showInZone = true, showOnContinent = false, showOnMinimap = false }
+                        nodes[1453][50356644] = { mnID = 1453, name = DUNGEON_FLOOR_THESTOCKADE1 .. " " .. "[" .. LEVEL .. ": " .. "22-30]", dnID = REQUIRES_LABEL .. " " .. MINIMUM .. " " .. LEVEL .. " " .. "15", type = "Dungeon", showInZone = true, showOnContinent = false, showOnMinimap = false }
                     end
 
                 end
@@ -1253,7 +1253,7 @@ if not db.activate.HideMapNote then
             if self.db.profile.activate.CapitalsInstances then
 
                 if self.db.profile.showCapitalsDungeons then
-                    nodes[125][66976828] = { mnID = 125, showInZone = true, showOnContinent = false, showOnMinimap = false, name = DUNGEON_FLOOR_VIOLETHOLD1 .. " " .. "[" .. GARRISON_TIER .. ": " .. "75-77]", type = "Dungeon" } -- Violet Hold
+                    nodes[125][66976828] = { mnID = 125, showInZone = true, showOnContinent = false, showOnMinimap = false, name = DUNGEON_FLOOR_VIOLETHOLD1 .. " " .. "[" .. LEVEL .. ": " .. "75-77]", type = "Dungeon" } -- Violet Hold
                 end
 
             end

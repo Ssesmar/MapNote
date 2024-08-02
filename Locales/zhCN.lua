@@ -2,9 +2,17 @@
 local L = LibStub("AceLocale-3.0"):NewLocale(ADDON_NAME, "zhCN")
 if not L then return end
 
+--0.1 profiles
+L["Profile has been changed"] = "个人资料已更改"
+L["Profile has been reset to default"] = "配置文件已重置为默认设置"
+L["Profile has been adopted"] = "配置文件已接管"
+L["Profile has been deleted"] = "配置文件已删除"
 --0.2 Change Zones
 L["Location"] = "地点"
+L["Show joined zone names in chat"] = "在聊天中显示加入的区域名称"
+L["Capital cities are excluded from this because there would be too much chat spam"] = "首府城市被排除在外，因为那里会有太多的聊天垃圾邮件"
 L["Show Zone Names"] = "显示区域名称"
+L["In addition to the zone names, it also displays the names of specific locations within a zone. Disabling the Show Zone Names feature will also disable this feature"] = "除了区域名称之外，它还显示区域内特定位置的名称。禁用“显示区域名称”功能也会禁用此功能"
 L["You are now in"] = "你现在在"
 L["When entering a new zone, the name of the new zone will be displayed in the chat"] = "进入新区域时，聊天中会显示新区域的名称"
 --0.3 Classic function Change
@@ -255,6 +263,7 @@ L["(inside portal chamber)"] = "（室内传送门）"
 L["(inside building)"] = "（建筑物内）"
 L["talk to"] = "与之交谈"
 --10 places
+L["Telogrus Rift"] = "泰洛古斯裂隙"
 L["Sholazar Basin"] = "索拉查盆地"
 L["Un'Goro Crater"] = "安戈洛环形山"
 L["Auberdine"] = "奥伯丁"

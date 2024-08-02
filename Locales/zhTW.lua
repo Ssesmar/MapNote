@@ -2,9 +2,17 @@ local ADDON_NAME = ...
 local L = LibStub("AceLocale-3.0"):NewLocale(ADDON_NAME, "zhTW")
 if not L then return end
 
+--0.1 profiles
+L["Profile has been changed"] = "個人資料已更改"
+L["Profile has been reset to default"] = "配置文件已重置為默認設置"
+L["Profile has been adopted"] = "配置文件已接管"
+L["Profile has been deleted"] = "配置文件已刪除"
 --0.2 Change Zones
 L["Location"] = "地點"
+L["Show joined zone names in chat"] = "在聊天中顯示加入的區域名稱"
+L["Capital cities are excluded from this because there would be too much chat spam"] = "首府城市被排除在外，因為那裡會有太多的聊天垃圾郵件"
 L["Show Zone Names"] = "顯示區域名稱"
+L["In addition to the zone names, it also displays the names of specific locations within a zone. Disabling the Show Zone Names feature will also disable this feature"] = "除了區域名稱之外，它還顯示區域內特定位置的名稱。停用「顯示區域名稱」功能也會停用此功能"
 L["You are now in"] = "你現在在"
 L["When entering a new zone, the name of the new zone will be displayed in the chat"] = "進入新區域時，聊天中會顯示新區域的名稱"
 --0.3 Classic function Change
@@ -255,6 +263,7 @@ L["(inside portal chamber)"] = "（傳送門室內）"
 L["(inside building)"] = "（建築物內）"
 L["talk to"] = "與之交談"
 --10 places
+L["Telogrus Rift"] = "泰洛古斯裂隙"
 L["Sholazar Basin"] = "索拉查盆地"
 L["Un'Goro Crater"] = "安戈洛环形山"
 L["Auberdine"] = "奧伯丁"
@@ -397,13 +406,13 @@ L["Sethekk Halls"] = "塞泰克大廳"
 L["The Arcatraz"] = "禁魔監獄"
 L["Reforge"] = "重鑄"
 --13 The War Within
-L["Khaz Algar"] = "Khaz Algar"
-L["Dornogal"] = "Dornogal"
-L["Catalyst"] = "催化劑"
-L["Merchant for Renown items"] = "Merchant for Renown items"
-L["Council of Dornogal"] = "Council of Dornogal"
-L["The Assembly of the Deeps"] = "The Assembly of the Deeps"
-L["Hallowfall Arathi"] = "Hallowfall Arathi"
+L["Khaz Algar"] = "卡兹阿加"
+L["Dornogal"] = "多恩诺嘉尔"
+L["Catalyst"] = "化生台"
+L["Merchant for Renown items"] = "名望军需官"
+L["Council of Dornogal"] = "多恩诺嘉尔议会"
+L["The Assembly of the Deeps"] = "邃渊协盟"
+L["Hallowfall Arathi"] = "陨圣峪阿拉希人"
 -- 14
 L["Displays zone icons on a specific continent"] = "在特定大陸上顯示區域圖標"
 L["If you don't see this icon, it's probably in a different phase. \nChange the phase on Zidormi"] = "如果您看不到此圖標，則可能處於不同的階段。 \n更改Zidormi上的相位"

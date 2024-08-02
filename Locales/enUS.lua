@@ -2,9 +2,17 @@ local ADDON_NAME = ...
 local L = LibStub("AceLocale-3.0"):NewLocale(ADDON_NAME, "enUS", true)
 
 
+--0.1 profiles
+L["Profile has been changed"] = true
+L["Profile has been reset to default"] = true
+L["Profile has been adopted"] = true
+L["Profile has been deleted"] = true
 --0.2 Change Zones
 L["Location"] = true
+L["Show joined zone names in chat"] = true
+L["Capital cities are excluded from this because there would be too much chat spam"] = true
 L["Show Zone Names"] = true
+L["In addition to the zone names, it also displays the names of specific locations within a zone. Disabling the Show Zone Names feature will also disable this feature"] = true
 L["You are now in"] = true
 L["When entering a new zone, the name of the new zone will be displayed in the chat"] = true
 --0.3 Classic function Change
@@ -256,6 +264,7 @@ L["(inside portal chamber)"] = true
 L["(inside building)"] = true
 L["talk to"] = true
 --10 places
+L["Telogrus Rift"] = true
 L["Sholazar Basin"] = true
 L["Un'Goro Crater"] = true
 L["Auberdine"] = true

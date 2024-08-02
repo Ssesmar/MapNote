@@ -1,16 +1,62 @@
 # MapNote
-## [2.1.1](https://github.com/Ssesmar/MapNote) (2024-07-24)
+## [2.1.6](https://github.com/Ssesmar/MapNote) (2024-08-02)
 - Note:
 
 -- MapNotes now works on every version of World of Warcraft. Classic Era / Cataclysm / Retail / PTR
 
-Version: 2.1.1
+Version 2.1.6
 
-PTR TWW:
-• fixed the Mist of the Unexplored function
-• The 4 color picker options (black, red, green and blue) for the fog have been removed and replaced with a new function (color picker)
-• A color picker has been added to the Mist of the Unexplored feature so you can choose any color and visibility to your liking
-• If you don't want a color, disable the Mist of the Unexplored feature and the color picker will automatically be disabled with it
+• add on every version the option to save / change / reset and delete profiles
+• It is now possible to create profiles and extract, delete, etc. 
+• It is now possible to apply a set profile to each character without having to adjust everything again for each character
+• But don't forget, you have to adapt the professions category in the capitals tab for each character to your professions later
+
+Version 2.1.5
+
+Retail:
+• added TWW Pre Event Portals in Orgrimma, Stormwind, Dustwallow, Searing Gorge and Dragonblight
+• added Portal names to Continent, Azeroth and Worldmap infos
+
+Version 2.1.4
+
+PTR:
+• added Fog nodes Khaz Algar
+• changed Azeroth map icons for Kalimdor
+• added Khaz Algor icons on Azeroth map
+
+Classic Era & Cataclysm
+• changed some translation names
+
+Version: 2.1.3
+
+Retail:
+• renamed Zone Map function to Location and disabled the Detail spamm in Capitals
+
+Cataclysm:
+• renamed Zone Map function to Location and disabled the Detail spamm in Capitals
+
+• The Show Zone Names name has been changed to Zone Map and added to a separate section within the General tab called Show Zone Names
+• In addition to the Show Zone Names function, the Zone Map Details function has also been added to the General Tab
+• In addition to the normal names when entering a zone, you can also have the names of the subzones displayed here
+• Disabling the Zone Map feature in the Show Zone Names section also automatically disables the advanced Zone Map Details feature
+
+Classic:
+• renamed Zone Map function to Location and disabled the Detail spamm in Capitals
+
+• The Show Zone Names name has been changed to Zone Map and added to a separate section within the General tab called Show Zone Names
+• In addition to the Show Zone Names function, the Zone Map Details function has also been added to the General Tab
+• In addition to the normal names when entering a zone, you can also have the names of the subzones displayed here
+• Disabling the Zone Map feature in the Show Zone Names section also automatically disables the advanced Zone Map Details feature
+
+Version: 2.1.2
+
+Retail & PTR TWW:
+• The Show Zone Names name has been changed to Zone Map and added to a separate section within the General tab called Show Zone Names
+• In addition to the Show Zone Names function, the Zone Map Details function has also been added to the General Tab
+• In addition to the normal names when entering a zone, you can also have the names of the subzones displayed here
+• Disabling the Zone Map feature in the Show Zone Names section also automatically disables the advanced Zone Map Details feature
+
+Version: 2.1.1
 
 Retail:
 • fixed the Mist of the Unexplored function

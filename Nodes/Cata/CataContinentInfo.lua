@@ -25,33 +25,33 @@ local nodes = ns.nodes
 
       -- Raids
         if self.db.profile.showContinentRaids then
-          nodes[1414][54243572] = { mnID = 198, name = DUNGEON_FLOOR_FIRELANDS0 .. " " .. "[" .. GARRISON_TIER .. ": " .. "85]", type = "Raid", showOnContinent = true, showInZone = false, showOnMinimap = false } -- Firelands
-          nodes[1414][46059838] = { id = 74, name = "",  dnID = "[" .. GARRISON_TIER .. ": " .. "85]", type = "Raid", showOnContinent = true, showInZone = false, showOnMinimap = false } -- Throne of the Four Winds
-          nodes[1414][40808546] = { mnID = 1451, name = L["Temple of Ahn'Qiraj"] .. " " .. "[" .. GARRISON_TIER .. ": " .. "60+]", type = "Raid", showOnContinent = true, showInZone = false, showOnMinimap = false }
-          nodes[1414][42408638] = { mnID = 1451, name = DUNGEON_FLOOR_RUINSOFAHNQIRAJ1 .. " " .. "[" .. GARRISON_TIER .. ": " .. "60+]", type = "Raid", showOnContinent = true, showInZone = false, showOnMinimap = false }
-          nodes[1414][56327161] = { mnID = 1445, name = DUNGEON_FLOOR_ONYXIASLAIR1 .. " " .. "[" .. GARRISON_TIER .. ": " .. "60+]", type = "Raid", showOnContinent = true, showInZone = false, showOnMinimap = false }
-          nodes[1414][59038528] = { mnID = 1446, name = DUNGEON_FLOOR_COTMOUNTHYJAL1 .. " " .. "[" .. GARRISON_TIER .. ": " .. "70+]" , type = "Raid", showOnContinent = true, showInZone = false, showOnMinimap = false }
+          nodes[1414][54243572] = { mnID = 198, name = DUNGEON_FLOOR_FIRELANDS0 .. " " .. "[" .. LEVEL .. ": " .. "85]", type = "Raid", showOnContinent = true, showInZone = false, showOnMinimap = false } -- Firelands
+          nodes[1414][46059838] = { id = 74, name = "",  dnID = "[" .. LEVEL .. ": " .. "85]", type = "Raid", showOnContinent = true, showInZone = false, showOnMinimap = false } -- Throne of the Four Winds
+          nodes[1414][40808546] = { mnID = 1451, name = L["Temple of Ahn'Qiraj"] .. " " .. "[" .. LEVEL .. ": " .. "60+]", type = "Raid", showOnContinent = true, showInZone = false, showOnMinimap = false }
+          nodes[1414][42408638] = { mnID = 1451, name = DUNGEON_FLOOR_RUINSOFAHNQIRAJ1 .. " " .. "[" .. LEVEL .. ": " .. "60+]", type = "Raid", showOnContinent = true, showInZone = false, showOnMinimap = false }
+          nodes[1414][56327161] = { mnID = 1445, name = DUNGEON_FLOOR_ONYXIASLAIR1 .. " " .. "[" .. LEVEL .. ": " .. "60+]", type = "Raid", showOnContinent = true, showInZone = false, showOnMinimap = false }
+          nodes[1414][59038528] = { mnID = 1446, name = DUNGEON_FLOOR_COTMOUNTHYJAL1 .. " " .. "[" .. LEVEL .. ": " .. "70+]" , type = "Raid", showOnContinent = true, showInZone = false, showOnMinimap = false }
         end
 
       -- Dungeons
         if self.db.profile.showContinentDungeons then
-          nodes[948][51042844] = { id = 67, name = "", dnID = "[" .. GARRISON_TIER .. ": " .. "81-85]", type = "Dungeon", showOnContinent = true, showInZone = false, showOnMinimap = false } -- Stonecore
-          nodes[1414][49929552] = { id = 69, name = "", dnID = "[" .. GARRISON_TIER .. ": " .. "84-85]", type = "Dungeon", showOnContinent = true, showInZone = false, showOnMinimap = false } -- Lost City of Tol'Vir
-          nodes[1414][51679349] = { id = 70, name = "", dnID = "[" .. GARRISON_TIER .. ": " .. "84-85]", type = "Dungeon", showOnContinent = true, showInZone = false, showOnMinimap = false } -- Halls of Origination
-          nodes[1414][52719898] = { id = 68, name = "", dnID = "[" .. GARRISON_TIER .. ": " .. "81-85]", type = "Dungeon", showOnContinent = true, showInZone = false, showOnMinimap = false } -- The Vortex Pinnacle
-          nodes[1414][43763504] = { mnID = 1440, name = L["Blackfathom Deeps"] .. " " .. "[" .. GARRISON_TIER .. ": " .. "24-32]", dnID = REQUIRES_LABEL .. " " .. MINIMUM .. " " .. GARRISON_TIER .. " " .. "15", type = "Dungeon", showOnContinent = true, showInZone = false, showOnMinimap = false}
-          nodes[1414][42846759] = { mnID = 1444, name = L["Dire Maul"] .. " " .. "[" .. GARRISON_TIER .. ": " .. "55-60]", dnID = REQUIRES_LABEL .. " " .. MINIMUM .. " " .. GARRISON_TIER .. " " .. "45", type = "Dungeon", showOnContinent = true, showInZone = false, showOnMinimap = false}
-          nodes[1414][45976847] = { mnID = 1444, name = L["Dire Maul"] .. " " .. "[" .. GARRISON_TIER .. ": " .. "55-60]", dnID = REQUIRES_LABEL .. " " .. MINIMUM .. " " .. GARRISON_TIER .. " " .. "45", type = "Dungeon", showOnContinent = true, showInZone = false, showOnMinimap = false}
-          nodes[1414][38225775] = { mnID = 1443, name = DUNGEON_FLOOR_MARAUDON1 .. " " .. "[" .. GARRISON_TIER .. ": " .. "46-55]", dnID = REQUIRES_LABEL .. " " .. MINIMUM .. " " .. GARRISON_TIER .. " " .. "30", type = "Dungeon", showOnContinent = true, showInZone = false, showOnMinimap = false}
-          nodes[1414][52397165] = { mnID = 1413, name = DUNGEON_FLOOR_RAZORFENDOWNS1 .. " " .. "[" .. GARRISON_TIER .. ": " .. "37-46]", dnID = REQUIRES_LABEL .. " " .. MINIMUM .. " " .. GARRISON_TIER .. " " .. "35", type = "Dungeon", showOnContinent = true, showInZone = false, showOnMinimap = false}
-          nodes[1414][50657013] = { mnID = 1413, name = DUNGEON_FLOOR_RAZORFENKRAUL1 .. " " .. "[" .. GARRISON_TIER .. ": " .. "29-38]", dnID = REQUIRES_LABEL .. " " .. MINIMUM .. " " .. GARRISON_TIER .. " " .. "25", type = "Dungeon", showOnContinent = true, showInZone = false, showOnMinimap = false}
-          nodes[1414][51885554] = { mnID = 1413, name = DUNGEON_FLOOR_WAILINGCAVERNS1 .. " " .. "[" .. GARRISON_TIER .. ": " .. "17-24]", dnID = REQUIRES_LABEL .. " " .. MINIMUM .. " " .. GARRISON_TIER .. " " .. "10", type = "Dungeon", showOnContinent = true, showInZone = false, showOnMinimap = false}
-          nodes[1414][54107955] = { mnID = 1446, name = DUNGEON_FLOOR_ZULFARRAK .. " " .. "[" .. GARRISON_TIER .. ": " .. "42-56", dnID = REQUIRES_LABEL .. " " .. MINIMUM .. " " .. GARRISON_TIER .. " " .. "35", type = "Dungeon", showOnContinent = true, showInZone = false, showOnMinimap = false}
+          nodes[948][51042844] = { id = 67, name = "", dnID = "[" .. LEVEL .. ": " .. "81-85]", type = "Dungeon", showOnContinent = true, showInZone = false, showOnMinimap = false } -- Stonecore
+          nodes[1414][49929552] = { id = 69, name = "", dnID = "[" .. LEVEL .. ": " .. "84-85]", type = "Dungeon", showOnContinent = true, showInZone = false, showOnMinimap = false } -- Lost City of Tol'Vir
+          nodes[1414][51679349] = { id = 70, name = "", dnID = "[" .. LEVEL .. ": " .. "84-85]", type = "Dungeon", showOnContinent = true, showInZone = false, showOnMinimap = false } -- Halls of Origination
+          nodes[1414][52719898] = { id = 68, name = "", dnID = "[" .. LEVEL .. ": " .. "81-85]", type = "Dungeon", showOnContinent = true, showInZone = false, showOnMinimap = false } -- The Vortex Pinnacle
+          nodes[1414][43763504] = { mnID = 1440, name = L["Blackfathom Deeps"] .. " " .. "[" .. LEVEL .. ": " .. "24-32]", dnID = REQUIRES_LABEL .. " " .. MINIMUM .. " " .. LEVEL .. " " .. "15", type = "Dungeon", showOnContinent = true, showInZone = false, showOnMinimap = false}
+          nodes[1414][42846759] = { mnID = 1444, name = L["Dire Maul"] .. " " .. "[" .. LEVEL .. ": " .. "55-60]", dnID = REQUIRES_LABEL .. " " .. MINIMUM .. " " .. LEVEL .. " " .. "45", type = "Dungeon", showOnContinent = true, showInZone = false, showOnMinimap = false}
+          nodes[1414][45976847] = { mnID = 1444, name = L["Dire Maul"] .. " " .. "[" .. LEVEL .. ": " .. "55-60]", dnID = REQUIRES_LABEL .. " " .. MINIMUM .. " " .. LEVEL .. " " .. "45", type = "Dungeon", showOnContinent = true, showInZone = false, showOnMinimap = false}
+          nodes[1414][38225775] = { mnID = 1443, name = DUNGEON_FLOOR_MARAUDON1 .. " " .. "[" .. LEVEL .. ": " .. "46-55]", dnID = REQUIRES_LABEL .. " " .. MINIMUM .. " " .. LEVEL .. " " .. "30", type = "Dungeon", showOnContinent = true, showInZone = false, showOnMinimap = false}
+          nodes[1414][52397165] = { mnID = 1413, name = DUNGEON_FLOOR_RAZORFENDOWNS1 .. " " .. "[" .. LEVEL .. ": " .. "37-46]", dnID = REQUIRES_LABEL .. " " .. MINIMUM .. " " .. LEVEL .. " " .. "35", type = "Dungeon", showOnContinent = true, showInZone = false, showOnMinimap = false}
+          nodes[1414][50657013] = { mnID = 1413, name = DUNGEON_FLOOR_RAZORFENKRAUL1 .. " " .. "[" .. LEVEL .. ": " .. "29-38]", dnID = REQUIRES_LABEL .. " " .. MINIMUM .. " " .. LEVEL .. " " .. "25", type = "Dungeon", showOnContinent = true, showInZone = false, showOnMinimap = false}
+          nodes[1414][51885554] = { mnID = 1413, name = DUNGEON_FLOOR_WAILINGCAVERNS1 .. " " .. "[" .. LEVEL .. ": " .. "17-24]", dnID = REQUIRES_LABEL .. " " .. MINIMUM .. " " .. LEVEL .. " " .. "10", type = "Dungeon", showOnContinent = true, showInZone = false, showOnMinimap = false}
+          nodes[1414][54107955] = { mnID = 1446, name = DUNGEON_FLOOR_ZULFARRAK .. " " .. "[" .. LEVEL .. ": " .. "42-56", dnID = REQUIRES_LABEL .. " " .. MINIMUM .. " " .. LEVEL .. " " .. "35", type = "Dungeon", showOnContinent = true, showInZone = false, showOnMinimap = false}
         end
 
       -- Multi
         if self.db.profile.showContinentMultiple then
-          nodes[1414][59038528] = { mnID = 1446, name = "", dnID = DUNGEON_FLOOR_DRAGONBLIGHTCHROMIESCENARIO4 .. " " .. "[" .. GARRISON_TIER .. ": " .. "85]" .. "\n" .. DUNGEON_FLOOR_COTMOUNTHYJAL1 .. " " .. "[" .. GARRISON_TIER .. ": " .. "70+]" .. "\n" .. DUNGEON_FLOOR_COTTHEBLACKMORASS1 .. " " .. "[" .. GARRISON_TIER .. ": " .. "70+]" .. "\n" .. L["Old Hillsbrad Foothills"] .. " " .. "[" .. GARRISON_TIER .. ": " .. "66-68]" .. "\n" .. L["The Culling of Stratholme"] .. " " .. "[" .. GARRISON_TIER .. ": " .. "79-80]" .. "\n" .. DUNGEON_FLOOR_HOUROFTWILIGHT0 .. " " .. "[" .. GARRISON_TIER .. ": " .. "85]" .. "\n" .. "Endtime" .. " " .. "[" .. GARRISON_TIER .. ": " .. "85]" .. "\n" .. "Dragonsoul" .. " " .. "[" .. GARRISON_TIER .. ": " .. "85]", type = "MultipleM", showOnContinent = true, showInZone = false, showOnMinimap = false}
+          nodes[1414][59038528] = { mnID = 1446, name = "", dnID = DUNGEON_FLOOR_DRAGONBLIGHTCHROMIESCENARIO4 .. " " .. "[" .. LEVEL .. ": " .. "85]" .. "\n" .. DUNGEON_FLOOR_COTMOUNTHYJAL1 .. " " .. "[" .. LEVEL .. ": " .. "70+]" .. "\n" .. DUNGEON_FLOOR_COTTHEBLACKMORASS1 .. " " .. "[" .. LEVEL .. ": " .. "70+]" .. "\n" .. L["Old Hillsbrad Foothills"] .. " " .. "[" .. LEVEL .. ": " .. "66-68]" .. "\n" .. L["The Culling of Stratholme"] .. " " .. "[" .. LEVEL .. ": " .. "79-80]" .. "\n" .. DUNGEON_FLOOR_HOUROFTWILIGHT0 .. " " .. "[" .. LEVEL .. ": " .. "85]" .. "\n" .. "Endtime" .. " " .. "[" .. LEVEL .. ": " .. "85]" .. "\n" .. "Dragonsoul" .. " " .. "[" .. LEVEL .. ": " .. "85]", type = "MultipleM", showOnContinent = true, showInZone = false, showOnMinimap = false}
         end
 
       -- Blizz Pois
@@ -73,7 +73,7 @@ local nodes = ns.nodes
         if self.db.profile.showContinentDungeons and not self.db.profile.activate.RemoveBlizzPOIs then
          
           if self.db.profile.showContinentDungeons then
-            nodes[1414][58164464] = { mnID = 86, name = DUNGEON_FLOOR_RAGEFIRE1 .. " " .. "[" .. GARRISON_TIER .. ": " .. "13-18]", dnID = REQUIRES_LABEL .. " " .. MINIMUM .. " " .. GARRISON_TIER .. " " .. "8", type = "Dungeon", showOnContinent = true, showInZone = false, showOnMinimap = false}
+            nodes[1414][58164464] = { mnID = 86, name = DUNGEON_FLOOR_RAGEFIRE1 .. " " .. "[" .. LEVEL .. ": " .. "13-18]", dnID = REQUIRES_LABEL .. " " .. MINIMUM .. " " .. LEVEL .. " " .. "8", type = "Dungeon", showOnContinent = true, showInZone = false, showOnMinimap = false}
           end
 
         end
@@ -117,36 +117,36 @@ local nodes = ns.nodes
 
       -- Raids            
         if self.db.profile.showContinentRaids then
-          nodes[1415][47397031] = { mnID = 1428, name = DUNGEON_FLOOR_MOLTENCORE1 .. " " .. "[" .. GARRISON_TIER .. ": " .. "60+]", type = "Raid", showOnContinent = true, showInZone = false, showOnMinimap = false}
-          nodes[1415][54885912] = { id = 72, name ="", dnID = "[" .. GARRISON_TIER .. ": " .. "85]", type = "Raid", showOnContinent = true, showInZone = false, showOnMinimap = false} -- Bastion
-          nodes[1415][49678177] = { mnID = 1430, name = L["Karazhan"] .. " " .. "[" .. GARRISON_TIER .. ": " .. "70+]", type = "Raid", showOnContinent = true, showInZone = false, showOnMinimap = false}
-          nodes[1415][54470345] = { mnID = 1957, name = DUNGEON_FLOOR_SUNWELLPLATEAU0 .. " " .. "[" .. GARRISON_TIER .. ": " .. "70+]", type = "Raid", showOnContinent = true, showInZone = false, showOnMinimap = false}
-          nodes[1415][34885184] = { id = 75, name = "", dnID = "[" .. GARRISON_TIER .. ": " .. "85]", type = "Raid", showOnContinent = true, showInZone = false, showOnMinimap = false}
+          nodes[1415][47397031] = { mnID = 1428, name = DUNGEON_FLOOR_MOLTENCORE1 .. " " .. "[" .. LEVEL .. ": " .. "60+]", type = "Raid", showOnContinent = true, showInZone = false, showOnMinimap = false}
+          nodes[1415][54885912] = { id = 72, name ="", dnID = "[" .. LEVEL .. ": " .. "85]", type = "Raid", showOnContinent = true, showInZone = false, showOnMinimap = false} -- Bastion
+          nodes[1415][49678177] = { mnID = 1430, name = L["Karazhan"] .. " " .. "[" .. LEVEL .. ": " .. "70+]", type = "Raid", showOnContinent = true, showInZone = false, showOnMinimap = false}
+          nodes[1415][54470345] = { mnID = 1957, name = DUNGEON_FLOOR_SUNWELLPLATEAU0 .. " " .. "[" .. LEVEL .. ": " .. "70+]", type = "Raid", showOnContinent = true, showInZone = false, showOnMinimap = false}
+          nodes[1415][34885184] = { id = 75, name = "", dnID = "[" .. LEVEL .. ": " .. "85]", type = "Raid", showOnContinent = true, showInZone = false, showOnMinimap = false}
         end
 
       -- Dungeons
         if self.db.profile.showContinentDungeons then
-          nodes[1415][31416186] = { id = 65, name = "", dnID = "[" .. GARRISON_TIER .. ": " .. "80-85]", type = "Dungeon", showOnContinent = true, showInZone = false, showOnMinimap = false } -- Throne of the Tides
-          nodes[1415][52975589] = { id = 71, name = "", dnID = "[" .. GARRISON_TIER .. ": " .. "84-85]", type = "Dungeon", showOnContinent = true, showInZone = false, showOnMinimap = false} -- Grim Batol
-          nodes[1415][47648454] = { mnID = 1434, name = DUNGEON_FLOOR_ZULGURUB1 .. " " .. "[" .. GARRISON_TIER .. ": " .. "60+]", type = "Dungeon", showOnContinent = true, showInZone = false, showOnMinimap = false}
-          nodes[1415][40624150] = { mnID = 1421, name = L["Shadowfang Keep"] .. " " .. "[" .. GARRISON_TIER .. ": " .. "22-30]", dnID = REQUIRES_LABEL .. " " .. MINIMUM .. " " .. GARRISON_TIER .. " " .. "14", type = "Dungeon", showOnContinent = true, showInZone = false, showOnMinimap = false}
-          nodes[1415][50843614] = { mnID = 1422, name = L["Scholomance"] .. " " .. "[" .. GARRISON_TIER .. ": " .. "58-60]", dnID = REQUIRES_LABEL .. " " .. MINIMUM .. " " .. GARRISON_TIER .. " " .. "48", type = "Dungeon", showOnContinent = true, showInZone = false, showOnMinimap = false}
-          nodes[1415][46413023] = { mnID = 1420, name = DUNGEON_FLOOR_TIRISFAL13 .. " " .. "[" .. GARRISON_TIER .. ": " .. "22-30]", dnID = REQUIRES_LABEL .. " " .. MINIMUM .. " " .. GARRISON_TIER .. " " .. "21", type = "Dungeon", showOnContinent = true, showInZone = false, showOnMinimap = false}
-          nodes[1415][53302876] = { mnID = 1423, name = DUNGEON_FLOOR_COTSTRATHOLME1 .. " " .. "[" .. GARRISON_TIER .. ": " .. "42-52]", dnID = REQUIRES_LABEL .. " " .. MINIMUM .. " " .. GARRISON_TIER .. " " .. "48", type = "Dungeon", showOnContinent = true, showInZone = false, showOnMinimap = false}
-          nodes[1415][54382928] = { mnID = 1423, name = DUNGEON_FLOOR_COTSTRATHOLME1 .. " " .. "[" .. GARRISON_TIER .. ": " .. "46-56]", dnID = REQUIRES_LABEL .. " " .. MINIMUM .. " " .. GARRISON_TIER .. " " .. "48", type = "Dungeon", showOnContinent = true, showInZone = false, showOnMinimap = false}
-          nodes[1415][53927918] = { mnID = 1435, name = DUNGEON_FLOOR_THETEMPLEOFATALHAKKAR1 .. " " .. "[" .. GARRISON_TIER .. ": " .. "50-56]", dnID = REQUIRES_LABEL .. " " .. MINIMUM .. " " .. GARRISON_TIER .. " " .. "45", type = "Dungeon", showOnContinent = true, showInZone = false, showOnMinimap = false}
-          nodes[1415][53676514] = { mnID = 1418, name = DUNGEON_FLOOR_BADLANDS18 .. " " .. "[" .. GARRISON_TIER .. ": " .. "41-51]", dnID = REQUIRES_LABEL .. " " .. MINIMUM .. " " .. GARRISON_TIER .. " " .. "30", type = "Dungeon", showOnContinent = true, showInZone = false, showOnMinimap = false}
-          nodes[1415][52446311] = { mnID = 1418, name = DUNGEON_FLOOR_BADLANDS18 .. " " .. "[" .. GARRISON_TIER .. ": " .. "41-51]", dnID = REQUIRES_LABEL .. " " .. MINIMUM .. " " .. GARRISON_TIER .. " " .. "30", type = "Dungeon", showOnContinent = true, showInZone = false, showOnMinimap = false}
-          nodes[1415][43085997] = { mnID = 1426, name = DUNGEON_FLOOR_DUNMOROGH10 .. " " .. "[" .. GARRISON_TIER .. ": " .. "29-38]", dnID = REQUIRES_LABEL .. " " .. MINIMUM .. " " .. GARRISON_TIER .. " " .. "19", type = "Dungeon", showOnContinent = true, showInZone = false, showOnMinimap = false}
-          nodes[1415][40878158] = { mnID = 1436, name = DUNGEON_FLOOR_THEDEADMINES1 .. " " .. "[" .. GARRISON_TIER .. ": " .. "17-26]", dnID = REQUIRES_LABEL .. " " .. MINIMUM .. " " .. GARRISON_TIER .. " " .. "10", type = "Dungeon", showOnContinent = true, showInZone = false, showOnMinimap = false}
-          nodes[1415][57922488] = { mnID = 1942, name = DUNGEON_FLOOR_ZULAMAN1 .. " " .. "[" .. GARRISON_TIER .. ": " .. "70]", dnID = REQUIRES_LABEL .. " " .. MINIMUM .. " " .. GARRISON_TIER .. " " .. "70", type = "Dungeon", showOnContinent = true, showInZone = false, showOnMinimap = false}
-          nodes[1415][56190253] = { mnID = 1957, name = L["Magisters' Terrace"] .. " " .. "[" .. GARRISON_TIER .. ": " .. "70]", dnID = REQUIRES_LABEL .. " " .. MINIMUM .. " " .. GARRISON_TIER .. " " .. "70", type = "Dungeon", showOnContinent = true, showInZone = false, showOnMinimap = false}
+          nodes[1415][31416186] = { id = 65, name = "", dnID = "[" .. LEVEL .. ": " .. "80-85]", type = "Dungeon", showOnContinent = true, showInZone = false, showOnMinimap = false } -- Throne of the Tides
+          nodes[1415][52975589] = { id = 71, name = "", dnID = "[" .. LEVEL .. ": " .. "84-85]", type = "Dungeon", showOnContinent = true, showInZone = false, showOnMinimap = false} -- Grim Batol
+          nodes[1415][47648454] = { mnID = 1434, name = DUNGEON_FLOOR_ZULGURUB1 .. " " .. "[" .. LEVEL .. ": " .. "60+]", type = "Dungeon", showOnContinent = true, showInZone = false, showOnMinimap = false}
+          nodes[1415][40624150] = { mnID = 1421, name = L["Shadowfang Keep"] .. " " .. "[" .. LEVEL .. ": " .. "22-30]", dnID = REQUIRES_LABEL .. " " .. MINIMUM .. " " .. LEVEL .. " " .. "14", type = "Dungeon", showOnContinent = true, showInZone = false, showOnMinimap = false}
+          nodes[1415][50843614] = { mnID = 1422, name = L["Scholomance"] .. " " .. "[" .. LEVEL .. ": " .. "58-60]", dnID = REQUIRES_LABEL .. " " .. MINIMUM .. " " .. LEVEL .. " " .. "48", type = "Dungeon", showOnContinent = true, showInZone = false, showOnMinimap = false}
+          nodes[1415][46413023] = { mnID = 1420, name = DUNGEON_FLOOR_TIRISFAL13 .. " " .. "[" .. LEVEL .. ": " .. "22-30]", dnID = REQUIRES_LABEL .. " " .. MINIMUM .. " " .. LEVEL .. " " .. "21", type = "Dungeon", showOnContinent = true, showInZone = false, showOnMinimap = false}
+          nodes[1415][53302876] = { mnID = 1423, name = DUNGEON_FLOOR_COTSTRATHOLME1 .. " " .. "[" .. LEVEL .. ": " .. "42-52]", dnID = REQUIRES_LABEL .. " " .. MINIMUM .. " " .. LEVEL .. " " .. "48", type = "Dungeon", showOnContinent = true, showInZone = false, showOnMinimap = false}
+          nodes[1415][54382928] = { mnID = 1423, name = DUNGEON_FLOOR_COTSTRATHOLME1 .. " " .. "[" .. LEVEL .. ": " .. "46-56]", dnID = REQUIRES_LABEL .. " " .. MINIMUM .. " " .. LEVEL .. " " .. "48", type = "Dungeon", showOnContinent = true, showInZone = false, showOnMinimap = false}
+          nodes[1415][53927918] = { mnID = 1435, name = DUNGEON_FLOOR_THETEMPLEOFATALHAKKAR1 .. " " .. "[" .. LEVEL .. ": " .. "50-56]", dnID = REQUIRES_LABEL .. " " .. MINIMUM .. " " .. LEVEL .. " " .. "45", type = "Dungeon", showOnContinent = true, showInZone = false, showOnMinimap = false}
+          nodes[1415][53676514] = { mnID = 1418, name = DUNGEON_FLOOR_BADLANDS18 .. " " .. "[" .. LEVEL .. ": " .. "41-51]", dnID = REQUIRES_LABEL .. " " .. MINIMUM .. " " .. LEVEL .. " " .. "30", type = "Dungeon", showOnContinent = true, showInZone = false, showOnMinimap = false}
+          nodes[1415][52446311] = { mnID = 1418, name = DUNGEON_FLOOR_BADLANDS18 .. " " .. "[" .. LEVEL .. ": " .. "41-51]", dnID = REQUIRES_LABEL .. " " .. MINIMUM .. " " .. LEVEL .. " " .. "30", type = "Dungeon", showOnContinent = true, showInZone = false, showOnMinimap = false}
+          nodes[1415][43085997] = { mnID = 1426, name = DUNGEON_FLOOR_DUNMOROGH10 .. " " .. "[" .. LEVEL .. ": " .. "29-38]", dnID = REQUIRES_LABEL .. " " .. MINIMUM .. " " .. LEVEL .. " " .. "19", type = "Dungeon", showOnContinent = true, showInZone = false, showOnMinimap = false}
+          nodes[1415][40878158] = { mnID = 1436, name = DUNGEON_FLOOR_THEDEADMINES1 .. " " .. "[" .. LEVEL .. ": " .. "17-26]", dnID = REQUIRES_LABEL .. " " .. MINIMUM .. " " .. LEVEL .. " " .. "10", type = "Dungeon", showOnContinent = true, showInZone = false, showOnMinimap = false}
+          nodes[1415][57922488] = { mnID = 1942, name = DUNGEON_FLOOR_ZULAMAN1 .. " " .. "[" .. LEVEL .. ": " .. "70]", dnID = REQUIRES_LABEL .. " " .. MINIMUM .. " " .. LEVEL .. " " .. "70", type = "Dungeon", showOnContinent = true, showInZone = false, showOnMinimap = false}
+          nodes[1415][56190253] = { mnID = 1957, name = L["Magisters' Terrace"] .. " " .. "[" .. LEVEL .. ": " .. "70]", dnID = REQUIRES_LABEL .. " " .. MINIMUM .. " " .. LEVEL .. " " .. "70", type = "Dungeon", showOnContinent = true, showInZone = false, showOnMinimap = false}
 
         end
 
       -- Multi
         if self.db.profile.showContinentMultiple then
-          nodes[1415][47397031] = { id = { 73 }, mnID = 1428, showOnContinent = true, showInZone = false, showOnMinimap = false, name = DUNGEON_FLOOR_MOLTENCORE1 .. " " .. "[" .. GARRISON_TIER .. ": " .. "60+]" .. "\n" .. DUNGEON_FLOOR_BURNINGSTEPPES15 .. " " .. "[" .. GARRISON_TIER .. ": " .. "80-85]" .. "\n" .. DUNGEON_FLOOR_BURNINGSTEPPES14 .. " " .. "[" .. GARRISON_TIER .. ": " .. "55-60]" .. "\n" .. DUNGEON_FLOOR_BURNINGSTEPPES16 .. " " .. "[" .. GARRISON_TIER .. ": " .. "52-60]", type = "MultipleM" }
+          nodes[1415][47397031] = { id = { 73 }, mnID = 1428, showOnContinent = true, showInZone = false, showOnMinimap = false, name = DUNGEON_FLOOR_MOLTENCORE1 .. " " .. "[" .. LEVEL .. ": " .. "60+]" .. "\n" .. DUNGEON_FLOOR_BURNINGSTEPPES15 .. " " .. "[" .. LEVEL .. ": " .. "80-85]" .. "\n" .. DUNGEON_FLOOR_BURNINGSTEPPES14 .. " " .. "[" .. LEVEL .. ": " .. "55-60]" .. "\n" .. DUNGEON_FLOOR_BURNINGSTEPPES16 .. " " .. "[" .. LEVEL .. ": " .. "52-60]", type = "MultipleM" }
         end
 
       -- Blizz POIS
@@ -168,7 +168,7 @@ local nodes = ns.nodes
         if self.db.profile.showContinentDungeons and not self.db.profile.activate.RemoveBlizzPOIs then
         
           if self.db.profile.showContinentDungeons then
-              nodes[1415][42847309] = { mnID = 1453, showOnContinent = true, showInZone = false, showOnMinimap = false, name = DUNGEON_FLOOR_THESTOCKADE1 .. " " .. "[" .. GARRISON_TIER .. ": " .. "22-30]", dnID = REQUIRES_LABEL .. " " .. MINIMUM .. " " .. GARRISON_TIER .. " " .. "15", type = "Dungeon",}
+              nodes[1415][42847309] = { mnID = 1453, showOnContinent = true, showInZone = false, showOnMinimap = false, name = DUNGEON_FLOOR_THESTOCKADE1 .. " " .. "[" .. LEVEL .. ": " .. "22-30]", dnID = REQUIRES_LABEL .. " " .. MINIMUM .. " " .. LEVEL .. " " .. "15", type = "Dungeon",}
           end
 
         end
@@ -220,26 +220,26 @@ local nodes = ns.nodes
     
       -- Outland Dungeons
         if self.db.profile.showContinentDungeons then
-          nodes[1945][44447844] = { mnID = 1952, showOnContinent = true, showInZone = false, showOnMinimap = false, name = L["Auchenai Crypts"] .. " " .. "[" .. GARRISON_TIER .. ": " .. "65-67]", type = "Dungeon" } -- Auchenai Crypts 
-          nodes[1945][46167604] = { mnID = 1952, showOnContinent = true, showInZone = false, showOnMinimap = false, name = DUNGEON_FLOOR_MANATOMBS1 .. " " .. "[" .. GARRISON_TIER .. ": " .. "64-66]", type = "Dungeon" } -- Mana-Tombs 
-          nodes[1945][47647863] = { mnID = 1952, showOnContinent = true, showInZone = false, showOnMinimap = false, name = L["Sethekk Halls"] .. " " .. "[" .. GARRISON_TIER .. ": " .. "67-69]", type = "Dungeon" } -- Sethekk Halls 
-          nodes[1945][46168103] = { mnID = 1952, showOnContinent = true, showInZone = false, showOnMinimap = false, name = DUNGEON_FLOOR_SHADOWLABYRINTH1 .. " " .. "[" .. GARRISON_TIER .. ": " .. "69-70]", type = "Dungeon" } -- Shadow Labyrinth 
-          nodes[1945][65862008] = { mnID = 1953, showOnContinent = true, showInZone = false, showOnMinimap = false, name = DUNGEON_FLOOR_THEBOTANICA1 .. " " .. "[" .. GARRISON_TIER .. ": " .. "70]", type = "Dungeon" } -- The Botanica 
-          nodes[1945][65622506] = { mnID = 1953, showOnContinent = true, showInZone = false, showOnMinimap = false, name = DUNGEON_FLOOR_THEMECHANAR1 .. " " .. "[" .. GARRISON_TIER .. ": " .. "70]", type = "Dungeon" } -- The Mechanar  
-          nodes[1945][66722118] = { mnID = 1953, showOnContinent = true, showInZone = false, showOnMinimap = false, name = L["The Arcatraz"] .. " " .. "[" .. GARRISON_TIER .. ": " .. "70]", type = "Dungeon" } -- The Arcatraz
+          nodes[1945][44447844] = { mnID = 1952, showOnContinent = true, showInZone = false, showOnMinimap = false, name = L["Auchenai Crypts"] .. " " .. "[" .. LEVEL .. ": " .. "65-67]", type = "Dungeon" } -- Auchenai Crypts 
+          nodes[1945][46167604] = { mnID = 1952, showOnContinent = true, showInZone = false, showOnMinimap = false, name = DUNGEON_FLOOR_MANATOMBS1 .. " " .. "[" .. LEVEL .. ": " .. "64-66]", type = "Dungeon" } -- Mana-Tombs 
+          nodes[1945][47647863] = { mnID = 1952, showOnContinent = true, showInZone = false, showOnMinimap = false, name = L["Sethekk Halls"] .. " " .. "[" .. LEVEL .. ": " .. "67-69]", type = "Dungeon" } -- Sethekk Halls 
+          nodes[1945][46168103] = { mnID = 1952, showOnContinent = true, showInZone = false, showOnMinimap = false, name = DUNGEON_FLOOR_SHADOWLABYRINTH1 .. " " .. "[" .. LEVEL .. ": " .. "69-70]", type = "Dungeon" } -- Shadow Labyrinth 
+          nodes[1945][65862008] = { mnID = 1953, showOnContinent = true, showInZone = false, showOnMinimap = false, name = DUNGEON_FLOOR_THEBOTANICA1 .. " " .. "[" .. LEVEL .. ": " .. "70]", type = "Dungeon" } -- The Botanica 
+          nodes[1945][65622506] = { mnID = 1953, showOnContinent = true, showInZone = false, showOnMinimap = false, name = DUNGEON_FLOOR_THEMECHANAR1 .. " " .. "[" .. LEVEL .. ": " .. "70]", type = "Dungeon" } -- The Mechanar  
+          nodes[1945][66722118] = { mnID = 1953, showOnContinent = true, showInZone = false, showOnMinimap = false, name = L["The Arcatraz"] .. " " .. "[" .. LEVEL .. ": " .. "70]", type = "Dungeon" } -- The Arcatraz
         end
       
       -- Outland Raids
         if self.db.profile.showContinentRaids then
-          nodes[1945][66482303] = { mnID = 1953, showOnContinent = true, showInZone = false, showOnMinimap = false, name = DUNGEON_FLOOR_TEMPESTKEEP1 .. " " .. "[" .. GARRISON_TIER .. ": " .. "70-72]", type = "Raid" } -- The Eye  
-          nodes[1945][72638103] = { mnID = 1948, showOnContinent = true, showInZone = false, showOnMinimap = false, name = L["Black Temple"] .. " " .. "[" .. GARRISON_TIER .. ": " .. "70+]", type = "Raid" } -- Black Temple 
-          nodes[1945][45421915] = { mnID = 1949, showOnContinent = true, showInZone = false, showOnMinimap = false, name = DUNGEON_FLOOR_GRUULSLAIR1 .. " " .. "[" .. GARRISON_TIER .. ": " .. "70+]", type = "Raid" } -- Gruul's Lairend
+          nodes[1945][66482303] = { mnID = 1953, showOnContinent = true, showInZone = false, showOnMinimap = false, name = DUNGEON_FLOOR_TEMPESTKEEP1 .. " " .. "[" .. LEVEL .. ": " .. "70-72]", type = "Raid" } -- The Eye  
+          nodes[1945][72638103] = { mnID = 1948, showOnContinent = true, showInZone = false, showOnMinimap = false, name = L["Black Temple"] .. " " .. "[" .. LEVEL .. ": " .. "70+]", type = "Raid" } -- Black Temple 
+          nodes[1945][45421915] = { mnID = 1949, showOnContinent = true, showInZone = false, showOnMinimap = false, name = DUNGEON_FLOOR_GRUULSLAIR1 .. " " .. "[" .. LEVEL .. ": " .. "70+]", type = "Raid" } -- Gruul's Lairend
         end
   
       -- Outland Multiple
         if self.db.profile.showContinentMultiple then
-          nodes[1945][56635240] = { mnID = 1944, showOnContinent = true, showInZone = false, showOnMinimap = false, name = "", dnID = DUNGEON_FLOOR_MAGTHERIDONSLAIR1 .. " " .. "[" .. GARRISON_TIER .. ": " .. "70+]" .. "\n" .. DUNGEON_FLOOR_THEBLOODFURNACE1 .. " " .. "[" .. GARRISON_TIER .. ": " .. "61-63]" .. "\n" .. DUNGEON_FLOOR_HELLFIRERAMPARTS1 .. " " .. "[" .. GARRISON_TIER .. ": " .. "60-62]" .. "\n" .. DUNGEON_FLOOR_THESHATTEREDHALLS1 .. " " .. "[" .. GARRISON_TIER .. ": " .. "69-70]", type = "MultipleM" } -- Hellfire Ramparts, The Blood Furnace, The Shattered Halls, Magtheridon's Lair 
-          nodes[1945][34344538] = { mnID = 1946, showOnContinent = true, showInZone = false, showOnMinimap = false, name = "", dnID = DUNGEON_FLOOR_COILFANGRESERVOIR1 .. " " .. "[" .. GARRISON_TIER .. ": " .. "70+]" .. "\n" .. DUNGEON_FLOOR_THESTEAMVAULT1 .. " " .. "[" .. GARRISON_TIER .. ": " .. "68-70]" .. "\n" .. DUNGEON_FLOOR_THESLAVEPENS1 .. " " .. "[" .. GARRISON_TIER .. ": " .. "62-64]" .. "\n" .. DUNGEON_FLOOR_THEUNDERBOG1 .. " " .. "[" .. GARRISON_TIER .. ": " .. "63-65]", type = "MultipleM" } -- Slave Pens, The Steamvault, The Underbog, Serpentshrine Cavern
+          nodes[1945][56635240] = { mnID = 1944, showOnContinent = true, showInZone = false, showOnMinimap = false, name = "", dnID = DUNGEON_FLOOR_MAGTHERIDONSLAIR1 .. " " .. "[" .. LEVEL .. ": " .. "70+]" .. "\n" .. DUNGEON_FLOOR_THEBLOODFURNACE1 .. " " .. "[" .. LEVEL .. ": " .. "61-63]" .. "\n" .. DUNGEON_FLOOR_HELLFIRERAMPARTS1 .. " " .. "[" .. LEVEL .. ": " .. "60-62]" .. "\n" .. DUNGEON_FLOOR_THESHATTEREDHALLS1 .. " " .. "[" .. LEVEL .. ": " .. "69-70]", type = "MultipleM" } -- Hellfire Ramparts, The Blood Furnace, The Shattered Halls, Magtheridon's Lair 
+          nodes[1945][34344538] = { mnID = 1946, showOnContinent = true, showInZone = false, showOnMinimap = false, name = "", dnID = DUNGEON_FLOOR_COILFANGRESERVOIR1 .. " " .. "[" .. LEVEL .. ": " .. "70+]" .. "\n" .. DUNGEON_FLOOR_THESTEAMVAULT1 .. " " .. "[" .. LEVEL .. ": " .. "68-70]" .. "\n" .. DUNGEON_FLOOR_THESLAVEPENS1 .. " " .. "[" .. LEVEL .. ": " .. "62-64]" .. "\n" .. DUNGEON_FLOOR_THEUNDERBOG1 .. " " .. "[" .. LEVEL .. ": " .. "63-65]", type = "MultipleM" } -- Slave Pens, The Steamvault, The Underbog, Serpentshrine Cavern
         end
   
       -- Outland Portals
@@ -266,37 +266,37 @@ local nodes = ns.nodes
 
       -- Northrend Dungeon
         if self.db.profile.showContinentDungeons then
-          nodes[113][79418029] = { mnID = 117, showOnContinent = true, showInZone = false, showOnMinimap = false, name = L["Utgarde Keep"] .. " " .. "[" .. GARRISON_TIER .. ": " .. "70-72]", type = "Dungeon" } -- Utgarde Keep, at doorway entrance 
-          nodes[113][78917881] = { mnID = 117, showOnContinent = true, showInZone = false, showOnMinimap = false, name = L["Utgarde Pinnacle"] .. " " .. "[" .. GARRISON_TIER .. ": " .. "79-80]", type = "Dungeon" } -- Utgarde Pinnacle 
-          nodes[113][59461195] = { mnID = 120, showOnContinent = true, showInZone = false, showOnMinimap = false, name = DUNGEON_FLOOR_HALLSOFORIGINATION1 .. " " .. "[" .. GARRISON_TIER .. ": " .. "79-80]", type = "Dungeon" } -- Halls of Lightning 
-          nodes[113][57241416] = { mnID = 120, showOnContinent = true, showInZone = false, showOnMinimap = false, name = DUNGEON_FLOOR_ULDUAR771 .. " " .. "[" .. GARRISON_TIER .. ": " .. "77-79]", type = "Dungeon" } -- Halls of Stone 
-          nodes[113][62664963] = { mnID = 121, showOnContinent = true, showInZone = false, showOnMinimap = false, name = L["Drak'Tharon Keep"] .. " " .. "[" .. GARRISON_TIER .. ": " .. "74-76]", type = "Dungeon" } -- Drak'Tharon Keep 
-          nodes[113][77933300] = { mnID = 121, showOnContinent = true, showInZone = false, showOnMinimap = false, name = DUNGEON_FLOOR_GUNDRAK1 .. " " .. "[" .. GARRISON_TIER .. ": " .. "76-78]", type = "Dungeon" } -- Gundrak Left Entrance 
-          nodes[113][76583060] = { mnID = 121, showOnContinent = true, showInZone = false, showOnMinimap = false, name = DUNGEON_FLOOR_GUNDRAK1 .. " " .. "[" .. GARRISON_TIER .. ": " .. "76-78]", type = "Dungeon" } -- Gundrak Right Entrance 
-          nodes[113][48514193] = { mnID = 127, showOnContinent = true, showInZone = false, showOnMinimap = false, name = DUNGEON_FLOOR_VIOLETHOLD1 .. " " .. "[" .. GARRISON_TIER .. ": " .. "75-77]", type = "Dungeon" } -- Violet Hold
-          nodes[113][41154408] = { mnID = 118, showOnContinent = true, showInZone = false, showOnMinimap = false, name = "", dnID = DUNGEON_FLOOR_THEFORGEOFSOULS1 .. " " .. "[" .. GARRISON_TIER .. ": " .. "79-80]" .. "\n" .. DUNGEON_FLOOR_HALLSOFREFLECTION1 .. " " .. "[" .. GARRISON_TIER .. ": " .. "79-80]" .. "\n" .. DUNGEON_FLOOR_PITOFSARON1 .. " " .. "[" .. GARRISON_TIER .. ": " .. "79-80]", type = "Dungeon" } -- The Forge of Souls, Halls of Reflection, Pit of Saron         
-          nodes[113][40005849] = { mnID = 115, showOnContinent = true, showInZone = false, showOnMinimap = false, name = "", dnID = DUNGEON_FLOOR_AHNKAHET1 .. " " .. "[" .. GARRISON_TIER .. ": " .. "73-75]" .. "\n" .. L["Azjol-Nerub"] .. " " .. "[" .. GARRISON_TIER .. ": " .. "72-74]", type = "Dungeon" } -- Ahn'kahet The Old Kingdom, Azjol-Nerub 
+          nodes[113][79418029] = { mnID = 117, showOnContinent = true, showInZone = false, showOnMinimap = false, name = L["Utgarde Keep"] .. " " .. "[" .. LEVEL .. ": " .. "70-72]", type = "Dungeon" } -- Utgarde Keep, at doorway entrance 
+          nodes[113][78917881] = { mnID = 117, showOnContinent = true, showInZone = false, showOnMinimap = false, name = L["Utgarde Pinnacle"] .. " " .. "[" .. LEVEL .. ": " .. "79-80]", type = "Dungeon" } -- Utgarde Pinnacle 
+          nodes[113][59461195] = { mnID = 120, showOnContinent = true, showInZone = false, showOnMinimap = false, name = DUNGEON_FLOOR_HALLSOFORIGINATION1 .. " " .. "[" .. LEVEL .. ": " .. "79-80]", type = "Dungeon" } -- Halls of Lightning 
+          nodes[113][57241416] = { mnID = 120, showOnContinent = true, showInZone = false, showOnMinimap = false, name = DUNGEON_FLOOR_ULDUAR771 .. " " .. "[" .. LEVEL .. ": " .. "77-79]", type = "Dungeon" } -- Halls of Stone 
+          nodes[113][62664963] = { mnID = 121, showOnContinent = true, showInZone = false, showOnMinimap = false, name = L["Drak'Tharon Keep"] .. " " .. "[" .. LEVEL .. ": " .. "74-76]", type = "Dungeon" } -- Drak'Tharon Keep 
+          nodes[113][77933300] = { mnID = 121, showOnContinent = true, showInZone = false, showOnMinimap = false, name = DUNGEON_FLOOR_GUNDRAK1 .. " " .. "[" .. LEVEL .. ": " .. "76-78]", type = "Dungeon" } -- Gundrak Left Entrance 
+          nodes[113][76583060] = { mnID = 121, showOnContinent = true, showInZone = false, showOnMinimap = false, name = DUNGEON_FLOOR_GUNDRAK1 .. " " .. "[" .. LEVEL .. ": " .. "76-78]", type = "Dungeon" } -- Gundrak Right Entrance 
+          nodes[113][48514193] = { mnID = 127, showOnContinent = true, showInZone = false, showOnMinimap = false, name = DUNGEON_FLOOR_VIOLETHOLD1 .. " " .. "[" .. LEVEL .. ": " .. "75-77]", type = "Dungeon" } -- Violet Hold
+          nodes[113][41154408] = { mnID = 118, showOnContinent = true, showInZone = false, showOnMinimap = false, name = "", dnID = DUNGEON_FLOOR_THEFORGEOFSOULS1 .. " " .. "[" .. LEVEL .. ": " .. "79-80]" .. "\n" .. DUNGEON_FLOOR_HALLSOFREFLECTION1 .. " " .. "[" .. LEVEL .. ": " .. "79-80]" .. "\n" .. DUNGEON_FLOOR_PITOFSARON1 .. " " .. "[" .. LEVEL .. ": " .. "79-80]", type = "Dungeon" } -- The Forge of Souls, Halls of Reflection, Pit of Saron         
+          nodes[113][40005849] = { mnID = 115, showOnContinent = true, showInZone = false, showOnMinimap = false, name = "", dnID = DUNGEON_FLOOR_AHNKAHET1 .. " " .. "[" .. LEVEL .. ": " .. "73-75]" .. "\n" .. L["Azjol-Nerub"] .. " " .. "[" .. LEVEL .. ": " .. "72-74]", type = "Dungeon" } -- Ahn'kahet The Old Kingdom, Azjol-Nerub 
         end
 
       -- Northrend Raids
         if self.db.profile.showContinentRaids then
-          nodes[113][58415888] = { mnID = 115, showOnContinent = true, showInZone = false, showOnMinimap = false, name = L["Naxxramas"] .. " " .. "[" .. GARRISON_TIER .. ": " .. "80+]", type = "Raid" } -- Naxxramas 
-          nodes[113][40004021] = { mnID = 118, showOnContinent = true, showInZone = false, showOnMinimap = false, name = DUNGEON_FLOOR_ICECROWNCITADELDEATHKNIGHT3 .. " " .. "[" .. GARRISON_TIER .. ": " .. "80+]", type = "Raid" } -- Icecrown Citadel 
-          nodes[113][58101029] = { mnID = 120, showOnContinent = true, showInZone = false, showOnMinimap = false, name = L["Ulduar"] .. " " .. "[" .. GARRISON_TIER .. ": " .. "80+]",type = "Raid" } -- Ulduar
-          nodes[113][35694316] = { mnID = 123, showOnContinent = true, showInZone = false, showOnMinimap = false, name = DUNGEON_FLOOR_VAULTOFARCHAVON1  .. " " .. "[" .. GARRISON_TIER .. ": " .. "80+]", type = "Raid" } -- Vault of Archavon
-          nodes[113][50346038] = { mnID = 115, showOnContinent = true, showInZone = false, showOnMinimap = false, name = "", dnID = DUNGEON_FLOOR_THEOBSIDIANSANCTUM1 .. " " .. "[" .. GARRISON_TIER .. ": " .. "80+]" .. "\n" .. L["The Ruby Sanctum"] .. " " .. "[" .. GARRISON_TIER .. ": " .. "80+]", type = "Raid" } -- The Ruby Sanctum, The Obsidian Sanctum 
-          nodes[113][12425702] = { mnID = 114, showOnContinent = true, showInZone = false, showOnMinimap = false, name = "", dnID = DUNGEON_FLOOR_THEEYEOFETERNITY1 .. " " .. "[" .. GARRISON_TIER .. ": " .. "80+]", type = "Raid" } -- The Eye of Eternity, The Nexus, The Oculus
-          nodes[113][47521749] = { mnID = 118, showOnContinent = true, showInZone = false, showOnMinimap = false, name = "", dnID = L["Trial of the Crusader"] .. " " .. "[" .. GARRISON_TIER .. ": " .. "80+]", type = "Raid" } -- Trial of the Crusader, Trial of the Champion 
+          nodes[113][58415888] = { mnID = 115, showOnContinent = true, showInZone = false, showOnMinimap = false, name = L["Naxxramas"] .. " " .. "[" .. LEVEL .. ": " .. "80+]", type = "Raid" } -- Naxxramas 
+          nodes[113][40004021] = { mnID = 118, showOnContinent = true, showInZone = false, showOnMinimap = false, name = DUNGEON_FLOOR_ICECROWNCITADELDEATHKNIGHT3 .. " " .. "[" .. LEVEL .. ": " .. "80+]", type = "Raid" } -- Icecrown Citadel 
+          nodes[113][58101029] = { mnID = 120, showOnContinent = true, showInZone = false, showOnMinimap = false, name = L["Ulduar"] .. " " .. "[" .. LEVEL .. ": " .. "80+]",type = "Raid" } -- Ulduar
+          nodes[113][35694316] = { mnID = 123, showOnContinent = true, showInZone = false, showOnMinimap = false, name = DUNGEON_FLOOR_VAULTOFARCHAVON1  .. " " .. "[" .. LEVEL .. ": " .. "80+]", type = "Raid" } -- Vault of Archavon
+          nodes[113][50346038] = { mnID = 115, showOnContinent = true, showInZone = false, showOnMinimap = false, name = "", dnID = DUNGEON_FLOOR_THEOBSIDIANSANCTUM1 .. " " .. "[" .. LEVEL .. ": " .. "80+]" .. "\n" .. L["The Ruby Sanctum"] .. " " .. "[" .. LEVEL .. ": " .. "80+]", type = "Raid" } -- The Ruby Sanctum, The Obsidian Sanctum 
+          nodes[113][12425702] = { mnID = 114, showOnContinent = true, showInZone = false, showOnMinimap = false, name = "", dnID = DUNGEON_FLOOR_THEEYEOFETERNITY1 .. " " .. "[" .. LEVEL .. ": " .. "80+]", type = "Raid" } -- The Eye of Eternity, The Nexus, The Oculus
+          nodes[113][47521749] = { mnID = 118, showOnContinent = true, showInZone = false, showOnMinimap = false, name = "", dnID = L["Trial of the Crusader"] .. " " .. "[" .. LEVEL .. ": " .. "80+]", type = "Raid" } -- Trial of the Crusader, Trial of the Champion 
         end
 
 
       -- Northrend Multiple
         if self.db.profile.showContinentMultiple then
-          nodes[113][40005849] = { mnID = 115, showOnContinent = true, showInZone = false, showOnMinimap = false, name = "", dnID = DUNGEON_FLOOR_AHNKAHET1 .. " " .. "[" .. GARRISON_TIER .. ": " .. "73-75]" .. "\n" .. L["Azjol-Nerub"] .. " " .. "[" .. GARRISON_TIER .. ": " .. "72-74]", type = "MultipleD" } -- Ahn'kahet The Old Kingdom, Azjol-Nerub        
-          nodes[113][41154408] = { mnID = 118, showOnContinent = true, showInZone = false, showOnMinimap = false, name = "", dnID = DUNGEON_FLOOR_THEFORGEOFSOULS1 .. " " .. "[" .. GARRISON_TIER .. ": " .. "79-80]" .. "\n" .. DUNGEON_FLOOR_HALLSOFREFLECTION1 .. " " .. "[" .. GARRISON_TIER .. ": " .. "79-80]" .. "\n" .. DUNGEON_FLOOR_PITOFSARON1 .. " " .. "[" .. GARRISON_TIER .. ": " .. "79-80]", type = "MultipleD" } -- The Forge of Souls, Halls of Reflection, Pit of Saron         
-          nodes[113][47521749] = { mnID = 118, showOnContinent = true, showInZone = false, showOnMinimap = false, name = "", dnID = L["Trial of the Champion"] .. " " .. "[" .. GARRISON_TIER .. ": " .. "79-80]" .. "\n" .. L["Trial of the Crusader"] .. " " .. "[" .. GARRISON_TIER .. ": " .. "80+]", type = "MultipleM" } -- Trial of the Crusader, Trial of the Champion 
-          nodes[113][12425702] = { mnID = 114, showOnContinent = true, showInZone = false, showOnMinimap = false, name = "", dnID = DUNGEON_FLOOR_THEEYEOFETERNITY1 .. " " .. "[" .. GARRISON_TIER .. ": " .. "80+]" .. "\n" .. DUNGEON_FLOOR_THENEXUS1 .. " " .. "[" .. GARRISON_TIER .. ": " .. "71-73]" .. "\n" .. L["The Oculus"]  .. " " .. "[" .. GARRISON_TIER .. ": " .. "79-80]", type = "MultipleM" } -- The Eye of Eternity, The Nexus, The Oculus
-          nodes[113][50346038] = { mnID = 115, showOnContinent = true, showInZone = false, showOnMinimap = false, name = "", dnID = DUNGEON_FLOOR_THEOBSIDIANSANCTUM1 .. " " .. "[" .. GARRISON_TIER .. ": " .. "80+]" .. "\n" .. L["The Ruby Sanctum"] .. " " .. "[" .. GARRISON_TIER .. ": " .. "80+]", type = "MultipleR" } -- The Ruby Sanctum, The Obsidian Sanctum 
+          nodes[113][40005849] = { mnID = 115, showOnContinent = true, showInZone = false, showOnMinimap = false, name = "", dnID = DUNGEON_FLOOR_AHNKAHET1 .. " " .. "[" .. LEVEL .. ": " .. "73-75]" .. "\n" .. L["Azjol-Nerub"] .. " " .. "[" .. LEVEL .. ": " .. "72-74]", type = "MultipleD" } -- Ahn'kahet The Old Kingdom, Azjol-Nerub        
+          nodes[113][41154408] = { mnID = 118, showOnContinent = true, showInZone = false, showOnMinimap = false, name = "", dnID = DUNGEON_FLOOR_THEFORGEOFSOULS1 .. " " .. "[" .. LEVEL .. ": " .. "79-80]" .. "\n" .. DUNGEON_FLOOR_HALLSOFREFLECTION1 .. " " .. "[" .. LEVEL .. ": " .. "79-80]" .. "\n" .. DUNGEON_FLOOR_PITOFSARON1 .. " " .. "[" .. LEVEL .. ": " .. "79-80]", type = "MultipleD" } -- The Forge of Souls, Halls of Reflection, Pit of Saron         
+          nodes[113][47521749] = { mnID = 118, showOnContinent = true, showInZone = false, showOnMinimap = false, name = "", dnID = L["Trial of the Champion"] .. " " .. "[" .. LEVEL .. ": " .. "79-80]" .. "\n" .. L["Trial of the Crusader"] .. " " .. "[" .. LEVEL .. ": " .. "80+]", type = "MultipleM" } -- Trial of the Crusader, Trial of the Champion 
+          nodes[113][12425702] = { mnID = 114, showOnContinent = true, showInZone = false, showOnMinimap = false, name = "", dnID = DUNGEON_FLOOR_THEEYEOFETERNITY1 .. " " .. "[" .. LEVEL .. ": " .. "80+]" .. "\n" .. DUNGEON_FLOOR_THENEXUS1 .. " " .. "[" .. LEVEL .. ": " .. "71-73]" .. "\n" .. L["The Oculus"]  .. " " .. "[" .. LEVEL .. ": " .. "79-80]", type = "MultipleM" } -- The Eye of Eternity, The Nexus, The Oculus
+          nodes[113][50346038] = { mnID = 115, showOnContinent = true, showInZone = false, showOnMinimap = false, name = "", dnID = DUNGEON_FLOOR_THEOBSIDIANSANCTUM1 .. " " .. "[" .. LEVEL .. ": " .. "80+]" .. "\n" .. L["The Ruby Sanctum"] .. " " .. "[" .. LEVEL .. ": " .. "80+]", type = "MultipleR" } -- The Ruby Sanctum, The Obsidian Sanctum 
         end
 
 
