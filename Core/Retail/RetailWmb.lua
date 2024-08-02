@@ -271,7 +271,7 @@ local info = C_Map.GetMapInfo(WorldMapFrame:GetMapID())
             --Broken Isles
             elseif (WorldMapFrame:GetMapID() == 630 or WorldMapFrame:GetMapID() == 634 or WorldMapFrame:GetMapID() == 641 or WorldMapFrame:GetMapID() == 646 or WorldMapFrame:GetMapID() == 650 or WorldMapFrame:GetMapID() == 652
                 or WorldMapFrame:GetMapID() == 750 or WorldMapFrame:GetMapID() == 680 or WorldMapFrame:GetMapID() == 830 or WorldMapFrame:GetMapID() == 882 or WorldMapFrame:GetMapID() == 885 or WorldMapFrame:GetMapID() == 905
-                or WorldMapFrame:GetMapID() == 941 or WorldMapFrame:GetMapID() == 790)
+                or WorldMapFrame:GetMapID() == 941 or WorldMapFrame:GetMapID() == 790 or WorldMapFrame:GetMapID() == 971)
             then
                 if not ns.Addon.db.profile.showZoneBrokenIsles then
                     ns.Addon.db.profile.showZoneBrokenIsles = true
@@ -418,7 +418,7 @@ local info = C_Map.GetMapInfo(WorldMapFrame:GetMapID())
             -- Broken Isles    
             elseif (WorldMapFrame:GetMapID() == 630 or WorldMapFrame:GetMapID() == 634 or WorldMapFrame:GetMapID() == 641 or WorldMapFrame:GetMapID() == 646 or WorldMapFrame:GetMapID() == 650 or WorldMapFrame:GetMapID() == 652
                 or WorldMapFrame:GetMapID() == 750 or WorldMapFrame:GetMapID() == 680 or WorldMapFrame:GetMapID() == 830 or WorldMapFrame:GetMapID() == 882 or WorldMapFrame:GetMapID() == 885 or WorldMapFrame:GetMapID() == 905
-                or WorldMapFrame:GetMapID() == 941 or WorldMapFrame:GetMapID() == 790) 
+                or WorldMapFrame:GetMapID() == 941 or WorldMapFrame:GetMapID() == 790 or WorldMapFrame:GetMapID() == 971) 
             then
                 if not ns.Addon.db.profile.showZoneBrokenIsles then
                     ns.Addon.db.profile.showZoneBrokenIsles = true
@@ -572,7 +572,7 @@ local info = C_Map.GetMapInfo(WorldMapFrame:GetMapID())
         elseif WorldMapFrame:GetMapID() == 424 then
             GameTooltip:AddLine(HELPFRAME_REPORT_PLAYER_RIGHT_CLICK .. " => " .. "|cffff0000" .. L["Continent map"] .. " " .. L["Pandaria"] .. "|cffffcc00" .. " " .. L["icons"] .. " " .. SHOW .. " / " .. HIDE,1,1,1)
             GameTooltip:Show()
-        elseif WorldMapFrame:GetMapID() == 573 then
+        elseif WorldMapFrame:GetMapID() == 572 then
             GameTooltip:AddLine(HELPFRAME_REPORT_PLAYER_RIGHT_CLICK .. " => " .. "|cffff0000" .. L["Continent map"] .. " " .. L["Draenor"] .. "|cffffcc00" .. " " .. L["icons"] .. " " .. SHOW .. " / " .. HIDE,1,1,1)
             GameTooltip:Show()
         elseif WorldMapFrame:GetMapID() == 619 then
@@ -650,7 +650,7 @@ local info = C_Map.GetMapInfo(WorldMapFrame:GetMapID())
         --Broken Isles
         elseif (WorldMapFrame:GetMapID() == 630 or WorldMapFrame:GetMapID() == 634 or WorldMapFrame:GetMapID() == 641 or WorldMapFrame:GetMapID() == 646 or WorldMapFrame:GetMapID() == 650 or WorldMapFrame:GetMapID() == 652
             or WorldMapFrame:GetMapID() == 750 or WorldMapFrame:GetMapID() == 680 or WorldMapFrame:GetMapID() == 830 or WorldMapFrame:GetMapID() == 882 or WorldMapFrame:GetMapID() == 885 or WorldMapFrame:GetMapID() == 905
-            or WorldMapFrame:GetMapID() == 941 or WorldMapFrame:GetMapID() == 790)
+            or WorldMapFrame:GetMapID() == 941 or WorldMapFrame:GetMapID() == 790 or WorldMapFrame:GetMapID() == 971)
         then
             GameTooltip:AddLine(HELPFRAME_REPORT_PLAYER_RIGHT_CLICK .. " => " .. "|cffff0000".. L["Broken Isles"] .. " " .. L["Zones"] .. "-" .. BRAWL_TOOLTIP_MAPS .. "|cffffcc00" .. " " .. L["icons"] .. " " .. SHOW .. " / " .. HIDE,1,1,1)
             GameTooltip:Show()
@@ -737,7 +737,7 @@ local info = C_Map.GetMapInfo(WorldMapFrame:GetMapID())
         --Broken Isles
         elseif (WorldMapFrame:GetMapID() == 630 or WorldMapFrame:GetMapID() == 634 or WorldMapFrame:GetMapID() == 641 or WorldMapFrame:GetMapID() == 646 or WorldMapFrame:GetMapID() == 650 or WorldMapFrame:GetMapID() == 652
             or WorldMapFrame:GetMapID() == 750 or WorldMapFrame:GetMapID() == 680 or WorldMapFrame:GetMapID() == 830 or WorldMapFrame:GetMapID() == 882 or WorldMapFrame:GetMapID() == 885 or WorldMapFrame:GetMapID() == 905
-            or WorldMapFrame:GetMapID() == 941 or WorldMapFrame:GetMapID() == 790)
+            or WorldMapFrame:GetMapID() == 941 or WorldMapFrame:GetMapID() == 790 or WorldMapFrame:GetMapID() == 971)
         then
             GameTooltip:AddLine(HELPFRAME_REPORT_PLAYER_RIGHT_CLICK .. " => " .. "|cffff0000".. L["synchronizes"] .. " " .. L["Broken Isles"] .. " " .. L["Zones"] .. " & " .. MINIMAP_LABEL .. "|cffffcc00" .. " " .. L["icons"] .. " " .. SHOW .. " / " .. HIDE,1,1,1)
             GameTooltip:Show()

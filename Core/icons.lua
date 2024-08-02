@@ -110,7 +110,7 @@ ns.icons = {
 ["LLG"] = "Interface/Icons/artifactability_HavocDemonHunter_AnguishoftheDeceiver",
 ["LMOP"] = "Interface/CharacterFrame/TEMPORARYPORTRAIT-FEMALE-PANDAREN",
 ["LWotlk"] = "interface/lfgframe/ui-lfr-portrait",
-["TWW"] = "interface/worldstateframe/orchead.blp",
+["TWW"] = "interface/icons/inv_achievement_raid_progenitorraid_anduin.blp",
 --paths
 ["PathO"] = iconLink .. "PathO",
 ["PathRO"] = iconLink .. "PathRO",
@@ -142,6 +142,7 @@ ns.icons = {
 ["HZeppelinNew"] = iconLink .. "hportal",
 --portal
 ["Portal"] = iconLink .. "portal",
+["PortalS"] = iconLink .. "portalS",
 ["HPortal"] = iconLink .. "hportal",
 ["HPortalS"] = iconLink .. "hportalS",
 ["APortal"] = iconLink .. "aportal",
@@ -151,6 +152,7 @@ ns.icons = {
 ["PassageAPortal"] = iconLink .. "passageAPortal",
 --portal Old
 ["PortalOld"] = iconLink .. "portalOld",
+["PortalSOld"] = iconLink .. "portalSOld",
 ["HPortalOld"] = iconLink .. "hportalOld",
 ["HPortalSOld"] = iconLink .. "hportalSOld",
 ["APortalOld"] = iconLink .. "aportalOld",
@@ -160,6 +162,7 @@ ns.icons = {
 ["PassageAPortalOld"] = iconLink .. "passageAPortalOld",
 --portal restore nodes
 ["PortalNew"] = iconLink .. "portal", -- nodes for Classic Icon Style function to get new the new icons back
+["PortalSNew"] = iconLink .. "portalS", -- nodes for Classic Icon Style function to get new the new icons back
 ["HPortalNew"] = iconLink .. "hportal", -- nodes for Classic Icon Style function to get new the new icons back
 ["HPortalSNew"] = iconLink .. "hportalS", -- nodes for Classic Icon Style function to get new the new icons back
 ["APortalNew"] = iconLink .. "aportal", -- nodes for Classic Icon Style function to get new the new icons back

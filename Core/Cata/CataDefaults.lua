@@ -27,7 +27,15 @@ ns.defaults = {
       RestoreDungeonDeletedIcons = false,
       RestoreCapitalsDeletedIcons = false,
 
-    --2 MiniMap tab
+    -- 2.0 MiniMap Classic
+      minimapScale = 1,
+      minimapAlpha = 1,
+      zoneScale = 1,
+      zoneAlpha = 1,
+      instanceScale = 1,
+      instanceAlpha = 1,
+
+    --2.1 MiniMap tab
     -- MiniMap Continent
       showMiniMapKalimdor = true,
       showMiniMapEasternKingdom = true,
@@ -391,6 +399,7 @@ ns.defaults = {
         SyncZoneAndMinimap = false,
         SyncCapitalsAndMinimap = false,
         ZoneChanged = true,
+        ZoneChangedDetail = false,
       --MiniMap
         MiniMapEnemyFaction = true,
         MiniMapInstances = true,

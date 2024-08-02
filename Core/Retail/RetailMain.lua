@@ -1,5 +1,11 @@
 local ADDON_NAME, ns = ...
 
+local version, build, date, tocversion = GetBuildInfo()
+ns.tocversion = tocversion
+ns.date = date
+ns.build = build
+ns.version = version
+
 local HandyNotes = LibStub("AceAddon-3.0"):GetAddon("HandyNotes", true)
 if not HandyNotes then return end
 
@@ -234,7 +240,7 @@ do
       ns.instanceIcons = value.type == "Dungeon" or value.type == "Raid" or value.type == "PassageDungeon" or value.type == "PassageDungeonRaidMulti" or value.type == "PassageRaid" or value.type == "VInstance"  or value.type == "MultiVInstance" 
                           or value.type == "PassageDungeon" or value.type == "Multiple" or value.type == "LFR" or value.type == "Gray" or value.type == "VKey1"
 
-      ns.transportIcons = value.type == "Portal" or value.type == "HPortal" or value.type == "APortal" or value.type == "HPortalS" or value.type == "APortalS" or value.type == "PassageHPortal" 
+      ns.transportIcons = value.type == "Portal" or value.type == "PortalS" or value.type == "HPortal" or value.type == "APortal" or value.type == "HPortalS" or value.type == "APortalS" or value.type == "PassageHPortal" 
                           or value.type == "PassageAPortal" or value.type == "PassagePortal" or value.type == "Zeppelin" or value.type == "HZeppelin" or value.type == "AZeppelin" or value.type == "Ship" 
                           or value.type == "AShip" or value.type == "HShip" or value.type == "Carriage" or value.type == "TravelL" or value.type == "TravelH" or value.type == "TravelA" or value.type == "Tport2" 
                           or value.type == "OgreWaygate" or value.type == "WayGateGreen" or value.type == "Ghost" or value.type == "DarkMoon" or value.type == "Mirror" or value.type == "TravelM" or value.type == "B11M" 
@@ -307,7 +313,7 @@ do
           
       ns.BrokenIslesIDs = WorldMapFrame:GetMapID() == 630 or WorldMapFrame:GetMapID() == 634 or WorldMapFrame:GetMapID() == 641 or WorldMapFrame:GetMapID() == 646 or WorldMapFrame:GetMapID() == 650 or WorldMapFrame:GetMapID() == 652
                       or WorldMapFrame:GetMapID() == 750 or WorldMapFrame:GetMapID() == 680 or WorldMapFrame:GetMapID() == 830 or WorldMapFrame:GetMapID() == 882 or WorldMapFrame:GetMapID() == 885 or WorldMapFrame:GetMapID() == 905
-                      or WorldMapFrame:GetMapID() == 941 or WorldMapFrame:GetMapID() == 790
+                      or WorldMapFrame:GetMapID() == 941 or WorldMapFrame:GetMapID() == 790 or WorldMapFrame:GetMapID() == 971
           
       ns.ZandalarIDs = WorldMapFrame:GetMapID() == 862 or WorldMapFrame:GetMapID() == 863 or WorldMapFrame:GetMapID() == 864 or WorldMapFrame:GetMapID() == 1355 or WorldMapFrame:GetMapID() == 1528
           
@@ -830,7 +836,7 @@ end
 
 local subzone = GetSubZoneText()
 function Addon:ZONE_CHANGED_INDOORS()
-    if ns.Addon.db.profile.activate.ZoneChanged then
+    if ns.Addon.db.profile.activate.ZoneChanged and ns.Addon.db.profile.activate.ZoneChangedDetail and not ns.CapitalMiniMapIDs then
       print(TextIconMNL4:GetIconString() .. " " .. ns.COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00" .. " " .. L["Location"] .. ": ", "|cff00ff00" .. "==>  " .. "|cff00ff00" .. GetZoneText() .. " " .. "|cff00ccff" .. GetSubZoneText().. "|cff00ff00" .. "  <==")
     end
 end
@@ -838,10 +844,38 @@ end
 function Addon:ZONE_CHANGED()
   local mapID = C_Map.GetBestMapForUnit("player")
   if mapID then
-    if ns.Addon.db.profile.activate.ZoneChanged then
+    if ns.Addon.db.profile.activate.ZoneChanged and ns.Addon.db.profile.activate.ZoneChangedDetail and not ns.CapitalMiniMapIDs then
       print(TextIconMNL4:GetIconString() .. " " .. ns.COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00" .. " " .. L["Location"] .. ": ", "|cff00ff00" .. "==>  " .. GetZoneText() .. " " .. "|cff00ccff" .. GetSubZoneText() .. "|cff00ff00" .. "  <==")
     end
   end
+end
+
+function Addon:OnProfileChanged(event, database, newProfileKey)
+	db = database.profile
+  ns.Addon:FullUpdate()
+  HandyNotes:SendMessage("HandyNotes_NotifyUpdate", "MapNotes")
+  print(TextIconMNL4:GetIconString() .. " " .. ns.COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. " " .. "|cffffff00" .. L["Profile has been changed"])
+end
+
+function Addon:OnProfileReset(event, database, newProfileKey)
+	db = database.profile
+  ns.Addon:FullUpdate()
+  HandyNotes:SendMessage("HandyNotes_NotifyUpdate", "MapNotes")
+  print(TextIconMNL4:GetIconString() .. " " .. ns.COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. " " .. "|cffffff00" .. L["Profile has been reset to default"])
+end
+
+function Addon:OnProfileCopied(event, database, newProfileKey)
+	db = database.profile
+  ns.Addon:FullUpdate()
+  HandyNotes:SendMessage("HandyNotes_NotifyUpdate", "MapNotes")
+  print(TextIconMNL4:GetIconString() .. " " .. ns.COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. " " .. "|cffffff00" .. L["Profile has been adopted"])
+end
+
+function Addon:OnProfileDeleted (event, database, newProfileKey)
+	db = database.profile
+  ns.Addon:FullUpdate()
+  HandyNotes:SendMessage("HandyNotes_NotifyUpdate", "MapNotes")
+  print(TextIconMNL4:GetIconString() .. " " .. ns.COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. " " .. "|cffffff00" .. L["Profile has been deleted"])
 end
 
 function Addon:PLAYER_ENTERING_WORLD()
@@ -855,18 +889,25 @@ function Addon:PLAYER_ENTERING_WORLD()
     updateStuff()
 end
 
-function Addon:PLAYER_LOGIN()
+function Addon:PLAYER_LOGIN() -- OnInitialize()
   ns.LoadOptions(self)
   ns.Addon = Addon
 
   -- Register Database Profile
   self.db = LibStub("AceDB-3.0"):New("HandyNotes_MapNotesRetailDB", ns.defaults)
+  self.db.RegisterCallback(self, "OnProfileChanged", "OnProfileChanged")
+	self.db.RegisterCallback(self, "OnProfileCopied", "OnProfileCopied")
+	self.db.RegisterCallback(self, "OnProfileReset", "OnProfileReset")
+  self.db.RegisterCallback(self, "OnProfileDeleted", "OnProfileDeleted")
   db = self.db.profile
   ns.dbChar = self.db.char
 
   -- Register options 
   HandyNotes:RegisterPluginDB("MapNotes", pluginHandler, ns.options)
-  LibStub("AceConfigRegistry-3.0"):RegisterOptionsTable("MapNotes", ns.options) -- MiniMapButton
+  LibStub("AceConfigRegistry-3.0"):RegisterOptionsTable("MapNotes", ns.options)
+
+  -- Get the option table for profiles
+  ns.options.args.profiles = LibStub("AceDBOptions-3.0"):GetOptionsTable(self.db)
 
   -- Check for any lockout changes when we zone
   Addon:RegisterEvent("PLAYER_ENTERING_WORLD")
@@ -875,6 +916,13 @@ function Addon:PLAYER_LOGIN()
   Addon:RegisterEvent("ZONE_CHANGED_NEW_AREA")
   Addon:RegisterEvent("ZONE_CHANGED")
   Addon:RegisterEvent("ZONE_CHANGED_INDOORS")
+
+  -- Check if MapNotes vs Blizzard is true then remove Blizzard Pins
+  if ns.Addon.db.profile.activate.RemoveBlizzPOIs then
+    SetCVar("showDungeonEntrancesOnMap", 0)
+  elseif not ns.Addon.db.profile.activate.RemoveBlizzPOIs then
+      SetCVar("showDungeonEntrancesOnMap", 1)
+  end
 
   if ns.Addon.db.profile.activate.HideMMB then -- minimap button
     MNMMBIcon:Hide("MNMiniMapButton")

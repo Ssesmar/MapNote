@@ -22,16 +22,16 @@ ns.options = {
       desc = L["General settings that apply to Azeroth / Continent / Dungeon map at the same time"],
       order = 0,
       args = {
-        Description = {
-          type = "header",
-          name = L["Description"],
-          order = 0.1,
-          },
-        DescriptionText = {
-          name = "|cff00ccff" .. L["Show different icons on different maps. All icons are clickable (except on the minimap) and have a function Map icons work with or without the shift key. Simply change the Shift function!"],
-          type = "description",
-          order = 0.1,
-          },  
+        --Description = {
+        --  type = "header",
+        --  name = L["Description"],
+        --  order = 0.1,
+        --  },
+        --DescriptionText = {
+        --  name = "|cff00ccff" .. L["Show different icons on different maps. All icons are clickable (except on the minimap) and have a function Map icons work with or without the shift key. Simply change the Shift function!"],
+        --  type = "description",
+        --  order = 0.1,
+        --  },  
         General = {
           type = "header",
           name = L["General"],
@@ -166,23 +166,45 @@ ns.options = {
             if ns.Addon.db.profile.ChatMassage and not ns.Addon.db.profile.activate.ShiftWorld then print(TextIconMNL4:GetIconString() .. " " .. ns.COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00", L["Shift function"], "|cff00ff00" .. L["is deactivated"] .. " " .. L["You can now interact with MapNotes icons without having to press Shift + Click at the same time"]) else
             if ns.Addon.db.profile.ChatMassage and ns.Addon.db.profile.activate.ShiftWorld then print(TextIconMNL4:GetIconString() .. " " .. ns.COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00", L["Shift function"], "|cffff0000" .. L["is activated"] .. " " .. L["You must now always press Shift + Click at the same time to interact with the MapNotes icons"]) end end end,
           },
+        DescriptionHeader3 = {
+          type = "header",
+          name = L["Show joined zone names in chat"],
+          order = 2.0,
+          },
         ZoneChanged = {
           type = "toggle",
-          name = L["Show Zone Names"],
+          name = L["Location"],
           desc = L["When entering a new zone, the name of the new zone will be displayed in the chat"],
-          order = 2,
-          width = 0.90,
+          order = 2.1,
+          width = 1.05,
           get = function() return ns.Addon.db.profile.activate.ZoneChanged end,
           set = function(info, v) ns.Addon.db.profile.activate.ZoneChanged = v self:FullUpdate() HandyNotes:SendMessage("HandyNotes_NotifyUpdate", "MapNotes")
-            if ns.Addon.db.profile.ChatMassage and not ns.Addon.db.profile.activate.ZoneChanged then print(TextIconMNL4:GetIconString() .. " " .. ns.COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00", L["Show Zone Names"], "|cffff0000" .. L["is deactivated"]) else
-            if ns.Addon.db.profile.ChatMassage and ns.Addon.db.profile.activate.ZoneChanged then print(TextIconMNL4:GetIconString() .. " " .. ns.COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00", L["Show Zone Names"], "|cff00ff00" .. L["is activated"]) end end end,
+            if ns.Addon.db.profile.ChatMassage and not ns.Addon.db.profile.activate.ZoneChanged then print(TextIconMNL4:GetIconString() .. " " .. ns.COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00", L["Show Zone Names"], L["Location"], "|cffff0000" .. L["is deactivated"]) else
+            if ns.Addon.db.profile.ChatMassage and ns.Addon.db.profile.activate.ZoneChanged then print(TextIconMNL4:GetIconString() .. " " .. ns.COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00", L["Show Zone Names"], L["Location"], "|cff00ff00" .. L["is activated"]) end end end,
+          },
+        ZoneChangedDetail = {
+          disabled = function() return not ns.Addon.db.profile.activate.ZoneChanged end,
+          type = "toggle",
+          name = L["Location"] .. "|cff00ccff " .. LFG_LIST_DETAILS,
+          desc = L["In addition to the zone names, it also displays the names of specific locations within a zone. Disabling the Show Zone Names feature will also disable this feature"] .. "\n" .. "\n" .. L["Capital cities are excluded from this because there would be too much chat spam"],
+          order = 2.2,
+          width = 1.5,
+          get = function() return ns.Addon.db.profile.activate.ZoneChangedDetail end,
+          set = function(info, v) ns.Addon.db.profile.activate.ZoneChangedDetail = v self:FullUpdate() HandyNotes:SendMessage("HandyNotes_NotifyUpdate", "MapNotes")
+            if ns.Addon.db.profile.ChatMassage and not ns.Addon.db.profile.activate.ZoneChangedDetail then print(TextIconMNL4:GetIconString() .. " " .. ns.COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00", L["Show Zone Names"], L["Location"], LFG_LIST_DETAILS, "|cffff0000" .. L["is deactivated"]) else
+            if ns.Addon.db.profile.ChatMassage and ns.Addon.db.profile.activate.ZoneChangedDetail then print(TextIconMNL4:GetIconString() .. " " .. ns.COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00", L["Show Zone Names"], L["Location"], LFG_LIST_DETAILS, "|cff00ff00" .. L["is activated"]) end end end,
+          },
+        GeneralHeaderFogofWar = {
+          type = "header",
+          name = L["Unexplored Areas"] .. " - " .. L["Mist of the Unexplored"],
+          order = 2.5,
           },
         FogOfWar = {
           --disabled = function() return ns.Addon.db.profile.activate.HideMapNote end,
           type = "toggle",
           name = L["Unexplored Areas"],
           desc = L["Reveals unexplored areas and shows the individual areas of each zone that are actually still unexplored"],
-          order = 2.1,
+          order = 2.6,
           width = 1.05,
           get = function() return ns.Addon.db.profile.activate.FogOfWar end,
           set = function(info, v) ns.Addon.db.profile.activate.FogOfWar = v self:FullUpdate() HandyNotes:SendMessage("HandyNotes_NotifyUpdate", "MapNotes")
@@ -196,7 +218,7 @@ ns.options = {
           name = L["Mist of the Unexplored"],
           desc = L["Leaves the unexplored areas revealed but adds a slight fog so you can still see which ones you haven't explored yet"],
           width = 1.2,
-          order = 2.2,
+          order = 2.7,
           get = function() return ns.Addon.db.profile.activate.FogOfWarAlphaReduce end,
           set = function(info, v) ns.Addon.db.profile.activate.FogOfWarAlphaReduce = v self:FullUpdate() HandyNotes:SendMessage("HandyNotes_NotifyUpdate", "MapNotes")
             HandyNotes:GetModule("FogOfWarButton"):Refresh()
@@ -278,7 +300,7 @@ ns.options = {
           type = "toggle",
           name = L["Portals"] .. " " .. TextIconPortalOld:GetIconString() .. "" .. TextIconHPortalOld:GetIconString() .. "" .. TextIconAPortalOld:GetIconString(),
           desc = L["Changes the appearance of the icons. When activated, the listed icons will be changed with the previous style of these icons"] .. "\n" .. "\n" .. L["Portals"] .. " - " .. LFG_LIST_LEGACY .. "\n" .. TextIconPortalOld:GetIconString() .. " " .. TextIconHPortalOld:GetIconString() .. " " .. TextIconAPortalOld:GetIconString() .. "\n" .. TextIconPassagePortalOld:GetIconString() .. " " .. TextIconPassageHPortalOld:GetIconString() .. " " .. TextIconPassageAPortalOld:GetIconString() .. "\n" .. "\n" .. L["Portals"] .. " - " .. NEW .. "\n" .. TextIconPortal:GetIconString() .. " " .. TextIconHPortal:GetIconString() .. " " .. TextIconAPortal:GetIconString() .. "\n" .. TextIconPassagePortal:GetIconString() .. " " .. TextIconPassageHPortal:GetIconString() .. " " .. TextIconPassageAPortal:GetIconString(),
-          width = 0.85,
+          width = 0.75,
           order = 4.2,
           get = function() return ns.Addon.db.profile.activate.ClassicPortals end,
           set = function(info, v) ns.Addon.db.profile.activate.ClassicPortals = v self:FullUpdate() HandyNotes:SendMessage("HandyNotes_NotifyUpdate", "MapNotes")
@@ -290,7 +312,7 @@ ns.options = {
           type = "toggle",
           name = L["Ships"] .. " " .. TextIconShipOld:GetIconString() .. "" .. TextIconHShipOld:GetIconString() .. "" .. TextIconAShipOld:GetIconString(),
           desc = L["Changes the appearance of the icons. When activated, the listed icons will be changed with the previous style of these icons"] .. "\n" .. "\n" .. L["Ships"] .. " - " .. LFG_LIST_LEGACY .. "\n" .. TextIconShipOld:GetIconString() .. " " .. TextIconHShipOld:GetIconString() .. " " .. TextIconAShipOld:GetIconString() .. "\n" .. "\n" .. L["Ships"] .. " - " .. NEW .. "\n" .. TextIconShip:GetIconString() .. " " .. TextIconHShip:GetIconString() .. " " .. TextIconAShip:GetIconString(),
-          width = 0.85,
+          width = 0.75,
           order = 4.3,
           get = function() return ns.Addon.db.profile.activate.ClassicShips end,
           set = function(info, v) ns.Addon.db.profile.activate.ClassicShips = v self:FullUpdate() HandyNotes:SendMessage("HandyNotes_NotifyUpdate", "MapNotes")
@@ -314,7 +336,7 @@ ns.options = {
           type = "toggle",
           name = BANK .. " " .. TextIconBankOld:GetIconString(),
           desc = L["Changes the appearance of the icons. When activated, the listed icons will be changed with the previous style of these icons"] .. "\n" .. "\n" .. BANK .. " " .. LFG_LIST_LEGACY .. "\n" .. TextIconBankOld:GetIconString() .. "\n" .. "\n" .. BANK .. " " .. NEW .. "\n" .. TextIconBank:GetIconString(),
-          width = 0.85,
+          width = 0.55,
           order = 4.5,
           get = function() return ns.Addon.db.profile.activate.ClassicBank end,
           set = function(info, v) ns.Addon.db.profile.activate.ClassicBank = v self:FullUpdate() HandyNotes:SendMessage("HandyNotes_NotifyUpdate", "MapNotes")
@@ -326,7 +348,7 @@ ns.options = {
           type = "toggle",
           name = TRADE_SKILLS .. " " ..  TextIconProfessionOrders:GetIconString(),
           desc = L["Changes the appearance of the icons. When activated, the listed icons will be changed with the previous style of these icons"] .. "\n" .. "\n" .. TRADE_SKILLS .. " " .. LFG_LIST_LEGACY .. "\n" .. TextIconClassicOriginalAlchemy:GetIconString() .. " " .. TextIconClassicOriginalBlacksmith:GetIconString() .. " " .. TextIconClassicOriginalEngineer:GetIconString() .. " " .. TextIconClassicOriginalSkinning:GetIconString() .. " " .. TextIconClassicOriginalTailoring:GetIconString() .. " " .. TextIconClassicOriginalJewelcrafting:GetIconString() .. " " .. TextIconClassicOriginalLeatherworking:GetIconString() .. " " .. TextIconClassicOriginalHerbalism:GetIconString() .. " " .. TextIconClassicOriginalMining:GetIconString() .. " " .. TextIconClassicOriginalEnchanting:GetIconString() .. " " .. TextIconClassicOriginalInscription:GetIconString() .. " " .. TextIconClassicOriginalArchaeology:GetIconString() .. " " .. TextIconClassicOriginalCooking:GetIconString() .. " " .. TextIconClassicOriginalFishing:GetIconString() .. " " ..  "\n" .. "\n" .. TRADE_SKILLS .. " " .. NEW .. "\n" .. TextIconAlchemy:GetIconString() .. " " .. TextIconBlacksmith:GetIconString() .. " " .. TextIconEngineer:GetIconString() .. " " .. TextIconSkinning:GetIconString() .. " " .. TextIconTailoring:GetIconString() .. " " .. TextIconJewelcrafting:GetIconString() .. " " .. TextIconLeatherworking:GetIconString() .. " " .. TextIconHerbalism:GetIconString() .. " " .. TextIconMining:GetIconString() .. " " .. TextIconEnchanting:GetIconString() .. " " .. TextIconInscription:GetIconString() .. " " .. TextIconArchaeology:GetIconString() .. " " .. TextIconCooking:GetIconString() .. " " .. TextIconFishing:GetIconString(),
-          width = 0.85,
+          width = 0.60,
           order = 4.6,
           get = function() return ns.Addon.db.profile.activate.ClassicClassicProfession end,
           set = function(info, v) ns.Addon.db.profile.activate.ClassicClassicProfession = v self:FullUpdate() HandyNotes:SendMessage("HandyNotes_NotifyUpdate", "MapNotes")

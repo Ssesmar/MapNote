@@ -163,22 +163,39 @@ ns.options = {
           name = CLASSIC_STYLE,
           desc = L["Only affects instance passage icons, not path icons such as exit icons or icons on an instance map or the Capitals category / Minimap Capitals"] .. "\n" .. "\n" .. L["Changes all passage symbols on all maps to dungeon, raid or multiple symbols. In addition, the passage option will be disabled everywhere and the symbols will be added to the respective raids, dungeons or multiple options (The dungeon map remains unchanged from all this)"] .. "\n" .. "\n" .. L["At the same time, all icons representing additional instance inputs are removed"],
           order = 2.3,
-          width = 1,
+          width = 0.85,
           get = function() return ns.Addon.db.profile.activate.ClassicIcons end,
           set = function(info, v) ns.Addon.db.profile.activate.ClassicIcons = v self:FullUpdate() HandyNotes:SendMessage("HandyNotes_NotifyUpdate", "MapNotes")
             if ns.Addon.db.profile.ChatMassage and not ns.Addon.db.profile.activate.ClassicIcons then print(TextIconMNL4:GetIconString() .. " " .. ns.COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00", CLASSIC_STYLE, "|cff00ff00" .. L["is deactivated"]) else
             if ns.Addon.db.profile.ChatMassage and ns.Addon.db.profile.activate.ClassicIcons then print(TextIconMNL4:GetIconString() .. " " .. ns.COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00", CLASSIC_STYLE, "|cffff0000" .. L["is activated"]) end end end,
           },
+        DescriptionHeader3 = {
+          type = "header",
+          name = L["Show joined zone names in chat"],
+          order = 2.4,
+          },
         ZoneChanged = {
           type = "toggle",
-          name = L["Show Zone Names"],
+          name = L["Location"],
           desc = L["When entering a new zone, the name of the new zone will be displayed in the chat"],
-          order = 2.4,
-          width = 1,
+          order = 2.5,
+          width = 1.05,
           get = function() return ns.Addon.db.profile.activate.ZoneChanged end,
           set = function(info, v) ns.Addon.db.profile.activate.ZoneChanged = v self:FullUpdate() HandyNotes:SendMessage("HandyNotes_NotifyUpdate", "MapNotes")
-            if ns.Addon.db.profile.ChatMassage and not ns.Addon.db.profile.activate.ZoneChanged then print(TextIconMNL4:GetIconString() .. " " .. ns.COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00", L["Show Zone Names"], "|cffff0000" .. L["is deactivated"]) else
-            if ns.Addon.db.profile.ChatMassage and ns.Addon.db.profile.activate.ZoneChanged then print(TextIconMNL4:GetIconString() .. " " .. ns.COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00", L["Show Zone Names"], "|cff00ff00" .. L["is activated"]) end end end,
+            if ns.Addon.db.profile.ChatMassage and not ns.Addon.db.profile.activate.ZoneChanged then print(TextIconMNL4:GetIconString() .. " " .. ns.COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00", L["Show Zone Names"], L["Location"],  "|cffff0000" .. L["is deactivated"]) else
+            if ns.Addon.db.profile.ChatMassage and ns.Addon.db.profile.activate.ZoneChanged then print(TextIconMNL4:GetIconString() .. " " .. ns.COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00", L["Show Zone Names"], L["Location"], "|cff00ff00" .. L["is activated"]) end end end,
+          },
+        ZoneChangedDetail = {
+          disabled = function() return not ns.Addon.db.profile.activate.ZoneChanged end,
+          type = "toggle",
+          name = L["Location"] .. "|cff00ccff " .. LFG_LIST_DETAILS,
+          desc = L["In addition to the zone names, it also displays the names of specific locations within a zone. Disabling the Show Zone Names feature will also disable this feature"] .. "\n" .. "\n" .. L["Capital cities are excluded from this because there would be too much chat spam"],
+          order = 2.6,
+          width = 1.5,
+          get = function() return ns.Addon.db.profile.activate.ZoneChangedDetail end,
+          set = function(info, v) ns.Addon.db.profile.activate.ZoneChangedDetail = v self:FullUpdate() HandyNotes:SendMessage("HandyNotes_NotifyUpdate", "MapNotes")
+            if ns.Addon.db.profile.ChatMassage and not ns.Addon.db.profile.activate.ZoneChangedDetail then print(TextIconMNL4:GetIconString() .. " " .. ns.COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00", L["Show Zone Names"], L["Location"], LFG_LIST_DETAILS, "|cffff0000" .. L["is deactivated"]) else
+            if ns.Addon.db.profile.ChatMassage and ns.Addon.db.profile.activate.ZoneChangedDetail then print(TextIconMNL4:GetIconString() .. " " .. ns.COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00", L["Show Zone Names"], L["Location"], LFG_LIST_DETAILS, "|cff00ff00" .. L["is activated"]) end end end,
           },
         GeneralHeaderFogofWar = {
           type = "header",

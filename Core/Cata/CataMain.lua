@@ -737,7 +737,7 @@ end
 
 local subzone = GetSubZoneText()
 function Addon:ZONE_CHANGED_INDOORS()
-    if ns.Addon.db.profile.activate.ZoneChanged then
+    if ns.Addon.db.profile.activate.ZoneChanged and ns.Addon.db.profile.activate.ZoneChangedDetail and not ns.CapitalMiniMapIDs then
       print(TextIconMNL4:GetIconString() .. " " .. ns.COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00" .. " " .. L["Location"] .. ": ", "|cff00ff00" .. "==>  " .. "|cff00ff00" .. GetZoneText() .. " " .. "|cff00ccff" .. GetSubZoneText().. "|cff00ff00" .. "  <==")
     end
 end
@@ -745,10 +745,38 @@ end
 function Addon:ZONE_CHANGED()
   local mapID = C_Map.GetBestMapForUnit("player")
   if mapID then
-    if ns.Addon.db.profile.activate.ZoneChanged then
+    if ns.Addon.db.profile.activate.ZoneChanged and ns.Addon.db.profile.activate.ZoneChangedDetail and not ns.CapitalMiniMapIDs then
       print(TextIconMNL4:GetIconString() .. " " .. ns.COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. "|cffffff00" .. " " .. L["Location"] .. ": ", "|cff00ff00" .. "==>  " .. GetZoneText() .. " " .. "|cff00ccff" .. GetSubZoneText() .. "|cff00ff00" .. "  <==")
     end
   end
+end
+
+function Addon:OnProfileChanged(event, database, newProfileKey)
+	db = database.profile
+  ns.Addon:FullUpdate()
+  HandyNotes:SendMessage("HandyNotes_NotifyUpdate", "MapNotes")
+  print(TextIconMNL4:GetIconString() .. " " .. ns.COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. " " .. "|cffffff00" .. L["Profile has been changed"])
+end
+
+function Addon:OnProfileReset(event, database, newProfileKey)
+	db = database.profile
+  ns.Addon:FullUpdate()
+  HandyNotes:SendMessage("HandyNotes_NotifyUpdate", "MapNotes")
+  print(TextIconMNL4:GetIconString() .. " " .. ns.COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. " " .. "|cffffff00" .. L["Profile has been reset to default"])
+end
+
+function Addon:OnProfileCopied(event, database, newProfileKey)
+	db = database.profile
+  ns.Addon:FullUpdate()
+  HandyNotes:SendMessage("HandyNotes_NotifyUpdate", "MapNotes")
+  print(TextIconMNL4:GetIconString() .. " " .. ns.COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. " " .. "|cffffff00" .. L["Profile has been adopted"])
+end
+
+function Addon:OnProfileDeleted (event, database, newProfileKey)
+	db = database.profile
+  ns.Addon:FullUpdate()
+  HandyNotes:SendMessage("HandyNotes_NotifyUpdate", "MapNotes")
+  print(TextIconMNL4:GetIconString() .. " " .. ns.COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. " " .. "|cffffff00" .. L["Profile has been deleted"])
 end
 
 function Addon:PLAYER_ENTERING_WORLD()
@@ -769,12 +797,19 @@ function Addon:PLAYER_LOGIN()
 
   -- Register Database Profile
   self.db = LibStub("AceDB-3.0"):New("HandyNotes_MapNotesCataclysmDB", ns.defaults)
+  self.db.RegisterCallback(self, "OnProfileChanged", "OnProfileChanged")
+	self.db.RegisterCallback(self, "OnProfileCopied", "OnProfileCopied")
+	self.db.RegisterCallback(self, "OnProfileReset", "OnProfileReset")
+  self.db.RegisterCallback(self, "OnProfileDeleted", "OnProfileDeleted")
   db = self.db.profile
   ns.dbChar = self.db.char
 
   -- Register options 
   HandyNotes:RegisterPluginDB("MapNotes", pluginHandler, ns.options)
-  LibStub("AceConfigRegistry-3.0"):RegisterOptionsTable("MapNotes", ns.options) -- Minimap
+  LibStub("AceConfigRegistry-3.0"):RegisterOptionsTable("MapNotes", ns.options)
+
+  -- Get the option table for profiles
+  ns.options.args.profiles = LibStub("AceDBOptions-3.0"):GetOptionsTable(self.db)
 
   -- Check for any lockout changes when we zone
   Addon:RegisterEvent("PLAYER_ENTERING_WORLD")

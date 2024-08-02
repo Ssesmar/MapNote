@@ -3,8 +3,9 @@ local ADDON_NAME, ns = ...
 function ns.ChangeToClassicImagesRetail()
 
     -- Portal Icons
-    if ns.Addon.db.profile.activate.ClassicPortals then 
+    if ns.Addon.db.profile.activate.ClassicPortals then
         ns.icons["Portal"] = ns.icons["PortalOld"]
+        ns.icons["PortalS"] = ns.icons["PortalSOld"]
         ns.icons["APortal"] = ns.icons["APortalOld"]
         ns.icons["HPortal"] = ns.icons["HPortalOld"]
         ns.icons["HPortalS"] = ns.icons["HPortalSOld"]
@@ -14,7 +15,8 @@ function ns.ChangeToClassicImagesRetail()
         ns.icons["PassageHPortal"] = ns.icons["PassageHPortalOld"]
     else ns.Addon.db.profile.activate.ClassicPortals = false
         ns.icons["Portal"] = ns.icons["PortalNew"]
-        ns.icons["HPortal"] = ns.icons["HPortalNew"]        
+        ns.icons["PortalS"] = ns.icons["PortalSNew"]
+        ns.icons["HPortal"] = ns.icons["HPortalNew"]    
         ns.icons["APortal"] = ns.icons["APortalNew"]
         ns.icons["APortalS"] = ns.icons["APortalSNew"]
         ns.icons["HPortalS"] = ns.icons["HPortalSNew"]
@@ -24,7 +26,7 @@ function ns.ChangeToClassicImagesRetail()
     end
 
     -- Ship Icons
-    if ns.Addon.db.profile.activate.ClassicShips then 
+    if ns.Addon.db.profile.activate.ClassicShips then
         ns.icons["Ship"] = ns.icons["ShipOld"]
         ns.icons["AShip"] = ns.icons["AShipOld"]
         ns.icons["HShip"] = ns.icons["HShipOld"]
@@ -35,7 +37,7 @@ function ns.ChangeToClassicImagesRetail()
     end
 
     -- Zeppelin Icons
-    if ns.Addon.db.profile.activate.ClassicZeppelin then 
+    if ns.Addon.db.profile.activate.ClassicZeppelin then
         ns.icons["Zeppelin"] = ns.icons["ZeppelinOld"]
         ns.icons["HZeppelin"] = ns.icons["HZeppelinOld"]
     else ns.Addon.db.profile.activate.ClassicZeppelin = false
@@ -44,14 +46,14 @@ function ns.ChangeToClassicImagesRetail()
     end
 
     -- Bank Icons
-    if ns.Addon.db.profile.activate.ClassicBank then 
+    if ns.Addon.db.profile.activate.ClassicBank then
         ns.icons["Bank"] = ns.icons["BankOld"]
     else ns.Addon.db.profile.activate.ClassicBank = false
         ns.icons["Bank"] = ns.icons["BankNew"]
     end
 
     -- Profession Icons
-    if ns.Addon.db.profile.activate.ClassicProfession then 
+    if ns.Addon.db.profile.activate.ClassicProfession then
         ns.icons["Engineer"] = ns.icons["OriginalEngineer"]
         ns.icons["Alchemy"] = ns.icons["OriginalAlchemy"]
         ns.icons["Blacksmith"] = ns.icons["OriginalBlacksmith"]
@@ -88,8 +90,9 @@ end
 function ns.ChangeToClassicImages()
 
         -- Portal Icons
-    if ns.Addon.db.profile.activate.ClassicPortals then 
+    if ns.Addon.db.profile.activate.ClassicPortals then
         ns.icons["Portal"] = ns.icons["PortalOld"]
+        ns.icons["PortalS"] = ns.icons["PortalSOld"]
         ns.icons["APortal"] = ns.icons["APortalOld"]
         ns.icons["HPortal"] = ns.icons["HPortalOld"]
         ns.icons["HPortalS"] = ns.icons["HPortalSOld"]
@@ -99,7 +102,8 @@ function ns.ChangeToClassicImages()
         ns.icons["PassageHPortal"] = ns.icons["PassageHPortalOld"]
     else ns.Addon.db.profile.activate.ClassicPortals = false
         ns.icons["Portal"] = ns.icons["PortalNew"]
-        ns.icons["HPortal"] = ns.icons["HPortalNew"]        
+        ns.icons["PortalS"] = ns.icons["PortalSNew"]
+        ns.icons["HPortal"] = ns.icons["HPortalNew"]
         ns.icons["APortal"] = ns.icons["APortalNew"]
         ns.icons["APortalS"] = ns.icons["APortalSNew"]
         ns.icons["HPortalS"] = ns.icons["HPortalSNew"]
@@ -109,7 +113,7 @@ function ns.ChangeToClassicImages()
     end
 
     -- Ship Icons
-    if ns.Addon.db.profile.activate.ClassicShips then 
+    if ns.Addon.db.profile.activate.ClassicShips then
         ns.icons["Ship"] = ns.icons["ShipOld"]
         ns.icons["AShip"] = ns.icons["AShipOld"]
         ns.icons["HShip"] = ns.icons["HShipOld"]
@@ -120,7 +124,7 @@ function ns.ChangeToClassicImages()
     end
 
     -- Zeppelin Icons
-    if ns.Addon.db.profile.activate.ClassicZeppelin then 
+    if ns.Addon.db.profile.activate.ClassicZeppelin then
         ns.icons["Zeppelin"] = ns.icons["ZeppelinOld"]
         ns.icons["HZeppelin"] = ns.icons["HZeppelinOld"]
     else ns.Addon.db.profile.activate.ClassicZeppelin = false
@@ -129,14 +133,14 @@ function ns.ChangeToClassicImages()
     end
 
     -- Bank Icons
-    if ns.Addon.db.profile.activate.ClassicBank then 
+    if ns.Addon.db.profile.activate.ClassicBank then
         ns.icons["Bank"] = ns.icons["BankOld"]
     else ns.Addon.db.profile.activate.ClassicBank = false
         ns.icons["Bank"] = ns.icons["BankNew"]
     end
 
     -- Profession Classic & Cataclysm Icons
-    if ns.Addon.db.profile.activate.ClassicClassicProfession then 
+    if ns.Addon.db.profile.activate.ClassicClassicProfession then
         ns.icons["Engineer"] = ns.icons["ClassicOriginalEngineer"]
         ns.icons["Alchemy"] = ns.icons["ClassicOriginalAlchemy"]
         ns.icons["Blacksmith"] = ns.icons["ClassicOriginalBlacksmith"]

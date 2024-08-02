@@ -82,7 +82,7 @@ local info = C_Map.GetMapInfo(WorldMapFrame:GetMapID())
     --Broken Isles
     elseif (C_Map.GetBestMapForUnit("player") == 630 or C_Map.GetBestMapForUnit("player") == 634 or C_Map.GetBestMapForUnit("player") == 641 or C_Map.GetBestMapForUnit("player") == 646 or C_Map.GetBestMapForUnit("player") == 650 or C_Map.GetBestMapForUnit("player") == 652
       or C_Map.GetBestMapForUnit("player") == 750 or C_Map.GetBestMapForUnit("player") == 680 or C_Map.GetBestMapForUnit("player") == 830 or C_Map.GetBestMapForUnit("player") == 882 or C_Map.GetBestMapForUnit("player") == 885 or C_Map.GetBestMapForUnit("player") == 905
-      or C_Map.GetBestMapForUnit("player") == 941 or C_Map.GetBestMapForUnit("player") == 790)
+      or C_Map.GetBestMapForUnit("player") == 941 or C_Map.GetBestMapForUnit("player") == 790 or C_Map.GetBestMapForUnit("player") == 971)
     then
       tooltip:AddLine(HELPFRAME_REPORT_PLAYER_RIGHT_CLICK .. " => " .. "|cffff0000".. L["Broken Isles"] .. " " .. MINIMAP_LABEL .. "|cffffcc00" .. " " .. L["icons"] .. " " .. SHOW .. " / " .. HIDE,1,1,1)
       tooltip:Show()
@@ -180,7 +180,7 @@ local info = C_Map.GetMapInfo(WorldMapFrame:GetMapID())
     --Broken Isles
     elseif (C_Map.GetBestMapForUnit("player") == 630 or C_Map.GetBestMapForUnit("player") == 634 or C_Map.GetBestMapForUnit("player") == 641 or C_Map.GetBestMapForUnit("player") == 646 or C_Map.GetBestMapForUnit("player") == 650 or C_Map.GetBestMapForUnit("player") == 652
       or C_Map.GetBestMapForUnit("player") == 750 or C_Map.GetBestMapForUnit("player") == 680 or C_Map.GetBestMapForUnit("player") == 830 or C_Map.GetBestMapForUnit("player") == 882 or C_Map.GetBestMapForUnit("player") == 885 or C_Map.GetBestMapForUnit("player") == 905
-      or C_Map.GetBestMapForUnit("player") == 941 or C_Map.GetBestMapForUnit("player") == 790)
+      or C_Map.GetBestMapForUnit("player") == 941 or C_Map.GetBestMapForUnit("player") == 790 or C_Map.GetBestMapForUnit("player") == 971)
     then
       tooltip:AddLine(HELPFRAME_REPORT_PLAYER_RIGHT_CLICK .. " => " .. "|cffff0000".. L["Broken Isles"] .. " " .. L["Zones"] .. " & " .. MINIMAP_LABEL .. "|cffffcc00" .. " " .. L["icons"] .. " " .. SHOW .. " / " .. HIDE,1,1,1)
       tooltip:Show()
@@ -349,7 +349,7 @@ local info = C_Map.GetMapInfo(C_Map.GetBestMapForUnit("player"))
       --Broken Isles
       elseif (C_Map.GetBestMapForUnit("player") == 630 or C_Map.GetBestMapForUnit("player") == 634 or C_Map.GetBestMapForUnit("player") == 641 or C_Map.GetBestMapForUnit("player") == 646 or C_Map.GetBestMapForUnit("player") == 650 or C_Map.GetBestMapForUnit("player") == 652
         or C_Map.GetBestMapForUnit("player") == 750 or C_Map.GetBestMapForUnit("player") == 680 or C_Map.GetBestMapForUnit("player") == 830 or C_Map.GetBestMapForUnit("player") == 882 or C_Map.GetBestMapForUnit("player") == 885 or C_Map.GetBestMapForUnit("player") == 905
-        or C_Map.GetBestMapForUnit("player") == 941 or C_Map.GetBestMapForUnit("player") == 790)
+        or C_Map.GetBestMapForUnit("player") == 941 or C_Map.GetBestMapForUnit("player") == 790 or C_Map.GetBestMapForUnit("player") == 971)
       then
         if not ns.Addon.db.profile.showMiniMapBrokenIsles then
           ns.Addon.db.profile.showMiniMapBrokenIsles = true
@@ -507,7 +507,7 @@ local info = C_Map.GetMapInfo(C_Map.GetBestMapForUnit("player"))
       --Broken Isles
       elseif (C_Map.GetBestMapForUnit("player") == 630 or C_Map.GetBestMapForUnit("player") == 634 or C_Map.GetBestMapForUnit("player") == 641 or C_Map.GetBestMapForUnit("player") == 646 or C_Map.GetBestMapForUnit("player") == 650 or C_Map.GetBestMapForUnit("player") == 652
         or C_Map.GetBestMapForUnit("player") == 750 or C_Map.GetBestMapForUnit("player") == 680 or C_Map.GetBestMapForUnit("player") == 830 or C_Map.GetBestMapForUnit("player") == 882 or C_Map.GetBestMapForUnit("player") == 885 or C_Map.GetBestMapForUnit("player") == 905
-        or C_Map.GetBestMapForUnit("player") == 941 or C_Map.GetBestMapForUnit("player") == 790)
+        or C_Map.GetBestMapForUnit("player") == 941 or C_Map.GetBestMapForUnit("player") == 790 or C_Map.GetBestMapForUnit("player") == 971)
       then
         if not ns.Addon.db.profile.showZoneBrokenIsles then
           ns.Addon.db.profile.showZoneBrokenIsles = true
