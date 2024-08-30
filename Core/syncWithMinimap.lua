@@ -120,6 +120,7 @@ local db = ns.Addon.db.profile
         self.db.profile.showMinimapCapitalsDragonFlyTransmog = self.db.profile.showCapitalsDragonFlyTransmog
         self.db.profile.showMinimapCapitalsCatalyst = self.db.profile.showCapitalsCatalyst
         self.db.profile.showMinimapCapitalsStablemaster = self.db.profile.showCapitalsStablemaster
+        self.db.profile.showMinimapCapitalsTradingPost = self.db.profile.showCapitalsTradingPost
     end
 
     if db.activate.SyncZoneAndMinimap then
@@ -158,7 +159,7 @@ local db = ns.Addon.db.profile
         self.db.profile.showMiniMapPvPVendor = self.db.profile.showZonePvPVendor
         self.db.profile.showMiniMapPvEVendor = self.db.profile.showZonePvEVendor
         self.db.profile.showMiniMapTransmogger = self.db.profile.showZoneTransmogger
-        self.db.profile.showMiniMapStablemaster = self.db.profile.showZoneStablemaster
+        self.db.profile.showMiniMapItemUpgrade = self.db.profile.showZoneItemUpgrade
 
         -- Zones
         self.db.profile.showMiniMapKalimdor = self.db.profile.showZoneKalimdor

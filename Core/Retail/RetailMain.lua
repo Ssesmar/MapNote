@@ -45,6 +45,7 @@ end
 
 local pluginHandler = { }
 function pluginHandler:OnEnter(uiMapId, coord)
+ns.nodes[uiMapId][coord] = nodes[uiMapId][coord]
   local nodeData = nil
 
   if (minimap[uiMapId] and minimap[uiMapId][coord]) then
@@ -252,7 +253,9 @@ do
                         or value.type == "PathU" or value.type == "PathLU" or value.type == "PathRU" or value.type == "PathL" or value.type == "PathR" or value.type == "BlackMarket" or value.type == "Mailbox"
                         or value.type == "StablemasterN" or value.type == "StablemasterH" or value.type == "StablemasterA" or value.type == "HIcon" or value.type == "AIcon" or value.type == "InnkeeperN" 
                         or value.type == "InnkeeperH" or value.type == "InnkeeperA" or value.type == "MailboxN" or value.type == "MailboxH" or value.type == "MailboxA" or value.type == "PvPVendorH" or value.type == "PvPVendorA" 
-                        or value.type == "PvEVendorH" or value.type == "PvEVendorA"
+                        or value.type == "PvEVendorH" or value.type == "PvEVendorA" or value.type == "MMInnkeeperH" or value.type == "MMInnkeeperA" or value.type == "MMStablemasterH" or value.type == "MMStablemasterA"
+                        or value.type == "MMMailboxH" or value.type == "MMMailboxA" or value.type == "MMPvPVendorH" or value.type == "MMPvPVendorA" or value.type == "MMPvEVendorH" or value.type == "MMPvEVendorA" 
+                        or value.type == "ZonePvEVendorH" or value.type == "ZonePvPVendorH" or value.type == "ZonePvEVendorA" or value.type == "ZonePvPVendorA" or value.type == "TradingPost"
 
       ns.AllZoneIDs = ns.KalimdorIDs 
                       or ns.EasternKingdomIDs 
@@ -325,7 +328,7 @@ do
       ns.DragonIsleIDs = WorldMapFrame:GetMapID() == 2022 or WorldMapFrame:GetMapID() == 2023 or WorldMapFrame:GetMapID() == 2024 or WorldMapFrame:GetMapID() == 2025 or WorldMapFrame:GetMapID() == 2026 or WorldMapFrame:GetMapID() == 2133
                       or WorldMapFrame:GetMapID() == 2151 or WorldMapFrame:GetMapID() == 2200 or WorldMapFrame:GetMapID() == 2239
           
-      ns.KhazAlgar = WorldMapFrame:GetMapID() == 2248 or WorldMapFrame:GetMapID() == 2214 or WorldMapFrame:GetMapID() == 2215 or WorldMapFrame:GetMapID() == 2255 or WorldMapFrame:GetMapID() == 2213 or WorldMapFrame:GetMapID() == 2216
+      ns.KhazAlgar = WorldMapFrame:GetMapID() == 2248 or WorldMapFrame:GetMapID() == 2214 or WorldMapFrame:GetMapID() == 2215 or WorldMapFrame:GetMapID() == 2255 or  WorldMapFrame:GetMapID() == 2256 or WorldMapFrame:GetMapID() == 2213 or WorldMapFrame:GetMapID() == 2216
 
       ns.ZoneIDs = WorldMapFrame:GetMapID() == 750 or WorldMapFrame:GetMapID() == 652 or WorldMapFrame:GetMapID() == 2266
 
@@ -386,12 +389,6 @@ do
         alpha = db.MiniMapPathsAlpha
       end
 
-      -- Profession icons in Capitals
-      if ns.professionIcons and ns.CapitalMiniMapIDs and (value.showOnMinimap == false) then
-        scale = db.CapitalsProfessionsScale
-        alpha = db.CapitalsProfessionsAlpha
-      end
-
       -- inside Dungeon
       if (mapInfo.mapType == 4 or mapInfo.mapType == 6) and not ns.CapitalIDs and not ns.ZoneIDs then 
           scale = db.dungeonScale
@@ -446,6 +443,12 @@ do
         alpha = db.ZonesPathsAlpha
       end
 
+      -- Capitals Profession icons 
+      if ns.CapitalIDs and ns.professionIcons and (value.showOnMinimap == false) then
+        scale = db.CapitalsProfessionsScale
+        alpha = db.CapitalsProfessionsAlpha
+      end
+
       -- Capitals General (Innkeeper/Exit/Passage) icons
       if ns.CapitalIDs and ns.generalIcons and (value.showOnMinimap == false) then
         scale = db.CapitalsGeneralScale
@@ -464,11 +467,6 @@ do
         alpha = db.CapitalsInstanceAlpha
       end
       
-      if WorldMapFrame:GetMapID() == 2274 then -- PTR: Khaz Algar - The War Within. Continent Scale atm on Beta a Zone not a Continent!!
-        scale = db.continentScale
-        alpha = db.continentAlpha
-      end
-
       if t.uiMapId == 947 then-- Azeroth World Map
         scale = db.azerothScale
         alpha = db.azerothAlpha
@@ -628,6 +626,7 @@ local mnID = nodes[uiMapId][coord].mnID
 local mnID2 = nodes[uiMapId][coord].mnID2
 local mnID3 = nodes[uiMapId][coord].mnID3
 local www = nodes[uiMapId][coord].www
+
 local mapInfo = C_Map.GetMapInfo(uiMapId)
 local CapitalIDs = WorldMapFrame:GetMapID() == 84 or WorldMapFrame:GetMapID() == 87  or WorldMapFrame:GetMapID() == 89 or WorldMapFrame:GetMapID() == 103 or WorldMapFrame:GetMapID() == 85
                 or WorldMapFrame:GetMapID() == 90 or WorldMapFrame:GetMapID() == 86 or WorldMapFrame:GetMapID() == 88 or WorldMapFrame:GetMapID() == 110  or WorldMapFrame:GetMapID() == 111
@@ -850,32 +849,53 @@ function Addon:ZONE_CHANGED()
   end
 end
 
-function Addon:OnProfileChanged(event, database, newProfileKey)
-	db = database.profile
-  ns.Addon:FullUpdate()
-  HandyNotes:SendMessage("HandyNotes_NotifyUpdate", "MapNotes")
+function Addon:OnProfileChanged(event, database, profileKeys)
+  db = database.profile
+  ns.dbChar = database.profile.deletedIcons
+  ns.FogOfWar = database.profile.FogOfWarColor
+  HandyNotes:GetModule("FogOfWarButton"):Refresh()
   print(TextIconMNL4:GetIconString() .. " " .. ns.COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. " " .. "|cffffff00" .. L["Profile has been changed"])
-end
-
-function Addon:OnProfileReset(event, database, newProfileKey)
-	db = database.profile
   ns.Addon:FullUpdate()
   HandyNotes:SendMessage("HandyNotes_NotifyUpdate", "MapNotes")
+end
+
+function Addon:OnProfileReset(event, database, profileKeys)
+	db = database.profile
+  ns.dbChar = database.profile.deletedIcons
+  ns.FogOfWar = database.profile.FogOfWarColor
+  wipe(ns.dbChar.CapitalsDeletedIcons)
+  wipe(ns.dbChar.MinimapCapitalsDeletedIcons)
+  wipe(ns.dbChar.CapitalsDeletedIcons)
+  wipe(ns.dbChar.MinimapCapitalsDeletedIcons)
+  wipe(ns.dbChar.AzerothDeletedIcons)
+  wipe(ns.dbChar.ContinentDeletedIcons)
+  wipe(ns.dbChar.ZoneDeletedIcons)
+  wipe(ns.dbChar.MinimapZoneDeletedIcons)
+  wipe(ns.dbChar.DungeonDeletedIcons)
   print(TextIconMNL4:GetIconString() .. " " .. ns.COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. " " .. "|cffffff00" .. L["Profile has been reset to default"])
-end
-
-function Addon:OnProfileCopied(event, database, newProfileKey)
-	db = database.profile
+  HandyNotes:GetModule("FogOfWarButton"):Refresh()
   ns.Addon:FullUpdate()
   HandyNotes:SendMessage("HandyNotes_NotifyUpdate", "MapNotes")
+end
+
+function Addon:OnProfileCopied(event, database, profileKeys)
+	db = database.profile
+  ns.dbChar = database.profile.deletedIcons
+  ns.FogOfWar = database.profile.FogOfWarColor
+  HandyNotes:GetModule("FogOfWarButton"):Refresh()
   print(TextIconMNL4:GetIconString() .. " " .. ns.COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. " " .. "|cffffff00" .. L["Profile has been adopted"])
-end
-
-function Addon:OnProfileDeleted (event, database, newProfileKey)
-	db = database.profile
   ns.Addon:FullUpdate()
   HandyNotes:SendMessage("HandyNotes_NotifyUpdate", "MapNotes")
+end
+
+function Addon:OnProfileDeleted(event, database, profileKeys)
+	db = database.profile
+  ns.dbChar = database.profile.deletedIcons
+  ns.FogOfWar = database.profile.FogOfWarColor
+  HandyNotes:GetModule("FogOfWarButton"):Refresh()
   print(TextIconMNL4:GetIconString() .. " " .. ns.COLORED_ADDON_NAME .. " " .. TextIconMNL4:GetIconString() .. " " .. "|cffffff00" .. L["Profile has been deleted"])
+  ns.Addon:FullUpdate()
+  HandyNotes:SendMessage("HandyNotes_NotifyUpdate", "MapNotes")
 end
 
 function Addon:PLAYER_ENTERING_WORLD()
@@ -899,8 +919,13 @@ function Addon:PLAYER_LOGIN() -- OnInitialize()
 	self.db.RegisterCallback(self, "OnProfileCopied", "OnProfileCopied")
 	self.db.RegisterCallback(self, "OnProfileReset", "OnProfileReset")
   self.db.RegisterCallback(self, "OnProfileDeleted", "OnProfileDeleted")
+
+  -- default profile database
   db = self.db.profile
-  ns.dbChar = self.db.char
+  -- deleted icons database
+  ns.dbChar = self.db.profile.deletedIcons
+  -- FogOfWar color database
+  ns.FogOfWar = self.db.profile.FogOfWarColor
 
   -- Register options 
   HandyNotes:RegisterPluginDB("MapNotes", pluginHandler, ns.options)
@@ -918,10 +943,10 @@ function Addon:PLAYER_LOGIN() -- OnInitialize()
   Addon:RegisterEvent("ZONE_CHANGED_INDOORS")
 
   -- Check if MapNotes vs Blizzard is true then remove Blizzard Pins
-  if ns.Addon.db.profile.activate.RemoveBlizzPOIs then
+  if ns.Addon.db.profile.activate.RemoveBlizzInstances then
     SetCVar("showDungeonEntrancesOnMap", 0)
-  elseif not ns.Addon.db.profile.activate.RemoveBlizzPOIs then
-      SetCVar("showDungeonEntrancesOnMap", 1)
+  elseif not ns.Addon.db.profile.activate.RemoveBlizzInstances then
+    SetCVar("showDungeonEntrancesOnMap", 1)
   end
 
   if ns.Addon.db.profile.activate.HideMMB then -- minimap button
@@ -940,12 +965,15 @@ function Addon:PLAYER_LOGIN() -- OnInitialize()
     if (not ns.Addon.db.profile.activate.RemoveBlizzPOIs or ns.Addon.db.profile.activate.HideMapNote) then return end
 
     for pin in WorldMapFrame:EnumeratePinsByTemplate("AreaPOIPinTemplate") do
+
       for _, poiID in pairs(ns.BlizzAreaPoisInfo) do
+
         local poi = C_AreaPoiInfo.GetAreaPOIInfo(WorldMapFrame:GetMapID(), pin.areaPoiID)
         if (poi ~= nil and poi.areaPoiID == poiID) then
             WorldMapFrame:RemovePin(pin)
         end
       end
+
     end
   end
 
