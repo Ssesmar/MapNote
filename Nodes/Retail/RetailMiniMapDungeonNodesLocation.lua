@@ -728,6 +728,8 @@ if not db.activate.HideMapNote then
               minimap[2248][76584378] = { id = 1272, type = "Dungeon", showInZone = false, showOnContinent = false, showOnMinimap = true } -- Cinderbrew Meadery
               minimap[2255][46746917] = { id = 1274, type = "Dungeon", showInZone = false, showOnContinent = false, showOnMinimap = true } -- City of Threads
               minimap[2255][49538100] = { id = 1271, type = "Dungeon", showInZone = false, showOnContinent = false, showOnMinimap = true } -- Ara-Kara, City of Echoes
+              minimap[2256][46746917] = { id = 1274, type = "Dungeon", showInZone = false, showOnContinent = false, showOnMinimap = true } -- City of Threads
+              minimap[2256][49538100] = { id = 1271, type = "Dungeon", showInZone = false, showOnContinent = false, showOnMinimap = true } -- Ara-Kara, City of Echoes
               minimap[2216][49538100] = { id = 1271, type = "Dungeon", showInZone = false, showOnContinent = false, showOnMinimap = true } -- Ara-Kara, City of Echoes
               minimap[2213][49538100] = { id = 1271, type = "Dungeon", dnID = DUNGEON_FLOOR_GILNEAS2, showInZone = false, showOnContinent = false, showOnMinimap = true } -- Ara-Kara, City of Echoes
             end
@@ -738,6 +740,7 @@ if not db.activate.HideMapNote then
   
             -- Raid minimap above Blizzards Icons to make it Clickable for maximized Maps
               minimap[2255][43559029] = { id = 1273, type = "Raid", showInZone = false, showOnContinent = false, showOnMinimap = true } -- Nerub-ar Palace
+              minimap[2256][43559029] = { id = 1273, type = "Raid", showInZone = false, showOnContinent = false, showOnMinimap = true } -- Nerub-ar Palace
               minimap[2213][35047242] = { id = 1273, type = "Raid", showInZone = false, showOnContinent = false, showOnMinimap = true } -- Nerub-ar Palace              
               minimap[2216][35047242] = { id = 1273, type = "Raid", dnID = DUNGEON_FLOOR_GILNEAS3, showInZone = false, showOnContinent = false, showOnMinimap = true } -- Nerub-ar Palace              
             end

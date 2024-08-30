@@ -36,6 +36,10 @@ L["This will delete all Minimap settings and replace them with those from Zones 
 L["Synchronizes the Capitals tab with the Capitals - Minimap tab"] = "Sincronizza la scheda Capitale con la scheda Capital Cities - Minikarte"
 L["Which deactivates the functions from the Capitals - Minimap tab and is now controlled together by the Capitals tab"] = "Ciò disattiva le funzioni della scheda Capital Cities - Minikarte e ora vengono controllati insieme tramite la scheda Capital Cities"
 L["This will delete all Capitals - Minimap settings and replace them with those from Capitals tab"] = "Ciò ha eliminato tutte le impostazioni per Capitals - Mini Card e sostituite dalle impostazioni nella scheda Capital Cities"
+--0.6 MapNotes icons and hide blizzard POIs
+L["Displays special MapNotes summary icons containing several different pieces of information (dungeons/raids/portals, etc.)"] = "Visualizza speciali icone di riepilogo delle mapnotes contenenti diverse informazioni (dungeon/raid/portali, ecc.)"
+L["Points of interests"] = "Punti di interesse"
+L["Disables the display of all Blizzard Dungeon and Raid icons on the zone map"] = "Disattiva il display di tutte le icone Dungeon e Raid sulla scheda Zona"
 --1 Capitals
 L["Leather Armor"] = "Armatura di cuoio"
 L["Heavy Armor"] = "Armatura pesante"
@@ -142,6 +146,7 @@ L["gray all"] = "Tutto grigio"
 L["Colors EVERYONE! Assigned dungeons and raids also have multiple points in gray (if you have an ID)"] = "Colora tutti! Dungeon e raid assegnati grigi anche più punti (se hai un ID)"
 L["enemy faction"] = "fazione nemica"
 L["Shows enemy faction (horde/alliance) icons"] = "Mostra le icone della fazione nemica (orda/alleanza)"
+L["However, this only applies to the Azeroth & continent map. Not for Zones + & Capital + category. These have their own activation option for opposing players"] = "Tuttavia, questo vale solo per la mappa Azeroth & Continent. Non per le zone + e il capitale + categoria. Questi hanno la propria opzione di attivazione per i giocatori avversari"
 L["chat message"] = "Messaggi di chat" 
 L["Disables MapNotes status chat messages excluding core information"] = "Notizie di chat di stato mapnotes disattivate ad eccezione delle informazioni fondamentali"
 L["Shows special transport icons like"] = "Mostra icone speciali di trasporto come"

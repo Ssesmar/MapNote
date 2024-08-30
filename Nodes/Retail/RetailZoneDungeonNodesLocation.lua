@@ -750,6 +750,8 @@ if not db.activate.HideMapNote then
               nodes[2248][76584378] = { id = 1272, type = "Dungeon", showInZone = true, showOnContinent = false, showOnMinimap = false } -- Cinderbrew Meadery
               nodes[2255][46746917] = { id = 1274, type = "Dungeon", showInZone = true, showOnContinent = false, showOnMinimap = false } -- City of Threads
               nodes[2255][49538100] = { id = 1271, type = "Dungeon", showInZone = true, showOnContinent = false, showOnMinimap = false } -- Ara-Kara, City of Echoes
+              nodes[2256][46746917] = { id = 1274, type = "Dungeon", showInZone = true, showOnContinent = false, showOnMinimap = false } -- City of Threads
+              nodes[2256][49538100] = { id = 1271, type = "Dungeon", showInZone = true, showOnContinent = false, showOnMinimap = false } -- Ara-Kara, City of Echoes
               nodes[2216][52164580] = { id = 1271, type = "Dungeon", showInZone = true, showOnContinent = false, showOnMinimap = false } -- Ara-Kara, City of Echoes
               nodes[2213][52164580] = { id = 1271, type = "Dungeon", dnID = DUNGEON_FLOOR_GILNEAS2, showInZone = true, showOnContinent = false, showOnMinimap = false } -- Ara-Kara, City of Echoes
             end
@@ -760,6 +762,7 @@ if not db.activate.HideMapNote then
   
             -- Raid Nodes above Blizzards Icons to make it Clickable for maximized Maps
               nodes[2255][43559029] = { id = 1273, type = "Raid", showInZone = true, showOnContinent = false, showOnMinimap = false } -- Nerub-ar Palace
+              nodes[2256][43559029] = { id = 1273, type = "Raid", showInZone = true, showOnContinent = false, showOnMinimap = false } -- Nerub-ar Palace
               nodes[2213][35047242] = { id = 1273, type = "Raid", showInZone = true, showOnContinent = false, showOnMinimap = false } -- Nerub-ar Palace       
               nodes[2216][35047242] = { id = 1273, type = "Raid", dnID = DUNGEON_FLOOR_GILNEAS3, showInZone = true, showOnContinent = false, showOnMinimap = false } -- Nerub-ar Palace       
             end

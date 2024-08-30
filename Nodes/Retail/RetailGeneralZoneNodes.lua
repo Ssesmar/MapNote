@@ -25,11 +25,11 @@ if not db.activate.HideMapNote then
                 nodes[71][51602800] = { name = "", dnID = TRANSMOG_SET_PVP .. " " .. MERCHANT .. "\n" .. WORLD_QUEST_REWARD_FILTERS_EQUIPMENT .. "\n" .. AUCTION_CATEGORY_WEAPONS, type = "PvPVendor", showInZone = true, showOnContinent = false, showOnMinimap = false }
             
                 if self.faction == "Horde" or db.activate.ZoneEnemyFaction then
-                    nodes[10][40151995] = { name = "", dnID = TRANSMOG_SET_PVP .. " " .. MERCHANT .. " " .. FACTION_HORDE .. "\n" .. WORLD_QUEST_REWARD_FILTERS_EQUIPMENT .. "\n" .. AUCTION_CATEGORY_WEAPONS, type = "PvPVendorH", showInZone = true, showOnContinent = false, showOnMinimap = false }
+                    nodes[10][40151995] = { name = "", dnID = TRANSMOG_SET_PVP .. " " .. MERCHANT .. " " .. FACTION_HORDE .. "\n" .. WORLD_QUEST_REWARD_FILTERS_EQUIPMENT .. "\n" .. AUCTION_CATEGORY_WEAPONS, type = "ZonePvPVendorH", showInZone = true, showOnContinent = false, showOnMinimap = false }
                 end
 
                 if self.faction == "Alliance" or db.activate.ZoneEnemyFaction then
-                    nodes[63][61488388] = { name = "", dnID = TRANSMOG_SET_PVP .. " " .. MERCHANT  .. " " .. FACTION_ALLIANCE ..  "\n" .. WORLD_QUEST_REWARD_FILTERS_EQUIPMENT .. "\n" .. AUCTION_CATEGORY_WEAPONS, type = "PvPVendorA", showInZone = true, showOnContinent = false, showOnMinimap = false }
+                    nodes[63][61488388] = { name = "", dnID = TRANSMOG_SET_PVP .. " " .. MERCHANT  .. " " .. FACTION_ALLIANCE ..  "\n" .. WORLD_QUEST_REWARD_FILTERS_EQUIPMENT .. "\n" .. AUCTION_CATEGORY_WEAPONS, type = "ZonePvPVendorA", showInZone = true, showOnContinent = false, showOnMinimap = false }
                 end
             end
 
@@ -459,13 +459,13 @@ if not db.activate.HideMapNote then
             if self.db.profile.showZonePvPVendor then
 
                 if self.faction == "Horde" or db.activate.ZoneEnemyFaction then
-                    nodes[25][58073359] = { name = "", dnID = TRANSMOG_SET_PVP .. " " .. MERCHANT .. " " .. FACTION_HORDE .. "\n" .. WORLD_QUEST_REWARD_FILTERS_EQUIPMENT .. "\n" .. AUCTION_CATEGORY_WEAPONS, type = "PvPVendorH", showInZone = true, showOnContinent = false, showOnMinimap = false }
-                    nodes[14][68473035] = { name = "", dnID = TRANSMOG_SET_PVP .. " " .. MERCHANT .. " " .. FACTION_HORDE .. "\n" .. WORLD_QUEST_REWARD_FILTERS_EQUIPMENT .. "\n" .. AUCTION_CATEGORY_WEAPONS, type = "PvPVendorH", showInZone = true, showOnContinent = false, showOnMinimap = false }
+                    nodes[25][58073359] = { name = "", dnID = TRANSMOG_SET_PVP .. " " .. MERCHANT .. " " .. FACTION_HORDE .. "\n" .. WORLD_QUEST_REWARD_FILTERS_EQUIPMENT .. "\n" .. AUCTION_CATEGORY_WEAPONS, type = "ZonePvPVendorH", showInZone = true, showOnContinent = false, showOnMinimap = false }
+                    nodes[14][68473035] = { name = "", dnID = TRANSMOG_SET_PVP .. " " .. MERCHANT .. " " .. FACTION_HORDE .. "\n" .. WORLD_QUEST_REWARD_FILTERS_EQUIPMENT .. "\n" .. AUCTION_CATEGORY_WEAPONS, type = "ZonePvPVendorH", showInZone = true, showOnContinent = false, showOnMinimap = false }
                 end
 
                 if self.faction == "Alliance" or db.activate.ZoneEnemyFaction then
-                    nodes[25][44624633] = { name = "", dnID = TRANSMOG_SET_PVP .. " " .. MERCHANT .. " " .. FACTION_ALLIANCE .. "\n" .. WORLD_QUEST_REWARD_FILTERS_EQUIPMENT .. "\n" .. AUCTION_CATEGORY_WEAPONS, type = "PvPVendorA", showInZone = true, showOnContinent = false, showOnMinimap = false }
-                    nodes[14][40114653] = { name = "", dnID = TRANSMOG_SET_PVP .. " " .. MERCHANT .. " " .. FACTION_ALLIANCE .. "\n" .. WORLD_QUEST_REWARD_FILTERS_EQUIPMENT .. "\n" .. AUCTION_CATEGORY_WEAPONS, type = "PvPVendorA", showInZone = true, showOnContinent = false, showOnMinimap = false }
+                    nodes[25][44624633] = { name = "", dnID = TRANSMOG_SET_PVP .. " " .. MERCHANT .. " " .. FACTION_ALLIANCE .. "\n" .. WORLD_QUEST_REWARD_FILTERS_EQUIPMENT .. "\n" .. AUCTION_CATEGORY_WEAPONS, type = "ZonePvPVendorA", showInZone = true, showOnContinent = false, showOnMinimap = false }
+                    nodes[14][40114653] = { name = "", dnID = TRANSMOG_SET_PVP .. " " .. MERCHANT .. " " .. FACTION_ALLIANCE .. "\n" .. WORLD_QUEST_REWARD_FILTERS_EQUIPMENT .. "\n" .. AUCTION_CATEGORY_WEAPONS, type = "ZonePvPVendorA", showInZone = true, showOnContinent = false, showOnMinimap = false }
                 end  
 
             end
@@ -740,13 +740,13 @@ if not db.activate.HideMapNote then
             if self.db.profile.showZonePvPVendor then
 
                 if self.faction == "Horde" or db.activate.ZoneEnemyFaction then
-                    nodes[379][35408340] = { name = "", dnID = TRANSMOG_SET_PVP .. " " .. MERCHANT .. " " .. FACTION_HORDE .. "\n" .. WORLD_QUEST_REWARD_FILTERS_EQUIPMENT .. "\n" .. AUCTION_CATEGORY_WEAPONS, type = "PvPVendorH", showInZone = true, showOnContinent = false, showOnMinimap = false }
-                    nodes[388][77476296] = { name = "", dnID = TRANSMOG_SET_PVP .. " " .. MERCHANT .. " " .. FACTION_HORDE .. "\n" .. WORLD_QUEST_REWARD_FILTERS_EQUIPMENT .. "\n" .. AUCTION_CATEGORY_WEAPONS, type = "PvPVendorH", showInZone = true, showOnContinent = false, showOnMinimap = false }
+                    nodes[379][35408340] = { name = "", dnID = TRANSMOG_SET_PVP .. " " .. MERCHANT .. " " .. FACTION_HORDE .. "\n" .. WORLD_QUEST_REWARD_FILTERS_EQUIPMENT .. "\n" .. AUCTION_CATEGORY_WEAPONS, type = "ZonePvPVendorH", showInZone = true, showOnContinent = false, showOnMinimap = false }
+                    nodes[388][77476296] = { name = "", dnID = TRANSMOG_SET_PVP .. " " .. MERCHANT .. " " .. FACTION_HORDE .. "\n" .. WORLD_QUEST_REWARD_FILTERS_EQUIPMENT .. "\n" .. AUCTION_CATEGORY_WEAPONS, type = "ZonePvPVendorH", showInZone = true, showOnContinent = false, showOnMinimap = false }
                 end
 
                 if self.faction == "Alliance" or db.activate.ZoneEnemyFaction then
-                    nodes[376][12003400] = { name = "", dnID = TRANSMOG_SET_PVP .. " " .. MERCHANT .. " " .. FACTION_ALLIANCE .. "\n" .. WORLD_QUEST_REWARD_FILTERS_EQUIPMENT .. "\n" .. AUCTION_CATEGORY_WEAPONS, type = "PvPVendorA", showInZone = true, showOnContinent = false, showOnMinimap = false }
-                    nodes[422][73543407] = { name = "", dnID = TRANSMOG_SET_PVP .. " " .. MERCHANT .. " " .. FACTION_ALLIANCE .. "\n" .. WORLD_QUEST_REWARD_FILTERS_EQUIPMENT .. "\n" .. AUCTION_CATEGORY_WEAPONS, type = "PvPVendorA", showInZone = true, showOnContinent = false, showOnMinimap = false }
+                    nodes[376][12003400] = { name = "", dnID = TRANSMOG_SET_PVP .. " " .. MERCHANT .. " " .. FACTION_ALLIANCE .. "\n" .. WORLD_QUEST_REWARD_FILTERS_EQUIPMENT .. "\n" .. AUCTION_CATEGORY_WEAPONS, type = "ZonePvPVendorA", showInZone = true, showOnContinent = false, showOnMinimap = false }
+                    nodes[422][73543407] = { name = "", dnID = TRANSMOG_SET_PVP .. " " .. MERCHANT .. " " .. FACTION_ALLIANCE .. "\n" .. WORLD_QUEST_REWARD_FILTERS_EQUIPMENT .. "\n" .. AUCTION_CATEGORY_WEAPONS, type = "ZonePvPVendorA", showInZone = true, showOnContinent = false, showOnMinimap = false }
                 end
 
             end
@@ -1081,6 +1081,17 @@ if not db.activate.HideMapNote then
         --Zandalar
         if self.db.profile.showZoneZandalar then
 
+            if self.db.profile.showZoneItemUpgrade then
+
+                if self.faction == "Alliance" or db.activate.ZoneEnemyFaction then
+                    nodes[1355][40005300] = { dnID = ITEM_UPGRADE, name = "",  type = "ItemUpgrade", showInZone = true, showOnContinent = false, showOnMinimap = false }
+                end
+
+                if self.faction == "Horde" or db.activate.ZoneEnemyFaction then
+                    nodes[1355][49006200] = { dnID = ITEM_UPGRADE, name = "",  type = "ItemUpgrade", showInZone = true, showOnContinent = false, showOnMinimap = false }
+                end
+            end
+
             if self.db.profile.showZonePvPVendor then
 
                 if self.faction == "Horde" or db.activate.ZoneEnemyFaction then
@@ -1310,6 +1321,10 @@ if not db.activate.HideMapNote then
         --Shadowlands
         if self.db.profile.showZoneShadowlands then
 
+            if self.db.profile.showZoneItemUpgrade then
+                nodes[1961][62602200] = { dnID = ITEM_UPGRADE, name = "",  type = "ItemUpgrade", showInZone = true, showOnContinent = false, showOnMinimap = false }
+            end
+
             if self.db.profile.showZoneStablemaster then
                 nodes[1525][49007000] = { name = "", dnID = MINIMAP_TRACKING_STABLEMASTER, type = "StablemasterN", showInZone = true, showOnContinent = false, showOnMinimap = false }
                 nodes[1525][70334140] = { name = "", dnID = MINIMAP_TRACKING_STABLEMASTER, type = "StablemasterN", showInZone = true, showOnContinent = false, showOnMinimap = false }
@@ -1402,6 +1417,12 @@ if not db.activate.HideMapNote then
 
         --Dragon Isles
         if self.db.profile.showZoneDragonIsles then
+
+            if self.db.profile.showZoneItemUpgrade then
+                nodes[2133][56605600] = { dnID = ITEM_UPGRADE, name = "",  type = "ItemUpgrade", showInZone = true, showOnContinent = false, showOnMinimap = false }
+                nodes[2151][35605940] = { dnID = ITEM_UPGRADE, name = "",  type = "ItemUpgrade", showInZone = true, showOnContinent = false, showOnMinimap = false }
+                nodes[2200][57202740] = { dnID = ITEM_UPGRADE, name = "",  type = "ItemUpgrade", showInZone = true, showOnContinent = false, showOnMinimap = false }
+            end
 
             if self.db.profile.showZoneStablemaster then
                 nodes[2133][57605780] = { name = "", dnID = MINIMAP_TRACKING_STABLEMASTER, type = "StablemasterN", showInZone = true, showOnContinent = false, showOnMinimap = false }
@@ -1506,6 +1527,7 @@ if not db.activate.HideMapNote then
                 nodes[2025][35007920] = { name = "", dnID = MINIMAP_TRACKING_INNKEEPER, type = "InnkeeperN", showInZone = true, showOnContinent = false, showOnMinimap = false }
                 nodes[2025][58608260] = { name = "", dnID = MINIMAP_TRACKING_INNKEEPER, type = "InnkeeperN", showInZone = true, showOnContinent = false, showOnMinimap = false }
                 nodes[2025][52406960] = { name = "", dnID = MINIMAP_TRACKING_INNKEEPER, type = "InnkeeperN", showInZone = true, showOnContinent = false, showOnMinimap = false }
+                nodes[2025][52208160] = { name = "", dnID = MINIMAP_TRACKING_INNKEEPER, type = "InnkeeperN", showInZone = true, showOnContinent = false, showOnMinimap = false }
                 nodes[2023][81205920] = { name = "", dnID = MINIMAP_TRACKING_INNKEEPER, type = "InnkeeperN", showInZone = true, showOnContinent = false, showOnMinimap = false }
                 nodes[2023][28606040] = { name = "", dnID = MINIMAP_TRACKING_INNKEEPER, type = "InnkeeperN", showInZone = true, showOnContinent = false, showOnMinimap = false }
                 nodes[2023][85803520] = { name = "", dnID = MINIMAP_TRACKING_INNKEEPER, type = "InnkeeperN", showInZone = true, showOnContinent = false, showOnMinimap = false }
@@ -1544,6 +1566,8 @@ if not db.activate.HideMapNote then
                 nodes[2215][42265654] = { name = "", dnID = MINIMAP_TRACKING_STABLEMASTER, type = "StablemasterN", showInZone = true, showOnContinent = false, showOnMinimap = false }
                 nodes[2255][77936461] = { name = "", dnID = MINIMAP_TRACKING_STABLEMASTER, type = "StablemasterN", showInZone = true, showOnContinent = false, showOnMinimap = false }
                 nodes[2255][58471923] = { name = "", dnID = MINIMAP_TRACKING_STABLEMASTER, type = "StablemasterN", showInZone = true, showOnContinent = false, showOnMinimap = false }
+                nodes[2256][77936461] = { name = "", dnID = MINIMAP_TRACKING_STABLEMASTER, type = "StablemasterN", showInZone = true, showOnContinent = false, showOnMinimap = false }
+                nodes[2256][58471923] = { name = "", dnID = MINIMAP_TRACKING_STABLEMASTER, type = "StablemasterN", showInZone = true, showOnContinent = false, showOnMinimap = false }
                 nodes[2215][69274392] = { name = "", dnID = MINIMAP_TRACKING_STABLEMASTER, type = "StablemasterN", showInZone = true, showOnContinent = false, showOnMinimap = false }
                 nodes[2214][62174603] = { name = "", dnID = MINIMAP_TRACKING_STABLEMASTER, type = "StablemasterN", showInZone = true, showOnContinent = false, showOnMinimap = false }
                 nodes[2214][58636560] = { name = "", dnID = MINIMAP_TRACKING_STABLEMASTER, type = "StablemasterN", showInZone = true, showOnContinent = false, showOnMinimap = false }
@@ -1553,10 +1577,13 @@ if not db.activate.HideMapNote then
                 nodes[2248][41917335] = { name = "", dnID = MINIMAP_TRACKING_MAILBOX, type = "MailboxN", showInZone = true, showOnContinent = false, showOnMinimap = false }
                 nodes[2248][58682793] = { name = "", dnID = MINIMAP_TRACKING_MAILBOX, type = "MailboxN", showInZone = true, showOnContinent = false, showOnMinimap = false }
                 nodes[2215][42485562] = { name = "", dnID = MINIMAP_TRACKING_MAILBOX, type = "MailboxN", showInZone = true, showOnContinent = false, showOnMinimap = false }
-                nodes[2255][77506252] = { name = "", dnID = MINIMAP_TRACKING_MAILBOX, type = "MailboxN", showInZone = true, showOnContinent = false, showOnMinimap = false }
                 nodes[2216][54854224] = { name = "", dnID = MINIMAP_TRACKING_MAILBOX, type = "MailboxN", showInZone = true, showOnContinent = false, showOnMinimap = false }
                 nodes[2255][56694067] = { name = "", dnID = MINIMAP_TRACKING_MAILBOX, type = "MailboxN", showInZone = true, showOnContinent = false, showOnMinimap = false }
                 nodes[2255][58821886] = { name = "", dnID = MINIMAP_TRACKING_MAILBOX, type = "MailboxN", showInZone = true, showOnContinent = false, showOnMinimap = false }
+                nodes[2255][77506252] = { name = "", dnID = MINIMAP_TRACKING_MAILBOX, type = "MailboxN", showInZone = true, showOnContinent = false, showOnMinimap = false }
+                nodes[2256][56694067] = { name = "", dnID = MINIMAP_TRACKING_MAILBOX, type = "MailboxN", showInZone = true, showOnContinent = false, showOnMinimap = false }
+                nodes[2256][58821886] = { name = "", dnID = MINIMAP_TRACKING_MAILBOX, type = "MailboxN", showInZone = true, showOnContinent = false, showOnMinimap = false }
+                nodes[2256][77506252] = { name = "", dnID = MINIMAP_TRACKING_MAILBOX, type = "MailboxN", showInZone = true, showOnContinent = false, showOnMinimap = false }
                 nodes[2215][52606070] = { name = "", dnID = MINIMAP_TRACKING_MAILBOX, type = "MailboxN", showInZone = true, showOnContinent = false, showOnMinimap = false }
                 nodes[2215][49093991] = { name = "", dnID = MINIMAP_TRACKING_MAILBOX, type = "MailboxN", showInZone = true, showOnContinent = false, showOnMinimap = false }
                 nodes[2215][68974540] = { name = "", dnID = MINIMAP_TRACKING_MAILBOX, type = "MailboxN", showInZone = true, showOnContinent = false, showOnMinimap = false }
@@ -1572,11 +1599,19 @@ if not db.activate.HideMapNote then
                 nodes[2255][77866298] = { name = "", dnID = MINIMAP_TRACKING_INNKEEPER, type = "InnkeeperN", showInZone = true, showOnContinent = false, showOnMinimap = false }
                 nodes[2255][56953879] = { name = "", dnID = MINIMAP_TRACKING_INNKEEPER, type = "InnkeeperN", showInZone = true, showOnContinent = false, showOnMinimap = false }
                 nodes[2255][58931880] = { name = "", dnID = MINIMAP_TRACKING_INNKEEPER, type = "InnkeeperN", showInZone = true, showOnContinent = false, showOnMinimap = false }
+                nodes[2256][77866298] = { name = "", dnID = MINIMAP_TRACKING_INNKEEPER, type = "InnkeeperN", showInZone = true, showOnContinent = false, showOnMinimap = false }
+                nodes[2256][56953879] = { name = "", dnID = MINIMAP_TRACKING_INNKEEPER, type = "InnkeeperN", showInZone = true, showOnContinent = false, showOnMinimap = false }
+                nodes[2256][58931880] = { name = "", dnID = MINIMAP_TRACKING_INNKEEPER, type = "InnkeeperN", showInZone = true, showOnContinent = false, showOnMinimap = false }
                 nodes[2215][49163948] = { name = "", dnID = MINIMAP_TRACKING_INNKEEPER, type = "InnkeeperN", showInZone = true, showOnContinent = false, showOnMinimap = false }
                 nodes[2215][69294563] = { name = "", dnID = MINIMAP_TRACKING_INNKEEPER, type = "InnkeeperN", showInZone = true, showOnContinent = false, showOnMinimap = false }
                 nodes[2214][47993217] = { name = "", dnID = MINIMAP_TRACKING_INNKEEPER, type = "InnkeeperN", showInZone = true, showOnContinent = false, showOnMinimap = false }
                 nodes[2214][61764617] = { name = "", dnID = MINIMAP_TRACKING_INNKEEPER, type = "InnkeeperN", showInZone = true, showOnContinent = false, showOnMinimap = false }
                 nodes[2214][59106395] = { name = "", dnID = MINIMAP_TRACKING_INNKEEPER, type = "InnkeeperN", showInZone = true, showOnContinent = false, showOnMinimap = false }
+                nodes[2214][63357887] = { name = "", dnID = MINIMAP_TRACKING_INNKEEPER, type = "InnkeeperN", showInZone = true, showOnContinent = false, showOnMinimap = false }
+            end
+
+            if self.db.profile.showZonePvEVendor then
+                nodes[2214][47303293] = { dnID = L["Merchant for Renown items"], name = "", type = "PvEVendor", showInZone = true, showOnContinent = false, showOnMinimap = false }
             end
 
         end
