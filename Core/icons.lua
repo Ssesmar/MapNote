@@ -65,7 +65,7 @@ ns.icons = {
 ["ZonePvEVendorA"] = iconLink .. "PvEVendorA",
 ["ZonePvPVendorA"] = iconLink .. "PvPVendorA",
 --Professions MN New
-["ProfessionOrders"] = "interface/minimap/tracking/profession.blp",
+["ProfessionOrders"] = iconLink .. "CraftingOrders",
 ["Engineer"] = iconLink .. "Engineering",
 ["Alchemy"] = iconLink .. "Alchemy",
 ["Blacksmith"] = iconLink .. "Blacksmithing",
@@ -112,7 +112,7 @@ ns.icons = {
 ["ClassicOriginalFishing"] = "interface/icons/trade_fishing.blp",
 ["ClassicOriginalCooking"] = "interface/icons/inv_misc_food_15.blp",
 --Professions New
-["ProfessionOrdersNew"] = "interface/minimap/tracking/profession.blp",
+["ProfessionOrdersNew"] = iconLink .. "CraftingOrders",
 ["EngineerNew"] = iconLink .. "Engineering",
 ["AlchemyNew"] = iconLink .. "Alchemy",
 ["BlacksmithNew"] = iconLink .. "Blacksmithing",
@@ -137,7 +137,7 @@ ns.icons = {
 ["LLG"] = "Interface/Icons/artifactability_HavocDemonHunter_AnguishoftheDeceiver",
 ["LMOP"] = "Interface/CharacterFrame/TEMPORARYPORTRAIT-FEMALE-PANDAREN",
 ["LWotlk"] = "interface/lfgframe/ui-lfr-portrait",
-["TWW"] = "interface/icons/inv_achievement_raid_progenitorraid_anduin.blp",
+["TWW"] = "interface/characterframe/temporaryportrait-female-voidelf.blp",
 --paths
 ["PathO"] = iconLink .. "PathO",
 ["PathRO"] = iconLink .. "PathRO",
@@ -150,9 +150,15 @@ ns.icons = {
 --instance
 ["LFR"] = iconLink .. "LFR",
 ["Dungeon"] = iconLink .. "Dungeon", 
-["Raid"] = iconLink .. "Raid", 
+["Raid"] = iconLink .. "Raid",
+["Delves"] = iconLink .. "Delves",
+["DelvesPassage"] = iconLink .. "DelvesPassage",
 ["VInstance"] = iconLink .. "vanillaInstance",
+["VInstanceD"] = iconLink .. "vanillaInstance",
+["VInstanceR"] = iconLink .. "vanillaInstance",
 ["MultiVInstance"] = iconLink .. "multivanillaInstance",
+["MultiVInstanceD"] = iconLink .. "multivanillaInstance",
+["MultiVInstanceR"] = iconLink .. "multivanillaInstance",
 ["VKey1"] = iconLink .. "vkey1",
 ["MultipleM"] = iconLink .. "multipleM",
 ["MultipleD"] = iconLink .. "multipleD",
@@ -304,7 +310,7 @@ TextIconValdrakken = TextIcon("interface/icons/spell_arcane_teleportvaldrakken.b
 TextIconDornogal = TextIcon("interface/icons/inv_spell_arcane_telepotdornogal.blp", 50, 50, 1, 50, 1, 50)
 TextIconDarkMoon = TextIcon(iconLink .. "DarkMoon", 50, 50, 1, 50, 1, 50)
 --profession
-TextIconProfessionOrders = TextIcon("interface/minimap/tracking/profession.blp", 50, 50, 1, 50, 1, 50)
+TextIconProfessionOrders = TextIcon(iconLink .. "CraftingOrders", 50, 50, 1, 50, 1, 50)
 TextIconEngineer = TextIcon(iconLink .. "Engineering", 50, 50, 1, 50, 1, 50)
 TextIconAlchemy = TextIcon(iconLink .. "Alchemy", 50, 50, 1, 50, 1, 50)
 TextIconBlacksmith = TextIcon(iconLink .. "Blacksmithing", 50, 50, 1, 50, 1, 50)
@@ -375,6 +381,8 @@ TextIconPathL = TextIcon(iconLink .. "PathL", 50, 50, 1, 50, 1, 50)
 TextIconLFR = TextIcon(iconLink .. "LFR", 50, 50, 1, 50, 1, 50)
 TextIconDungeon = TextIcon(iconLink .. "Dungeon", 50, 50, 1, 50, 1, 50)
 TextIconRaid = TextIcon(iconLink .. "Raid", 50, 50, 1, 50, 1, 50)
+TextIconDelves = TextIcon(iconLink .. "Delves", 50, 50, 1, 50, 1, 50)
+TextIconDelvesPassage = TextIcon(iconLink .. "DelvesPassage", 50, 50, 1, 50, 1, 50)
 TextIconVInstance = TextIcon(iconLink .. "vanillaInstance", 50, 50, 1, 50, 1, 50)
 TextIconMultiVInstance = TextIcon(iconLink .. "multivanillaInstance", 50, 50, 1, 50, 1, 50)
 TextIconVKey1 = TextIcon(iconLink .. "vkey1", 50, 50, 1, 50, 1, 50)
@@ -453,7 +461,6 @@ TextIconGilneanF = TextIcon("interface/characterframe/temporaryportrait-female-g
 TextIconB11M = TextIcon"interface/characterframe/temporaryportrait-male-bloodelf"
 TextIconOrcF = TextIcon("Interface/CharacterFrame/TemporaryPortrait-Female-Orc")
 TextIconUndeadF = TextIcon("interface/characterframe/temporaryportrait-female-scourge")
-
 
 -- 1 number --self.IconFileX = IconFileX or 0    -- the total X (horizontal) pixels in the image file - not just the icon we want
 -- 2 number --self.IconFileY = IconFileY or 0    -- the total Y (vertical) pixels in the image file
