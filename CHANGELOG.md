@@ -1,21 +1,11 @@
 # MapNote
-## [2.3.4](https://github.com/Ssesmar/MapNote) (2024-09-15)
-- Note:
-
--- MapNotes now works on every version of World of Warcraft. Classic Era / Cataclysm / Retail / PTR
-
-Retail:
-
-removed zone delve icons and added on blizzards own delve icons the option to open the delve maps via Mapnotes
-middle mouse button on a blizzard delve icon open the associated map
-if the Shift function is activated, Shift + middle mouse button must be pressed on a blizzard delve icon open the associated map
-the minimap icons were moved to the location of the entrance to the Delve and the icon was changed to a Delve passage icons
-
+## [2.7.6](https://github.com/Ssesmar/MapNote)
+    
 - Description:
 
 REQUIRES --> HandyNotes <-- to be installed                                                                                    
 
-    A collection of various icons on various maps from previous expansions up to Dragonflight. Displays raid and dungeon entrances, portals, ships, zeppelins, exits and passage icons
+    A collection of various icons on various maps from previous expansions up to The War Within. Displays raid and dungeon entrances, portals, ships, zeppelins, exits and passage icons
     Displays Horde and Alliance icons that can also be activated by the other faction
     All symbols are clickable (except on the minimap) and have a function
 
